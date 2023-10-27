@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { createClient } from "@/prismicio"
 
+import { SegmentAnalytics } from "@/components/atoms"
 import { worksans } from "@/lib/font"
 import { convertLocaleToLang } from "@/lib/utils"
 import { cn } from "@/lib/utils"
@@ -37,6 +38,7 @@ export default function RootLayout({
         {/* <Navbar locale={params.locale} /> */}
         {children}
         {/* <Footer locale={params.locale} /> */}
+        <SegmentAnalytics />
       </body>
     </html>
   )
