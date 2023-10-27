@@ -1,0 +1,133 @@
+{
+  "id": "calculator",
+  "type": "SharedSlice",
+  "name": "Calculator",
+  "description": "Calculator",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "subheading": {
+          "type": "Text",
+          "config": {
+            "label": "Subheading",
+            "placeholder": ""
+          }
+        },
+        "currency": {
+          "type": "Select",
+          "config": {
+            "label": "Currency",
+            "placeholder": "",
+            "options": [
+              "GBP",
+              "EUR",
+              "USD",
+              "AUD"
+            ]
+          }
+        },
+        "amount_title": {
+          "type": "Text",
+          "config": {
+            "label": "Amount Title",
+            "placeholder": ""
+          }
+        },
+        "amounts": {
+          "type": "Text",
+          "config": {
+            "label": "Amounts",
+            "placeholder": "Amounts separated by comma like: 10000, 25000, 50000"
+          }
+        },
+        "term_title": {
+          "type": "Text",
+          "config": {
+            "label": "Term Title",
+            "placeholder": ""
+          }
+        },
+        "term_min": {
+          "type": "Number",
+          "config": {
+            "label": "Term Min (Months)",
+            "placeholder": ""
+          }
+        },
+        "term_max": {
+          "type": "Number",
+          "config": {
+            "label": "Term Max (Months)",
+            "placeholder": ""
+          }
+        },
+        "slider_months_text": {
+          "type": "Text",
+          "config": {
+            "label": "Slider Months Text",
+            "placeholder": ""
+          }
+        },
+        "total_title": {
+          "type": "Text",
+          "config": {
+            "label": "Total Title",
+            "placeholder": ""
+          }
+        },
+        "example_note": {
+          "type": "Text",
+          "config": {
+            "label": "Example Note",
+            "placeholder": ""
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        },
+        "button_note": {
+          "type": "Text",
+          "config": {
+            "label": "Button Note",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "bulletpoint": {
+          "type": "Text",
+          "config": {
+            "label": "Bulletpoint",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

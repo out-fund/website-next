@@ -1,0 +1,44 @@
+{
+  "id": "partners",
+  "type": "SharedSlice",
+  "name": "Partners",
+  "description": "Partners",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        }
+      },
+      "items": {
+        "partner_logo": {
+          "type": "Image",
+          "config": {
+            "label": "Partner Logo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

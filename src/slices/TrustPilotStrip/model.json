@@ -1,0 +1,54 @@
+{
+  "id": "trust_pilot_strip",
+  "type": "SharedSlice",
+  "name": "TrustPilotStrip",
+  "description": "TrustPilotStrip",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "review": {
+          "type": "Text",
+          "config": {
+            "label": "review",
+            "placeholder": ""
+          }
+        },
+        "name": {
+          "type": "Text",
+          "config": {
+            "label": "name",
+            "placeholder": ""
+          }
+        },
+        "date": {
+          "type": "Timestamp",
+          "config": {
+            "label": "date",
+            "placeholder": ""
+          }
+        },
+        "url": {
+          "type": "Text",
+          "config": {
+            "label": "url",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

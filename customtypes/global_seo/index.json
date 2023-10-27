@@ -1,0 +1,36 @@
+{
+  "id": "global_seo",
+  "label": "Global SEO",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "site_title": {
+        "type": "Text",
+        "config": {
+          "label": "Site Title",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": ""
+        }
+      },
+      "og_image": {
+        "type": "Image",
+        "config": {
+          "label": "Open Graph Image",
+          "constraint": {
+            "width": 1200,
+            "height": 630
+          },
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

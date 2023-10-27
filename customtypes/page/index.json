@@ -1,0 +1,78 @@
+{
+  "id": "page",
+  "label": "Page",
+  "format": "page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "Slug",
+          "placeholder": "Page slug that will be used in the URL (like \"about-us\")"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title (Browser Tab Title)",
+          "placeholder": "Browser Tab Title"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "partners": {
+              "type": "SharedSlice"
+            },
+            "benefits": {
+              "type": "SharedSlice"
+            },
+            "calculator": {
+              "type": "SharedSlice"
+            },
+            "trust_pilot_strip": {
+              "type": "SharedSlice"
+            },
+            "clients_say": {
+              "type": "SharedSlice"
+            },
+            "hero": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title (Social Share Title)",
+          "placeholder": "A title of the page used when sharing on social media "
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  }
+}

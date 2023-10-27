@@ -1,0 +1,147 @@
+{
+  "id": "footer",
+  "label": "Footer",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Top": {
+      "company_title": {
+        "type": "Text",
+        "config": {
+          "label": "Company Title",
+          "placeholder": ""
+        }
+      },
+      "company_links": {
+        "type": "Group",
+        "config": {
+          "label": "Company Links",
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "funding_title": {
+        "type": "Text",
+        "config": {
+          "label": "Funding Title",
+          "placeholder": ""
+        }
+      },
+      "funding_links": {
+        "type": "Group",
+        "config": {
+          "label": "Funding Links",
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "support_title": {
+        "type": "Text",
+        "config": {
+          "label": "Support Title",
+          "placeholder": ""
+        }
+      },
+      "support_links": {
+        "type": "Group",
+        "config": {
+          "label": "Support Links",
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "countries_title": {
+        "type": "Text",
+        "config": {
+          "label": "Countries Title",
+          "placeholder": ""
+        }
+      }
+    },
+    "Bottom": {
+      "fca_statement": {
+        "type": "Text",
+        "config": {
+          "label": "FCA Statement",
+          "placeholder": ""
+        }
+      },
+      "copyright": {
+        "type": "Text",
+        "config": {
+          "label": "Copyright",
+          "placeholder": ""
+        }
+      },
+      "policy_links": {
+        "type": "Group",
+        "config": {
+          "label": "Policy Links",
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

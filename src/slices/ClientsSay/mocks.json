@@ -1,0 +1,46 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Silence"
+						}
+					}
+				]
+			},
+			"cta_title": {
+				"__TYPE__": "FieldContent",
+				"value": "slabs",
+				"type": "Text"
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "industry",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"testimonial",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "DocumentLink",
+								"id": "mock_document_id"
+							}
+						}
+					]
+				]
+			}
+		]
+	}
+]
