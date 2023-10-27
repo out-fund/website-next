@@ -48,7 +48,11 @@ const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
                 key={index}
                 className="flex h-[100%] rounded-lg bg-bgLight p-3"
               >
-                <a href={item.url} target="_blank" className="group block">
+                <a
+                  href={item.url ? item.url.toString() : "#"}
+                  target="_blank"
+                  className="group block"
+                >
                   <div className="mb-1 h-[20px] w-[108px]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
