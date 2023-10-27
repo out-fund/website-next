@@ -23,7 +23,7 @@ export default function SegmentAnalytics({
   console.log("searchParams", searchParams)
 
   useEffect(() => {
-    analytics.page()
+    analytics.page(`${pageData.data.title}`)
   }, [pathname, searchParams])
 
   // useEffect(() => {
