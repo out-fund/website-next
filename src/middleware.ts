@@ -32,8 +32,7 @@ export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
   const pathnameIsMissingValidLocale = locales.every(
-    (locale) =>
-      !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
+    (locale) => !pathname.includes(`${locale}`) && pathname !== `/${locale}`,
   )
 
   // Redirect to default locale if there is no supported locale prefix
