@@ -6,6 +6,7 @@ import { createClient } from "@/prismicio"
 import { components } from "@/slices"
 import { getTranslatedLocales } from "@/lib/getTranslatedLocales"
 import { PageLayout } from "@/components"
+import { SegmentAnalytics } from "@/components/atoms"
 
 type Params = {
   uid: string
@@ -25,6 +26,7 @@ export default async function Page({ params }: { params: Params }) {
   return (
     <PageLayout locale={params.locale}>
       <SliceZone slices={page.data.slices} components={components} />
+      <SegmentAnalytics locale={params.locale} pageData={page} />
     </PageLayout>
   )
 }
@@ -40,10 +42,10 @@ export async function generateMetadata({
   return {
     // title: page.data.meta_title,
     // description: page.data.meta_description,
-    metadataBase: new URL("https://acme.com"),
-    title: page.data.title,
+    metadataBase: new URL("https://out.fund"),
+    title: `${page.data.title} | Outfund`,
     alternates: {
-      canonical: "/",
+      canonical: `${page.url}`,
       languages: {
         "en-US": "/en-US",
         "de-DE": "/de-DE",

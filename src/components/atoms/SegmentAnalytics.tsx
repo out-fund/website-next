@@ -4,13 +4,34 @@ import { useEffect } from "react"
 import { usePathname, useSearchParams } from "next/navigation"
 import { analytics } from "@/lib/segment"
 
-export default function SegmentAnalytics() {
+type SegmentAnalyticsParams = {
+  locale: string
+  pageData?: any
+}
+
+export default function SegmentAnalytics({
+  locale,
+  pageData,
+}: SegmentAnalyticsParams) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
+
+  console.log("locale", locale)
+  console.log("pageData", pageData)
+
+  console.log("pathname", pathname)
+  console.log("searchParams", searchParams)
 
   useEffect(() => {
     analytics.page()
   }, [pathname, searchParams])
+
+  // useEffect(() => {
+  //   analytics.page("pageName", {
+  //     title: "mytitle",
+  //     path: "/my-path",
+  //   })
+  // }, [pathname, searchParams])
 
   return null
 }

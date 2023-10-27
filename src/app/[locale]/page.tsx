@@ -11,6 +11,7 @@ import { components } from "@/slices"
 import { getTranslatedLocales } from "@/lib/getTranslatedLocales"
 
 import { PageLayout } from "@/components"
+import { SegmentAnalytics } from "@/components/atoms"
 
 // import { GetStaticPropsContext } from "next"
 
@@ -23,8 +24,9 @@ type PageProps = {
 export default async function Page({ params }: PageProps) {
   const client = createClient()
 
-  const page = await client.getByUID("page", "home", { lang: params.locale })
-  // .catch(() => notFound())
+  const page = await client
+    .getByUID("page", "home", { lang: params.locale })
+    .catch(() => notFound())
   // console.log("params lang", params.locale)
 
   const locales = await getTranslatedLocales(page, client)
@@ -33,6 +35,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <PageLayout locale={params.locale}>
       <SliceZone slices={page.data.slices} components={components} />
+      <SegmentAnalytics locale={params.locale} pageData={page} />
     </PageLayout>
   )
 }
@@ -55,10 +58,10 @@ export async function generateMetadata({ params }: PageProps) {
   const page = await client.getByUID("page", "home", { lang: params.locale })
 
   return {
-    metadataBase: new URL("https://acme.com"),
+    metadataBase: new URL("https://out.fund"),
     title: `${page.data.title} | Outfund`,
     alternates: {
-      canonical: "/",
+      canonical: `${page.url}`,
       languages: {
         "en-US": "/en-US",
         "de-DE": "/de-DE",
