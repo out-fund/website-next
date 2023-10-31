@@ -22,7 +22,7 @@ const variants = cva("font-extrabold tracking-tight text-heading ", {
 // }
 
 interface HeadingProps extends VariantProps<typeof variants> {
-  as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+  as: any
   className?: string
   children: React.ReactNode
   // size?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"

@@ -4,15 +4,9 @@
 		"variation": "default",
 		"primary": {
 			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Silence"
-						}
-					}
-				]
+				"__TYPE__": "FieldContent",
+				"value": "noted",
+				"type": "Text"
 			},
 			"cta_title": {
 				"__TYPE__": "FieldContent",

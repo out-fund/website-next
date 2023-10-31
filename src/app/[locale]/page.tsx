@@ -35,7 +35,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <PageLayout locale={params.locale}>
       <SliceZone slices={page.data.slices} components={components} />
-      <SegmentAnalytics locale={params.locale} pageData={page} />
+      {/* <SegmentAnalytics locale={params.locale} pageData={page} /> */}
     </PageLayout>
   )
 }

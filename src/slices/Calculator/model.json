@@ -62,6 +62,13 @@
             "placeholder": "Amounts separated by comma like: 10000, 25000, 50000"
           }
         },
+        "fees": {
+          "type": "Text",
+          "config": {
+            "label": "Fees",
+            "placeholder": "Put is the same number of fees as there are term option "
+          }
+        },
         "term_title": {
           "type": "Text",
           "config": {

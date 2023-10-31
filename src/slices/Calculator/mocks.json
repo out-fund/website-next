@@ -78,6 +78,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "theory",
 				"type": "Text"
+			},
+			"fees": {
+				"__TYPE__": "FieldContent",
+				"value": "cry",
+				"type": "Text"
 			}
 		},
 		"items": [

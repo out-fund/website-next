@@ -16,14 +16,14 @@ export default function SegmentAnalytics({
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  console.log("locale", locale)
-  console.log("pageData", pageData)
+  // console.log("locale", locale)
+  // console.log("pageData", pageData)
 
-  console.log("pathname", pathname)
-  console.log("searchParams", searchParams)
+  // console.log("pathname", pathname)
+  // console.log("searchParams", searchParams)
 
   useEffect(() => {
-    analytics.page(`${pageData.data.title}`)
+    analytics.page()
   }, [pathname, searchParams])
 
   // useEffect(() => {

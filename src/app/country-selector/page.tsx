@@ -1,11 +1,12 @@
 import { createClient } from "@/prismicio"
 import { Metadata } from "next"
-import { sortLocales } from "@/lib/utils"
-
 import Link from "next/link"
+
 import "/node_modules/flag-icons/css/flag-icons.min.css"
 
+import { sortLocales } from "@/lib/utils"
 import { Wrapper, Heading } from "@/components/atoms"
+import { SegmentAnalytics } from "@/components/atoms"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://out.fund"),
@@ -44,7 +45,7 @@ const CountrySelectorPage = async () => {
         </div>
       </Wrapper>
 
-      {/* <CountrySelector /> */}
+      {/* <SegmentAnalytics locale="/country-selector" /> */}
     </main>
   )
 }

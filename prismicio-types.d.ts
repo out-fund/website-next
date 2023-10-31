@@ -189,8 +189,7 @@ interface FooterDocumentData {
    * - **Tab**: Top
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  countries_title: prismic.KeyTextField
-  /**
+  countries_title: prismic.KeyTextField /**
    * FCA Statement field in *Footer*
    *
    * - **Field Type**: Text
@@ -419,8 +418,7 @@ interface PageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
    * Meta Title (Social Share Title) field in *Page*
    *
    * - **Field Type**: Text
@@ -680,6 +678,16 @@ export interface CalculatorSliceDefaultPrimary {
   amounts: prismic.KeyTextField
 
   /**
+   * Fees field in *Calculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Put is the same number of fees as there are term option
+   * - **API ID Path**: calculator.primary.fees
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  fees: prismic.KeyTextField
+
+  /**
    * Term Title field in *Calculator → Primary*
    *
    * - **Field Type**: Text
@@ -812,12 +820,12 @@ export interface ClientsSaySliceDefaultPrimary {
   /**
    * Heading field in *ClientsSay → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: clients_say.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  heading: prismic.TitleField
+  heading: prismic.KeyTextField
 
   /**
    * CTA Title field in *ClientsSay → Primary*
@@ -1126,7 +1134,7 @@ declare module "@prismicio/client" {
   interface CreateClient {
     (
       repositoryNameOrEndpoint: string,
-      options?: prismic.ClientConfig
+      options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>
   }
 
