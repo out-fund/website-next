@@ -12,6 +12,7 @@ import { getTranslatedLocales } from "@/lib/getTranslatedLocales"
 
 import { PageLayout } from "@/components"
 import { SegmentAnalytics } from "@/components/atoms"
+import { PageEvent } from "@/lib/events"
 
 // import { GetStaticPropsContext } from "next"
 
@@ -36,6 +37,7 @@ export default async function Page({ params }: PageProps) {
     <PageLayout locale={params.locale}>
       <SliceZone slices={page.data.slices} components={components} />
       {/* <SegmentAnalytics locale={params.locale} pageData={page} /> */}
+      <PageEvent name="Home" />
     </PageLayout>
   )
 }
