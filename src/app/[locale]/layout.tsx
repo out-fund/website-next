@@ -5,6 +5,7 @@ import { worksans } from "@/lib/font"
 import { convertLocaleToLang } from "@/lib/utils"
 import { cn } from "@/lib/utils"
 import "@/styles/globals.css"
+import { PageEvent } from "@/lib/events"
 
 // export async function generateMetadata(): Promise<Metadata> {
 //   const client = createClient()
@@ -37,6 +38,7 @@ export default function RootLayout({
         {/* <Navbar locale={params.locale} /> */}
         {children}
         {/* <Footer locale={params.locale} /> */}
+        <PageEvent name="test" />
       </body>
     </html>
   )
