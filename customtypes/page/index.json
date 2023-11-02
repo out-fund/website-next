@@ -6,19 +6,19 @@
   "status": true,
   "json": {
     "Main": {
-      "uid": {
-        "config": {
-          "label": "Slug",
-          "placeholder": "Page slug that will be used in the URL (like \"about-us\")"
-        },
-        "type": "UID"
-      },
       "title": {
         "type": "Text",
         "config": {
           "label": "Title (Browser Tab Title)",
           "placeholder": "Browser Tab Title"
         }
+      },
+      "uid": {
+        "config": {
+          "label": "Slug",
+          "placeholder": "Page slug that will be used in the URL (like \"about-us\")"
+        },
+        "type": "UID"
       },
       "slices": {
         "type": "Slices",

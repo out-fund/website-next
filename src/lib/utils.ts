@@ -16,3 +16,11 @@ export function sortLocales(locales: any[]) {
     a.name.split("-")[1].localeCompare(b.name.split("-")[1]),
   )
 }
+
+export function titleCase(str: string) {
+  let splitStr = str.toLowerCase().split(" ")
+  for (var i = 0; i < splitStr.length; i++) {
+    splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1)
+  }
+  return splitStr.join(" ")
+}

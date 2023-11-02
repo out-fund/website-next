@@ -4,7 +4,6 @@ import { Wrapper, PageLink, Logo } from "@/components/atoms"
 
 export default async function Navbar({ locale }: { locale: string }) {
   const client = createClient()
-  // const links = await client.getSingle("navbar")
   const links = await client.getSingle("navbar", { lang: locale })
 
   return (

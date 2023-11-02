@@ -6,7 +6,8 @@ import "/node_modules/flag-icons/css/flag-icons.min.css"
 
 import { sortLocales } from "@/lib/utils"
 import { Wrapper, Heading } from "@/components/atoms"
-import { SegmentAnalytics } from "@/components/atoms"
+
+import { PageEvent } from "@/lib/events"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://out.fund"),
@@ -22,6 +23,7 @@ const CountrySelectorPage = async () => {
   const repository = await client.getRepository()
   const locales = sortLocales(repository.languages)
 
+  console.log("locales", locales[0].id)
   return (
     <main>
       <Wrapper>
@@ -45,7 +47,7 @@ const CountrySelectorPage = async () => {
         </div>
       </Wrapper>
 
-      {/* <SegmentAnalytics locale="/country-selector" /> */}
+      <PageEvent name="Country Selector" />
     </main>
   )
 }

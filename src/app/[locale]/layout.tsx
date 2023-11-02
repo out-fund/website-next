@@ -1,5 +1,5 @@
-import type { Metadata } from "next"
-import { createClient } from "@/prismicio"
+// import type { Metadata } from "next"
+// import { createClient } from "@/prismicio"
 
 import { worksans } from "@/lib/font"
 import { convertLocaleToLang } from "@/lib/utils"
@@ -34,9 +34,7 @@ export default function RootLayout({
       className={cn(worksans.className)}
     >
       <body className="text-text box-border bg-white tracking-tighter antialiased">
-        {/* <Navbar locale={params.locale} /> */}
         {children}
-        {/* <Footer locale={params.locale} /> */}
       </body>
     </html>
   )
