@@ -3,20 +3,9 @@ import { Metadata } from "next"
 import Link from "next/link"
 
 import "/node_modules/flag-icons/css/flag-icons.min.css"
-
 import { sortLocales } from "@/lib/utils"
 import { Wrapper, Heading } from "@/components/atoms"
-
 import { PageEvent } from "@/lib/events"
-
-export const metadata: Metadata = {
-  metadataBase: new URL("https://out.fund"),
-  title: "Country Selector",
-  description: "Funding for your business",
-  alternates: {
-    canonical: `/country-selector`,
-  },
-}
 
 const CountrySelectorPage = async () => {
   const client = createClient()
@@ -52,3 +41,12 @@ const CountrySelectorPage = async () => {
 }
 
 export default CountrySelectorPage
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://out.fund"),
+  title: "Country Selector",
+  // description: "Funding for your business",
+  // alternates: {
+  //   canonical: `/country-selector`,
+  // },
+}
