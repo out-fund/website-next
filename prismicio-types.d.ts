@@ -387,6 +387,7 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | ScheduleCallSlice
   | PartnersSlice
   | BenefitsSlice
   | CalculatorSlice
@@ -1046,6 +1047,91 @@ export type PartnersSlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *ScheduleCall → Primary*
+ */
+export interface ScheduleCallSliceDefaultPrimary {
+  /**
+   * Title field in *ScheduleCall → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: schedule_call.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *ScheduleCall → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: schedule_call.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField
+
+  /**
+   * Button Text field in *ScheduleCall → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: schedule_call.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+
+  /**
+   * Button Link field in *ScheduleCall → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: schedule_call.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Image field in *ScheduleCall → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: schedule_call.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
+ * Default variation for ScheduleCall Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ScheduleCallSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ScheduleCallSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *ScheduleCall*
+ */
+type ScheduleCallSliceVariation = ScheduleCallSliceDefault
+
+/**
+ * ScheduleCall Shared Slice
+ *
+ * - **API ID**: `schedule_call`
+ * - **Description**: ScheduleCall
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ScheduleCallSlice = prismic.SharedSlice<
+  "schedule_call",
+  ScheduleCallSliceVariation
+>
+
+/**
  * Primary content in *TrustPilotStrip → Items*
  */
 export interface TrustPilotStripSliceDefaultItem {
@@ -1181,6 +1267,10 @@ declare module "@prismicio/client" {
       PartnersSliceDefaultItem,
       PartnersSliceVariation,
       PartnersSliceDefault,
+      ScheduleCallSlice,
+      ScheduleCallSliceDefaultPrimary,
+      ScheduleCallSliceVariation,
+      ScheduleCallSliceDefault,
       TrustPilotStripSlice,
       TrustPilotStripSliceDefaultItem,
       TrustPilotStripSliceVariation,

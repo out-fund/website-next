@@ -8,5 +8,6 @@ export const components = {
   clients_say: dynamic(() => import("./ClientsSay")),
   hero: dynamic(() => import("./Hero")),
   partners: dynamic(() => import("./Partners")),
+  schedule_call: dynamic(() => import("./ScheduleCall")),
   trust_pilot_strip: dynamic(() => import("./TrustPilotStrip")),
 }
