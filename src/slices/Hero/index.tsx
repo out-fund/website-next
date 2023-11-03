@@ -37,7 +37,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <Wrapper>
-        {/* <div className="grid grid-cols-2 rounded-lg bg-bgDark"> */}
         <div className="grid grid-cols-[664fr_506fr] rounded-lg bg-bgDark">
           <div className="flex flex-col gap-6 pb-9 pl-[100px] pr-[40px] pt-9">
             <div className="flex flex-col gap-2 ">

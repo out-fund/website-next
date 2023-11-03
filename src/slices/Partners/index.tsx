@@ -9,7 +9,11 @@ import { PrismicNextImage } from "@prismicio/next"
 import { Heading, Wrapper } from "@/components/atoms"
 
 const components: JSXMapSerializer = {
-  paragraph: ({ children }) => <p className="">{children}</p>,
+  paragraph: ({ children }) => (
+    <p className="text-base font-[450] tracking-tighter text-body">
+      {children}
+    </p>
+  ),
 }
 
 /**
@@ -23,20 +27,28 @@ export type PartnersProps = SliceComponentProps<Content.PartnersSlice>
 const Partners = ({ slice }: PartnersProps): JSX.Element => {
   return (
     <section
+      className="mt-10"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <Wrapper>
-        <Heading as="h2">{slice.primary.heading}</Heading>
-        <PrismicRichText
-          field={slice.primary.description}
-          components={components}
-        />
-        {slice.items.map((item, index) => (
-          <div key={index}>
-            <PrismicNextImage field={item.partner_logo} />
-          </div>
-        ))}
+      <Wrapper width="medium">
+        <div className="text-center mb-4">
+          <Heading as="h2" size="h2" className="mb-1">
+            {slice.primary.heading}
+          </Heading>
+          <PrismicRichText
+            field={slice.primary.description}
+            components={components}
+          />
+        </div>
+
+        <div className="flex justify-center flex-wrap gap-4 md:justify-between ">
+          {slice.items.map((item, index) => (
+            <div key={index}>
+              <PrismicNextImage field={item.partner_logo} />
+            </div>
+          ))}
+        </div>
       </Wrapper>
     </section>
   )

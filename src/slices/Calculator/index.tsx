@@ -108,7 +108,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <Wrapper width="medium">
-        <div className="mt-10 grid grid-cols-[4fr_5fr] gap-9">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-[4fr_5fr] gap-9">
           <div className="flex flex-col gap-6">
             <div>
               <Heading as="h2" size="h2" className="mb-2">
@@ -221,10 +221,12 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
             </div>
             <div className="flex flex-col gap-1 items-center mt-4">
               <Button href="#">
-                {slice.primary.button_text} {getAmount(totalPayable)}
+                {/* {slice.primary.button_text} {getAmount(totalPayable)} */}
+                {slice.primary.button_text}{" "}
+                {getAmount(parseInt(selectedLoanAmount))}
               </Button>
               <div className="text-xs tracking-tight text-body opacity-70">
-                {slice.primary.button_note}{" "}
+                {slice.primary.button_note}
               </div>
             </div>
           </div>

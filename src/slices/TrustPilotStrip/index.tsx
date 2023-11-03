@@ -32,7 +32,6 @@ const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
       <Wrapper>
         <div className="relative mt-3">
           <Swiper
-            slidesPerView={3.5}
             spaceBetween={24}
             grabCursor={true}
             roundLengths={true}
@@ -41,6 +40,17 @@ const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
               delay: 2000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
+            }}
+            breakpoints={{
+              300: {
+                slidesPerView: 1.5,
+              },
+              768: {
+                slidesPerView: 2.5,
+              },
+              1024: {
+                slidesPerView: 3.5,
+              },
             }}
           >
             {slice.items.map((item, index) => (

@@ -56,7 +56,7 @@ const ClientsSay = async ({ slice }: ClientsSayProps): Promise<JSX.Element> => {
         <Heading as="h2" size="h2" className="text-center mb-5">
           {slice.primary.heading}
         </Heading>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {testimonials.map(
             (item, index) =>
               item && (

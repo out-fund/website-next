@@ -21,7 +21,7 @@ export default async function Footer({ locale }: FooterParams) {
   const locales = sortLocales(repository.languages)
 
   return (
-    <footer className="bg-bgMedium">
+    <footer className="bg-bgMedium mt-10">
       <Wrapper>
         <div className="flex flex-col pt-10 pb-3 ">
           <div className="top">
