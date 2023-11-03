@@ -23,7 +23,6 @@ const CountrySelectorPage = async () => {
   const repository = await client.getRepository()
   const locales = sortLocales(repository.languages)
 
-  console.log("locales", locales[0].id)
   return (
     <main>
       <Wrapper>
