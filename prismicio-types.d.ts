@@ -387,6 +387,7 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | FundingTypesSlice
   | ScheduleCallSlice
   | PartnersSlice
   | BenefitsSlice
@@ -895,6 +896,71 @@ export type ClientsSaySlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *FundingTypes → Items*
+ */
+export interface FundingTypesSliceDefaultItem {
+  /**
+   * Title field in *FundingTypes → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: funding_types.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Icon field in *FundingTypes → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: funding_types.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>
+
+  /**
+   * Description field in *FundingTypes → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: funding_types.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Default variation for FundingTypes Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FundingTypesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<FundingTypesSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *FundingTypes*
+ */
+type FundingTypesSliceVariation = FundingTypesSliceDefault
+
+/**
+ * FundingTypes Shared Slice
+ *
+ * - **API ID**: `funding_types`
+ * - **Description**: FundingTypes
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FundingTypesSlice = prismic.SharedSlice<
+  "funding_types",
+  FundingTypesSliceVariation
+>
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -963,9 +1029,47 @@ export type HeroSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceSimplePrimary {
+  /**
+   * Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField
+}
+
+/**
+ * Simple variation for Hero Slice
+ *
+ * - **API ID**: `simple`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceSimple = prismic.SharedSliceVariation<
+  "simple",
+  Simplify<HeroSliceSimplePrimary>,
+  never
+>
+
+/**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation = HeroSliceDefault
+type HeroSliceVariation = HeroSliceDefault | HeroSliceSimple
 
 /**
  * Hero Shared Slice
@@ -1258,10 +1362,16 @@ declare module "@prismicio/client" {
       ClientsSaySliceDefaultItem,
       ClientsSaySliceVariation,
       ClientsSaySliceDefault,
+      FundingTypesSlice,
+      FundingTypesSliceDefaultItem,
+      FundingTypesSliceVariation,
+      FundingTypesSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
+      HeroSliceSimplePrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HeroSliceSimple,
       PartnersSlice,
       PartnersSliceDefaultPrimary,
       PartnersSliceDefaultItem,

@@ -37,30 +37,47 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <Wrapper>
-        <div className="grid grid-cols-[664fr_506fr] rounded-lg bg-bgDark">
-          <div className="flex flex-col gap-6 pb-9 pl-[100px] pr-[40px] pt-9">
-            <div className="flex flex-col gap-2 ">
-              <PrismicRichText
-                field={slice.primary.heading}
-                components={components}
-              />
-              <PrismicRichText
-                field={slice.primary.description}
-                components={components}
-              />
+        {slice.variation === "default" && (
+          <div className="grid grid-cols-[664fr_506fr] rounded-lg bg-bgDark">
+            <div className="flex flex-col gap-6 pb-9 pl-[100px] pr-[40px] pt-9">
+              <div className="flex flex-col gap-2 ">
+                <PrismicRichText
+                  field={slice.primary.heading}
+                  components={components}
+                />
+                <PrismicRichText
+                  field={slice.primary.description}
+                  components={components}
+                />
+              </div>
+              <div className="flex flex-col items-start gap-1	">
+                <Button href="/">{slice.primary.button_text}</Button>
+                <div className="text-xs tracking-tight text-body opacity-70">
+                  {slice.primary.button_note}
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col items-start gap-1	">
-              <Button href="/">{slice.primary.button_text}</Button>
-              <div className="text-xs tracking-tight text-body opacity-70">
-                {slice.primary.button_note}
+            {/* <div className="self-end justify-self-center"> */}
+            <div className="self-end">
+              <PrismicNextImage field={slice.primary.image} priority />
+            </div>
+          </div>
+        )}
+        {slice.variation === "simple" && (
+          <div className="rounded-lg bg-bgDark">
+            <div className="flex flex-col gap-6 pb-9 pl-[100px] pr-[40px] pt-9 md:min-h-[524px] justify-center">
+              <div className="flex flex-col gap-2 text-center">
+                <PrismicRichText
+                  field={slice.primary.heading}
+                  components={components}
+                />
+                <p className="text-base font-[450] tracking-tighter text-body max-w-[770px] mx-auto">
+                  {slice.primary.description}
+                </p>
               </div>
             </div>
           </div>
-          {/* <div className="self-end justify-self-center"> */}
-          <div className="self-end">
-            <PrismicNextImage field={slice.primary.image} priority />
-          </div>
-        </div>
+        )}
       </Wrapper>
     </section>
   )

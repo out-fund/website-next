@@ -6,6 +6,7 @@ export const components = {
   benefits: dynamic(() => import("./Benefits")),
   calculator: dynamic(() => import("./Calculator")),
   clients_say: dynamic(() => import("./ClientsSay")),
+  funding_types: dynamic(() => import("./FundingTypes")),
   hero: dynamic(() => import("./Hero")),
   partners: dynamic(() => import("./Partners")),
   schedule_call: dynamic(() => import("./ScheduleCall")),
