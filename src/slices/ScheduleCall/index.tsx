@@ -19,7 +19,7 @@ const ScheduleCall = ({ slice }: ScheduleCallProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="mt-10"
     >
-      <Wrapper width="medium">
+      <Wrapper width="wide">
         <div className="grid grid-cols-1 md:grid-cols-2 bg-bgMedium rounded-lg overflow-hidden">
           <div className="left flex flex-col justify-center px-3 md:px-5 lg:px-10 py-5   ">
             <Heading as="h2" size="h2" className="md:max-w-[316px] mb-1">
@@ -34,7 +34,7 @@ const ScheduleCall = ({ slice }: ScheduleCallProps): JSX.Element => {
               {slice.primary.button_text}
             </Button>
           </div>
-          <div className="image overflow-hidden md:rounded-bl-[160px] h-full object-cover">
+          <div className="image overflow-hidden rounded-tr-[100px] md:rounded-tr-none md:rounded-bl-[160px] h-full object-cover">
             <PrismicNextImage
               field={slice.primary.image}
               className="object-cover h-full"
