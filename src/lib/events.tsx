@@ -15,6 +15,7 @@ export function PageEvent({ name, category = "Web" }: PageEventProps) {
 
   useEffect(() => {
     analytics.page(category, name)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, searchParams])
 
   return null
