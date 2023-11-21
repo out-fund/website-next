@@ -35,6 +35,12 @@ export default function RootLayout({
     >
       <body className="text-text box-border bg-white tracking-tighter antialiased">
         {children}
+        {/* Prismic Previews script */}
+        <script
+          async
+          defer
+          src="https://static.cdn.prismic.io/prismic.js?new=true&repo=outfund-website"
+        ></script>
       </body>
     </html>
   )
