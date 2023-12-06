@@ -202,12 +202,12 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
               </div>
 
               <div className="wrapper">
-                <div className="flex justify-between items-baseline">
+                <div className="flex items-baseline justify-between">
                   <Heading as="h4" size="h4" className="leading-6">
                     {slice.primary.total_title}
                   </Heading>
                   <Heading
-                    className="selectedTerm text-cobalt font-semibold leading-6"
+                    className="font-semibold leading-6 selectedTerm text-cobalt"
                     as="div"
                     size="h4"
                   >
@@ -219,7 +219,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col gap-1 items-center mt-4">
+            <div className="flex flex-col items-center gap-1 mt-4">
               <Button href="#">
                 {/* {slice.primary.button_text} {getAmount(totalPayable)} */}
                 {slice.primary.button_text}{" "}

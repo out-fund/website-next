@@ -19,7 +19,7 @@ const CountrySelectorPage = async () => {
           <Heading as="h1" size="h2" className="mb-6">
             Choose Your Country
           </Heading>
-          <ul className=" flex flex-col gap-2">
+          <ul className="flex flex-col gap-2">
             {locales.map((locale) => (
               <li key={locale.id} className="flex gap-2">
                 <span className={`fi fi-${locale.id.split("-")[1]}`} />

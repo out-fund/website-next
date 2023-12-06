@@ -34,7 +34,6 @@ const FundingTypes = ({ slice }: FundingTypesProps): JSX.Element => {
       <Wrapper width="medium">
         <div className="grid grid-cols-2 gap-5">
           {slice.items.map((item, index) => (
-            // <div key={index} className="bg-bgMedium px-6 py-6 rounded-lg">
             <div key={index} className="flex flex-col gap-2 ">
               <PrismicNextImage field={item.icon} width={80} height={80} />
 

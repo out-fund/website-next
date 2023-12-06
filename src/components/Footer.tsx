@@ -7,7 +7,7 @@ import { Wrapper, PageLink, Logo } from "@/components/atoms"
 
 export default async function Footer(props: any) {
   return (
-    <footer className="bg-bgMedium mt-10">
+    <footer className="mt-10 bg-bgMedium">
       <Wrapper>
         <div className="flex flex-col pt-10 pb-3 ">
           <div className="top">
@@ -71,7 +71,7 @@ export default async function Footer(props: any) {
                 <div className="text-body text-md mb-2 opacity-50 font-[400] pt-1">
                   {props.data.data.countries_title}
                 </div>
-                <ul className=" flex flex-col gap-2">
+                <ul className="flex flex-col gap-2 ">
                   {props.languages.map((language: any) => (
                     <li key={language.id} className="flex gap-2 pl-[3px]">
                       <span className={`fi fi-${language.id.split("-")[1]}`} />

@@ -19,8 +19,7 @@ const Benefits = ({ slice }: BenefitsProps): JSX.Element => {
       className="mt-10"
     >
       <Wrapper width="medium">
-        <div className="bg-bgMedium py-4 px-6 rounded">
-          {/* <div className="grid grid-cols-4 items-center text-center"> */}
+        <div className="px-6 py-4 rounded bg-bgMedium">
           <div className="flex justify-between text-center">
             {slice.items.map((item, index) => (
               <div key={index}>

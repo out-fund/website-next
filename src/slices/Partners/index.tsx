@@ -32,7 +32,7 @@ const Partners = ({ slice }: PartnersProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <Wrapper width="medium">
-        <div className="text-center mb-4">
+        <div className="mb-4 text-center">
           <Heading as="h2" size="h2" className="mb-1">
             {slice.primary.heading}
           </Heading>
@@ -42,7 +42,7 @@ const Partners = ({ slice }: PartnersProps): JSX.Element => {
           />
         </div>
 
-        <div className="flex justify-center flex-wrap gap-4 md:justify-between ">
+        <div className="flex flex-wrap justify-center gap-4 md:justify-between ">
           {slice.items.map((item, index) => (
             <div key={index}>
               <PrismicNextImage field={item.partner_logo} />

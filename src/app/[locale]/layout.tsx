@@ -34,7 +34,7 @@ export default function RootLayout({
       className={cn(inter.className)}
     >
       {/* text-base box-border bg-white tracking-tighter antialiased */}
-      <body className="LocaleLayout box-border antialiased">
+      <body className="box-border antialiased LocaleLayout ">
         {children}
         {/* Prismic Previews script */}
         <script

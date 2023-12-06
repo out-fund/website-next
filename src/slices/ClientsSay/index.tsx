@@ -53,16 +53,16 @@ const ClientsSay = async ({ slice }: ClientsSayProps): Promise<JSX.Element> => {
           field={slice.primary.heading}
           components={components}
         /> */}
-        <Heading as="h2" size="h2" className="text-center mb-5">
+        <Heading as="h2" size="h2" className="mb-5 text-center">
           {slice.primary.heading}
         </Heading>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
           {testimonials.map(
             (item, index) =>
               item && (
                 <div
                   key={index}
-                  className="bg-bgMedium px-5 py-4 rounded flex flex-col "
+                  className="flex flex-col px-5 py-4 rounded bg-bgMedium "
                 >
                   {/* <div className="sr-only">{item.data.company_name}</div> */}
                   <PrismicNextImage
@@ -70,7 +70,7 @@ const ClientsSay = async ({ slice }: ClientsSayProps): Promise<JSX.Element> => {
                     width={160}
                     height={40}
                   />
-                  <p className="text-md text-body mb-2">{item.data.quote}</p>
+                  <p className="mb-2 text-md text-body">{item.data.quote}</p>
 
                   <div className="flex items-center gap-1 mt-auto">
                     <PrismicNextImage
@@ -88,7 +88,7 @@ const ClientsSay = async ({ slice }: ClientsSayProps): Promise<JSX.Element> => {
                 </div>
               ),
           )}
-          <div className="bg-bgMedium px-5 py-4 rounded flex flex-col items-start gap-2 justify-center">
+          <div className="flex flex-col items-start justify-center gap-2 px-5 py-4 rounded bg-bgMedium">
             <Heading as="h3" size="h3" className="test">
               {slice.primary.cta_title}
             </Heading>

@@ -61,7 +61,7 @@ const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
                 <a
                   href={item.url ? item.url.toString() : "#"}
                   target="_blank"
-                  className="group block"
+                  className="block group"
                 >
                   <div className="mb-1 h-[20px] w-[108px]">
                     <svg
@@ -85,7 +85,7 @@ const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
                   <p className="mb-2 line-clamp-6 h-[120px] text-sm font-[450]">
                     {item.review}
                   </p>
-                  <div className=" mt-auto">
+                  <div className="mt-auto ">
                     <div className="text-sm font-[500]">{item.name}</div>
                     <div className="text-sm font-[450] opacity-50">
                       {item.date}

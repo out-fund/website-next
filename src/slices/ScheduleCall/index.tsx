@@ -20,8 +20,8 @@ const ScheduleCall = ({ slice }: ScheduleCallProps): JSX.Element => {
       className="mt-10"
     >
       <Wrapper width="wide">
-        <div className="grid grid-cols-1 md:grid-cols-2 bg-bgMedium rounded-lg overflow-hidden">
-          <div className="left flex flex-col justify-center px-3 md:px-5 lg:px-10 py-5   ">
+        <div className="grid grid-cols-1 overflow-hidden rounded-lg md:grid-cols-2 bg-bgMedium">
+          <div className="flex flex-col justify-center px-3 py-5 left md:px-5 lg:px-10 ">
             <Heading as="h2" size="h2" className="md:max-w-[316px] mb-1">
               {slice.primary.title}
             </Heading>

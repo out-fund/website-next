@@ -50,7 +50,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                   components={components}
                 />
               </div>
-              <div className="flex flex-col items-start gap-1	">
+              <div className="flex flex-col items-start gap-1 ">
                 <Button href="/">{slice.primary.button_text}</Button>
                 <div className="text-xs tracking-tight text-body opacity-70">
                   {slice.primary.button_note}
