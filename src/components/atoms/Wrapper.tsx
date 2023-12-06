@@ -28,7 +28,10 @@ export default function Wrapper({
   ...restProps
 }: WrapperProps) {
   return (
-    <Comp className={cn(variants({ width }), className)} {...restProps}>
+    <Comp
+      className={cn("Wrapper", variants({ width }), className)}
+      {...restProps}
+    >
       {children}
     </Comp>
   )

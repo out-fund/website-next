@@ -1,7 +1,7 @@
 // import type { Metadata } from "next"
 // import { createClient } from "@/prismicio"
 
-import { worksans } from "@/lib/font"
+import { inter } from "@/lib/font"
 import { convertLocaleToLang } from "@/lib/utils"
 import { cn } from "@/lib/utils"
 import "@/styles/globals.css"
@@ -31,9 +31,10 @@ export default function RootLayout({
   return (
     <html
       lang={convertLocaleToLang(params.locale)}
-      className={cn(worksans.className)}
+      className={cn(inter.className)}
     >
-      <body className="text-text box-border bg-white tracking-tighter antialiased">
+      {/* text-base box-border bg-white tracking-tighter antialiased */}
+      <body className="LocaleLayout box-border antialiased">
         {children}
         {/* Prismic Previews script */}
         <script

@@ -1,6 +1,6 @@
-import { Work_Sans } from "next/font/google"
+import { Inter } from "next/font/google"
 
-export const worksans = Work_Sans({
+export const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 })
