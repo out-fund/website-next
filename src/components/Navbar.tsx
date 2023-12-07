@@ -48,7 +48,7 @@ export default function Navbar(props: any) {
               <li key="country" className="border-b border-[#BFD5EE]	">
                 <Link
                   href="/country-selector"
-                  className="pt-1 pb-1 flex items-center font-normal text-[20px] md:text-[16px] lg:text-[17px] hover:underline underline-offset-2 focus:underline focus:outline-none gap-1 pl-1"
+                  className="pt-1 pb-1 flex items-center font-normal text-[20px] md:text-[16px] lg:text-[17px] hover:underline underline-offset-2 focus:underline focus:outline-none gap-1 pl-1 whitespace-nowrap decoration-1 decoration-[#8D9BA9] select-none"
                 >
                   <i className="">
                     <Globe />
@@ -91,10 +91,14 @@ export default function Navbar(props: any) {
                 </PageLink>
               </li>
 
+              <li className="flex items-center">
+                <span className="text-[#8D9BA9]">|</span>
+              </li>
+
               <li key="country" className="">
                 <Link
                   href="/country-selector"
-                  className="px-1 py-1 flex items-center font-normal text-[20px] md:text-[16px] lg:text-[17px] hover:underline underline-offset-2 focus:underline focus:outline-none gap-1 pl-1 whitespace-nowrap"
+                  className="px-1 py-1 flex items-center font-normal text-[20px] md:text-[16px] lg:text-[17px] hover:underline underline-offset-2 focus:underline focus:outline-none gap-1 pl-1 whitespace-nowrap decoration-1 decoration-[#8D9BA9]	select-none"
                 >
                   <i className="">
                     <Globe />
