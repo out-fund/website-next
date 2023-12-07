@@ -967,12 +967,12 @@ export interface HeroSliceDefaultPrimary {
   /**
    * Heading field in *Hero → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: hero.primary.heading
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  heading: prismic.TitleField
+  heading: prismic.RichTextField
 
   /**
    * Description field in *Hero → Primary*
@@ -1002,7 +1002,7 @@ export interface HeroSliceDefaultPrimary {
    * - **API ID Path**: hero.primary.image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image: prismic.ImageField<never>
+  image: prismic.ImageField<"mobile">
 
   /**
    * Button Note field in *Hero → Primary*

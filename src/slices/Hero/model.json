@@ -18,7 +18,7 @@
             "label": "Heading",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "heading1"
+            "multi": "heading1"
           }
         },
         "description": {
@@ -41,8 +41,17 @@
           "type": "Image",
           "config": {
             "label": "Image",
-            "constraint": {},
-            "thumbnails": []
+            "constraint": {
+              "width": 1200,
+              "height": 512
+            },
+            "thumbnails": [
+              {
+                "name": "mobile",
+                "width": 768,
+                "height": 512
+              }
+            ]
           }
         },
         "button_note": {

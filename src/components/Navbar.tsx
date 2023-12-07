@@ -28,7 +28,7 @@ export default function Navbar(props: any) {
                   <li key={label} className="border-b border-[#BFD5EE] ">
                     <PageLink
                       field={link}
-                      className="block pt-1 pb-1 pl-1 text-[20px] md:text-[16px] lg:text-[17px]"
+                      className="block pt-1 pb-1 pl-1 text-[20px] md:text-[16px]"
                     >
                       {label}
                     </PageLink>
@@ -39,7 +39,7 @@ export default function Navbar(props: any) {
               <li className="border-b border-[#BFD5EE]">
                 <PageLink
                   field={props.data.data.navbar_right[0]?.link}
-                  className="block pt-1 pb-1 pl-1 text-[20px] md:text-[16px] lg:text-[17px]"
+                  className="block pt-1 pb-1 pl-1 text-[20px] md:text-[16px]"
                 >
                   {props.data.data.navbar_right[0]?.label}
                 </PageLink>
@@ -48,7 +48,7 @@ export default function Navbar(props: any) {
               <li key="country" className="border-b border-[#BFD5EE]	">
                 <Link
                   href="/country-selector"
-                  className="pt-1 pb-1 flex items-center font-normal text-[20px] md:text-[16px] lg:text-[17px] hover:underline underline-offset-2 focus:underline focus:outline-none gap-1 pl-1 whitespace-nowrap decoration-1 decoration-[#8D9BA9] select-none"
+                  className="pt-1 pb-1 flex items-center font-normal text-[20px] md:text-[16px] hover:underline underline-offset-2 focus:underline focus:outline-none gap-1 pl-1 whitespace-nowrap decoration-1 decoration-[#8D9BA9] select-none"
                 >
                   <i className="">
                     <Globe />
@@ -60,7 +60,7 @@ export default function Navbar(props: any) {
           </nav>
         </div>
         {/* ------------------------------------------------ Desktop nav */}
-        <div className="hidden md:flex h-[110px] items-center md:gap-1 lg:gap-3">
+        <div className="hidden md:flex h-[110px] items-center md:gap-1 lg:gap-4">
           <Link
             href={`/${props.locale}`}
             className="h-[42px] w-[142px] py-1 block"
@@ -69,13 +69,13 @@ export default function Navbar(props: any) {
             <Logo />
           </Link>
           <nav className="w-full">
-            <ul className="flex relative top-[5px] md:gap-1 lg:gap-3">
+            <ul className="flex relative top-[6px] md:gap-1 lg:gap-3">
               {props.data.data.navbar_left.map(
                 ({ label, link }: { label: any; link: any }) => (
                   <li key={label} className="">
                     <PageLink
                       field={link}
-                      className="block px-1 py-1 text-[20px] md:text-[16px] lg:text-[17px]"
+                      className="block px-1 py-1 text-[20px] md:text-[16px]"
                     >
                       {label}
                     </PageLink>
@@ -85,7 +85,7 @@ export default function Navbar(props: any) {
               <li className="ml-auto">
                 <PageLink
                   field={props.data.data.navbar_right[0]?.link}
-                  className="block px-1 py-1 text-[20px] md:text-[16px] lg:text-[17px]"
+                  className="block px-1 py-1 text-[20px] md:text-[16px]"
                 >
                   {props.data.data.navbar_right[0]?.label}
                 </PageLink>
@@ -98,7 +98,7 @@ export default function Navbar(props: any) {
               <li key="country" className="">
                 <Link
                   href="/country-selector"
-                  className="px-1 py-1 flex items-center font-normal text-[20px] md:text-[16px] lg:text-[17px] hover:underline underline-offset-2 focus:underline focus:outline-none gap-1 pl-1 whitespace-nowrap decoration-1 decoration-[#8D9BA9]	select-none"
+                  className="px-1 py-1 flex items-center font-normal text-[20px] md:text-[16px] hover:underline underline-offset-2 focus:underline focus:outline-none gap-1 pl-1 whitespace-nowrap decoration-1 decoration-[#8D9BA9]	select-none"
                 >
                   <i className="">
                     <Globe />

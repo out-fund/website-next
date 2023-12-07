@@ -17,7 +17,8 @@ export default function Button({
     <Link
       href={href}
       className={cn(
-        "text-md flex rounded-3xl border-none bg-cobalt px-[24px] pb-[7px] pt-[9px] font-semibold leading-8 text-white antialiased hover:underline hover:outline-none focus:underline focus:outline-2 focus:outline-offset-2",
+        // "text-md flex rounded-3xl border-none bg-cobalt px-[24px] pb-[7px] pt-[9px] font-semibold leading-8 text-white antialiased hover:underline hover:outline-none focus:underline focus:outline-2 focus:outline-offset-2",
+        "border-none rounded-3xl bg-cobalt text-white px-[40px] py-[12px] leading-[24px] text-[16px] inline-block ",
         className,
       )}
       {...restProps}
