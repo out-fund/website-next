@@ -2,6 +2,7 @@
 
 import { Content } from "@prismicio/client"
 import { SliceComponentProps } from "@prismicio/react"
+import moment from "moment"
 
 import { useRef, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -23,7 +24,10 @@ export type TrustPilotStripProps =
  * Component for "TrustPilotStrip" Slices.
  */
 const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
-  // console.log(slice)
+  const formatedDate = (date: any) => {
+    moment.locale("en")
+    return moment(date).format("DD MMMM YYYY")
+  }
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -43,20 +47,20 @@ const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
             }}
             breakpoints={{
               300: {
-                slidesPerView: 1.5,
+                slidesPerView: 1,
               },
               768: {
-                slidesPerView: 2.5,
+                slidesPerView: 2,
               },
               1024: {
-                slidesPerView: 3.5,
+                slidesPerView: 3,
               },
             }}
           >
             {slice.items.map((item, index) => (
               <SwiperSlide
                 key={index}
-                className="flex h-[100%] rounded-lg bg-bgLight p-3"
+                className="flex h-[100%] rounded-lg bg-bgMedium p-3"
               >
                 <a
                   href={item.url ? item.url.toString() : "#"}
@@ -70,7 +74,7 @@ const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
                       viewBox="0 0 108 20"
                     >
                       <path
-                        fill="#00B67A"
+                        fill="#E6A400"
                         d="M20.25 0H0v20h20.25V0ZM42.188 0h-20.25v20h20.25V0ZM64.125 0h-20.25v20h20.25V0ZM86.063 0h-20.25v20h20.25V0ZM108 0H87.75v20H108V0Z"
                       />
                       <path
@@ -82,13 +86,13 @@ const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
                   <div className="text-md mb-1	line-clamp-2 h-[36px] w-[80%] font-semibold leading-[18px] group-hover:underline">
                     {item.title}
                   </div>
-                  <p className="mb-2 line-clamp-6 h-[120px] text-sm font-[450]">
+                  <p className="mb-2 line-clamp-3 h-[60px] text-sm font-normal">
                     {item.review}
                   </p>
                   <div className="mt-auto ">
                     <div className="text-sm font-[500]">{item.name}</div>
-                    <div className="text-sm font-[450] opacity-50">
-                      {item.date}
+                    <div className="text-sm font-normal opacity-50">
+                      {formatedDate(item.date)}
                     </div>
                   </div>
                 </a>

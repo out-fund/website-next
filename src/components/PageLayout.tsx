@@ -22,7 +22,7 @@ export default async function PageLayout({
   return (
     <>
       <Navbar data={NavbarData} locale={locale} />
-      <main>{children}</main>
+      <main className="overflow-hidden ">{children}</main>
       <Footer data={FooterData} languages={FooterLanguages} locale={locale} />
     </>
   )
