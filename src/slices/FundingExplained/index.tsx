@@ -6,7 +6,9 @@ import { PrismicNextImage } from "@prismicio/next"
 import { Wrapper, Heading } from "@/components/atoms"
 
 const components: JSXMapSerializer = {
-  paragraph: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+  paragraph: ({ children }) => (
+    <p className="mb-2 text-base font-normal last:mb-0 text-body">{children}</p>
+  ),
 }
 
 /**
@@ -23,7 +25,7 @@ const FundingExplained = ({ slice }: FundingExplainedProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mt-10"
+      className="mt-15"
     >
       <Wrapper>
         <Heading as="h2" size="h2" className="mb-4">
@@ -38,8 +40,8 @@ const FundingExplained = ({ slice }: FundingExplainedProps): JSX.Element => {
             >
               <PrismicNextImage
                 field={item.icon}
-                width={78}
-                height={43}
+                width={79}
+                height={45}
                 className="pt-[11px]"
               />
               <Heading

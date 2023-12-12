@@ -27,7 +27,7 @@ export type PartnersProps = SliceComponentProps<Content.PartnersSlice>
 const Partners = ({ slice }: PartnersProps): JSX.Element => {
   return (
     <section
-      className="mt-10"
+      className="mt-15"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

@@ -17,7 +17,7 @@ const ScheduleCall = ({ slice }: ScheduleCallProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mt-10"
+      className="mt-15"
     >
       <Wrapper width="wide">
         <div className="grid grid-cols-1 overflow-hidden rounded-lg md:grid-cols-2 bg-bgMedium">

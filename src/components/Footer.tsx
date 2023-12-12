@@ -7,7 +7,7 @@ import { Wrapper, PageLink, Logo } from "@/components/atoms"
 
 export default async function Footer(props: any) {
   return (
-    <footer className="mt-10 bg-bgMedium">
+    <footer className="mt-15 bg-bgMedium">
       <Wrapper>
         <div className="flex flex-col pt-10 pb-3 ">
           <div className="top">

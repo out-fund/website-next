@@ -387,6 +387,9 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | BusinessBenefitsSlice
+  | PerfectFitSlice
+  | UsingFundsSlice
   | FundingExplainedSlice
   | FundingTypesSlice
   | ScheduleCallSlice
@@ -614,6 +617,86 @@ type BenefitsSliceVariation = BenefitsSliceDefault
 export type BenefitsSlice = prismic.SharedSlice<
   "benefits",
   BenefitsSliceVariation
+>
+
+/**
+ * Primary content in *BusinessBenefits → Primary*
+ */
+export interface BusinessBenefitsSliceDefaultPrimary {
+  /**
+   * Heading field in *BusinessBenefits → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: business_benefits.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *BusinessBenefits → Items*
+ */
+export interface BusinessBenefitsSliceDefaultItem {
+  /**
+   * Icon field in *BusinessBenefits → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: business_benefits.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>
+
+  /**
+   * Title field in *BusinessBenefits → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: business_benefits.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *BusinessBenefits → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: business_benefits.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Default variation for BusinessBenefits Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BusinessBenefitsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BusinessBenefitsSliceDefaultPrimary>,
+  Simplify<BusinessBenefitsSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *BusinessBenefits*
+ */
+type BusinessBenefitsSliceVariation = BusinessBenefitsSliceDefault
+
+/**
+ * BusinessBenefits Shared Slice
+ *
+ * - **API ID**: `business_benefits`
+ * - **Description**: BusinessBenefits
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BusinessBenefitsSlice = prismic.SharedSlice<
+  "business_benefits",
+  BusinessBenefitsSliceVariation
 >
 
 /**
@@ -1222,6 +1305,116 @@ export type PartnersSlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *PerfectFit → Primary*
+ */
+export interface PerfectFitSliceDefaultPrimary {
+  /**
+   * Heading field in *PerfectFit → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: perfect_fit.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+
+  /**
+   * Description field in *PerfectFit → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: perfect_fit.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Text field in *PerfectFit → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: perfect_fit.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *PerfectFit → Items*
+ */
+export interface PerfectFitSliceDefaultItem {
+  /**
+   * Column1 field in *PerfectFit → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: perfect_fit.items[].column1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  column1: prismic.KeyTextField
+
+  /**
+   * Column2 field in *PerfectFit → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: perfect_fit.items[].column2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  column2: prismic.KeyTextField
+
+  /**
+   * Column3 field in *PerfectFit → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: perfect_fit.items[].column3
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  column3: prismic.KeyTextField
+
+  /**
+   * Column4 field in *PerfectFit → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: perfect_fit.items[].column4
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  column4: prismic.KeyTextField
+}
+
+/**
+ * Default variation for PerfectFit Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PerfectFitSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PerfectFitSliceDefaultPrimary>,
+  Simplify<PerfectFitSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *PerfectFit*
+ */
+type PerfectFitSliceVariation = PerfectFitSliceDefault
+
+/**
+ * PerfectFit Shared Slice
+ *
+ * - **API ID**: `perfect_fit`
+ * - **Description**: PerfectFit
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PerfectFitSlice = prismic.SharedSlice<
+  "perfect_fit",
+  PerfectFitSliceVariation
+>
+
+/**
  * Primary content in *ScheduleCall → Primary*
  */
 export interface ScheduleCallSliceDefaultPrimary {
@@ -1391,6 +1584,86 @@ export type TrustPilotStripSlice = prismic.SharedSlice<
   TrustPilotStripSliceVariation
 >
 
+/**
+ * Primary content in *UsingFunds → Primary*
+ */
+export interface UsingFundsSliceDefaultPrimary {
+  /**
+   * Heading field in *UsingFunds → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: using_funds.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *UsingFunds → Items*
+ */
+export interface UsingFundsSliceDefaultItem {
+  /**
+   * Icon field in *UsingFunds → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: using_funds.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>
+
+  /**
+   * Title field in *UsingFunds → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: using_funds.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *UsingFunds → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: using_funds.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField
+}
+
+/**
+ * Default variation for UsingFunds Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UsingFundsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<UsingFundsSliceDefaultPrimary>,
+  Simplify<UsingFundsSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *UsingFunds*
+ */
+type UsingFundsSliceVariation = UsingFundsSliceDefault
+
+/**
+ * UsingFunds Shared Slice
+ *
+ * - **API ID**: `using_funds`
+ * - **Description**: UsingFunds
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UsingFundsSlice = prismic.SharedSlice<
+  "using_funds",
+  UsingFundsSliceVariation
+>
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1423,6 +1696,11 @@ declare module "@prismicio/client" {
       BenefitsSliceDefaultItem,
       BenefitsSliceVariation,
       BenefitsSliceDefault,
+      BusinessBenefitsSlice,
+      BusinessBenefitsSliceDefaultPrimary,
+      BusinessBenefitsSliceDefaultItem,
+      BusinessBenefitsSliceVariation,
+      BusinessBenefitsSliceDefault,
       CalculatorSlice,
       CalculatorSliceDefaultPrimary,
       CalculatorSliceDefaultItem,
@@ -1453,6 +1731,11 @@ declare module "@prismicio/client" {
       PartnersSliceDefaultItem,
       PartnersSliceVariation,
       PartnersSliceDefault,
+      PerfectFitSlice,
+      PerfectFitSliceDefaultPrimary,
+      PerfectFitSliceDefaultItem,
+      PerfectFitSliceVariation,
+      PerfectFitSliceDefault,
       ScheduleCallSlice,
       ScheduleCallSliceDefaultPrimary,
       ScheduleCallSliceVariation,
@@ -1461,6 +1744,11 @@ declare module "@prismicio/client" {
       TrustPilotStripSliceDefaultItem,
       TrustPilotStripSliceVariation,
       TrustPilotStripSliceDefault,
+      UsingFundsSlice,
+      UsingFundsSliceDefaultPrimary,
+      UsingFundsSliceDefaultItem,
+      UsingFundsSliceVariation,
+      UsingFundsSliceDefault,
     }
   }
 }

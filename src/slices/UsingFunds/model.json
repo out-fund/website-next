@@ -1,8 +1,8 @@
 {
-  "id": "funding_explained",
+  "id": "using_funds",
   "type": "SharedSlice",
-  "name": "FundingExplained",
-  "description": "FundingExplained",
+  "name": "UsingFunds",
+  "description": "UsingFunds",
   "variations": [
     {
       "id": "default",
@@ -21,6 +21,14 @@
         }
       },
       "items": {
+        "icon": {
+          "type": "Image",
+          "config": {
+            "label": "Icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "title": {
           "type": "Text",
           "config": {
@@ -29,23 +37,10 @@
           }
         },
         "description": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
-          }
-        },
-        "icon": {
-          "type": "Image",
-          "config": {
-            "label": "Icon",
-            "constraint": {
-              "width": 79,
-              "height": 45
-            },
-            "thumbnails": []
+            "placeholder": ""
           }
         }
       }

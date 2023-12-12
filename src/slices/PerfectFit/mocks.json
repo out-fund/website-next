@@ -1,0 +1,68 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "develop",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Mollit nostrud ipsum enim ut officia anim quis eu magna dolor tempor occaecat mollit amet. Consectetur nulla esse occaecat aliquip sunt nostrud dolore tempor ea consequat reprehenderit Lorem."
+						}
+					}
+				]
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "joy",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"column1",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "family",
+							"type": "Text"
+						}
+					],
+					[
+						"column2",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "block",
+							"type": "Text"
+						}
+					],
+					[
+						"column3",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "figure",
+							"type": "Text"
+						}
+					],
+					[
+						"column4",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "prize",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

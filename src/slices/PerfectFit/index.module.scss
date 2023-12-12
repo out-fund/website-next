@@ -1,0 +1,29 @@
+.table {
+  th {
+    font-size: 18px;
+    line-height: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-weight: 500;
+  }
+
+  td {
+    line-height: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  tr td,
+  tr th {
+    border-bottom: 1px solid #bcd4ec;
+  }
+  tr:nth-child(1) {
+    th:nth-child(2) {
+      border-radius: 16px 16px 0 0;
+    }
+  }
+  tr:nth-child(6) {
+    td:nth-child(2) {
+      border-radius: 0 0 16px 16px;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "id": "perfect_fit",
+  "type": "SharedSlice",
+  "name": "PerfectFit",
+  "description": "PerfectFit",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "column1": {
+          "type": "Text",
+          "config": {
+            "label": "Column1",
+            "placeholder": ""
+          }
+        },
+        "column2": {
+          "type": "Text",
+          "config": {
+            "label": "Column2",
+            "placeholder": ""
+          }
+        },
+        "column3": {
+          "type": "Text",
+          "config": {
+            "label": "Column3",
+            "placeholder": ""
+          }
+        },
+        "column4": {
+          "type": "Text",
+          "config": {
+            "label": "Column4",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

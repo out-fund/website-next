@@ -46,7 +46,7 @@ const ClientsSay = async ({ slice }: ClientsSayProps): Promise<JSX.Element> => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mt-10"
+      className="mt-15"
     >
       <Wrapper width="medium">
         {/* <PrismicRichText
