@@ -5,8 +5,10 @@
     width: 16px;
     height: 16px;
     content: "";
+    background-color: #9c4dff;
+    border-radius: 50%;
     position: relative;
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iIzAwQjY3QSIgZD0iTTggMEMzLjU4NCAwIDAgMy41ODQgMCA4czMuNTg0IDggOCA4IDgtMy41ODQgOC04LTMuNTg0LTgtOC04Wk02LjQgMTJsLTQtNCAxLjEyOC0xLjEyOEw2LjQgOS43MzZsNi4wNzItNi4wNzJMMTMuNiA0LjggNi40IDEyWiIvPjwvc3ZnPg==");
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0ibTYuNCAxMi00LTQgMS4xMjgtMS4xMjhMNi40IDkuNzM2bDYuMDcyLTYuMDcyTDEzLjYgNC44IDYuNCAxMloiLz48L3N2Zz4=");
   }
 }
 
@@ -70,7 +72,7 @@
     z-index: 2;
 
     /*custom styles*/
-    background-color: #11c6ff;
+    background-color: #0c2542;
     width: 32px;
     height: 32px;
     border-radius: 16px;
@@ -79,8 +81,11 @@
   }
 
   input[type="range"]:focus::-webkit-slider-thumb {
-    outline: 2px solid var(--color-cobalt);
+    outline: 2px solid #003edb;
     outline-offset: 2px;
+  }
+  input[type="range"]:hover::-webkit-slider-thumb {
+    background-color: #003edb;
   }
 
   /******** Firefox styles ********/
@@ -99,7 +104,7 @@
     z-index: 2;
 
     /*custom styles*/
-    background-color: #11c6ff;
+    background-color: #0c2542;
     width: 32px;
     height: 32px;
     border-radius: 16px;
@@ -108,7 +113,10 @@
   }
 
   input[type="range"]:focus::-moz-range-thumb {
-    outline: 2px solid var(--color-cobalt);
+    outline: 2px solid #003edb;
     outline-offset: 2px;
+  }
+  input[type="range"]:hover::-moz-range-thumb {
+    background-color: #003edb;
   }
 }

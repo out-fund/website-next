@@ -53,14 +53,14 @@ const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
                 slidesPerView: 2,
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 4.3,
               },
             }}
           >
             {slice.items.map((item, index) => (
               <SwiperSlide
                 key={index}
-                className="flex h-[100%] rounded-lg bg-bgMedium p-3"
+                className="flex h-[100%] rounded-sm bg-bgMedium p-2 border-b border-[#DFE4EA]"
               >
                 <a
                   href={item.url ? item.url.toString() : "#"}
@@ -90,8 +90,10 @@ const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
                     {item.review}
                   </p>
                   <div className="mt-auto ">
-                    <div className="text-sm font-[500]">{item.name}</div>
-                    <div className="text-sm font-normal opacity-50">
+                    <div className="text-[14px] leading-[18px] font-[500]">
+                      {item.name}
+                    </div>
+                    <div className="text-[14px] leading-[18px] font-normal opacity-50">
                       {formatedDate(item.date)}
                     </div>
                   </div>

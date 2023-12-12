@@ -59,11 +59,6 @@
 				"value": "EUR",
 				"type": "Select"
 			},
-			"example_note": {
-				"__TYPE__": "FieldContent",
-				"value": "bar",
-				"type": "Text"
-			},
 			"button_text": {
 				"__TYPE__": "FieldContent",
 				"value": "company",

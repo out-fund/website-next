@@ -104,13 +104,6 @@
             "placeholder": ""
           }
         },
-        "example_note": {
-          "type": "Text",
-          "config": {
-            "label": "Example Note",
-            "placeholder": ""
-          }
-        },
         "button_text": {
           "type": "Text",
           "config": {

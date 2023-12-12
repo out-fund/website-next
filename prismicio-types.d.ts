@@ -740,16 +740,6 @@ export interface CalculatorSliceDefaultPrimary {
   total_title: prismic.KeyTextField
 
   /**
-   * Example Note field in *Calculator → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: calculator.primary.example_note
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  example_note: prismic.KeyTextField
-
-  /**
    * Button Text field in *Calculator → Primary*
    *
    * - **Field Type**: Text

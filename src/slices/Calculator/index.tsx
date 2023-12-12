@@ -62,7 +62,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
   }
   let selectedTerm = termLengths[requestedTerm]
 
-  const totalPayable =
+  const totalRepayable =
     Number(selectedLoanAmount) +
     (Number(selectedLoanAmount) * Number(fees[requestedTerm])) / 100
 
@@ -107,9 +107,9 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <Wrapper width="medium">
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-[4fr_5fr] gap-9">
-          <div className="flex flex-col gap-6">
+      <Wrapper>
+        <div className="GridWrapper mt-10 grid grid-cols-1 md:grid-cols-[400px_1fr] gap-[100px]">
+          <div className="flex flex-col gap-6 TextGroup">
             <div>
               <Heading as="h2" size="h2" className="mb-2">
                 {slice.primary.heading}
@@ -136,19 +136,25 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
               </ul>
             </div>
           </div>
-          <div className="mt-[14px]">
-            <div className="flex flex-col gap-6">
-              <div className="wrapper">
-                <Heading as="h4" size="h4" className="leading-6">
-                  {slice.primary.amount_title}
-                </Heading>
-                <Heading
-                  className="text-sky font-semibold leading-6 mb-[12px] mt-1"
-                  as="div"
-                  size="h4"
-                >
-                  {getAmount(parseInt(selectedLoanAmount))}
-                </Heading>
+          <div className="flex flex-col justify-end gap-3 CalculatorGroup">
+            <div className="flex flex-col gap-3 Sliders">
+              <div className="SliderGroup">
+                <div className="flex justify-between mb-1 textWrapper">
+                  <Heading
+                    as="div"
+                    size="h4"
+                    className="text-[18px] leading-[24px]"
+                  >
+                    {slice.primary.amount_title}
+                  </Heading>
+                  <Heading
+                    className="text-[18px] leading-[24px] font-medium"
+                    as="div"
+                    size="h4"
+                  >
+                    {getAmount(parseInt(selectedLoanAmount))}
+                  </Heading>
+                </div>
                 <div className={classes.slider}>
                   <input
                     type="range"
@@ -169,17 +175,23 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                 </div>
               </div>
 
-              <div className="wrapper">
-                <Heading as="h4" size="h4" className="leading-6">
-                  {slice.primary.term_title}
-                </Heading>
-                <Heading
-                  className="text-sky font-semibold leading-6 mb-[12px] mt-1"
-                  as="div"
-                  size="h4"
-                >
-                  {selectedTerm} {slice.primary.slider_months_text}
-                </Heading>
+              <div className="SliderGroup">
+                <div className="flex justify-between mb-1 textWrapper">
+                  <Heading
+                    as="div"
+                    size="h4"
+                    className="text-[18px] leading-[24px]"
+                  >
+                    {slice.primary.term_title}
+                  </Heading>
+                  <Heading
+                    className="text-[18px] leading-[24px] font-medium"
+                    as="div"
+                    size="h4"
+                  >
+                    {selectedTerm} {slice.primary.slider_months_text}
+                  </Heading>
+                </div>
                 <div className={classes.slider}>
                   <input
                     type="range"
@@ -200,33 +212,35 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                   </div>
                 </div>
               </div>
-
-              <div className="wrapper">
+            </div>
+            <div className="BottomGroup w-1/2 min-w-[370px] self-end flex flex-col gap-3">
+              <div className="RepayableGroup">
                 <div className="flex items-baseline justify-between">
-                  <Heading as="h4" size="h4" className="leading-6">
+                  <Heading
+                    as="div"
+                    size="h4"
+                    className="text-[18px] leading-[24px]"
+                  >
                     {slice.primary.total_title}
                   </Heading>
+                  <hr className="w-[36%] border-dashed opacity-20" />
                   <Heading
-                    className="font-semibold leading-6 selectedTerm text-cobalt"
+                    className="text-[18px] leading-[24px] font-medium"
                     as="div"
                     size="h4"
                   >
-                    {getAmount(totalPayable)}
+                    {getAmount(totalRepayable)}
                   </Heading>
                 </div>
-                <p className="text-xs tracking-tight text-body opacity-70 mt-[12px] max-w-[360px]">
-                  {slice.primary.example_note}
-                </p>
               </div>
-            </div>
-            <div className="flex flex-col items-center gap-1 mt-4">
-              <Button href="#">
-                {/* {slice.primary.button_text} {getAmount(totalPayable)} */}
-                {slice.primary.button_text}{" "}
-                {getAmount(parseInt(selectedLoanAmount))}
-              </Button>
-              <div className="text-xs tracking-tight text-body opacity-70">
-                {slice.primary.button_note}
+              <div className="flex flex-col items-center gap-1 ButtonGroup ">
+                <Button href="#" className="w-full">
+                  {slice.primary.button_text}{" "}
+                  {getAmount(parseInt(selectedLoanAmount))}
+                </Button>
+                <div className="px-2 text-xs text-center text-[#4B6686]">
+                  {slice.primary.button_note}
+                </div>
               </div>
             </div>
           </div>
