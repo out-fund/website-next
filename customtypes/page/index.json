@@ -25,6 +25,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "funding_explained": {
+              "type": "SharedSlice"
+            },
             "funding_types": {
               "type": "SharedSlice"
             },

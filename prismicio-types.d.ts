@@ -387,6 +387,7 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | FundingExplainedSlice
   | FundingTypesSlice
   | ScheduleCallSlice
   | PartnersSlice
@@ -886,6 +887,86 @@ export type ClientsSaySlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *FundingExplained → Primary*
+ */
+export interface FundingExplainedSliceDefaultPrimary {
+  /**
+   * Heading field in *FundingExplained → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: funding_explained.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *FundingExplained → Items*
+ */
+export interface FundingExplainedSliceDefaultItem {
+  /**
+   * Title field in *FundingExplained → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: funding_explained.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *FundingExplained → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: funding_explained.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Icon field in *FundingExplained → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: funding_explained.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>
+}
+
+/**
+ * Default variation for FundingExplained Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FundingExplainedSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FundingExplainedSliceDefaultPrimary>,
+  Simplify<FundingExplainedSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *FundingExplained*
+ */
+type FundingExplainedSliceVariation = FundingExplainedSliceDefault
+
+/**
+ * FundingExplained Shared Slice
+ *
+ * - **API ID**: `funding_explained`
+ * - **Description**: FundingExplained
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FundingExplainedSlice = prismic.SharedSlice<
+  "funding_explained",
+  FundingExplainedSliceVariation
+>
+
+/**
  * Primary content in *FundingTypes → Items*
  */
 export interface FundingTypesSliceDefaultItem {
@@ -1352,6 +1433,11 @@ declare module "@prismicio/client" {
       ClientsSaySliceDefaultItem,
       ClientsSaySliceVariation,
       ClientsSaySliceDefault,
+      FundingExplainedSlice,
+      FundingExplainedSliceDefaultPrimary,
+      FundingExplainedSliceDefaultItem,
+      FundingExplainedSliceVariation,
+      FundingExplainedSliceDefault,
       FundingTypesSlice,
       FundingTypesSliceDefaultItem,
       FundingTypesSliceVariation,
