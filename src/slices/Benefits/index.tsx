@@ -23,10 +23,12 @@ const Benefits = ({ slice }: BenefitsProps): JSX.Element => {
           <div className="flex justify-between text-center">
             {slice.items.map((item, index) => (
               <div key={index} className="flex flex-col gap-1">
-                <div className="text-base text-body">{item.top_text}</div>
-                <Heading as="div" size="h4" className="font-medium text-body">
+                <div className="text-[16px] leading-[24px] text-body">
+                  {item.top_text}
+                </div>
+                <div className="text-[24px] leading-[32px] font-medium text-body">
                   {item.bottom_text}
-                </Heading>
+                </div>
               </div>
             ))}
           </div>

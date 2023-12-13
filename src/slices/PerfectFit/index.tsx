@@ -22,6 +22,7 @@ export type PerfectFitProps = SliceComponentProps<Content.PerfectFitSlice>
  * Component for "PerfectFit" Slices.
  */
 const PerfectFit = ({ slice }: PerfectFitProps): JSX.Element => {
+  const tableBody = slice.items.slice(1)
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -40,35 +41,25 @@ const PerfectFit = ({ slice }: PerfectFitProps): JSX.Element => {
           <div className={classes.table}>
             <table className="table w-full text-base border-collapse">
               <thead>
-                {slice.items.map((item, index) => (
-                  <>
-                    {index === 0 && (
-                      <tr className="text-center ">
-                        <th className=" w-[22%] pr-3 mr-4 text-right font-medium">
-                          {item.column1}
-                        </th>
-                        <th className=" bg-[#C8EDF9]">{item.column2}</th>
-                        <th className="">{item.column3}</th>
-                        <th className="">{item.column4}</th>
-                      </tr>
-                    )}
-                  </>
-                ))}
+                <tr className="text-center ">
+                  <th className=" w-[22%] pr-3 mr-4 text-right font-medium">
+                    {slice.items[0].column1}
+                  </th>
+                  <th className=" bg-[#C8EDF9]">{slice.items[0].column2}</th>
+                  <th className="">{slice.items[0].column3}</th>
+                  <th className="">{slice.items[0].column4}</th>
+                </tr>
               </thead>
               <tbody>
-                {slice.items.map((item, index) => (
-                  <>
-                    {index > 0 && (
-                      <tr className="text-center">
-                        <td className=" w-[22%] pr-3 mr-4 text-right font-medium">
-                          {item.column1}
-                        </td>
-                        <td className="  bg-[#C8EDF9]">{item.column2}</td>
-                        <td className="">{item.column3}</td>
-                        <td className="">{item.column4}</td>
-                      </tr>
-                    )}
-                  </>
+                {tableBody.map((item, index) => (
+                  <tr className="text-center" key={index}>
+                    <td className=" w-[22%] pr-3 mr-4 text-right font-medium">
+                      {item.column1}
+                    </td>
+                    <td className="  bg-[#C8EDF9]">{item.column2}</td>
+                    <td className="">{item.column3}</td>
+                    <td className="">{item.column4}</td>
+                  </tr>
                 ))}
               </tbody>
             </table>
