@@ -1666,6 +1666,86 @@ export type TrustPilotStripSlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *UnmatchedService → Primary*
+ */
+export interface UnmatchedServiceSliceDefaultPrimary {
+  /**
+   * Heading field in *UnmatchedService → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unmatched_service.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *UnmatchedService → Items*
+ */
+export interface UnmatchedServiceSliceDefaultItem {
+  /**
+   * Heading field in *UnmatchedService → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unmatched_service.items[].heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+
+  /**
+   * Icon field in *UnmatchedService → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unmatched_service.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>
+
+  /**
+   * Description field in *UnmatchedService → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unmatched_service.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Default variation for UnmatchedService Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UnmatchedServiceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<UnmatchedServiceSliceDefaultPrimary>,
+  Simplify<UnmatchedServiceSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *UnmatchedService*
+ */
+type UnmatchedServiceSliceVariation = UnmatchedServiceSliceDefault
+
+/**
+ * UnmatchedService Shared Slice
+ *
+ * - **API ID**: `unmatched_service`
+ * - **Description**: UnmatchedService
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UnmatchedServiceSlice = prismic.SharedSlice<
+  "unmatched_service",
+  UnmatchedServiceSliceVariation
+>
+
+/**
  * Primary content in *UsingFunds → Primary*
  */
 export interface UsingFundsSliceDefaultPrimary {
@@ -1830,6 +1910,11 @@ declare module "@prismicio/client" {
       TrustPilotStripSliceDefaultItem,
       TrustPilotStripSliceVariation,
       TrustPilotStripSliceDefault,
+      UnmatchedServiceSlice,
+      UnmatchedServiceSliceDefaultPrimary,
+      UnmatchedServiceSliceDefaultItem,
+      UnmatchedServiceSliceVariation,
+      UnmatchedServiceSliceDefault,
       UsingFundsSlice,
       UsingFundsSliceDefaultPrimary,
       UsingFundsSliceDefaultItem,

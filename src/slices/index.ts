@@ -15,5 +15,6 @@ export const components = {
   perfect_fit: dynamic(() => import("./PerfectFit")),
   schedule_call: dynamic(() => import("./ScheduleCall")),
   trust_pilot_strip: dynamic(() => import("./TrustPilotStrip")),
+  unmatched_service: dynamic(() => import("./UnmatchedService")),
   using_funds: dynamic(() => import("./UsingFunds")),
 }
