@@ -19,7 +19,7 @@ const Benefits = ({ slice }: BenefitsProps): JSX.Element => {
       className=" bg-bgMedium"
     >
       <Wrapper width="medium">
-        <div className="py-8">
+        <div className=" ">
           <div className="flex justify-between text-center">
             {slice.items.map((item, index) => (
               <div key={index} className="flex flex-col gap-1">

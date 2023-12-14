@@ -28,7 +28,7 @@ const AboutUs = ({ slice }: AboutUsProps): JSX.Element => {
       className="bg-bgMedium"
     >
       <Wrapper width="medium">
-        <div className="py-8">
+        <div className=" ">
           <div className="mb-4 border-b-2 border-[#E3EBF2]">
             <Heading as="h2" size="h2" className="mb-2">
               {slice.primary.heading}

@@ -7,7 +7,7 @@ import { JSXMapSerializer, PrismicRichText } from "@prismicio/react"
 
 const components: JSXMapSerializer = {
   paragraph: ({ children }) => (
-    <p className="text-base font-normal text-body max-w-[770px] mx-auto mb-5 text-center">
+    <p className="text-base font-normal text-body max-w-[770px] mx-auto text-center">
       {children}
     </p>
   ),
@@ -29,7 +29,7 @@ const BusinessBenefits = ({ slice }: BusinessBenefitsProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <Wrapper>
-        <div className="flex justify-between py-10">
+        <div className="flex justify-between ">
           {slice.items.map((item, index) => (
             <div
               key={index}

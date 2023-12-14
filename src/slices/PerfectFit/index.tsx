@@ -30,7 +30,7 @@ const PerfectFit = ({ slice }: PerfectFitProps): JSX.Element => {
       className=" bg-bgMedium"
     >
       <Wrapper width="medium">
-        <div className="py-10 text-center">
+        <div className="  text-center">
           <Heading as="h2" size="h2" className="mb-2 text-center">
             {slice.primary.heading}
           </Heading>

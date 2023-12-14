@@ -33,7 +33,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className=" mb-[120px] "
+      className=" mb-[40px] "
     >
       {/* -------------------------------------- Default */}
       {slice.variation === "default" && (

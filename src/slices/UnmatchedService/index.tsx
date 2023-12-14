@@ -27,7 +27,7 @@ const UnmatchedService = ({ slice }: UnmatchedServiceProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-10 "
+      className="  "
     >
       <Wrapper>
         <Heading as="h2" size="h2" className="mb-2 text-center">
