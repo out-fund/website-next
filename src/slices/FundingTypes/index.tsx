@@ -29,7 +29,7 @@ const FundingTypes = ({ slice }: FundingTypesProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mt-15"
+      className=""
     >
       <Wrapper width="medium">
         <div className="grid grid-cols-2 gap-5">

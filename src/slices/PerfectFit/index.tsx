@@ -27,7 +27,7 @@ const PerfectFit = ({ slice }: PerfectFitProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mt-15 bg-bgMedium"
+      className=" bg-bgMedium"
     >
       <Wrapper width="medium">
         <div className="py-10 text-center">

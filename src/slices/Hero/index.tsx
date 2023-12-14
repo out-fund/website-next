@@ -38,7 +38,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       {/* -------------------------------------- Default */}
       {slice.variation === "default" && (
         <>
-          {/* <div className="absolute w-[calc(50vw+40px)] h-full bg-bgMedium left-0 z-[1]"></div> */}
           <Wrapper>
             <div className="grid grid-cols-2 ">
               <div className="relative py-9 bg-bgMedium">
@@ -67,6 +66,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                   <PrismicNextImage
                     field={slice.primary.image}
                     priority
+                    height={512}
+                    width={1200}
                     className="object-cover object-left-top w-full h-full"
                   />
                 </div>
@@ -83,35 +84,3 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 }
 
 export default Hero
-
-// <div className="grid grid-cols-[664fr_506fr] rounded-lg bg-bgDark">
-//   <div className="flex flex-col gap-6 pb-9 pl-[100px] pr-[40px] pt-9">
-//     <div className="flex flex-col gap-2 ">
-
-//     </div>
-//     <div className="flex flex-col items-start gap-1 ">
-//
-//       <div className="text-xs tracking-tight text-body opacity-70">
-//
-//       </div>
-//     </div>
-//   </div>
-//   <div className="self-end">
-
-//   </div>
-// </div>
-
-// simple
-// <div className="rounded-lg bg-bgDark">
-//   <div className="flex flex-col gap-6 pb-9 pl-[100px] pr-[40px] pt-9 md:min-h-[524px] justify-center">
-//     <div className="flex flex-col gap-2 text-center">
-//       <PrismicRichText
-//         field={slice.primary.heading}
-//         components={components}
-//       />
-//       <p className="text-base font-[450] tracking-tighter text-body max-w-[770px] mx-auto">
-//         {slice.primary.description}
-//       </p>
-//     </div>
-//   </div>
-// </div>

@@ -387,6 +387,7 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | UnmatchedServiceSlice
   | AboutUsSlice
   | BusinessBenefitsSlice
   | PerfectFitSlice
@@ -1685,14 +1686,14 @@ export interface UnmatchedServiceSliceDefaultPrimary {
  */
 export interface UnmatchedServiceSliceDefaultItem {
   /**
-   * Heading field in *UnmatchedService → Items*
+   * Title field in *UnmatchedService → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: unmatched_service.items[].heading
+   * - **API ID Path**: unmatched_service.items[].title
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  heading: prismic.KeyTextField
+  title: prismic.KeyTextField
 
   /**
    * Icon field in *UnmatchedService → Items*

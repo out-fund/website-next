@@ -16,7 +16,7 @@ const UsingFunds = ({ slice }: UsingFundsProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mt-15"
+      className=""
     >
       <Wrapper>
         <Heading as="h2" size="h2" className="mb-4 text-right">
