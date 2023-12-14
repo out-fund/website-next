@@ -1,7 +1,10 @@
 .icon {
+  align-items: baseline;
   position: relative;
   &::before {
+    flex-shrink: 0;
     display: block;
+    top: 2px;
     width: 16px;
     height: 16px;
     content: "";

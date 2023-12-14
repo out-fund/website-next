@@ -109,19 +109,144 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
       className=" mt-10 mb-10 md:mt-15 md:mb-15 md:pb-[56px] "
     >
       <Wrapper>
-        <div className="GridWrapper grid grid-cols-1 md:grid-cols-[400px_1fr] gap-5 md:gap-[100px]">
-          <div className="flex flex-col gap-3 md:gap-10 TextGroup">
-            <div className="flex flex-col gap-2">
-              <Heading as="h2" size="h2" className="">
-                {slice.primary.heading}
-              </Heading>
-              <PrismicRichText
-                field={slice.primary.description}
-                components={components}
-              />
-            </div>
+        <div className="mx-auto md:mx-0 max-w-[90%] md:max-w-none">
+          <div className="GridWrapper grid grid-cols-1 md:grid-cols-[400px_1fr] gap-5 md:gap-[100px]">
+            <div className="flex flex-col gap-3 md:gap-10 TextGroup">
+              <div className="flex flex-col gap-2">
+                <Heading as="h2" size="h2" className="">
+                  {slice.primary.heading}
+                </Heading>
+                <PrismicRichText
+                  field={slice.primary.description}
+                  components={components}
+                />
+              </div>
 
-            <div className="hidden md:block">
+              <div className="hidden md:block">
+                <Heading as="h3" size="h3" className="mb-2">
+                  {slice.primary.subheading}
+                </Heading>
+                <ul className="flex flex-col gap-2">
+                  {slice.items.map((item, index) => (
+                    <li
+                      key={index}
+                      className={`${classes.icon} flex items-center gap-2 text-base text-body leading-6`}
+                    >
+                      {item.bulletpoint}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="flex flex-col justify-end gap-3 CalculatorGroup">
+              <div className="flex flex-col gap-3 Sliders">
+                <div className="SliderGroup">
+                  <div className="flex justify-between mb-1 textWrapper">
+                    <Heading
+                      as="div"
+                      size="h4"
+                      className="text-[18px] leading-[24px]"
+                    >
+                      {slice.primary.amount_title}
+                    </Heading>
+                    <Heading
+                      className="text-[18px] leading-[24px] font-medium"
+                      as="div"
+                      size="h4"
+                    >
+                      {getAmount(parseInt(selectedLoanAmount))}
+                    </Heading>
+                  </div>
+                  <div className={classes.slider}>
+                    <input
+                      type="range"
+                      id="amount"
+                      name="amount"
+                      min="0"
+                      max={amounts.length - 1}
+                      step="1"
+                      defaultValue={intialAmountValue}
+                      onChange={(event) => handleAmountChange(event)}
+                    />
+                    <div className={classes.slider__min}>
+                      {getAmount(parseInt(amounts[0]))}
+                    </div>
+                    <div className={classes.slider__max}>
+                      {getAmount(parseInt(amounts[amounts.length - 1]))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="SliderGroup">
+                  <div className="flex justify-between mb-1 textWrapper">
+                    <Heading
+                      as="div"
+                      size="h4"
+                      className="text-[18px] leading-[24px]"
+                    >
+                      {slice.primary.term_title}
+                    </Heading>
+                    <Heading
+                      className="text-[18px] leading-[24px] font-medium"
+                      as="div"
+                      size="h4"
+                    >
+                      {selectedTerm} {slice.primary.slider_months_text}
+                    </Heading>
+                  </div>
+                  <div className={classes.slider}>
+                    <input
+                      type="range"
+                      id="amount"
+                      name="amount"
+                      min="0"
+                      max={termLengths.length - 1}
+                      step="1"
+                      defaultValue={intialTerm}
+                      onChange={(event) => handleTermChange(event)}
+                    />
+                    <div className={classes.slider__min}>
+                      {termLengths[0]} {slice.primary.slider_months_text}
+                    </div>
+                    <div className={classes.slider__max}>
+                      {termLengths[termLengths.length - 1]}{" "}
+                      {slice.primary.slider_months_text}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="BottomGroup w-full md:w-1/2 md:min-w-[370px] self-end flex flex-col gap-3">
+                <div className="RepayableGroup">
+                  <div className="flex items-baseline justify-between">
+                    <Heading
+                      as="div"
+                      size="h4"
+                      className="text-[18px] leading-[24px]"
+                    >
+                      {slice.primary.total_title}
+                    </Heading>
+                    <hr className="w-[36%] border-dashed opacity-20" />
+                    <Heading
+                      className="text-[18px] leading-[24px] font-medium"
+                      as="div"
+                      size="h4"
+                    >
+                      {getAmount(totalRepayable)}
+                    </Heading>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center ButtonGroup relative ">
+                  <Button href="#" className="w-full">
+                    {slice.primary.button_text}{" "}
+                    {getAmount(parseInt(selectedLoanAmount))}
+                  </Button>
+                  <div className="px-2 text-xs text-center text-[#4B6686] absolute top-[56px]">
+                    {slice.primary.button_note}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="mt-8 md:hidden">
               <Heading as="h3" size="h3" className="mb-2">
                 {slice.primary.subheading}
               </Heading>
@@ -129,136 +254,13 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                 {slice.items.map((item, index) => (
                   <li
                     key={index}
-                    className={`${classes.icon} flex items-center gap-2 text-base text-body leading-6`}
+                    className={`${classes.icon} flex items-center gap-2 text-base text-body leading-6  `}
                   >
                     {item.bulletpoint}
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
-          <div className="flex flex-col justify-end gap-3 CalculatorGroup">
-            <div className="flex flex-col gap-3 Sliders">
-              <div className="SliderGroup">
-                <div className="flex justify-between mb-1 textWrapper">
-                  <Heading
-                    as="div"
-                    size="h4"
-                    className="text-[18px] leading-[24px]"
-                  >
-                    {slice.primary.amount_title}
-                  </Heading>
-                  <Heading
-                    className="text-[18px] leading-[24px] font-medium"
-                    as="div"
-                    size="h4"
-                  >
-                    {getAmount(parseInt(selectedLoanAmount))}
-                  </Heading>
-                </div>
-                <div className={classes.slider}>
-                  <input
-                    type="range"
-                    id="amount"
-                    name="amount"
-                    min="0"
-                    max={amounts.length - 1}
-                    step="1"
-                    defaultValue={intialAmountValue}
-                    onChange={(event) => handleAmountChange(event)}
-                  />
-                  <div className={classes.slider__min}>
-                    {getAmount(parseInt(amounts[0]))}
-                  </div>
-                  <div className={classes.slider__max}>
-                    {getAmount(parseInt(amounts[amounts.length - 1]))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="SliderGroup">
-                <div className="flex justify-between mb-1 textWrapper">
-                  <Heading
-                    as="div"
-                    size="h4"
-                    className="text-[18px] leading-[24px]"
-                  >
-                    {slice.primary.term_title}
-                  </Heading>
-                  <Heading
-                    className="text-[18px] leading-[24px] font-medium"
-                    as="div"
-                    size="h4"
-                  >
-                    {selectedTerm} {slice.primary.slider_months_text}
-                  </Heading>
-                </div>
-                <div className={classes.slider}>
-                  <input
-                    type="range"
-                    id="amount"
-                    name="amount"
-                    min="0"
-                    max={termLengths.length - 1}
-                    step="1"
-                    defaultValue={intialTerm}
-                    onChange={(event) => handleTermChange(event)}
-                  />
-                  <div className={classes.slider__min}>
-                    {termLengths[0]} {slice.primary.slider_months_text}
-                  </div>
-                  <div className={classes.slider__max}>
-                    {termLengths[termLengths.length - 1]}{" "}
-                    {slice.primary.slider_months_text}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="BottomGroup w-full md:w-1/2 md:min-w-[370px] self-end flex flex-col gap-3">
-              <div className="RepayableGroup">
-                <div className="flex items-baseline justify-between">
-                  <Heading
-                    as="div"
-                    size="h4"
-                    className="text-[18px] leading-[24px]"
-                  >
-                    {slice.primary.total_title}
-                  </Heading>
-                  <hr className="w-[36%] border-dashed opacity-20" />
-                  <Heading
-                    className="text-[18px] leading-[24px] font-medium"
-                    as="div"
-                    size="h4"
-                  >
-                    {getAmount(totalRepayable)}
-                  </Heading>
-                </div>
-              </div>
-              <div className="flex flex-col items-center ButtonGroup relative ">
-                <Button href="#" className="w-full">
-                  {slice.primary.button_text}{" "}
-                  {getAmount(parseInt(selectedLoanAmount))}
-                </Button>
-                <div className="px-2 text-xs text-center text-[#4B6686] absolute top-[56px]">
-                  {slice.primary.button_note}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 md:hidden">
-            <Heading as="h3" size="h3" className="mb-2">
-              {slice.primary.subheading}
-            </Heading>
-            <ul className="flex flex-col gap-2">
-              {slice.items.map((item, index) => (
-                <li
-                  key={index}
-                  className={`${classes.icon} flex items-center gap-2 text-base text-body leading-6`}
-                >
-                  {item.bulletpoint}
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </Wrapper>
