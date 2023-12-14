@@ -5,16 +5,14 @@ import dynamic from "next/dynamic"
 export const components = {
   about_us: dynamic(() => import("./AboutUs")),
   benefits: dynamic(() => import("./Benefits")),
-  business_benefits: dynamic(() => import("./BusinessBenefits")),
   calculator: dynamic(() => import("./Calculator")),
   clients_say: dynamic(() => import("./ClientsSay")),
   funding_explained: dynamic(() => import("./FundingExplained")),
-  funding_types: dynamic(() => import("./FundingTypes")),
   hero: dynamic(() => import("./Hero")),
   partners: dynamic(() => import("./Partners")),
   perfect_fit: dynamic(() => import("./PerfectFit")),
   schedule_call: dynamic(() => import("./ScheduleCall")),
   trust_pilot_strip: dynamic(() => import("./TrustPilotStrip")),
-  unmatched_service: dynamic(() => import("./UnmatchedService")),
+  unmatched_service: dynamic(() => import("./ThreeColumns")),
   using_funds: dynamic(() => import("./UsingFunds")),
 }

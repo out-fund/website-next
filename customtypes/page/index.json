@@ -31,9 +31,6 @@
             "about_us": {
               "type": "SharedSlice"
             },
-            "business_benefits": {
-              "type": "SharedSlice"
-            },
             "perfect_fit": {
               "type": "SharedSlice"
             },
@@ -41,9 +38,6 @@
               "type": "SharedSlice"
             },
             "funding_explained": {
-              "type": "SharedSlice"
-            },
-            "funding_types": {
               "type": "SharedSlice"
             },
             "schedule_call": {

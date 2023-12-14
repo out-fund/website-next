@@ -389,11 +389,9 @@ export type NavbarDocument<Lang extends string = string> =
 type PageDocumentDataSlicesSlice =
   | UnmatchedServiceSlice
   | AboutUsSlice
-  | BusinessBenefitsSlice
   | PerfectFitSlice
   | UsingFundsSlice
   | FundingExplainedSlice
-  | FundingTypesSlice
   | ScheduleCallSlice
   | PartnersSlice
   | BenefitsSlice
@@ -699,86 +697,6 @@ type BenefitsSliceVariation = BenefitsSliceDefault
 export type BenefitsSlice = prismic.SharedSlice<
   "benefits",
   BenefitsSliceVariation
->
-
-/**
- * Primary content in *BusinessBenefits → Primary*
- */
-export interface BusinessBenefitsSliceDefaultPrimary {
-  /**
-   * Heading field in *BusinessBenefits → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: business_benefits.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  heading: prismic.KeyTextField
-}
-
-/**
- * Primary content in *BusinessBenefits → Items*
- */
-export interface BusinessBenefitsSliceDefaultItem {
-  /**
-   * Icon field in *BusinessBenefits → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: business_benefits.items[].icon
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  icon: prismic.ImageField<never>
-
-  /**
-   * Title field in *BusinessBenefits → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: business_benefits.items[].title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField
-
-  /**
-   * Description field in *BusinessBenefits → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: business_benefits.items[].description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField
-}
-
-/**
- * Default variation for BusinessBenefits Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type BusinessBenefitsSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<BusinessBenefitsSliceDefaultPrimary>,
-  Simplify<BusinessBenefitsSliceDefaultItem>
->
-
-/**
- * Slice variation for *BusinessBenefits*
- */
-type BusinessBenefitsSliceVariation = BusinessBenefitsSliceDefault
-
-/**
- * BusinessBenefits Shared Slice
- *
- * - **API ID**: `business_benefits`
- * - **Description**: BusinessBenefits
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type BusinessBenefitsSlice = prismic.SharedSlice<
-  "business_benefits",
-  BusinessBenefitsSliceVariation
 >
 
 /**
@@ -1129,71 +1047,6 @@ type FundingExplainedSliceVariation = FundingExplainedSliceDefault
 export type FundingExplainedSlice = prismic.SharedSlice<
   "funding_explained",
   FundingExplainedSliceVariation
->
-
-/**
- * Primary content in *FundingTypes → Items*
- */
-export interface FundingTypesSliceDefaultItem {
-  /**
-   * Title field in *FundingTypes → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: funding_types.items[].title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField
-
-  /**
-   * Icon field in *FundingTypes → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: funding_types.items[].icon
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  icon: prismic.ImageField<never>
-
-  /**
-   * Description field in *FundingTypes → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: funding_types.items[].description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField
-}
-
-/**
- * Default variation for FundingTypes Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type FundingTypesSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  Simplify<FundingTypesSliceDefaultItem>
->
-
-/**
- * Slice variation for *FundingTypes*
- */
-type FundingTypesSliceVariation = FundingTypesSliceDefault
-
-/**
- * FundingTypes Shared Slice
- *
- * - **API ID**: `funding_types`
- * - **Description**: FundingTypes
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type FundingTypesSlice = prismic.SharedSlice<
-  "funding_types",
-  FundingTypesSliceVariation
 >
 
 /**
@@ -1667,11 +1520,11 @@ export type TrustPilotStripSlice = prismic.SharedSlice<
 >
 
 /**
- * Primary content in *UnmatchedService → Primary*
+ * Primary content in *ThreeColumns → Primary*
  */
 export interface UnmatchedServiceSliceDefaultPrimary {
   /**
-   * Heading field in *UnmatchedService → Primary*
+   * Heading field in *ThreeColumns → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -1682,11 +1535,11 @@ export interface UnmatchedServiceSliceDefaultPrimary {
 }
 
 /**
- * Primary content in *UnmatchedService → Items*
+ * Primary content in *ThreeColumns → Items*
  */
 export interface UnmatchedServiceSliceDefaultItem {
   /**
-   * Title field in *UnmatchedService → Items*
+   * Title field in *ThreeColumns → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -1696,7 +1549,7 @@ export interface UnmatchedServiceSliceDefaultItem {
   title: prismic.KeyTextField
 
   /**
-   * Icon field in *UnmatchedService → Items*
+   * Icon field in *ThreeColumns → Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1706,7 +1559,7 @@ export interface UnmatchedServiceSliceDefaultItem {
   icon: prismic.ImageField<never>
 
   /**
-   * Description field in *UnmatchedService → Items*
+   * Description field in *ThreeColumns → Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1717,7 +1570,7 @@ export interface UnmatchedServiceSliceDefaultItem {
 }
 
 /**
- * Default variation for UnmatchedService Slice
+ * Default variation for ThreeColumns Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -1730,12 +1583,12 @@ export type UnmatchedServiceSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
- * Slice variation for *UnmatchedService*
+ * Slice variation for *ThreeColumns*
  */
 type UnmatchedServiceSliceVariation = UnmatchedServiceSliceDefault
 
 /**
- * UnmatchedService Shared Slice
+ * ThreeColumns Shared Slice
  *
  * - **API ID**: `unmatched_service`
  * - **Description**: UnmatchedService
@@ -1863,11 +1716,6 @@ declare module "@prismicio/client" {
       BenefitsSliceDefaultItem,
       BenefitsSliceVariation,
       BenefitsSliceDefault,
-      BusinessBenefitsSlice,
-      BusinessBenefitsSliceDefaultPrimary,
-      BusinessBenefitsSliceDefaultItem,
-      BusinessBenefitsSliceVariation,
-      BusinessBenefitsSliceDefault,
       CalculatorSlice,
       CalculatorSliceDefaultPrimary,
       CalculatorSliceDefaultItem,
@@ -1883,10 +1731,6 @@ declare module "@prismicio/client" {
       FundingExplainedSliceDefaultItem,
       FundingExplainedSliceVariation,
       FundingExplainedSliceDefault,
-      FundingTypesSlice,
-      FundingTypesSliceDefaultItem,
-      FundingTypesSliceVariation,
-      FundingTypesSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceSimplePrimary,

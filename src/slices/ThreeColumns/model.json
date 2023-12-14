@@ -1,8 +1,8 @@
 {
-  "id": "funding_types",
+  "id": "unmatched_service",
   "type": "SharedSlice",
-  "name": "FundingTypes",
-  "description": "FundingTypes",
+  "name": "ThreeColumns",
+  "description": "UnmatchedService",
   "variations": [
     {
       "id": "default",
@@ -11,7 +11,15 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        }
+      },
       "items": {
         "title": {
           "type": "Text",
@@ -24,10 +32,7 @@
           "type": "Image",
           "config": {
             "label": "Icon",
-            "constraint": {
-              "width": 80,
-              "height": 80
-            },
+            "constraint": {},
             "thumbnails": []
           }
         },
@@ -37,7 +42,7 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph"
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         }
       }

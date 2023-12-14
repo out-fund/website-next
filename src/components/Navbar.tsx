@@ -10,7 +10,7 @@ export default function Navbar(props: any) {
       <Wrapper>
         {/* ------------------------------------------------ Mobile nav */}
         <div className=" md:hidden">
-          <div className="flex justify-between mt-3 mb-3 mobileTopWrapper">
+          <div className="flex justify-between pt-3 pb-3 mobileTopWrapper">
             <Link
               href={`/${props.locale}`}
               className="h-[42px] w-[142px] pt-1 pb-1 block"
@@ -21,7 +21,7 @@ export default function Navbar(props: any) {
             <button>Menu</button>
           </div>
 
-          <nav className="pb-2 Nav ">
+          <nav className="pb-2 Nav hidden">
             <ul className="flex flex-col border-t border-[#BFD5EE]">
               {props.data.data.navbar_left.map(
                 ({ label, link }: { label: any; link: any }) => (

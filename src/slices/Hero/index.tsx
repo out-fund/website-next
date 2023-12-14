@@ -9,9 +9,8 @@ import {
 import { Wrapper, Button, Heading } from "@/components/atoms"
 
 const components: JSXMapSerializer = {
-  // heading1: ({ children }) => <h1 className="">{children}</h1>,
   heading1: ({ children }) => (
-    <Heading as="h1" size="h1" className="leading-[64px]">
+    <Heading as="h1" size="h1" className="">
       {children}
     </Heading>
   ),
@@ -33,16 +32,16 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className=" mb-[40px] "
+      className="md:pb-[40px] "
     >
       {/* -------------------------------------- Default */}
       {slice.variation === "default" && (
         <>
           <Wrapper>
-            <div className="grid grid-cols-2 ">
+            <div className="grid md:grid-cols-2 ">
               <div className="relative py-9 bg-bgMedium">
-                <div className="container absolute top-[0px] right-[-40px] h-full w-[calc(50vw+40px)] bg-bgMedium"></div>
-                <div className="flex flex-col max-w-[470px] gap-4 items-start relative">
+                <div className="hidden md:block md:absolute md:top-[0px] md:right-[-40px] md:h-full md:w-[calc(50vw+40px)] md:bg-bgMedium"></div>
+                <div className="flex flex-col max-w-[80%] mx-auto md:mx-0 md:max-w-[470px] gap-4 items-start relative">
                   <div className="flex flex-col gap-3">
                     <PrismicRichText
                       field={slice.primary.heading}
@@ -61,14 +60,21 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                   </div>
                 </div>
               </div>
-              <div className="relative z-10 image">
-                <div className="container absolute top-[40px] left-[-40px] h-full  w-[calc(50vw+40px)] ">
+              <div className="md:relative md:z-10 ">
+                <div className=" lg:absolute lg:top-[40px] lg:left-[-40px] h-full lg:w-[calc(50vw+40px)] ">
+                  <PrismicNextImage
+                    field={slice.primary.image.mobile}
+                    priority
+                    height={512}
+                    width={1200}
+                    className="md:hidden w-full "
+                  />
                   <PrismicNextImage
                     field={slice.primary.image}
                     priority
                     height={512}
-                    width={1200}
-                    className="object-cover object-left-top w-full h-full"
+                    width={768}
+                    className="hidden md:block object-cover object-[20%] lg:object-left-top w-full h-full"
                   />
                 </div>
               </div>

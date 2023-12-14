@@ -25,7 +25,7 @@ const FundingExplained = ({ slice }: FundingExplainedProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className=""
+      className=" mt-10 mb-10 md:mt-15 md:mb-15"
     >
       <Wrapper>
         <Heading as="h2" size="h2" className="mb-4">
@@ -36,7 +36,7 @@ const FundingExplained = ({ slice }: FundingExplainedProps): JSX.Element => {
           {slice.items.map((item, index) => (
             <div
               key={index}
-              className="flex border-b-2 border-[#F0F4F9] last:border-0 max-w-[878px] w-full items-start pb-5 pt-4"
+              className="flex flex-col md:flex-row border-b-2 border-[#F0F4F9] last:border-0 max-w-[878px] w-full items-start pb-5 pt-4"
             >
               <PrismicNextImage
                 field={item.icon}
@@ -45,9 +45,9 @@ const FundingExplained = ({ slice }: FundingExplainedProps): JSX.Element => {
                 className="pt-[11px]"
               />
               <Heading
-                size="h4"
+                size="h3"
                 as="h3"
-                className="ml-4 max-w-[175px] font-medium text-xl text-heading"
+                className="mt-2 md:mt-0 md:ml-4 max-w-[175px]"
               >
                 {item.title}
               </Heading>

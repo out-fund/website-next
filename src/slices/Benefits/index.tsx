@@ -16,22 +16,25 @@ const Benefits = ({ slice }: BenefitsProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className=" bg-bgMedium"
+      className=" mt-10 mb-10 md:mt-15 md:mb-15 py-10 md:py-15 bg-bgMedium"
     >
-      <Wrapper width="medium">
-        <div className=" ">
-          <div className="flex justify-between text-center">
-            {slice.items.map((item, index) => (
-              <div key={index} className="flex flex-col gap-1">
-                <div className="text-[16px] leading-[24px] text-body">
-                  {item.top_text}
-                </div>
-                <div className="text-[24px] leading-[32px] font-medium text-body">
-                  {item.bottom_text}
-                </div>
-              </div>
-            ))}
-          </div>
+      <Wrapper>
+        <div className="grid grid-cols-2 gap-x-3 gap-y-8 md:grid-cols-4 text-center">
+          {slice.items.map((item, index) => (
+            <Heading
+              size="h3"
+              as="h3"
+              key={index}
+              className="flex flex-col gap-1"
+            >
+              <span className="text-[16px] leading-[24px] text-body">
+                {item.top_text}
+              </span>
+              <span className="text-[24px] leading-[32px] font-medium text-body">
+                {item.bottom_text}
+              </span>
+            </Heading>
+          ))}
         </div>
       </Wrapper>
     </section>

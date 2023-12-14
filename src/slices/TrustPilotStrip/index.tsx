@@ -32,6 +32,7 @@ const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="mt-5 md:mt-5"
     >
       <Wrapper>
         <div className="relative ">
@@ -47,10 +48,10 @@ const TrustPilotStrip = ({ slice }: TrustPilotStripProps): JSX.Element => {
             }}
             breakpoints={{
               300: {
-                slidesPerView: 1,
+                slidesPerView: 1.3,
               },
               768: {
-                slidesPerView: 2,
+                slidesPerView: 2.3,
               },
               1024: {
                 slidesPerView: 4.3,

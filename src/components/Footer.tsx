@@ -1,17 +1,14 @@
-//
-// Footer
-//
 import Link from "next/link"
 import "/node_modules/flag-icons/css/flag-icons.min.css"
 import { Wrapper, PageLink, Logo } from "@/components/atoms"
 
 export default async function Footer(props: any) {
   return (
-    <footer className=" bg-bgMedium">
+    <footer className="  bg-bgMedium">
       <Wrapper>
-        <div className="flex flex-col pt-10 pb-1 ">
+        <div className="flex flex-col pt-10 pb-1 max-w-[80%] mx-auto ">
           <div className="top">
-            <div className="grid grid-cols-5">
+            <div className="grid gap-5 md:grid-rows-none md:grid-cols-5">
               <Link href={`/${props.locale}`} className="h-[26px] w-[142px]">
                 <span className="sr-only">Outfund</span>
                 <Logo variant="mono" />
@@ -90,7 +87,8 @@ export default async function Footer(props: any) {
           <div className="py-5 max-w-[800px] text-md text-body opacity-70">
             {props.data.data.fca_statement}
           </div>
-          <div className="bottom flex items-baseline gap-2 border-t border-[#DCE6EF] pt-1">
+          {/* Bottom ---------------------------------------------------------------- */}
+          <div className=" flex flex-col md:flex-row items-baseline gap-2 border-t border-[#DCE6EF] pt-1">
             <div className="text-xs text-body font-[400] opacity-70">
               Copyright © {new Date().getFullYear()} Outfund.{" "}
               {props.data.data.copyright}

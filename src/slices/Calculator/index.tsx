@@ -13,7 +13,7 @@ import classes from "./index.module.scss"
 
 const components: JSXMapSerializer = {
   paragraph: ({ children }) => (
-    <p className="text-base text-body">{children}</p>
+    <p className="text-base text-body ">{children}</p>
   ),
 }
 
@@ -106,13 +106,13 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="pb-[56px]"
+      className=" mt-10 mb-10 md:mt-15 md:mb-15 md:pb-[56px] "
     >
       <Wrapper>
-        <div className="GridWrapper grid grid-cols-1 md:grid-cols-[400px_1fr] gap-[100px]">
-          <div className="flex flex-col gap-6 TextGroup">
-            <div>
-              <Heading as="h2" size="h2" className="mb-2">
+        <div className="GridWrapper grid grid-cols-1 md:grid-cols-[400px_1fr] gap-5 md:gap-[100px]">
+          <div className="flex flex-col gap-3 md:gap-10 TextGroup">
+            <div className="flex flex-col gap-2">
+              <Heading as="h2" size="h2" className="">
                 {slice.primary.heading}
               </Heading>
               <PrismicRichText
@@ -121,7 +121,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
               />
             </div>
 
-            <div>
+            <div className="hidden md:block">
               <Heading as="h3" size="h3" className="mb-2">
                 {slice.primary.subheading}
               </Heading>
@@ -214,7 +214,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                 </div>
               </div>
             </div>
-            <div className="BottomGroup w-1/2 min-w-[370px] self-end flex flex-col gap-3">
+            <div className="BottomGroup w-full md:w-1/2 md:min-w-[370px] self-end flex flex-col gap-3">
               <div className="RepayableGroup">
                 <div className="flex items-baseline justify-between">
                   <Heading
@@ -244,6 +244,21 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="mt-8 md:hidden">
+            <Heading as="h3" size="h3" className="mb-2">
+              {slice.primary.subheading}
+            </Heading>
+            <ul className="flex flex-col gap-2">
+              {slice.items.map((item, index) => (
+                <li
+                  key={index}
+                  className={`${classes.icon} flex items-center gap-2 text-base text-body leading-6`}
+                >
+                  {item.bulletpoint}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Wrapper>
