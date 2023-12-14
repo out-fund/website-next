@@ -19,32 +19,31 @@ const UsingFunds = ({ slice }: UsingFundsProps): JSX.Element => {
       className=" mt-10 mb-10 md:mt-15 md:mb-15"
     >
       <Wrapper>
-        <Heading as="h2" size="h2" className="mb-4 text-right">
-          {slice.primary.heading}
-        </Heading>
-        <hr className="border-t-2 border-[#F0F4F9]" />
-        <div className="flex flex-col md:flex-row gap-6 pt-4 allGroup">
-          {slice.items.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col w-[80%] mx-auto md:mx-0 md:w-[300px]"
-            >
-              <PrismicNextImage
-                field={item.icon}
-                width={80}
-                height={80}
-                className="mb-3"
-              />
+        <div className="mx-auto md:mx-0 max-w-[90%] md:max-w-none">
+          <Heading as="h2" size="h2" className="mb-4 text-right">
+            {slice.primary.heading}
+          </Heading>
+          <hr className="border-t-2 border-[#F0F4F9]" />
+          <div className="flex flex-col md:flex-row gap-6 pt-4 allGroup">
+            {slice.items.map((item, index) => (
+              <div key={index} className="flex flex-col  md:w-[300px]">
+                <PrismicNextImage
+                  field={item.icon}
+                  width={80}
+                  height={80}
+                  className="mb-3"
+                />
 
-              <Heading as="h3" size="h3" className="mb-1">
-                {item.title}
-              </Heading>
+                <Heading as="h3" size="h3" className="mb-1">
+                  {item.title}
+                </Heading>
 
-              <p className="text-base font-normal text-body">
-                {item.description}
-              </p>
-            </div>
-          ))}
+                <p className="text-base font-normal text-body">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </Wrapper>
     </section>

@@ -29,7 +29,7 @@ const AboutUs = ({ slice }: AboutUsProps): JSX.Element => {
     >
       <Wrapper width="medium">
         <div className=" ">
-          <div className="mb-4 border-b-2 border-[#E3EBF2] mx-auto md:mx-0 max-w-[80%] md:max-w-none">
+          <div className="mb-4 border-b-2 border-[#E3EBF2] mx-auto md:mx-0 max-w-[90%] md:max-w-none">
             <Heading as="h2" size="h2" className="mb-2">
               {slice.primary.heading}
             </Heading>

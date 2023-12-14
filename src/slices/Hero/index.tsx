@@ -41,7 +41,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             <div className="grid md:grid-cols-2 ">
               <div className="relative py-9 bg-bgMedium">
                 <div className="hidden md:block md:absolute md:top-[0px] md:right-[-40px] md:h-full md:w-[calc(50vw+40px)] md:bg-bgMedium"></div>
-                <div className="flex flex-col max-w-[80%] mx-auto md:mx-0 md:max-w-[470px] gap-4 items-start relative">
+                <div className="flex flex-col max-w-[90%] mx-auto md:mx-0 md:max-w-[470px] gap-4 items-start relative">
                   <div className="flex flex-col gap-3">
                     <PrismicRichText
                       field={slice.primary.heading}

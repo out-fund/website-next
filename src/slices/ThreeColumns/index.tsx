@@ -37,7 +37,7 @@ const UnmatchedService = ({ slice }: UnmatchedServiceProps): JSX.Element => {
           {slice.items.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col mx-auto md:mx-0 max-w-[80%] md:max-w-[300px] gap-1 "
+              className="flex flex-col mx-auto md:mx-0 max-w-[90%] md:max-w-[300px] gap-1 "
             >
               <PrismicNextImage
                 field={item.icon}

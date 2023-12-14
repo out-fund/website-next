@@ -28,37 +28,39 @@ const FundingExplained = ({ slice }: FundingExplainedProps): JSX.Element => {
       className=" mt-10 mb-10 md:mt-15 md:mb-15"
     >
       <Wrapper>
-        <Heading as="h2" size="h2" className="mb-4">
-          {slice.primary.heading}
-        </Heading>
-        <hr className="border-t-2 border-[#F0F4F9]" />
-        <div className="flex flex-col items-end ">
-          {slice.items.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col md:flex-row border-b-2 border-[#F0F4F9] last:border-0 max-w-[878px] w-full items-start pb-5 pt-4"
-            >
-              <PrismicNextImage
-                field={item.icon}
-                width={79}
-                height={45}
-                className="pt-[11px]"
-              />
-              <Heading
-                size="h3"
-                as="h3"
-                className="mt-2 md:mt-0 md:ml-4 max-w-[175px]"
+        <div className="mx-auto md:mx-0 max-w-[90%] md:max-w-none">
+          <Heading as="h2" size="h2" className="mb-4">
+            {slice.primary.heading}
+          </Heading>
+          <hr className="border-t-2 border-[#F0F4F9]" />
+          <div className="flex flex-col items-end ">
+            {slice.items.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col md:flex-row border-b-2 border-[#F0F4F9] last:border-0 max-w-[878px] w-full items-start pb-5 pt-4  "
               >
-                {item.title}
-              </Heading>
-              <div className="pt-1 ml-auto max-w-[470px]">
-                <PrismicRichText
-                  field={item.description}
-                  components={components}
+                <PrismicNextImage
+                  field={item.icon}
+                  width={79}
+                  height={45}
+                  className="pt-[11px]"
                 />
+                <Heading
+                  size="h3"
+                  as="h3"
+                  className="mt-2 md:mt-0 md:ml-4 max-w-[175px]"
+                >
+                  {item.title}
+                </Heading>
+                <div className="pt-1 ml-auto max-w-[470px]">
+                  <PrismicRichText
+                    field={item.description}
+                    components={components}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </Wrapper>
     </section>

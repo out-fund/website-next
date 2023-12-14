@@ -6,7 +6,7 @@ export default async function Footer(props: any) {
   return (
     <footer className="  bg-bgMedium">
       <Wrapper>
-        <div className="flex flex-col pt-10 pb-1 max-w-[80%] mx-auto ">
+        <div className="flex flex-col pt-10 pb-1 mx-auto md:mx-0 max-w-[90%] md:max-w-none  ">
           <div className="top">
             <div className="grid gap-5 md:grid-rows-none md:grid-cols-5">
               <Link href={`/${props.locale}`} className="h-[26px] w-[142px]">
