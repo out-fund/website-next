@@ -25,6 +25,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "process_steps": {
+              "type": "SharedSlice"
+            },
             "unmatched_service": {
               "type": "SharedSlice"
             },

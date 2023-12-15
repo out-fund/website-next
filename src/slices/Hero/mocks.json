@@ -99,9 +99,15 @@
 				]
 			},
 			"description": {
-				"__TYPE__": "FieldContent",
-				"value": "running",
-				"type": "Text"
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Cillum qui dolore duis deserunt do in minim in ea consequat in do. Pariatur veniam pariatur dolor sint eu commodo ut veniam duis. Aliqua ullamco ad et minim ad minim irure labore velit Lorem officia voluptate deserunt."
+						}
+					}
+				]
 			}
 		},
 		"items": [

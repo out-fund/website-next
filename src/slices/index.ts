@@ -11,6 +11,7 @@ export const components = {
   hero: dynamic(() => import("./Hero")),
   partners: dynamic(() => import("./Partners")),
   perfect_fit: dynamic(() => import("./PerfectFit")),
+  process_steps: dynamic(() => import("./ProcessSteps")),
   schedule_call: dynamic(() => import("./ScheduleCall")),
   trust_pilot_strip: dynamic(() => import("./TrustPilotStrip")),
   unmatched_service: dynamic(() => import("./ThreeColumns")),

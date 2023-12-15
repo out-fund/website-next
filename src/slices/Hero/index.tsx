@@ -29,14 +29,14 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-      className="lg:pb-[40px] "
-    >
+    <>
       {/* -------------------------------------- Default */}
       {slice.variation === "default" && (
-        <>
+        <section
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+          className="lg:pb-[40px] "
+        >
           <Wrapper>
             <div className="grid lg:grid-cols-2 ">
               <div className="relative py-9 bg-bgMedium">
@@ -80,12 +80,31 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               </div>
             </div>
           </Wrapper>
-        </>
+        </section>
       )}
 
       {/* -------------------------------------- Simple */}
-      {slice.variation === "simple" && <div>dimple</div>}
-    </section>
+      {slice.variation === "simple" && (
+        <section
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+          className=" bg-bgMedium  py-10 md:py-15"
+        >
+          <Wrapper>
+            <div className="flex flex-col gap-3">
+              <PrismicRichText
+                field={slice.primary.heading}
+                components={components}
+              />
+              <PrismicRichText
+                field={slice.primary.description}
+                components={components}
+              />
+            </div>
+          </Wrapper>
+        </section>
+      )}
+    </>
   )
 }
 

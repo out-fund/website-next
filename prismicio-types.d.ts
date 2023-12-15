@@ -387,6 +387,7 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | ProcessStepsSlice
   | UnmatchedServiceSlice
   | AboutUsSlice
   | PerfectFitSlice
@@ -1134,12 +1135,12 @@ export interface HeroSliceSimplePrimary {
   /**
    * Description field in *Hero → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: hero.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  description: prismic.KeyTextField
+  description: prismic.RichTextField
 }
 
 /**
@@ -1347,6 +1348,86 @@ type PerfectFitSliceVariation = PerfectFitSliceDefault
 export type PerfectFitSlice = prismic.SharedSlice<
   "perfect_fit",
   PerfectFitSliceVariation
+>
+
+/**
+ * Primary content in *ProcessSteps → Primary*
+ */
+export interface ProcessStepsSliceDefaultPrimary {
+  /**
+   * Heading field in *ProcessSteps → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+
+  /**
+   * Description field in *ProcessSteps → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *ProcessSteps → Items*
+ */
+export interface ProcessStepsSliceDefaultItem {
+  /**
+   * Title field in *ProcessSteps → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *ProcessSteps → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Default variation for ProcessSteps Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProcessStepsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProcessStepsSliceDefaultPrimary>,
+  Simplify<ProcessStepsSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *ProcessSteps*
+ */
+type ProcessStepsSliceVariation = ProcessStepsSliceDefault
+
+/**
+ * ProcessSteps Shared Slice
+ *
+ * - **API ID**: `process_steps`
+ * - **Description**: ProcessSteps
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProcessStepsSlice = prismic.SharedSlice<
+  "process_steps",
+  ProcessStepsSliceVariation
 >
 
 /**
@@ -1747,6 +1828,11 @@ declare module "@prismicio/client" {
       PerfectFitSliceDefaultItem,
       PerfectFitSliceVariation,
       PerfectFitSliceDefault,
+      ProcessStepsSlice,
+      ProcessStepsSliceDefaultPrimary,
+      ProcessStepsSliceDefaultItem,
+      ProcessStepsSliceVariation,
+      ProcessStepsSliceDefault,
       ScheduleCallSlice,
       ScheduleCallSliceDefaultPrimary,
       ScheduleCallSliceVariation,
