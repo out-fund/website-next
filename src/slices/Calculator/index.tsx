@@ -142,18 +142,10 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
               <div className="flex flex-col gap-3 Sliders">
                 <div className="SliderGroup">
                   <div className="flex justify-between mb-1 textWrapper">
-                    <Heading
-                      as="div"
-                      size="h4"
-                      className="text-[18px] leading-[24px]"
-                    >
+                    <Heading as="div" size="h4" className="">
                       {slice.primary.amount_title}
                     </Heading>
-                    <Heading
-                      className="text-[18px] leading-[24px] font-medium"
-                      as="div"
-                      size="h4"
-                    >
+                    <Heading className="" as="div" size="h4">
                       {getAmount(parseInt(selectedLoanAmount))}
                     </Heading>
                   </div>
@@ -179,18 +171,10 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
 
                 <div className="SliderGroup">
                   <div className="flex justify-between mb-1 textWrapper">
-                    <Heading
-                      as="div"
-                      size="h4"
-                      className="text-[18px] leading-[24px]"
-                    >
+                    <Heading as="div" size="h4" className="">
                       {slice.primary.term_title}
                     </Heading>
-                    <Heading
-                      className="text-[18px] leading-[24px] font-medium"
-                      as="div"
-                      size="h4"
-                    >
+                    <Heading className="" as="div" size="h4">
                       {selectedTerm} {slice.primary.slider_months_text}
                     </Heading>
                   </div>
@@ -218,19 +202,11 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
               <div className="BottomGroup w-full md:w-1/2 md:min-w-[370px] self-end flex flex-col gap-3">
                 <div className="RepayableGroup">
                   <div className="flex items-baseline justify-between">
-                    <Heading
-                      as="div"
-                      size="h4"
-                      className="text-[18px] leading-[24px]"
-                    >
+                    <Heading as="div" size="h4" className="">
                       {slice.primary.total_title}
                     </Heading>
                     <hr className="w-[36%] border-dashed opacity-20" />
-                    <Heading
-                      className="text-[18px] leading-[24px] font-medium"
-                      as="div"
-                      size="h4"
-                    >
+                    <Heading className="" as="div" size="h4">
                       {getAmount(totalRepayable)}
                     </Heading>
                   </div>
@@ -254,7 +230,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                 {slice.items.map((item, index) => (
                   <li
                     key={index}
-                    className={`${classes.icon} flex items-center gap-2 text-base text-body leading-6  `}
+                    className={`${classes.icon} flex items-center gap-2 text-base text-body leading-6 align-baseline `}
                   >
                     {item.bulletpoint}
                   </li>

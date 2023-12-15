@@ -12,7 +12,7 @@ export default function PageLink({
   return (
     <PrismicNextLink
       className={cn(
-        "font-normal  hover:underline underline-offset-2 focus:underline focus:outline-none whitespace-nowrap decoration-1 decoration-[#8D9BA9] select-none",
+        "font-normal hover:underline underline-offset-2 focus:underline focus:outline-none whitespace-nowrap decoration-1 decoration-[#8D9BA9] select-none",
         className,
       )}
       {...restProps}

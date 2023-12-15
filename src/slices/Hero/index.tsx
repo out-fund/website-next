@@ -32,16 +32,16 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="md:pb-[40px] "
+      className="lg:pb-[40px] "
     >
       {/* -------------------------------------- Default */}
       {slice.variation === "default" && (
         <>
           <Wrapper>
-            <div className="grid md:grid-cols-2 ">
+            <div className="grid lg:grid-cols-2 ">
               <div className="relative py-9 bg-bgMedium">
-                <div className="hidden md:block md:absolute md:top-[0px] md:right-[-40px] md:h-full md:w-[calc(50vw+40px)] md:bg-bgMedium"></div>
-                <div className="flex flex-col max-w-[90%] mx-auto md:mx-0 md:max-w-[470px] gap-4 items-start relative">
+                <div className="hidden lg:block lg:absolute lg:top-[0px] lg:right-[-40px] lg:h-full lg:w-[calc(50vw+40px)] lg:bg-bgMedium"></div>
+                <div className="flex flex-col max-w-[80%] mx-auto lg:mx-0 lg:max-w-[470px] gap-4 items-start relative">
                   <div className="flex flex-col gap-3">
                     <PrismicRichText
                       field={slice.primary.heading}
@@ -60,21 +60,21 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                   </div>
                 </div>
               </div>
-              <div className="md:relative md:z-10 ">
+              <div className="lg:relative lg:z-10 ">
                 <div className=" lg:absolute lg:top-[40px] lg:left-[-40px] h-full lg:w-[calc(50vw+40px)] ">
                   <PrismicNextImage
                     field={slice.primary.image.mobile}
                     priority
                     height={512}
                     width={1200}
-                    className="md:hidden w-full "
+                    className="lg:hidden w-full "
                   />
                   <PrismicNextImage
                     field={slice.primary.image}
                     priority
                     height={512}
                     width={768}
-                    className="hidden md:block object-cover object-[20%] lg:object-left-top w-full h-full"
+                    className="hidden lg:block object-cover object-[20%] lg:object-left-top w-full h-full"
                   />
                 </div>
               </div>

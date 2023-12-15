@@ -72,9 +72,13 @@ export default async function Footer(props: any) {
                   {props.languages.map((language: any) => (
                     <li key={language.id} className="flex gap-2 pl-[3px]">
                       <span className={`fi fi-${language.id.split("-")[1]}`} />
-                      <Link
+                      {/* <Link
                         href={`/${language.id}`}
                         className="inline-block text-base font-[500] text-body underline-offset-2 antialiased hover:underline focus:underline focus:outline-none"
+                      > */}
+                      <Link
+                        href={`/${language.id}`}
+                        className="font-normal hover:underline underline-offset-2 focus:underline focus:outline-none whitespace-nowrap decoration-1 decoration-[#8D9BA9] select-none"
                       >
                         {language.name.split("- ")[1]}
                       </Link>
