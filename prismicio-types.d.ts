@@ -387,6 +387,7 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | ImageRightSlice
   | ProcessStepsSlice
   | UnmatchedServiceSlice
   | AboutUsSlice
@@ -1171,6 +1172,81 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceSimple
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>
 
 /**
+ * Primary content in *ImageRight → Primary*
+ */
+export interface ImageRightSliceDefaultPrimary {
+  /**
+   * Heading field in *ImageRight → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_right.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+
+  /**
+   * Description field in *ImageRight → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_right.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Image field in *ImageRight → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_right.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+
+  /**
+   * Button Text field in *ImageRight → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_right.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+}
+
+/**
+ * Default variation for ImageRight Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageRightSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageRightSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *ImageRight*
+ */
+type ImageRightSliceVariation = ImageRightSliceDefault
+
+/**
+ * ImageRight Shared Slice
+ *
+ * - **API ID**: `image_right`
+ * - **Description**: ImageRight
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageRightSlice = prismic.SharedSlice<
+  "image_right",
+  ImageRightSliceVariation
+>
+
+/**
  * Primary content in *Partners → Primary*
  */
 export interface PartnersSliceDefaultPrimary {
@@ -1373,6 +1449,26 @@ export interface ProcessStepsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField
+
+  /**
+   * Start Supercharging Title field in *ProcessSteps → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.primary.start_supercharging_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  start_supercharging_title: prismic.KeyTextField
+
+  /**
+   * Button Text field in *ProcessSteps → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
 }
 
 /**
@@ -1664,9 +1760,85 @@ export type UnmatchedServiceSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *ThreeColumns → Primary*
+ */
+export interface UnmatchedServiceSliceWideWithDescriptionPrimary {
+  /**
+   * Heading field in *ThreeColumns → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unmatched_service.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+
+  /**
+   * Description field in *ThreeColumns → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unmatched_service.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Primary content in *ThreeColumns → Items*
+ */
+export interface UnmatchedServiceSliceWideWithDescriptionItem {
+  /**
+   * Title field in *ThreeColumns → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unmatched_service.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Icon field in *ThreeColumns → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unmatched_service.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>
+
+  /**
+   * Description field in *ThreeColumns → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unmatched_service.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Wide - With description variation for ThreeColumns Slice
+ *
+ * - **API ID**: `wideWithDescription`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UnmatchedServiceSliceWideWithDescription =
+  prismic.SharedSliceVariation<
+    "wideWithDescription",
+    Simplify<UnmatchedServiceSliceWideWithDescriptionPrimary>,
+    Simplify<UnmatchedServiceSliceWideWithDescriptionItem>
+  >
+
+/**
  * Slice variation for *ThreeColumns*
  */
-type UnmatchedServiceSliceVariation = UnmatchedServiceSliceDefault
+type UnmatchedServiceSliceVariation =
+  | UnmatchedServiceSliceDefault
+  | UnmatchedServiceSliceWideWithDescription
 
 /**
  * ThreeColumns Shared Slice
@@ -1818,6 +1990,10 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceSimple,
+      ImageRightSlice,
+      ImageRightSliceDefaultPrimary,
+      ImageRightSliceVariation,
+      ImageRightSliceDefault,
       PartnersSlice,
       PartnersSliceDefaultPrimary,
       PartnersSliceDefaultItem,
@@ -1844,8 +2020,11 @@ declare module "@prismicio/client" {
       UnmatchedServiceSlice,
       UnmatchedServiceSliceDefaultPrimary,
       UnmatchedServiceSliceDefaultItem,
+      UnmatchedServiceSliceWideWithDescriptionPrimary,
+      UnmatchedServiceSliceWideWithDescriptionItem,
       UnmatchedServiceSliceVariation,
       UnmatchedServiceSliceDefault,
+      UnmatchedServiceSliceWideWithDescription,
       UsingFundsSlice,
       UsingFundsSliceDefaultPrimary,
       UsingFundsSliceDefaultItem,

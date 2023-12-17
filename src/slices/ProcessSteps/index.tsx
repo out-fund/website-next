@@ -15,7 +15,7 @@ const components: JSXMapSerializer = {
   paragraph: ({ children }) => (
     <p className="text-base font-normal text-body">{children}</p>
   ),
-  list: ({ children }) => <ul className="mt-1 list-disc pl-2 ">{children}</ul>,
+  list: ({ children }) => <ul className="pl-2 mt-1 list-disc ">{children}</ul>,
 }
 
 /**
@@ -31,7 +31,7 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className=" mt-10 mb-10 md:mt-15 md:mb-15"
+      className="mt-10 mb-10  md:mt-15 md:mb-15"
     >
       <Wrapper>
         <div className="mx-auto md:mx-0 max-w-[90%] md:max-w-none">
@@ -60,6 +60,12 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="px-4 py-8 mt-10 mb-10 text-center md:mt-15 md:mb-15 bg-bgMedium md:py-8">
+            <Heading as="h2" size="h2" className="mb-4">
+              {slice.primary.start_supercharging_title}
+            </Heading>
+            <Button href="/">{slice.primary.button_text}</Button>
           </div>
         </div>
       </Wrapper>

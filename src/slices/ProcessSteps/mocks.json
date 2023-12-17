@@ -12,6 +12,16 @@
 				"__TYPE__": "FieldContent",
 				"value": "cause",
 				"type": "Text"
+			},
+			"start_supercharging_title": {
+				"__TYPE__": "FieldContent",
+				"value": "characteristic",
+				"type": "Text"
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "plan",
+				"type": "Text"
 			}
 		},
 		"items": [

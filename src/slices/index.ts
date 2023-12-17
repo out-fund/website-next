@@ -9,6 +9,7 @@ export const components = {
   clients_say: dynamic(() => import("./ClientsSay")),
   funding_explained: dynamic(() => import("./FundingExplained")),
   hero: dynamic(() => import("./Hero")),
+  image_right: dynamic(() => import("./ImageRight")),
   partners: dynamic(() => import("./Partners")),
   perfect_fit: dynamic(() => import("./PerfectFit")),
   process_steps: dynamic(() => import("./ProcessSteps")),

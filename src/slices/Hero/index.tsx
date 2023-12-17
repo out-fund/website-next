@@ -96,10 +96,12 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 field={slice.primary.heading}
                 components={components}
               />
-              <PrismicRichText
-                field={slice.primary.description}
-                components={components}
-              />
+              <div className="max-w-[570px]">
+                <PrismicRichText
+                  field={slice.primary.description}
+                  components={components}
+                />
+              </div>
             </div>
           </Wrapper>
         </section>
