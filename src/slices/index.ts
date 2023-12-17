@@ -7,6 +7,7 @@ export const components = {
   benefits: dynamic(() => import("./Benefits")),
   calculator: dynamic(() => import("./Calculator")),
   clients_say: dynamic(() => import("./ClientsSay")),
+  featured_in: dynamic(() => import("./FeaturedIn")),
   funding_explained: dynamic(() => import("./FundingExplained")),
   hero: dynamic(() => import("./Hero")),
   image_right: dynamic(() => import("./ImageRight")),

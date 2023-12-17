@@ -1,0 +1,76 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "fix",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"tag",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "government",
+							"type": "Text"
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Non laboris quis nisi consectetur consectetur esse et nulla velit pariatur id aute. Consectetur ad occaecat eu sint non aliqua sit culpa."
+									}
+								}
+							]
+						}
+					],
+					[
+						"logo",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+								"width": 2747,
+								"height": 4120
+							},
+							"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+							"width": 2747,
+							"height": 4120,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"thumbnails": {}
+						}
+					],
+					[
+						"url",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io"
+							}
+						}
+					]
+				]
+			}
+		]
+	}
+]

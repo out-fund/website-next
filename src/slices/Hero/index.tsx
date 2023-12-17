@@ -67,7 +67,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                     priority
                     height={512}
                     width={1200}
-                    className="lg:hidden w-full "
+                    className="w-full lg:hidden "
                   />
                   <PrismicNextImage
                     field={slice.primary.image}
@@ -88,19 +88,21 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         <section
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
-          className=" bg-bgMedium  py-10 md:py-15"
+          className="py-10  bg-bgMedium md:py-15"
         >
           <Wrapper>
-            <div className="flex flex-col gap-3">
-              <PrismicRichText
-                field={slice.primary.heading}
-                components={components}
-              />
-              <div className="max-w-[570px]">
+            <div className="mx-auto md:mx-0 max-w-[90%] md:max-w-none">
+              <div className="flex flex-col gap-3">
                 <PrismicRichText
-                  field={slice.primary.description}
+                  field={slice.primary.heading}
                   components={components}
                 />
+                <div className="max-w-[570px]">
+                  <PrismicRichText
+                    field={slice.primary.description}
+                    components={components}
+                  />
+                </div>
               </div>
             </div>
           </Wrapper>

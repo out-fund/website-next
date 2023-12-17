@@ -387,6 +387,7 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | FeaturedInSlice
   | ImageRightSlice
   | ProcessStepsSlice
   | UnmatchedServiceSlice
@@ -672,7 +673,7 @@ export interface BenefitsSliceDefaultItem {
 }
 
 /**
- * Default variation for Benefits Slice
+ * On Dark variation for Benefits Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -685,9 +686,47 @@ export type BenefitsSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Benefits → Items*
+ */
+export interface BenefitsSliceOnWhiteItem {
+  /**
+   * Top Text field in *Benefits → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: benefits.items[].top_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  top_text: prismic.KeyTextField
+
+  /**
+   * Bottom Text field in *Benefits → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: benefits.items[].bottom_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  bottom_text: prismic.KeyTextField
+}
+
+/**
+ * On White variation for Benefits Slice
+ *
+ * - **API ID**: `onWhite`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BenefitsSliceOnWhite = prismic.SharedSliceVariation<
+  "onWhite",
+  Record<string, never>,
+  Simplify<BenefitsSliceOnWhiteItem>
+>
+
+/**
  * Slice variation for *Benefits*
  */
-type BenefitsSliceVariation = BenefitsSliceDefault
+type BenefitsSliceVariation = BenefitsSliceDefault | BenefitsSliceOnWhite
 
 /**
  * Benefits Shared Slice
@@ -969,6 +1008,96 @@ type ClientsSaySliceVariation = ClientsSaySliceDefault
 export type ClientsSaySlice = prismic.SharedSlice<
   "clients_say",
   ClientsSaySliceVariation
+>
+
+/**
+ * Primary content in *FeaturedIn → Primary*
+ */
+export interface FeaturedInSliceDefaultPrimary {
+  /**
+   * Heading field in *FeaturedIn → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_in.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *FeaturedIn → Items*
+ */
+export interface FeaturedInSliceDefaultItem {
+  /**
+   * Tag field in *FeaturedIn → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_in.items[].tag
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tag: prismic.KeyTextField
+
+  /**
+   * Description field in *FeaturedIn → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_in.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Logo field in *FeaturedIn → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_in.items[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>
+
+  /**
+   * URL field in *FeaturedIn → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_in.items[].url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  url: prismic.LinkField
+}
+
+/**
+ * Default variation for FeaturedIn Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedInSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturedInSliceDefaultPrimary>,
+  Simplify<FeaturedInSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *FeaturedIn*
+ */
+type FeaturedInSliceVariation = FeaturedInSliceDefault
+
+/**
+ * FeaturedIn Shared Slice
+ *
+ * - **API ID**: `featured_in`
+ * - **Description**: FeaturedIn
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedInSlice = prismic.SharedSlice<
+  "featured_in",
+  FeaturedInSliceVariation
 >
 
 /**
@@ -1967,8 +2096,10 @@ declare module "@prismicio/client" {
       AboutUsSliceDefault,
       BenefitsSlice,
       BenefitsSliceDefaultItem,
+      BenefitsSliceOnWhiteItem,
       BenefitsSliceVariation,
       BenefitsSliceDefault,
+      BenefitsSliceOnWhite,
       CalculatorSlice,
       CalculatorSliceDefaultPrimary,
       CalculatorSliceDefaultItem,
@@ -1979,6 +2110,11 @@ declare module "@prismicio/client" {
       ClientsSaySliceDefaultItem,
       ClientsSaySliceVariation,
       ClientsSaySliceDefault,
+      FeaturedInSlice,
+      FeaturedInSliceDefaultPrimary,
+      FeaturedInSliceDefaultItem,
+      FeaturedInSliceVariation,
+      FeaturedInSliceDefault,
       FundingExplainedSlice,
       FundingExplainedSliceDefaultPrimary,
       FundingExplainedSliceDefaultItem,
