@@ -1,5 +1,5 @@
 //
-// PageLayout
+// PageLink
 //
 
 import { PrismicNextLink, PrismicNextLinkProps } from "@prismicio/next"
