@@ -473,6 +473,193 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>
 
+type SuccessStoriesDocumentDataSlicesSlice =
+  | FeaturedBrandsSlice
+  | FeaturedStoriesSlice
+  | HeroSlice
+
+/**
+ * Content for Success Stories documents
+ */
+interface SuccessStoriesDocumentData {
+  /**
+   * Title (Browser Tab Title) field in *Success Stories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_stories.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *Success Stories*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_stories.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<SuccessStoriesDocumentDataSlicesSlice> /**
+   * Meta Title (Social Share Title) field in *Success Stories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: success_stories.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Success Stories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: success_stories.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Success Stories*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_stories.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+}
+
+/**
+ * Success Stories document from Prismic
+ *
+ * - **API ID**: `success_stories`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SuccessStoriesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<SuccessStoriesDocumentData>,
+    "success_stories",
+    Lang
+  >
+
+type SuccessStoryDocumentDataSlicesSlice = UnmatchedServiceSlice
+
+/**
+ * Content for Success Story documents
+ */
+interface SuccessStoryDocumentData {
+  /**
+   * Title (Browser Tab Title) field in *Success Story*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *Success Story*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<SuccessStoryDocumentDataSlicesSlice> /**
+   * Meta Description field in *Success Story*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: success_story.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Success Story*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Success Story*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: success_story.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Success Story document from Prismic
+ *
+ * - **API ID**: `success_story`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SuccessStoryDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<SuccessStoryDocumentData>,
+    "success_story",
+    Lang
+  >
+
+/**
+ * Content for Success Story Brand documents
+ */
+interface SuccessStoryBrandDocumentData {
+  /**
+   * Brand Name field in *Success Story Brand*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_brand.brand_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  brand_name: prismic.KeyTextField
+}
+
+/**
+ * Success Story Brand document from Prismic
+ *
+ * - **API ID**: `success_story_brand`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SuccessStoryBrandDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<SuccessStoryBrandDocumentData>,
+    "success_story_brand",
+    Lang
+  >
+
 /**
  * Content for Testimonial documents
  */
@@ -565,6 +752,9 @@ export type AllDocumentTypes =
   | GlobalSeoDocument
   | NavbarDocument
   | PageDocument
+  | SuccessStoriesDocument
+  | SuccessStoryDocument
+  | SuccessStoryBrandDocument
   | TestimonialDocument
 
 /**
@@ -1011,6 +1201,66 @@ export type ClientsSaySlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *FeaturedBrands → Primary*
+ */
+export interface FeaturedBrandsSliceDefaultPrimary {
+  /**
+   * Heading field in *FeaturedBrands → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_brands.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *FeaturedBrands → Items*
+ */
+export interface FeaturedBrandsSliceDefaultItem {
+  /**
+   * Brand field in *FeaturedBrands → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_brands.items[].brand
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  brand: prismic.ContentRelationshipField
+}
+
+/**
+ * Default variation for FeaturedBrands Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedBrandsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturedBrandsSliceDefaultPrimary>,
+  Simplify<FeaturedBrandsSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *FeaturedBrands*
+ */
+type FeaturedBrandsSliceVariation = FeaturedBrandsSliceDefault
+
+/**
+ * FeaturedBrands Shared Slice
+ *
+ * - **API ID**: `featured_brands`
+ * - **Description**: FeaturedBrands
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedBrandsSlice = prismic.SharedSlice<
+  "featured_brands",
+  FeaturedBrandsSliceVariation
+>
+
+/**
  * Primary content in *FeaturedIn → Primary*
  */
 export interface FeaturedInSliceDefaultPrimary {
@@ -1098,6 +1348,66 @@ type FeaturedInSliceVariation = FeaturedInSliceDefault
 export type FeaturedInSlice = prismic.SharedSlice<
   "featured_in",
   FeaturedInSliceVariation
+>
+
+/**
+ * Primary content in *FeaturedStories → Primary*
+ */
+export interface FeaturedStoriesSliceDefaultPrimary {
+  /**
+   * Heading field in *FeaturedStories → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_stories.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *FeaturedStories → Items*
+ */
+export interface FeaturedStoriesSliceDefaultItem {
+  /**
+   * Stories field in *FeaturedStories → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_stories.items[].stories
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  stories: prismic.ContentRelationshipField
+}
+
+/**
+ * Default variation for FeaturedStories Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedStoriesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturedStoriesSliceDefaultPrimary>,
+  Simplify<FeaturedStoriesSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *FeaturedStories*
+ */
+type FeaturedStoriesSliceVariation = FeaturedStoriesSliceDefault
+
+/**
+ * FeaturedStories Shared Slice
+ *
+ * - **API ID**: `featured_stories`
+ * - **Description**: FeaturedStories
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedStoriesSlice = prismic.SharedSlice<
+  "featured_stories",
+  FeaturedStoriesSliceVariation
 >
 
 /**
@@ -2086,6 +2396,14 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      SuccessStoriesDocument,
+      SuccessStoriesDocumentData,
+      SuccessStoriesDocumentDataSlicesSlice,
+      SuccessStoryDocument,
+      SuccessStoryDocumentData,
+      SuccessStoryDocumentDataSlicesSlice,
+      SuccessStoryBrandDocument,
+      SuccessStoryBrandDocumentData,
       TestimonialDocument,
       TestimonialDocumentData,
       AllDocumentTypes,
@@ -2110,11 +2428,21 @@ declare module "@prismicio/client" {
       ClientsSaySliceDefaultItem,
       ClientsSaySliceVariation,
       ClientsSaySliceDefault,
+      FeaturedBrandsSlice,
+      FeaturedBrandsSliceDefaultPrimary,
+      FeaturedBrandsSliceDefaultItem,
+      FeaturedBrandsSliceVariation,
+      FeaturedBrandsSliceDefault,
       FeaturedInSlice,
       FeaturedInSliceDefaultPrimary,
       FeaturedInSliceDefaultItem,
       FeaturedInSliceVariation,
       FeaturedInSliceDefault,
+      FeaturedStoriesSlice,
+      FeaturedStoriesSliceDefaultPrimary,
+      FeaturedStoriesSliceDefaultItem,
+      FeaturedStoriesSliceVariation,
+      FeaturedStoriesSliceDefault,
       FundingExplainedSlice,
       FundingExplainedSliceDefaultPrimary,
       FundingExplainedSliceDefaultItem,

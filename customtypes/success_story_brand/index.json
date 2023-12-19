@@ -1,0 +1,24 @@
+{
+  "id": "success_story_brand",
+  "label": "Success Story Brand",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "brand_name": {
+        "type": "Text",
+        "config": {
+          "label": "Brand Name",
+          "placeholder": ""
+        }
+      },
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      }
+    }
+  }
+}

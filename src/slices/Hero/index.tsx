@@ -92,12 +92,12 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         >
           <Wrapper>
             <div className="mx-auto md:mx-0 max-w-[90%] md:max-w-none">
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 text-center">
                 <PrismicRichText
                   field={slice.primary.heading}
                   components={components}
                 />
-                <div className="max-w-[570px]">
+                <div className="max-w-[670px] mx-auto">
                   <PrismicRichText
                     field={slice.primary.description}
                     components={components}

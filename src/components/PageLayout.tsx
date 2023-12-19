@@ -14,7 +14,7 @@ export default async function PageLayout({
 }: PageLayoutParams) {
   const client = createClient()
   const NavbarData = await client.getSingle("navbar", { lang: locale })
-  const FooterData = await client.getSingle("footer")
+  const FooterData = await client.getSingle("footer", { lang: locale })
   const FooterLanguages = await sortLocales(
     (await client.getRepository()).languages,
   )
