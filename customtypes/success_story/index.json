@@ -1,6 +1,6 @@
 {
   "id": "success_story",
-  "label": "Success Story",
+  "label": "Success Story Post",
   "format": "page",
   "repeatable": true,
   "status": true,
@@ -15,9 +15,50 @@
       },
       "uid": {
         "config": {
-          "label": "UID"
+          "label": "Slug",
+          "placeholder": ""
         },
         "type": "UID"
+      },
+      "heading": {
+        "type": "Text",
+        "config": {
+          "label": "Heading",
+          "placeholder": ""
+        }
+      },
+      "brand_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Brand Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "card_background_image": {
+        "type": "Image",
+        "config": {
+          "label": "Card Background Image",
+          "constraint": {
+            "width": 570,
+            "height": 560
+          },
+          "thumbnails": []
+        }
+      },
+      "card_link_text": {
+        "type": "Text",
+        "config": {
+          "label": "Card Link Text",
+          "placeholder": ""
+        }
+      },
+      "cad_funded_plus_amount": {
+        "type": "Text",
+        "config": {
+          "label": "Cad Funded + Amount",
+          "placeholder": ""
+        }
       },
       "slices": {
         "type": "Slices",
@@ -32,6 +73,13 @@
       }
     },
     "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title (Social Share Title)",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      },
       "meta_description": {
         "config": {
           "label": "Meta Description",
@@ -49,13 +97,6 @@
           "thumbnails": []
         },
         "type": "Image"
-      },
-      "meta_title": {
-        "config": {
-          "label": "Meta Title",
-          "placeholder": "A title of the page used for social media and search engines"
-        },
-        "type": "Text"
       }
     }
   }

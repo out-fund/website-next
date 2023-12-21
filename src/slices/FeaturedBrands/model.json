@@ -18,6 +18,20 @@
             "label": "Heading",
             "placeholder": ""
           }
+        },
+        "final_box_title": {
+          "type": "Text",
+          "config": {
+            "label": "Final Box Title",
+            "placeholder": ""
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
         }
       },
       "items": {
@@ -25,7 +39,10 @@
           "type": "Link",
           "config": {
             "label": "Brand",
-            "select": "document"
+            "select": "document",
+            "customtypes": [
+              "success_story_brand"
+            ]
           }
         }
       }

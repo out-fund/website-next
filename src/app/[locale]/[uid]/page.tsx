@@ -26,13 +26,13 @@ export default async function Page({ params }: { params: Params }) {
   // console.log("page.uid", page.uid)
   // console.log("slices", page.data.slices)
 
-  const pageName = titleCase(page.uid.replace(/-/g, " "))
+  // const pageName = titleCase(page.uid.replace(/-/g, " "))
   // console.log("pageName", pageName)
 
   return (
     <PageLayout locale={params.locale}>
       <SliceZone slices={page.data.slices} components={components} />
-      <PageEvent name={pageName} />
+      <PageEvent name={page.uid} />
     </PageLayout>
   )
 }
@@ -100,9 +100,12 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   const client = createClient()
   const pages = await client.getAllByType("page", { lang: "*" })
+  // const sucessPages = await client.getAllByType("success_story", { lang: "*" })
   // const pages = await client.getByUID("page", "home", { lang: "*" })
 
-  // console.log(pages)
+  // const allPages = pages.concat(sucessPages)
+
+  // console.log(sucessPages)
 
   return pages.map((page) => {
     return {

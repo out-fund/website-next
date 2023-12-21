@@ -387,6 +387,8 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | FeaturedStoriesSlice
+  | FeaturedBrandsSlice
   | FeaturedInSlice
   | ImageRightSlice
   | ProcessStepsSlice
@@ -473,93 +475,14 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>
 
-type SuccessStoriesDocumentDataSlicesSlice =
-  | FeaturedBrandsSlice
-  | FeaturedStoriesSlice
-  | HeroSlice
-
-/**
- * Content for Success Stories documents
- */
-interface SuccessStoriesDocumentData {
-  /**
-   * Title (Browser Tab Title) field in *Success Stories*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: success_stories.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField
-
-  /**
-   * Slice Zone field in *Success Stories*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: success_stories.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<SuccessStoriesDocumentDataSlicesSlice> /**
-   * Meta Title (Social Share Title) field in *Success Stories*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: success_stories.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField
-
-  /**
-   * Meta Description field in *Success Stories*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: success_stories.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField
-
-  /**
-   * Meta Image field in *Success Stories*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: success_stories.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>
-}
-
-/**
- * Success Stories document from Prismic
- *
- * - **API ID**: `success_stories`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type SuccessStoriesDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<SuccessStoriesDocumentData>,
-    "success_stories",
-    Lang
-  >
-
 type SuccessStoryDocumentDataSlicesSlice = UnmatchedServiceSlice
 
 /**
- * Content for Success Story documents
+ * Content for Success Story Post documents
  */
 interface SuccessStoryDocumentData {
   /**
-   * Title (Browser Tab Title) field in *Success Story*
+   * Title (Browser Tab Title) field in *Success Story Post*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -570,7 +493,62 @@ interface SuccessStoryDocumentData {
   title: prismic.KeyTextField
 
   /**
-   * Slice Zone field in *Success Story*
+   * Heading field in *Success Story Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+
+  /**
+   * Brand Logo field in *Success Story Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story.brand_logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  brand_logo: prismic.ImageField<never>
+
+  /**
+   * Card Background Image field in *Success Story Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story.card_background_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_background_image: prismic.ImageField<never>
+
+  /**
+   * Card Link Text field in *Success Story Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story.card_link_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_link_text: prismic.KeyTextField
+
+  /**
+   * Cad Funded + Amount field in *Success Story Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story.cad_funded_plus_amount
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cad_funded_plus_amount: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *Success Story Post*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -579,7 +557,18 @@ interface SuccessStoryDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<SuccessStoryDocumentDataSlicesSlice> /**
-   * Meta Description field in *Success Story*
+   * Meta Title (Social Share Title) field in *Success Story Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: success_story.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Success Story Post*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
@@ -590,7 +579,7 @@ interface SuccessStoryDocumentData {
   meta_description: prismic.KeyTextField
 
   /**
-   * Meta Image field in *Success Story*
+   * Meta Image field in *Success Story Post*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -599,21 +588,10 @@ interface SuccessStoryDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>
-
-  /**
-   * Meta Title field in *Success Story*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: success_story.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField
 }
 
 /**
- * Success Story document from Prismic
+ * Success Story Post document from Prismic
  *
  * - **API ID**: `success_story`
  * - **Repeatable**: `true`
@@ -642,6 +620,39 @@ interface SuccessStoryBrandDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   brand_name: prismic.KeyTextField
+
+  /**
+   * Cad Funded + Amount field in *Success Story Brand*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_brand.cad_funded_plus_amount
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cad_funded_plus_amount: prismic.KeyTextField
+
+  /**
+   * Brand Logo field in *Success Story Brand*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_brand.brand_logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  brand_logo: prismic.ImageField<never>
+
+  /**
+   * Card Background Image field in *Success Story Brand*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_brand.card_background_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_background_image: prismic.ImageField<never>
 }
 
 /**
@@ -752,7 +763,6 @@ export type AllDocumentTypes =
   | GlobalSeoDocument
   | NavbarDocument
   | PageDocument
-  | SuccessStoriesDocument
   | SuccessStoryDocument
   | SuccessStoryBrandDocument
   | TestimonialDocument
@@ -1213,6 +1223,26 @@ export interface FeaturedBrandsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   heading: prismic.KeyTextField
+
+  /**
+   * Final Box Title field in *FeaturedBrands → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_brands.primary.final_box_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  final_box_title: prismic.KeyTextField
+
+  /**
+   * Button Text field in *FeaturedBrands → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_brands.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
 }
 
 /**
@@ -1227,7 +1257,7 @@ export interface FeaturedBrandsSliceDefaultItem {
    * - **API ID Path**: featured_brands.items[].brand
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  brand: prismic.ContentRelationshipField
+  brand: prismic.ContentRelationshipField<"success_story_brand">
 }
 
 /**
@@ -1370,14 +1400,14 @@ export interface FeaturedStoriesSliceDefaultPrimary {
  */
 export interface FeaturedStoriesSliceDefaultItem {
   /**
-   * Stories field in *FeaturedStories → Items*
+   * Featured Story field in *FeaturedStories → Items*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: featured_stories.items[].stories
+   * - **API ID Path**: featured_stories.items[].featured_story
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  stories: prismic.ContentRelationshipField
+  featured_story: prismic.ContentRelationshipField<"success_story">
 }
 
 /**
@@ -2396,9 +2426,6 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
-      SuccessStoriesDocument,
-      SuccessStoriesDocumentData,
-      SuccessStoriesDocumentDataSlicesSlice,
       SuccessStoryDocument,
       SuccessStoryDocumentData,
       SuccessStoryDocumentDataSlicesSlice,

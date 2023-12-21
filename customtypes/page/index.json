@@ -25,6 +25,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "featured_stories": {
+              "type": "SharedSlice"
+            },
+            "featured_brands": {
+              "type": "SharedSlice"
+            },
             "featured_in": {
               "type": "SharedSlice"
             },

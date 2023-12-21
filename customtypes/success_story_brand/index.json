@@ -18,6 +18,32 @@
           "label": "UID"
         },
         "type": "UID"
+      },
+      "cad_funded_plus_amount": {
+        "type": "Text",
+        "config": {
+          "label": "Cad Funded + Amount",
+          "placeholder": ""
+        }
+      },
+      "brand_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Brand Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "card_background_image": {
+        "type": "Image",
+        "config": {
+          "label": "Card Background Image",
+          "constraint": {
+            "width": 570,
+            "height": 560
+          },
+          "thumbnails": []
+        }
       }
     }
   }

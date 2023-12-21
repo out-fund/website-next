@@ -21,11 +21,14 @@
         }
       },
       "items": {
-        "stories": {
+        "featured_story": {
           "type": "Link",
           "config": {
-            "label": "Stories",
-            "select": "document"
+            "label": "Featured Story",
+            "select": "document",
+            "customtypes": [
+              "success_story"
+            ]
           }
         }
       }

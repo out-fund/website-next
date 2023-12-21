@@ -7,6 +7,16 @@
 				"__TYPE__": "FieldContent",
 				"value": "smell",
 				"type": "Text"
+			},
+			"final_box_title": {
+				"__TYPE__": "FieldContent",
+				"value": "threw",
+				"type": "Text"
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "motor",
+				"type": "Text"
 			}
 		},
 		"items": [

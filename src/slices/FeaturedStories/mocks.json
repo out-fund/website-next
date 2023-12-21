@@ -14,7 +14,7 @@
 				"__TYPE__": "GroupItemContent",
 				"value": [
 					[
-						"stories",
+						"featured_story",
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
