@@ -65,6 +65,33 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "callout": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "success_story_statements": {
+              "type": "SharedSlice"
+            },
+            "success_story_hero": {
+              "type": "SharedSlice"
+            },
+            "about_us": {
+              "type": "SharedSlice"
+            },
+            "benefits": {
+              "type": "SharedSlice"
+            },
+            "image_right": {
+              "type": "SharedSlice"
+            },
+            "partners": {
+              "type": "SharedSlice"
+            },
+            "hero": {
+              "type": "SharedSlice"
+            },
             "unmatched_service": {
               "type": "SharedSlice"
             }

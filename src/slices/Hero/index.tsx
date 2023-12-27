@@ -15,7 +15,9 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p className="text-base font-normal text-body">{children}</p>
+    <p className="text-[16px] leading-[24px] text-body font-[400]">
+      {children}
+    </p>
   ),
 }
 
@@ -88,7 +90,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         <section
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
-          className="py-10  bg-bgMedium md:py-15"
+          className="py-10 bg-bgMedium md:py-15"
         >
           <Wrapper>
             <div className="mx-auto md:mx-0 max-w-[90%] md:max-w-none">

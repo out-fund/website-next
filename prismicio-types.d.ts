@@ -387,6 +387,7 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | CalloutSlice
   | FeaturedStoriesSlice
   | FeaturedBrandsSlice
   | FeaturedInSlice
@@ -475,7 +476,17 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>
 
-type SuccessStoryDocumentDataSlicesSlice = UnmatchedServiceSlice
+type SuccessStoryDocumentDataSlicesSlice =
+  | CalloutSlice
+  | ImageBlockSlice
+  | SuccessStoryStatementsSlice
+  | SuccessStoryHeroSlice
+  | AboutUsSlice
+  | BenefitsSlice
+  | ImageRightSlice
+  | PartnersSlice
+  | HeroSlice
+  | UnmatchedServiceSlice
 
 /**
  * Content for Success Story Post documents
@@ -1131,6 +1142,58 @@ export type CalculatorSlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *Callout → Primary*
+ */
+export interface CalloutSliceDefaultPrimary {
+  /**
+   * Title field in *Callout → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Button Text field in *Callout → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+}
+
+/**
+ * Default variation for Callout Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CalloutSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CalloutSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Callout*
+ */
+type CalloutSliceVariation = CalloutSliceDefault
+
+/**
+ * Callout Shared Slice
+ *
+ * - **API ID**: `callout`
+ * - **Description**: Callout
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CalloutSlice = prismic.SharedSlice<"callout", CalloutSliceVariation>
+
+/**
  * Primary content in *ClientsSay → Primary*
  */
 export interface ClientsSaySliceDefaultPrimary {
@@ -1641,6 +1704,61 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceSimple
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>
 
 /**
+ * Primary content in *ImageBlock → Primary*
+ */
+export interface ImageBlockSliceDefaultPrimary {
+  /**
+   * Left Image field in *ImageBlock → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_block.primary.left_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_image: prismic.ImageField<never>
+
+  /**
+   * Right Image field in *ImageBlock → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_block.primary.right_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_image: prismic.ImageField<never>
+}
+
+/**
+ * Default variation for ImageBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageBlockSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *ImageBlock*
+ */
+type ImageBlockSliceVariation = ImageBlockSliceDefault
+
+/**
+ * ImageBlock Shared Slice
+ *
+ * - **API ID**: `image_block`
+ * - **Description**: ImageBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageBlockSlice = prismic.SharedSlice<
+  "image_block",
+  ImageBlockSliceVariation
+>
+
+/**
  * Primary content in *ImageRight → Primary*
  */
 export interface ImageRightSliceDefaultPrimary {
@@ -2081,6 +2199,171 @@ export type ScheduleCallSlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *SuccessStoryHero → Primary*
+ */
+export interface SuccessStoryHeroSliceDefaultPrimary {
+  /**
+   * Heading field in *SuccessStoryHero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Text field in *SuccessStoryHero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_hero.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField
+
+  /**
+   * Founder Image field in *SuccessStoryHero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_hero.primary.founder_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  founder_image: prismic.ImageField<never>
+
+  /**
+   * Founder Name field in *SuccessStoryHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_hero.primary.founder_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  founder_name: prismic.KeyTextField
+
+  /**
+   * Founder Title field in *SuccessStoryHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_hero.primary.founder_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  founder_title: prismic.KeyTextField
+}
+
+/**
+ * Default variation for SuccessStoryHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SuccessStoryHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SuccessStoryHeroSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *SuccessStoryHero*
+ */
+type SuccessStoryHeroSliceVariation = SuccessStoryHeroSliceDefault
+
+/**
+ * SuccessStoryHero Shared Slice
+ *
+ * - **API ID**: `success_story_hero`
+ * - **Description**: SuccessStoryHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SuccessStoryHeroSlice = prismic.SharedSlice<
+  "success_story_hero",
+  SuccessStoryHeroSliceVariation
+>
+
+/**
+ * Primary content in *SuccessStoryStatements → Primary*
+ */
+export interface SuccessStoryStatementsSliceDefaultPrimary {
+  /**
+   * Quote field in *SuccessStoryStatements → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_statements.primary.quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField
+
+  /**
+   * Quote By field in *SuccessStoryStatements → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_statements.primary.quote_by
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote_by: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *SuccessStoryStatements → Items*
+ */
+export interface SuccessStoryStatementsSliceDefaultItem {
+  /**
+   * Title field in *SuccessStoryStatements → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_statements.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *SuccessStoryStatements → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_story_statements.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Default variation for SuccessStoryStatements Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SuccessStoryStatementsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SuccessStoryStatementsSliceDefaultPrimary>,
+  Simplify<SuccessStoryStatementsSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *SuccessStoryStatements*
+ */
+type SuccessStoryStatementsSliceVariation = SuccessStoryStatementsSliceDefault
+
+/**
+ * SuccessStoryStatements Shared Slice
+ *
+ * - **API ID**: `success_story_statements`
+ * - **Description**: SuccessStoryStatements
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SuccessStoryStatementsSlice = prismic.SharedSlice<
+  "success_story_statements",
+  SuccessStoryStatementsSliceVariation
+>
+
+/**
  * Primary content in *TrustPilotStrip → Items*
  */
 export interface TrustPilotStripSliceDefaultItem {
@@ -2450,6 +2733,10 @@ declare module "@prismicio/client" {
       CalculatorSliceDefaultItem,
       CalculatorSliceVariation,
       CalculatorSliceDefault,
+      CalloutSlice,
+      CalloutSliceDefaultPrimary,
+      CalloutSliceVariation,
+      CalloutSliceDefault,
       ClientsSaySlice,
       ClientsSaySliceDefaultPrimary,
       ClientsSaySliceDefaultItem,
@@ -2481,6 +2768,10 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceSimple,
+      ImageBlockSlice,
+      ImageBlockSliceDefaultPrimary,
+      ImageBlockSliceVariation,
+      ImageBlockSliceDefault,
       ImageRightSlice,
       ImageRightSliceDefaultPrimary,
       ImageRightSliceVariation,
@@ -2504,6 +2795,15 @@ declare module "@prismicio/client" {
       ScheduleCallSliceDefaultPrimary,
       ScheduleCallSliceVariation,
       ScheduleCallSliceDefault,
+      SuccessStoryHeroSlice,
+      SuccessStoryHeroSliceDefaultPrimary,
+      SuccessStoryHeroSliceVariation,
+      SuccessStoryHeroSliceDefault,
+      SuccessStoryStatementsSlice,
+      SuccessStoryStatementsSliceDefaultPrimary,
+      SuccessStoryStatementsSliceDefaultItem,
+      SuccessStoryStatementsSliceVariation,
+      SuccessStoryStatementsSliceDefault,
       TrustPilotStripSlice,
       TrustPilotStripSliceDefaultItem,
       TrustPilotStripSliceVariation,

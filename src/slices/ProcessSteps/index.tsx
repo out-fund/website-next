@@ -61,12 +61,6 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
               </div>
             ))}
           </div>
-          <div className="px-4 py-8 mt-10 mb-10 text-center md:mt-15 md:mb-15 bg-bgMedium md:py-8">
-            <Heading as="h2" size="h2" className="mb-4">
-              {slice.primary.start_supercharging_title}
-            </Heading>
-            <Button href="/">{slice.primary.button_text}</Button>
-          </div>
         </div>
       </Wrapper>
     </section>

@@ -1,0 +1,50 @@
+{
+  "id": "success_story_statements",
+  "type": "SharedSlice",
+  "name": "SuccessStoryStatements",
+  "description": "SuccessStoryStatements",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "quote": {
+          "type": "Text",
+          "config": {
+            "label": "Quote",
+            "placeholder": ""
+          }
+        },
+        "quote_by": {
+          "type": "Text",
+          "config": {
+            "label": "Quote By",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "multi": "paragraph"
+          }
+        }
+      }
+    }
+  ]
+}
