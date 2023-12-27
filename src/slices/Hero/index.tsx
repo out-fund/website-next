@@ -34,7 +34,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <>
       {/* -------------------------------------- Default */}
       {slice.variation === "default" && (
-        <section
+        <header
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
           className="lg:pb-[40px] "
@@ -82,12 +82,12 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               </div>
             </div>
           </Wrapper>
-        </section>
+        </header>
       )}
 
       {/* -------------------------------------- Simple */}
       {slice.variation === "simple" && (
-        <section
+        <header
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
           className="py-10 bg-bgMedium md:py-15"
@@ -99,16 +99,18 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                   field={slice.primary.heading}
                   components={components}
                 />
-                <div className="max-w-[670px] mx-auto">
-                  <PrismicRichText
-                    field={slice.primary.description}
-                    components={components}
-                  />
-                </div>
+                {slice.primary.description && (
+                  <div className="max-w-[670px] mx-auto">
+                    <PrismicRichText
+                      field={slice.primary.description}
+                      components={components}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </Wrapper>
-        </section>
+        </header>
       )}
     </>
   )
