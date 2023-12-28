@@ -32,7 +32,13 @@ const components: JSXMapSerializer = {
       {children}
     </Heading>
   ),
-  list: ({ children }) => <ul className="mb-1 ">{children}</ul>,
+  oList: ({ children }) => <ol className="mb-2 ">{children}</ol>,
+  oListItem: ({ children }) => (
+    <li className=" pl-1 list-decimal list-inside text-[16px] leading-[24px] text-body font-[400]">
+      {children}
+    </li>
+  ),
+  list: ({ children }) => <ul className="mb-2 ">{children}</ul>,
   listItem: ({ children }) => (
     <li className=" pl-1 list-disc list-inside text-[16px] leading-[24px] text-body font-[400]">
       {children}
@@ -57,26 +63,25 @@ const components: JSXMapSerializer = {
       ></div>
     )
   },
-  // embed: ({ node }) => `
-  //   <div data-oembed="${node.oembed.embed_url}"
-  //     data-oembed-type="${node.oembed.type}"
-  //     data-oembed-provider="${node.oembed.provider_name}">
-  //       ${node.oembed.html}
-  //   </div>
-  // `,
   strong: ({ children }) => <strong className="font-[600]">{children}</strong>,
   image: ({ node }) => {
     return (
       <div className="mb-3">
         <figure className="text-center">
           <img src={node.url} alt={node.alt ? node.alt : ""} />
-          <figcaption className="text-[14px] leading-[24px] text-body font-[400]">
+          <figcaption className="text-[14px] leading-[24px] text-body font-[400] mt-1">
             {node.alt}
           </figcaption>
         </figure>
       </div>
     )
   },
+  // preformatted: ({ children }) => (
+  //   <div dangerouslySetInnerHTML={slice.primary.preformatted}>test</div>
+  // ),
+  preformatted: ({ node }) => (
+    <div dangerouslySetInnerHTML={{ __html: node.text }}></div>
+  ),
 }
 
 /**

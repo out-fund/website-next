@@ -1,4 +1,3 @@
-/* TODO: Remove comments from the next 3 lines */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +9,8 @@ iframe {
   width: 100%;
   height: 100%;
 }
-.blogBgImage::after {
+
+#blogBgImage::after {
   content: "";
   display: block;
   position: absolute;
@@ -20,6 +20,25 @@ iframe {
   width: 100vw;
   left: 50%;
   transform: translateX(-50%);
+}
+
+article table {
+  width: 100%;
+  margin-bottom: 24px;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 5px;
+}
+
+article table th {
+  font-weight: 600;
+}
+
+article table th,
+article table td {
+  padding: 8px 4px;
+  border: 1px solid #1c3654;
+  color: #1c3654;
 }
 
 /* :root {

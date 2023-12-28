@@ -21,6 +21,10 @@ const components: JSXMapSerializer = {
   ),
 }
 
+const isObjectEmpty = (obj: any) => {
+  return Object.keys(obj).length === 0
+}
+
 /**
  * Props for `Hero`.
  */
@@ -30,6 +34,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>
  * Component for "Hero" Slices.
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
+  // console.log(slice.primary.image)
   return (
     <>
       {/* -------------------------------------- Default */}
@@ -120,14 +125,17 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           className="mt-4 mb-6 md:mt-6 md:mb-8 "
         >
           <div className="mx-auto md:mx-0 max-w-[90%] md:max-w-none">
-            <div className="flex flex-col gap-3 text-center relative">
+            <div className="flex flex-col gap-6 text-center relative">
               <PrismicRichText
                 field={slice.primary.heading}
                 components={components}
               />
-              {slice.primary.image && (
-                <div className="blogBgImage  mt-5 max-h-[400px] h-full w-full relative">
-                  {/* <div className="absolute bg-bgMedium  h-[calc(100%+4rem)] top-[-2rem] w-[100vw] left-[50%] -translate-x-1/2"></div> */}
+
+              {!isObjectEmpty(slice.primary.image) && (
+                <div
+                  id="blogBgImage"
+                  className="max-h-[400px] h-full w-full relative"
+                >
                   <div className="h-full overflow-hidden max-h-[400px]">
                     <PrismicNextImage
                       field={slice.primary.image}
