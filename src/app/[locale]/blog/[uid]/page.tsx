@@ -7,6 +7,8 @@ import { components } from "@/slices"
 import { PageLayout } from "@/components"
 import { PageEvent } from "@/lib/events"
 
+import { Wrapper } from "@/components/atoms"
+
 type Params = {
   uid: string
   locale: string
@@ -21,8 +23,10 @@ export default async function Page({ params }: { params: Params }) {
 
   return (
     <PageLayout locale={params.locale}>
-      <article>
-        <SliceZone slices={blogPost.data.slices} components={components} />
+      <article className="mb-5">
+        <Wrapper width="narrow">
+          <SliceZone slices={blogPost.data.slices} components={components} />
+        </Wrapper>
       </article>
 
       <PageEvent name={blogPost.uid} />

@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client"
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
-type BlogPostDocumentDataSlicesSlice = HeroSlice | BlogPostBodySlice
+type BlogPostDocumentDataSlicesSlice =
+  | CalloutSlice
+  | HeroSlice
+  | BlogPostBodySlice
 
 /**
  * Content for Blog Post documents
@@ -1302,9 +1305,47 @@ export type CalloutSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Callout → Primary*
+ */
+export interface CalloutSliceForBlogPagePrimary {
+  /**
+   * Title field in *Callout → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Button Text field in *Callout → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+}
+
+/**
+ * For Blog page variation for Callout Slice
+ *
+ * - **API ID**: `forBlogPage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CalloutSliceForBlogPage = prismic.SharedSliceVariation<
+  "forBlogPage",
+  Simplify<CalloutSliceForBlogPagePrimary>,
+  never
+>
+
+/**
  * Slice variation for *Callout*
  */
-type CalloutSliceVariation = CalloutSliceDefault
+type CalloutSliceVariation = CalloutSliceDefault | CalloutSliceForBlogPage
 
 /**
  * Callout Shared Slice
@@ -1812,9 +1853,47 @@ export type HeroSliceSimple = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceBlogPostPrimary {
+  /**
+   * Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Image field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
+ * Blog Post variation for Hero Slice
+ *
+ * - **API ID**: `blogPost`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceBlogPost = prismic.SharedSliceVariation<
+  "blogPost",
+  Simplify<HeroSliceBlogPostPrimary>,
+  never
+>
+
+/**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation = HeroSliceDefault | HeroSliceSimple
+type HeroSliceVariation = HeroSliceDefault | HeroSliceSimple | HeroSliceBlogPost
 
 /**
  * Hero Shared Slice
@@ -2864,8 +2943,10 @@ declare module "@prismicio/client" {
       CalculatorSliceDefault,
       CalloutSlice,
       CalloutSliceDefaultPrimary,
+      CalloutSliceForBlogPagePrimary,
       CalloutSliceVariation,
       CalloutSliceDefault,
+      CalloutSliceForBlogPage,
       ClientsSaySlice,
       ClientsSaySliceDefaultPrimary,
       ClientsSaySliceDefaultItem,
@@ -2894,9 +2975,11 @@ declare module "@prismicio/client" {
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceSimplePrimary,
+      HeroSliceBlogPostPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceSimple,
+      HeroSliceBlogPost,
       ImageBlockSlice,
       ImageBlockSliceDefaultPrimary,
       ImageBlockSliceVariation,

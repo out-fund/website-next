@@ -6,7 +6,7 @@ import { Wrapper, Heading } from "@/components/atoms"
 
 const components: JSXMapSerializer = {
   paragraph: ({ children }) => (
-    <p className="text-base font-normal text-body max-w-[570px]  mb-5 ">
+    <p className="text-[16px] leading-[24px] text-body font-[400] max-w-[570px] mb-5 ">
       {children}
     </p>
   ),

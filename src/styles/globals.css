@@ -3,6 +3,25 @@
 @tailwind components;
 @tailwind utilities;
 
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.blogBgImage::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: #f0f4f9;
+  height: calc(100% + 4rem);
+  top: -2rem;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

@@ -112,6 +112,35 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           </Wrapper>
         </header>
       )}
+      {/* -------------------------------------- Blog Post */}
+      {slice.variation === "blogPost" && (
+        <header
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+          className="mt-4 mb-6 md:mt-6 md:mb-8 "
+        >
+          <div className="mx-auto md:mx-0 max-w-[90%] md:max-w-none">
+            <div className="flex flex-col gap-3 text-center relative">
+              <PrismicRichText
+                field={slice.primary.heading}
+                components={components}
+              />
+              {slice.primary.image && (
+                <div className="blogBgImage  mt-5 max-h-[400px] h-full w-full relative">
+                  {/* <div className="absolute bg-bgMedium  h-[calc(100%+4rem)] top-[-2rem] w-[100vw] left-[50%] -translate-x-1/2"></div> */}
+                  <div className="h-full overflow-hidden max-h-[400px]">
+                    <PrismicNextImage
+                      field={slice.primary.image}
+                      priority
+                      className="object-cover object-center w-full h-full relative z-10"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </header>
+      )}
     </>
   )
 }

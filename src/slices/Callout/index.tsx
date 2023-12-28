@@ -15,16 +15,29 @@ const Callout = ({ slice }: CalloutProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="my-10 md:my-15"
     >
-      <Wrapper>
-        <div className="px-4 py-8 md:py-8 text-center bg-bgMedium ">
+      {/* -------------------------------------- Default */}
+      {slice.variation === "default" && (
+        <div className="my-10 md:my-15">
+          <Wrapper>
+            <div className="px-4 py-8 md:py-8 text-center bg-bgMedium ">
+              <Heading as="h2" size="h2" className="mb-4">
+                {slice.primary.title}
+              </Heading>
+              <Button href="/">{slice.primary.button_text}</Button>
+            </div>
+          </Wrapper>
+        </div>
+      )}
+      {/* -------------------------------------- For Blog Post */}
+      {slice.variation === "forBlogPage" && (
+        <div className="px-4 py-8 md:py-8 text-center bg-bgMedium my-5 md:my-6 ">
           <Heading as="h2" size="h2" className="mb-4">
             {slice.primary.title}
           </Heading>
           <Button href="/">{slice.primary.button_text}</Button>
         </div>
-      </Wrapper>
+      )}
     </section>
   )
 }
