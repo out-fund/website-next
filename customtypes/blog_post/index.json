@@ -20,6 +20,14 @@
         },
         "type": "UID"
       },
+      "card_image": {
+        "type": "Image",
+        "config": {
+          "label": "Card Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

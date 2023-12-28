@@ -104,7 +104,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                   field={slice.primary.heading}
                   components={components}
                 />
-                {slice.primary.description && (
+
+                {!isObjectEmpty(slice.primary.description) && (
                   <div className="max-w-[670px] mx-auto">
                     <PrismicRichText
                       field={slice.primary.description}

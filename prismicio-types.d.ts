@@ -25,6 +25,17 @@ interface BlogPostDocumentData {
   title: prismic.KeyTextField
 
   /**
+   * Card Image field in *Blog Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.card_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_image: prismic.ImageField<never>
+
+  /**
    * Slice Zone field in *Blog Post*
    *
    * - **Field Type**: Slice Zone
@@ -466,6 +477,7 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | BlogListAllSlice
   | CalloutSlice
   | FeaturedStoriesSlice
   | FeaturedBrandsSlice
@@ -1029,6 +1041,36 @@ type BenefitsSliceVariation = BenefitsSliceDefault | BenefitsSliceOnWhite
 export type BenefitsSlice = prismic.SharedSlice<
   "benefits",
   BenefitsSliceVariation
+>
+
+/**
+ * Default variation for BlogListAll Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogListAllSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>
+
+/**
+ * Slice variation for *BlogListAll*
+ */
+type BlogListAllSliceVariation = BlogListAllSliceDefault
+
+/**
+ * BlogListAll Shared Slice
+ *
+ * - **API ID**: `blog_list_all`
+ * - **Description**: BlogListAll
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogListAllSlice = prismic.SharedSlice<
+  "blog_list_all",
+  BlogListAllSliceVariation
 >
 
 /**
@@ -2932,6 +2974,9 @@ declare module "@prismicio/client" {
       BenefitsSliceVariation,
       BenefitsSliceDefault,
       BenefitsSliceOnWhite,
+      BlogListAllSlice,
+      BlogListAllSliceVariation,
+      BlogListAllSliceDefault,
       BlogPostBodySlice,
       BlogPostBodySliceDefaultPrimary,
       BlogPostBodySliceVariation,
