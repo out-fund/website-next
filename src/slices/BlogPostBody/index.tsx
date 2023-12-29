@@ -59,7 +59,7 @@ const components: JSXMapSerializer = {
     return (
       <div
         className="relative pt-[56.25%]"
-        dangerouslySetInnerHTML={{ __html: node.oembed.html }}
+        dangerouslySetInnerHTML={{ __html: node.oembed.html || "" }}
       ></div>
     )
   },
