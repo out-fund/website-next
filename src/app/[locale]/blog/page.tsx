@@ -9,7 +9,8 @@ import { PrismicNextImage } from "@prismicio/next"
 
 import { PageLayout } from "@/components"
 import { PageEvent } from "@/lib/events"
-import { Wrapper } from "@/components/atoms"
+import { Wrapper, Heading, PageLink } from "@/components/atoms"
+import Link from "next/link"
 
 type PageProps = {
   params: {
@@ -32,39 +33,45 @@ export default async function BlogPage({ params }: PageProps) {
   })
 
   // const locales = await getTranslatedLocales(page, client)
-
   // console.log("post", posts)
-  posts.map((post) => {
-    console.log("post", post.data.card_image)
-  })
+  // posts.map((post) => {
+  //   console.log("post", post.data.card_image)
+  // })
 
   return (
     <PageLayout locale={params.locale}>
       <SliceZone slices={blogPage.data.slices} components={components} />
-      <Wrapper>
-        <div className="">
+      <Wrapper width="medium">
+        <ul className="grid grid-cols-2 gap-4 mt-5 mb-5">
           {posts.map((post) => {
             return (
-              <ul key={post.uid}>
-                <li className="mb-2">
-                  <a href={`/blog/${post.uid}`}>
-                    {post.data.card_image.id && (
-                      <div>
-                        <PrismicNextImage
-                          field={post.data.card_image}
-                          className="w-[200px]"
-                        />
-                      </div>
-                    )}
-                    {/* {!post.data.card_image.id && <div>{post.data.title}</div>} */}
+              <li key={post.uid} className="mb-2">
+                <Link
+                  href={`/blog/${post.uid}`}
+                  className="hover:underline block"
+                >
+                  {post.data.card_image.id && (
+                    <div className="w-full h-[240px] border-[2px] border-bgDark">
+                      <PrismicNextImage
+                        field={post.data.card_image}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  )}
+                  {/* {!post.data.card_image.id && <div>{post.data.title}</div>} */}
+                  <Heading size="h3" as="span" className="mt-2 block px-2">
                     {post.data.title}
-                  </a>
-                </li>
-              </ul>
+                  </Heading>
+                </Link>
+              </li>
             )
           })}
-        </div>
+        </ul>
       </Wrapper>
+
+      {/* <PageLink field={link} className="text-body">
+        {label}
+      </PageLink> */}
 
       <PageEvent name="Blog" />
     </PageLayout>
