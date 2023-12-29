@@ -477,6 +477,7 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | ContactUsSlice
   | CalloutSlice
   | FeaturedStoriesSlice
   | FeaturedBrandsSlice
@@ -1445,6 +1446,91 @@ type ClientsSaySliceVariation = ClientsSaySliceDefault
 export type ClientsSaySlice = prismic.SharedSlice<
   "clients_say",
   ClientsSaySliceVariation
+>
+
+/**
+ * Primary content in *ContactUs → Primary*
+ */
+export interface ContactUsSliceDefaultPrimary {
+  /**
+   * Description field in *ContactUs → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Form Full Name field in *ContactUs → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.primary.form_full_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  form_full_name: prismic.KeyTextField
+
+  /**
+   * Form Business Email field in *ContactUs → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.primary.form_business_email
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  form_business_email: prismic.KeyTextField
+
+  /**
+   * Form Message field in *ContactUs → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.primary.form_message
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  form_message: prismic.KeyTextField
+
+  /**
+   * Form Button Text field in *ContactUs → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.primary.form_button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  form_button_text: prismic.KeyTextField
+}
+
+/**
+ * Default variation for ContactUs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactUsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactUsSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *ContactUs*
+ */
+type ContactUsSliceVariation = ContactUsSliceDefault
+
+/**
+ * ContactUs Shared Slice
+ *
+ * - **API ID**: `contact_us`
+ * - **Description**: ContactUs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactUsSlice = prismic.SharedSlice<
+  "contact_us",
+  ContactUsSliceVariation
 >
 
 /**
@@ -2963,6 +3049,10 @@ declare module "@prismicio/client" {
       ClientsSaySliceDefaultItem,
       ClientsSaySliceVariation,
       ClientsSaySliceDefault,
+      ContactUsSlice,
+      ContactUsSliceDefaultPrimary,
+      ContactUsSliceVariation,
+      ContactUsSliceDefault,
       FeaturedBrandsSlice,
       FeaturedBrandsSliceDefaultPrimary,
       FeaturedBrandsSliceDefaultItem,

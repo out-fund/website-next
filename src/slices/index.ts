@@ -9,6 +9,7 @@ export const components = {
   calculator: dynamic(() => import("./Calculator")),
   callout: dynamic(() => import("./Callout")),
   clients_say: dynamic(() => import("./ClientsSay")),
+  contact_us: dynamic(() => import("./ContactUs")),
   featured_brands: dynamic(() => import("./FeaturedBrands")),
   featured_in: dynamic(() => import("./FeaturedIn")),
   featured_stories: dynamic(() => import("./FeaturedStories")),

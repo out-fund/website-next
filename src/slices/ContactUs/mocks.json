@@ -1,0 +1,40 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Pariatur veniam fugiat do. Magna mollit excepteur est velit occaecat excepteur quis voluptate tempor veniam exercitation id ad nisi labore. Sint reprehenderit nulla velit mollit."
+						}
+					}
+				]
+			},
+			"form_full_name": {
+				"__TYPE__": "FieldContent",
+				"value": "pleasant",
+				"type": "Text"
+			},
+			"form_business_email": {
+				"__TYPE__": "FieldContent",
+				"value": "throughout",
+				"type": "Text"
+			},
+			"form_message": {
+				"__TYPE__": "FieldContent",
+				"value": "interior",
+				"type": "Text"
+			},
+			"form_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "variety",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

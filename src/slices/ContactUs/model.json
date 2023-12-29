@@ -1,0 +1,56 @@
+{
+  "id": "contact_us",
+  "type": "SharedSlice",
+  "name": "ContactUs",
+  "description": "ContactUs",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "form_full_name": {
+          "type": "Text",
+          "config": {
+            "label": "Form Full Name",
+            "placeholder": ""
+          }
+        },
+        "form_business_email": {
+          "type": "Text",
+          "config": {
+            "label": "Form Business Email",
+            "placeholder": ""
+          }
+        },
+        "form_message": {
+          "type": "Text",
+          "config": {
+            "label": "Form Message",
+            "placeholder": ""
+          }
+        },
+        "form_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Form Button Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

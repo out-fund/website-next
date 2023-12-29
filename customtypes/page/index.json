@@ -25,6 +25,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "contact_us": {
+              "type": "SharedSlice"
+            },
             "callout": {
               "type": "SharedSlice"
             },
