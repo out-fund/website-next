@@ -43,7 +43,9 @@ export async function generateMetadata({
   params: Params
 }): Promise<Metadata> {
   const client = createClient()
-  const page = await client.getByUID("page", params.uid).catch(() => notFound())
+  const page = await client
+    .getByUID("page", params.uid, { lang: params.locale })
+    .catch(() => notFound())
 
   return {
     // title: page.data.meta_title,

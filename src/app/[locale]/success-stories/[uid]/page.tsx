@@ -19,6 +19,8 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("success_story", params.uid, { lang: params.locale })
     .catch(() => notFound())
 
+  // console.log("params.locale", params.locale)
+
   return (
     <PageLayout locale={params.locale}>
       <SliceZone slices={sucessStory.data.slices} components={components} />

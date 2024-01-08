@@ -4,6 +4,7 @@ import { createClient } from "@/prismicio"
 import { PrismicNextImage } from "@prismicio/next"
 
 import { Wrapper, Heading, Button } from "@/components/atoms"
+import { it } from "node:test"
 
 /**
  * Props for `FeaturedStories`.
@@ -25,12 +26,15 @@ const FeaturedStories = async ({
         isFilled.contentRelationship(item.featured_story) &&
         item.featured_story.uid
       ) {
-        return client.getByUID("success_story", item.featured_story.uid)
+        return client.getByUID("success_story", item.featured_story.uid, {
+          lang: item.featured_story.lang,
+        })
       }
     }),
   )
 
-  console.log("successStories", successStories)
+  // console.log("successStories", successStories)
+  // console.log("params.locale", params.locale)
 
   return (
     <section
@@ -51,7 +55,7 @@ const FeaturedStories = async ({
               <div className="relative z-10 flex flex-col items-start h-full gap-3 p-5">
                 <h3 className="sr-only">{item?.data.title}</h3>
                 <p className="text-[14px]uppercase bg-white bg-opacity-90 px-1 py-0 leading-[24px] rounded-[2px]">
-                  {item?.data.cad_funded_plus_amount}
+                  {item?.data.card_funded_plus_amount}
                 </p>
 
                 <div className="mt-auto max-h-[32px] ">
@@ -61,7 +65,7 @@ const FeaturedStories = async ({
                   />
                 </div>
                 <Button
-                  href={`/success-stories/${item?.uid}`}
+                  href={`/${item?.lang}/success-stories/${item?.uid}`}
                   className="p-0 bg-transparent border-2 border-white "
                 >
                   {item?.data.card_link_text}
