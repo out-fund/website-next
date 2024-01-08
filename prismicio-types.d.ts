@@ -2334,26 +2334,6 @@ export interface ProcessStepsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField
-
-  /**
-   * Start Supercharging Title field in *ProcessSteps → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process_steps.primary.start_supercharging_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  start_supercharging_title: prismic.KeyTextField
-
-  /**
-   * Button Text field in *ProcessSteps → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process_steps.primary.button_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_text: prismic.KeyTextField
 }
 
 /**

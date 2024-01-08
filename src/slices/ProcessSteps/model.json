@@ -25,20 +25,6 @@
             "label": "Description",
             "placeholder": ""
           }
-        },
-        "start_supercharging_title": {
-          "type": "Text",
-          "config": {
-            "label": "Start Supercharging Title",
-            "placeholder": ""
-          }
-        },
-        "button_text": {
-          "type": "Text",
-          "config": {
-            "label": "Button Text",
-            "placeholder": ""
-          }
         }
       },
       "items": {

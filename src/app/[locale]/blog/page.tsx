@@ -33,6 +33,7 @@ export default async function BlogPage({ params }: PageProps) {
   })
 
   // const locales = await getTranslatedLocales(page, client)
+  // console.log("params.locale", params.locale)
   // console.log("post", posts)
   // posts.map((post) => {
   //   console.log("post", post.data.card_image)
@@ -47,7 +48,7 @@ export default async function BlogPage({ params }: PageProps) {
             return (
               <li key={post.uid} className="mb-2">
                 <Link
-                  href={`/blog/${post.uid}`}
+                  href={`/${params.locale}/blog/${post.uid}`}
                   className="hover:underline block"
                 >
                   {post.data.card_image.id && (
@@ -121,14 +122,15 @@ export default async function BlogPage({ params }: PageProps) {
 //   }
 // }
 
-// export async function generateStaticParams() {
-//   const client = createClient()
-//   const pages = await client.getAllByType("blog_post", { lang: "*" })
+// Should create static pages for post and locale
+export async function generateStaticParams() {
+  const client = createClient()
+  const pages = await client.getAllByType("blog_post", { lang: "*" })
 
-//   return pages.map((page) => {
-//     return {
-//       uid: page.uid,
-//       lang: page.lang,
-//     }
-//   })
-// }
+  return pages.map((page) => {
+    return {
+      uid: page.uid,
+      lang: page.lang,
+    }
+  })
+}
