@@ -43,7 +43,6 @@ const FeaturedBrands = async ({
               className=" relative overflow-hidden h-[200px] lg:h-[360px] "
             >
               <div className="relative z-10 flex flex-col items-start h-full gap-3 p-5">
-                {/* <h3 className="sr-only">{item?.data.brand_name}</h3> */}
                 <h3 className="text-[14px]uppercase bg-white bg-opacity-90 px-1 py-0 leading-[24px] rounded-[2px]">
                   {item?.data.cad_funded_plus_amount} {item?.data.brand_name}
                 </h3>

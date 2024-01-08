@@ -639,15 +639,15 @@ interface SuccessStoryDocumentData {
   card_link_text: prismic.KeyTextField
 
   /**
-   * Cad Funded + Amount field in *Success Story Post*
+   * Card Funded + Amount field in *Success Story Post*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: success_story.cad_funded_plus_amount
+   * - **API ID Path**: success_story.card_funded_plus_amount
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  cad_funded_plus_amount: prismic.KeyTextField
+  card_funded_plus_amount: prismic.KeyTextField
 
   /**
    * Slice Zone field in *Success Story Post*

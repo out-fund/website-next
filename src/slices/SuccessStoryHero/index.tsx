@@ -58,7 +58,7 @@ const SuccessStoryHero = ({ slice }: SuccessStoryHeroProps): JSX.Element => {
             <figure className="founder">
               <PrismicNextImage
                 field={slice.primary.founder_image}
-                priority
+                priority={true}
                 height={440}
                 width={440}
                 className="mb-1"

@@ -30,7 +30,7 @@ const FeaturedStories = async ({
     }),
   )
 
-  // console.log("successStories", successStories)
+  console.log("successStories", successStories)
 
   return (
     <section

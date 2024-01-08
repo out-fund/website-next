@@ -34,7 +34,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const client = createClient()
   const page = await client
-    .getByUID("success_story", params.uid)
+    .getByUID("success_story", params.uid, { lang: params.locale })
     .catch(() => notFound())
 
   return {

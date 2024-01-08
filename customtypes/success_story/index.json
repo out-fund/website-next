@@ -53,10 +53,10 @@
           "placeholder": ""
         }
       },
-      "cad_funded_plus_amount": {
+      "card_funded_plus_amount": {
         "type": "Text",
         "config": {
-          "label": "Cad Funded + Amount",
+          "label": "Card Funded + Amount",
           "placeholder": ""
         }
       },
