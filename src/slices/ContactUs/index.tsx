@@ -40,10 +40,31 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
           field={slice.primary.description}
           components={components}
         />
-        <div>{slice.primary.form_full_name}</div>
-        <div>{slice.primary.form_business_email}</div>
-        <div>{slice.primary.form_message}</div>
-        <div>{slice.primary.form_button_text}</div>
+        <form action="" className="flex flex-col gap-2 mt-3">
+          <div className="">
+            <input
+              className="shadow appearance-none border-cobalt rounded w-full p-1  "
+              type="text"
+              placeholder={slice.primary.form_full_name ?? ""}
+            />
+          </div>
+          <div>
+            <input
+              className="shadow appearance-none border-cobalt rounded w-full p-1  "
+              type="email"
+              placeholder={slice.primary.form_business_email ?? ""}
+            />
+          </div>
+          <div>
+            <textarea
+              className="shadow appearance-none border-cobalt rounded w-full p-1  "
+              placeholder={slice.primary.form_message ?? ""}
+            />
+          </div>
+          <div>
+            <Button href="#">{slice.primary.form_button_text ?? ""}</Button>
+          </div>
+        </form>
       </Wrapper>
     </section>
   )
