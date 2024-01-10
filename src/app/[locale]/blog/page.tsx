@@ -26,8 +26,8 @@ export default async function BlogPage({ params }: PageProps) {
     .catch(() => notFound())
 
   const posts = await client.getAllByType("blog_post", {
+    lang: params.locale,
     orderings: [
-      { field: "my.blog_post.publishDate", direction: "desc" },
       { field: "document.first_publication_date", direction: "desc" },
     ],
   })
@@ -36,7 +36,7 @@ export default async function BlogPage({ params }: PageProps) {
   // console.log("params.locale", params.locale)
   // console.log("post", posts)
   // posts.map((post) => {
-  //   console.log("post", post.data.card_image)
+  //   console.log("post", post)
   // })
 
   return (

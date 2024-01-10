@@ -36,6 +36,17 @@ interface BlogPostDocumentData {
   card_image: prismic.ImageField<never>
 
   /**
+   * Publication Date field in *Blog Post*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Used to create order on the blog page
+   * - **API ID Path**: blog_post.publication_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  publication_date: prismic.DateField
+
+  /**
    * Slice Zone field in *Blog Post*
    *
    * - **Field Type**: Slice Zone

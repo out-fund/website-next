@@ -28,6 +28,13 @@
           "thumbnails": []
         }
       },
+      "publication_date": {
+        "type": "Date",
+        "config": {
+          "label": "Publication Date",
+          "placeholder": "Used to create order on the blog page"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
