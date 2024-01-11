@@ -145,7 +145,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                     <Heading as="div" size="h4" className="">
                       {slice.primary.amount_title}
                     </Heading>
-                    <Heading className="" as="div" size="h4">
+                    <Heading className="self-end " as="div" size="h4">
                       {getAmount(parseInt(selectedLoanAmount))}
                     </Heading>
                   </div>
@@ -205,7 +205,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                     <Heading as="div" size="h4" className="">
                       {slice.primary.total_title}
                     </Heading>
-                    <hr className="w-[36%] border-dashed opacity-20" />
+                    <hr className="w-[25%] md:w-[35%] border-dashed opacity-20" />
                     <Heading className="" as="div" size="h4">
                       {getAmount(totalRepayable)}
                     </Heading>
