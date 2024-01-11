@@ -29,34 +29,31 @@ const SuccessStoryStatements = ({
       data-slice-variation={slice.variation}
       className="my-4 md:my-8 "
     >
-      <Wrapper>
-        <div className="grid grid-cols-2 gap-10">
-          <div className="left flex flex-col gap-5">
-            {slice.items.map((item, index) => (
-              <div key={index}>
-                <Heading size="h3" as="h3" className=" mb-1">
-                  {item.title}
-                </Heading>
-                <PrismicRichText
-                  field={item.description}
-                  components={components}
-                />
-              </div>
-            ))}
-          </div>
-          <div className="right">
-            <figure>
-              {/* <blockquote>{slice.primary.quote}</blockquote> */}
-              <Heading size="h3" as="blockquote" className="mb-1">
-                {slice.primary.quote}
+      <div className="grid gap-5 md:grid-cols-2 md:gap-10">
+        <div className="left flex flex-col gap-5">
+          {slice.items.map((item, index) => (
+            <div key={index}>
+              <Heading size="h3" as="h3" className=" mb-1">
+                {item.title}
               </Heading>
-              <Heading size="h5" as="figcaption" className="">
-                {slice.primary.quote_by}
-              </Heading>
-            </figure>
-          </div>
+              <PrismicRichText
+                field={item.description}
+                components={components}
+              />
+            </div>
+          ))}
         </div>
-      </Wrapper>
+        <div className="right">
+          <figure>
+            <Heading size="h3" as="blockquote" className="mb-1">
+              {slice.primary.quote}
+            </Heading>
+            <Heading size="h5" as="figcaption" className="">
+              {slice.primary.quote_by}
+            </Heading>
+          </figure>
+        </div>
+      </div>
     </section>
   )
 }

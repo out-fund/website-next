@@ -35,46 +35,36 @@ const SuccessStoryHero = ({ slice }: SuccessStoryHeroProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mt-10 mb-3 md:mt-15 md:mb-6"
+      className="mt-6 mb-3 md:mt-10 md:mb-5"
     >
-      <Wrapper>
-        <article>
-          <div className="grid grid-cols-[670fr_440fr] gap-[60px]">
-            <div className="left w-full">
-              {/* <Heading size="h1" as="h1" className="">
-              {slice.primary.heading}
-            </Heading> */}
-              <PrismicRichText
-                field={slice.primary.heading}
-                components={components}
-              />
+      <div className="grid md:grid-cols-[670fr_440fr] gap-4 md:gap-[60px]">
+        <div className="left w-full">
+          <PrismicRichText
+            field={slice.primary.heading}
+            components={components}
+          />
 
-              <PrismicRichText
-                field={slice.primary.text}
-                components={components}
-              />
+          <PrismicRichText field={slice.primary.text} components={components} />
+        </div>
+
+        <figure className="founder">
+          <PrismicNextImage
+            field={slice.primary.founder_image}
+            priority={true}
+            height={440}
+            width={440}
+            className="mb-1"
+          />
+          <figcaption>
+            <Heading size="h4" as="div">
+              {slice.primary.founder_name}
+            </Heading>
+            <div className="text-[16px] leading-[24px] text-body font-[400]">
+              {slice.primary.founder_title}
             </div>
-
-            <figure className="founder">
-              <PrismicNextImage
-                field={slice.primary.founder_image}
-                priority={true}
-                height={440}
-                width={440}
-                className="mb-1"
-              />
-              <figcaption>
-                <Heading size="h4" as="div">
-                  {slice.primary.founder_name}
-                </Heading>
-                <div className="text-[16px] leading-[24px] text-body font-[400]">
-                  {slice.primary.founder_title}
-                </div>
-              </figcaption>
-            </figure>
-          </div>
-        </article>
-      </Wrapper>
+          </figcaption>
+        </figure>
+      </div>
     </section>
   )
 }

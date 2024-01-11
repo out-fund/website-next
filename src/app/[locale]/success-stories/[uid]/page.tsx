@@ -7,6 +7,8 @@ import { components } from "@/slices"
 import { PageLayout } from "@/components"
 import { PageEvent } from "@/lib/events"
 
+import { Wrapper } from "@/components/atoms"
+
 type Params = {
   uid: string
   locale: string
@@ -23,7 +25,12 @@ export default async function Page({ params }: { params: Params }) {
 
   return (
     <PageLayout locale={params.locale}>
-      <SliceZone slices={sucessStory.data.slices} components={components} />
+      {/* <SliceZone slices={sucessStory.data.slices} components={components} /> */}
+      <article className="">
+        <Wrapper width="medium">
+          <SliceZone slices={sucessStory.data.slices} components={components} />
+        </Wrapper>
+      </article>
       <PageEvent name={sucessStory.uid} />
     </PageLayout>
   )
