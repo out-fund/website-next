@@ -19,14 +19,16 @@ const ImageBlock = ({ slice }: ImageBlockProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <div>
-        <div className="flex justify-between flex-col lg:flex-row items-center gap-3">
+        <div className="grid xs:grid-cols-[1fr_2fr] gap-3">
           <PrismicNextImage
             field={slice.primary.left_image}
-            className="max-h-[420px] w-auto"
+            className="w-full h-full object-cover"
+            priority={false}
           />
           <PrismicNextImage
             field={slice.primary.right_image}
-            className="max-h-[420px] w-auto"
+            className="w-full h-full object-cover"
+            priority={false}
           />
         </div>
       </div>
