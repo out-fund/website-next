@@ -1,6 +1,44 @@
+import {
+  JSXMapSerializer,
+  PrismicRichText,
+  SliceComponentProps,
+  PrismicLink,
+} from "@prismicio/react"
 import Link from "next/link"
+
 import "/node_modules/flag-icons/css/flag-icons.min.css"
 import { Wrapper, PageLink, Logo } from "@/components/atoms"
+
+const components: JSXMapSerializer = {
+  paragraph: ({ children }) => (
+    <p className="py-5 max-w-[800px] text-xs text-body opacity-70">
+      {children}
+    </p>
+  ),
+  // hyperlink: ({ node, children, key }) => (
+  //   // <PrismicLink
+  //   //   key={key}
+  //   //   field={node.data}
+  //   //   linkResolver={args.linkResolver}
+  //   //   internalComponent={args.internalLinkComponent}
+  //   //   externalComponent={args.externalLinkComponent}
+  //   // >
+  //   //   {children}
+  //   // </PrismicLink>
+  //   // <Link>{children}</Link>
+  // ),
+  hyperlink: ({ node, children }) => {
+    return (
+      <a
+        href={node.data.url}
+        target="_blank"
+        className="hover:underline text-cobalt"
+      >
+        {children}
+      </a>
+    )
+  },
+}
 
 export default async function Footer(props: any) {
   return (
@@ -84,9 +122,15 @@ export default async function Footer(props: any) {
               </div>
             </div>
           </div>
-          <div className="py-5 max-w-[800px] text-md text-body opacity-70">
-            {props.data.data.fca_statement}
+          {/* <div className="py-5 max-w-[800px] text-xs text-body opacity-70"> */}
+          <div className="py-5">
+            {/* {props.data.data.fca_statement} */}
+            <PrismicRichText
+              field={props.data.legal_text}
+              components={components}
+            />
           </div>
+
           {/* Bottom ---------------------------------------------------------------- */}
           <div className=" flex flex-col md:flex-row items-baseline gap-2 border-t border-[#DCE6EF] pt-1">
             <div className="text-xs text-body font-[400] opacity-70">

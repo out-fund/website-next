@@ -291,15 +291,15 @@ interface FooterDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   countries_title: prismic.KeyTextField /**
-   * FCA Statement field in *Footer*
+   * Legal Text field in *Footer*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: footer.fca_statement
+   * - **API ID Path**: footer.legal_text
    * - **Tab**: Bottom
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  fca_statement: prismic.KeyTextField
+  legal_text: prismic.RichTextField
 
   /**
    * Copyright field in *Footer*

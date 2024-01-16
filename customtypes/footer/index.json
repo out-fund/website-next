@@ -105,11 +105,13 @@
       }
     },
     "Bottom": {
-      "fca_statement": {
-        "type": "Text",
+      "legal_text": {
+        "type": "StructuredText",
         "config": {
-          "label": "FCA Statement",
-          "placeholder": ""
+          "label": "Legal Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,embed,hyperlink"
         }
       },
       "copyright": {
