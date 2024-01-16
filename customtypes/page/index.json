@@ -111,6 +111,15 @@
           "thumbnails": []
         },
         "type": "Image"
+      },
+      "schema_org_json_ld": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Schema.org JSON LD ",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "multi": "embed"
+        }
       }
     }
   }

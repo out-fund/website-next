@@ -111,7 +111,7 @@
           "label": "Legal Text",
           "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "paragraph,embed,hyperlink"
+          "multi": "paragraph,hyperlink"
         }
       },
       "copyright": {

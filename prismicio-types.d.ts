@@ -661,6 +661,17 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>
+
+  /**
+   * Schema.org JSON LD  field in *Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.schema_org_json_ld
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  schema_org_json_ld: prismic.RichTextField
 }
 
 /**

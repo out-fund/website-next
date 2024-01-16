@@ -5,6 +5,7 @@
 import { Metadata } from "next"
 import { SliceZone } from "@prismicio/react"
 import { notFound } from "next/navigation"
+import { JSXMapSerializer, PrismicRichText } from "@prismicio/react"
 
 import { createClient } from "@/prismicio"
 import { components } from "@/slices"
@@ -13,12 +14,22 @@ import { getTranslatedLocales } from "@/lib/getTranslatedLocales"
 import { PageLayout } from "@/components"
 import { PageEvent } from "@/lib/events"
 
-// import { GetStaticPropsContext } from "next"
+import { sortLocales } from "@/lib/utils"
 
 type PageProps = {
-  params: {
-    locale: string
-  }
+  params: { uid: string; locale: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+const embedComponent: JSXMapSerializer = {
+  embed: ({ node }) => {
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(node.oembed.html) }}
+      />
+    )
+  },
 }
 
 export default async function Page({ params }: PageProps) {
@@ -29,76 +40,51 @@ export default async function Page({ params }: PageProps) {
     .catch(() => notFound())
   // console.log("params lang", params.locale)
 
-  const locales = await getTranslatedLocales(page, client)
+  // const locales = await getTranslatedLocales(page, client)
   // console.log("locales-home", locales)
 
   return (
     <PageLayout locale={params.locale}>
       <SliceZone slices={page.data.slices} components={components} />
       <PageEvent name="Home" />
+      {/* Schema.org */}
+      {page.data.schema_org_json_ld && (
+        <PrismicRichText
+          field={page.data.schema_org_json_ld}
+          components={embedComponent}
+        />
+      )}
     </PageLayout>
   )
 }
 
-// export async function generateMetadata(): Promise<Metadata> {
-//   const client = createClient()
-//   const page = await client.getSingle("home_page")
-
-//   return {
-//     title: page.data.meta_title,
-//     description: page.data.meta_description,
-//   }
-// }
-
-/**
- * @returns {Promise<import("next").Metadata>}
- */
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const client = createClient()
-  const page = await client.getByUID("page", "home", { lang: params.locale })
+  const page = await client
+    .getByUID("page", "home", { lang: params.locale })
+    .catch(() => notFound())
+
+  const langs = await sortLocales((await client.getRepository()).languages)
+  const languages: { [key: string]: string } = {}
+
+  langs.forEach((lang) => {
+    languages[lang.id] = `/${lang.id}`
+  })
+
+  // console.log("params.uid", params.uid)
 
   return {
     metadataBase: new URL("https://out.fund"),
-    title: `${page.data.title} | Outfund`,
-    // alternates: {
-    //   canonical: `${page.url}`,
-    //   languages: {
-    //     "en-US": "/en-US",
-    //     "de-DE": "/de-DE",
-    //   },
-    // },
-    // openGraph: {
-    //   title: "Next.js",
-    //   description: "The React Framework for the Web",
-    //   url: "https://nextjs.org",
-    //   siteName: "Next.js",
-    //   images: [
-    //     {
-    //       url: "https://nextjs.org/og-alt.png",
-    //       width: 1800,
-    //       height: 1600,
-    //       alt: "My custom alt",
-    //     },
-    //   ],
-    //   locale: "en_US",
-    //   type: "website",
-    // },
+    title: `${page.data.title}`,
+    description: page.data.meta_description || "",
+    alternates: {
+      canonical: `/${params.locale}`,
+      languages,
+    },
+    openGraph: {
+      images: [page.data.meta_image.url || ""],
+    },
   }
 }
-
-// export async function generateStaticParams() {
-//   const client = createClient()
-//   const pages = await client.getAllByType("page", { lang: "*" })
-//   // const pages = await client.getByUID("page", "home", { lang: "*" })
-
-//   console.log(pages)
-
-//   return pages.map((page) => {
-//     return {
-//       uid: page.uid,
-//       lang: page.lang,
-//     }
-//   })
-// }
-
-// const locales = await getTranslatedLocales(page, client)

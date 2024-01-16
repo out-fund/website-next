@@ -12,13 +12,23 @@ import { PageEvent } from "@/lib/events"
 import { Wrapper, Heading, PageLink } from "@/components/atoms"
 import Link from "next/link"
 
+// type PageProps = {
+//   params: {
+//     locale: string
+//   }
+// }
+
 type PageProps = {
-  params: {
-    locale: string
-  }
+  params: { uid: string; locale: string }
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function BlogPage({ params }: PageProps) {
+// type PageProps = {
+//   uid: string
+//   locale: string
+// }
+
+export default async function BlogPage({ params, searchParams }: PageProps) {
   const client = createClient()
 
   const blogPage = await client
@@ -79,58 +89,12 @@ export default async function BlogPage({ params }: PageProps) {
   )
 }
 
-// export default async function BlogPage({ params }: { params: Params }) {
-//   const client = createClient()
-
-//   // const blogPosts = await client
-//   //   .getByUID("blog_post", params.uid, { lang: params.locale })
-//   //   .catch(() => notFound())
-//   const posts = await client.getAllByType("blog_post", {
-//     orderings: [
-//       { field: "my.blog_post.publishDate", direction: "desc" },
-//       { field: "document.first_publication_date", direction: "desc" },
-//     ],
-//   })
-
-//   return (
-//     <PageLayout locale={params.locale}>
-//       <article className="mb-5">
-//         <Wrapper width="narrow">
-//           <SliceZone slices={page.data.slices} components={components} />
-//           <div>test</div>
-//         </Wrapper>
-//       </article>
-
-//       {/* <PageEvent name={blogPost.uid} /> */}
-//     </PageLayout>
-//   )
-// }
-
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: Params
-// }): Promise<Metadata> {
-//   const client = createClient()
-//   const page = await client
-//     .getByUID("blog_post", params.uid)
-//     .catch(() => notFound())
-
-//   return {
-//     metadataBase: new URL("https://out.fund"),
-//     title: `${page.data.title} | Outfund`,
-//   }
-// }
-
-// Should create static pages for post and locale
-export async function generateStaticParams() {
+export async function generateMetadata({ params }: PageProps) {
   const client = createClient()
-  const pages = await client.getAllByType("blog_post", { lang: "*" })
+  const page = await client.getByUID("page", "blog", { lang: params.locale })
 
-  return pages.map((page) => {
-    return {
-      uid: page.uid,
-      lang: page.lang,
-    }
-  })
+  return {
+    metadataBase: new URL("https://out.fund"),
+    title: `Blog test ${page.data.title} | Outfund`,
+  }
 }

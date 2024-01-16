@@ -11,17 +11,11 @@ import { Wrapper, PageLink, Logo } from "@/components/atoms"
 
 const components: JSXMapSerializer = {
   paragraph: ({ children }) => (
-    <p className="py-5 max-w-[800px] text-xs text-body opacity-70">
-      {children}
-    </p>
+    <p className="text-xs text-body opacity-70">{children}</p>
   ),
   hyperlink: ({ node, children }) => {
     return (
-      <a
-        href={node.data.url}
-        target="_blank"
-        className="hover:underline text-cobalt"
-      >
+      <a href={node.data.url} target="_blank" className="underline">
         {children}
       </a>
     )
@@ -29,8 +23,10 @@ const components: JSXMapSerializer = {
 }
 
 export default async function Footer(props: any) {
+  // console.log("footer", props)
   return (
     <footer className="  bg-bgMedium">
+      <PrismicRichText field={props.legal_text} components={components} />
       <Wrapper>
         <div className="flex flex-col pt-10 pb-1 mx-auto md:mx-0 max-w-[90%] md:max-w-none  ">
           <div className="top">
@@ -110,11 +106,10 @@ export default async function Footer(props: any) {
               </div>
             </div>
           </div>
-          {/* <div className="py-5 max-w-[800px] text-xs text-body opacity-70"> */}
-          <div className="py-5">
-            {/* {props.data.data.fca_statement} */}
+
+          <div className="pt-5 pb-2 max-w-[800px]">
             <PrismicRichText
-              field={props.data.legal_text}
+              field={props.data.data.legal_text}
               components={components}
             />
           </div>

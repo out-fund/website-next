@@ -1,22 +1,14 @@
-// import type { Metadata } from "next"
-// import { createClient } from "@/prismicio"
+import type { Metadata } from "next"
+import { createClient } from "@/prismicio"
 
 import { inter } from "@/lib/font"
 import { convertLocaleToLang } from "@/lib/utils"
 import { cn } from "@/lib/utils"
 import "@/styles/globals.css"
 
-// export async function generateMetadata(): Promise<Metadata> {
-//   const client = createClient()
-//   const globalSEO = await client.getSingle("global_seo")
-
-//   return {
-//     title: globalSEO.data.site_title || "Outfund Fallback",
-//     description: globalSEO.data.meta_description || "",
-//     openGraph: {
-//       images: [globalSEO.data.og_image.url || ""],
-//     },
-//   }
+// type PageProps = {
+//   params: { uid: string; locale: string }
+//   searchParams: { [key: string]: string | string[] | undefined }
 // }
 
 export default function RootLayout({

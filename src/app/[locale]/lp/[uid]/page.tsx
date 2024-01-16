@@ -23,11 +23,6 @@ export default async function LandingPage({ params }: { params: Params }) {
 
   return (
     <PageLayout locale={params.locale}>
-      {/* <article className="mb-5">
-        <Wrapper width="narrow">
-          
-        </Wrapper>
-      </article> */}
       <SliceZone slices={landingPage.data.slices} components={components} />
 
       <PageEvent name={landingPage.uid} />

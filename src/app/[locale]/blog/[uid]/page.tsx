@@ -9,12 +9,12 @@ import { PageEvent } from "@/lib/events"
 
 import { Wrapper } from "@/components/atoms"
 
-type Params = {
+type PageProps = {
   uid: string
   locale: string
 }
 
-export default async function BlogPage({ params }: { params: Params }) {
+export default async function BlogPost({ params }: { params: PageProps }) {
   const client = createClient()
 
   const blogPost = await client
@@ -37,7 +37,7 @@ export default async function BlogPage({ params }: { params: Params }) {
 export async function generateMetadata({
   params,
 }: {
-  params: Params
+  params: PageProps
 }): Promise<Metadata> {
   const client = createClient()
   const page = await client
@@ -50,7 +50,7 @@ export async function generateMetadata({
   }
 }
 
-export async function generateStaticParams() {
+export async function generateStaticPageProps() {
   const client = createClient()
   const pages = await client.getAllByType("blog_post", { lang: "*" })
 
