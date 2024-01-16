@@ -14,22 +14,23 @@ type Params = {
   locale: string
 }
 
-export default async function BlogPage({ params }: { params: Params }) {
+export default async function LandingPage({ params }: { params: Params }) {
   const client = createClient()
 
-  const blogPost = await client
-    .getByUID("blog_post", params.uid, { lang: params.locale })
+  const landingPage = await client
+    .getByUID("landing_page", params.uid, { lang: params.locale })
     .catch(() => notFound())
 
   return (
     <PageLayout locale={params.locale}>
-      <article className="mb-5">
+      {/* <article className="mb-5">
         <Wrapper width="narrow">
-          <SliceZone slices={blogPost.data.slices} components={components} />
+          
         </Wrapper>
-      </article>
+      </article> */}
+      <SliceZone slices={landingPage.data.slices} components={components} />
 
-      <PageEvent name={blogPost.uid} />
+      <PageEvent name={landingPage.uid} />
     </PageLayout>
   )
 }
@@ -41,7 +42,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const client = createClient()
   const page = await client
-    .getByUID("blog_post", params.uid)
+    .getByUID("landing_page", params.uid)
     .catch(() => notFound())
 
   return {
@@ -52,7 +53,7 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   const client = createClient()
-  const pages = await client.getAllByType("blog_post", { lang: "*" })
+  const pages = await client.getAllByType("landing_page", { lang: "*" })
 
   return pages.map((page) => {
     return {
