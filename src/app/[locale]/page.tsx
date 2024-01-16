@@ -32,9 +32,38 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
+  const client = createClient()
+
+  const page = await client
+    .getByUID("page", "home", { lang: params.locale })
+    .catch(() => notFound())
+
+  const toOgLocale = (locale: string) => {
+    const [lang, country] = locale.split("-")
+    return `${lang}_${country.toUpperCase()}`
+  }
+
+  const languages: { [key: string]: string } = {}
+  const langs = await sortLocales((await client.getRepository()).languages)
+  langs.forEach((lang) => {
+    languages[lang.id] = `/${lang.id}`
+  })
+
   return {
-    title: "ttile test",
-    description: "des",
+    title: `${page.data.title}`,
+    description: page.data.meta_description,
+    alternates: {
+      canonical: `/${params.locale}`,
+      languages,
+    },
+    openGraph: {
+      title: `${page.data.meta_title}`,
+      description: `${page.data.meta_description}`,
+      url: `/${params.locale}`,
+      siteName: "Outfund",
+      locale: toOgLocale(params.locale),
+      type: "website",
+    },
   }
 }
 
