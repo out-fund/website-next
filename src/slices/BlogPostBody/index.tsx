@@ -1,6 +1,7 @@
 import { Content } from "@prismicio/client"
 import { SliceComponentProps } from "@prismicio/react"
 import { JSXMapSerializer, PrismicRichText } from "@prismicio/react"
+import Image from "next/image"
 
 import { Heading } from "@/components/atoms"
 
@@ -68,7 +69,8 @@ const components: JSXMapSerializer = {
     return (
       <div className="mb-3">
         <figure className="text-center">
-          <img src={node.url} alt={node.alt ? node.alt : ""} />
+          {/* <img src={node.url} alt={node.alt ? node.alt : ""} /> */}
+          <Image src={node.url} alt={node.alt ? node.alt : ""} />
           <figcaption className="text-[14px] leading-[24px] text-body font-[400] mt-1">
             {node.alt}
           </figcaption>

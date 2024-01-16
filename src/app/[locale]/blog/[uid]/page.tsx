@@ -9,12 +9,20 @@ import { PageEvent } from "@/lib/events"
 
 import { Wrapper } from "@/components/atoms"
 
-type PageProps = {
+// type Params = {
+//   uid: string
+//   locale: string
+// }
+
+// type Params = {
+//   params: { uid: string; locale: string }
+// }
+type Params = {
   uid: string
   locale: string
 }
 
-export default async function BlogPost({ params }: { params: PageProps }) {
+export default async function Page({ params }: { params: Params }) {
   const client = createClient()
 
   const blogPost = await client
@@ -34,30 +42,27 @@ export default async function BlogPost({ params }: { params: PageProps }) {
   )
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: PageProps
-}): Promise<Metadata> {
-  const client = createClient()
-  const page = await client
-    .getByUID("blog_post", params.uid)
-    .catch(() => notFound())
+// export async function generateMetadata(props: any): Promise<Metadata> {
+//   const { params } = props
+//   const client = createClient()
+//   const page = await client
+//     .getByUID("blog_post", params.uid, { lang: params.locale })
+//     .catch(() => notFound())
 
-  return {
-    metadataBase: new URL("https://out.fund"),
-    title: `${page.data.title} | Outfund`,
-  }
-}
+//   return {
+//     metadataBase: new URL("https://out.fund"),
+//     title: `${page.data.title} | Outfund`,
+//   }
+// }
 
-export async function generateStaticPageProps() {
-  const client = createClient()
-  const pages = await client.getAllByType("blog_post", { lang: "*" })
+// export async function generateStaticParams() {
+//   const client = createClient()
+//   const pages = await client.getAllByType("blog_post", { lang: "*" })
 
-  return pages.map((page) => {
-    return {
-      uid: page.uid,
-      lang: page.lang,
-    }
-  })
-}
+//   return pages.map((page) => {
+//     return {
+//       uid: page.uid,
+//       lang: page.lang,
+//     }
+//   })
+// }

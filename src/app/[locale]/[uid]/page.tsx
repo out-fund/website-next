@@ -131,20 +131,20 @@ export default async function Page({ params }: { params: Params }) {
 //   })
 // }
 
-export async function generateStaticParams() {
-  const client = createClient()
-  const pages = await client.getAllByType("page", { lang: "*" })
-  // const sucessPages = await client.getAllByType("success_story", { lang: "*" })
-  // const pages = await client.getByUID("page", "home", { lang: "*" })
+// export async function generateStaticParams() {
+//   const client = createClient()
+//   const pages = await client.getAllByType("page", { lang: "*" })
+//   // const sucessPages = await client.getAllByType("success_story", { lang: "*" })
+//   // const pages = await client.getByUID("page", "home", { lang: "*" })
 
-  // const allPages = pages.concat(sucessPages)
+//   // const allPages = pages.concat(sucessPages)
 
-  // console.log(sucessPages)
+//   // console.log(sucessPages)
 
-  return pages.map((page) => {
-    return {
-      uid: page.uid,
-      lang: page.lang,
-    }
-  })
-}
+//   return pages.map((page) => {
+//     return {
+//       uid: page.uid,
+//       lang: page.lang,
+//     }
+//   })
+// }

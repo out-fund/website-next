@@ -36,30 +36,30 @@ export default async function Page({ params }: { params: Params }) {
   )
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params
-}): Promise<Metadata> {
-  const client = createClient()
-  const page = await client
-    .getByUID("success_story", params.uid, { lang: params.locale })
-    .catch(() => notFound())
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: Params
+// }): Promise<Metadata> {
+//   const client = createClient()
+//   const page = await client
+//     .getByUID("success_story", params.uid, { lang: params.locale })
+//     .catch(() => notFound())
 
-  return {
-    metadataBase: new URL("https://out.fund"),
-    title: `${page.data.title} | Outfund`,
-  }
-}
+//   return {
+//     metadataBase: new URL("https://out.fund"),
+//     title: `${page.data.title} | Outfund`,
+//   }
+// }
 
-export async function generateStaticParams() {
-  const client = createClient()
-  const pages = await client.getAllByType("success_story", { lang: "*" })
+// export async function generateStaticProp() {
+//   const client = createClient()
+//   const pages = await client.getAllByType("success_story", { lang: "*" })
 
-  return pages.map((page) => {
-    return {
-      uid: page.uid,
-      lang: page.lang,
-    }
-  })
-}
+//   return pages.map((page) => {
+//     return {
+//       uid: page.uid,
+//       lang: page.lang,
+//     }
+//   })
+// }

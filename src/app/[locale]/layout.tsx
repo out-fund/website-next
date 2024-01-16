@@ -6,11 +6,6 @@ import { convertLocaleToLang } from "@/lib/utils"
 import { cn } from "@/lib/utils"
 import "@/styles/globals.css"
 
-// type PageProps = {
-//   params: { uid: string; locale: string }
-//   searchParams: { [key: string]: string | string[] | undefined }
-// }
-
 export default function RootLayout({
   children,
   params,

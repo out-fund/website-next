@@ -18,17 +18,22 @@ import Link from "next/link"
 //   }
 // }
 
-type PageProps = {
-  params: { uid: string; locale: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
+// type PageProps = {
+//   params: { uid: string; locale: string }
+//   searchParams?: { [key: string]: string | string[] | undefined }
+// }
 
 // type PageProps = {
 //   uid: string
 //   locale: string
 // }
 
-export default async function BlogPage({ params, searchParams }: PageProps) {
+type Params = {
+  uid: string
+  locale: string
+}
+
+export default async function Page({ params }: { params: Params }) {
   const client = createClient()
 
   const blogPage = await client
@@ -89,12 +94,12 @@ export default async function BlogPage({ params, searchParams }: PageProps) {
   )
 }
 
-export async function generateMetadata({ params }: PageProps) {
-  const client = createClient()
-  const page = await client.getByUID("page", "blog", { lang: params.locale })
+// export async function generateMetadata({ params }: PageProps) {
+//   const client = createClient()
+//   const page = await client.getByUID("page", "blog", { lang: params.locale })
 
-  return {
-    metadataBase: new URL("https://out.fund"),
-    title: `Blog test ${page.data.title} | Outfund`,
-  }
-}
+//   return {
+//     metadataBase: new URL("https://out.fund"),
+//     title: `Blog test ${page.data.title} | Outfund`,
+//   }
+// }
