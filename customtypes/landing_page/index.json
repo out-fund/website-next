@@ -1,0 +1,122 @@
+{
+  "id": "landing_page",
+  "label": "Landing Page",
+  "format": "page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title (Browser Tab Title)",
+          "placeholder": "Browser Tab Title"
+        }
+      },
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "using_funds": {
+              "type": "SharedSlice"
+            },
+            "featured_brands": {
+              "type": "SharedSlice"
+            },
+            "image_right": {
+              "type": "SharedSlice"
+            },
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "unmatched_service": {
+              "type": "SharedSlice"
+            },
+            "trust_pilot_strip": {
+              "type": "SharedSlice"
+            },
+            "success_story_hero": {
+              "type": "SharedSlice"
+            },
+            "success_story_statements": {
+              "type": "SharedSlice"
+            },
+            "schedule_call": {
+              "type": "SharedSlice"
+            },
+            "featured_in": {
+              "type": "SharedSlice"
+            },
+            "process_steps": {
+              "type": "SharedSlice"
+            },
+            "perfect_fit": {
+              "type": "SharedSlice"
+            },
+            "funding_explained": {
+              "type": "SharedSlice"
+            },
+            "partners": {
+              "type": "SharedSlice"
+            },
+            "contact_us": {
+              "type": "SharedSlice"
+            },
+            "clients_say": {
+              "type": "SharedSlice"
+            },
+            "calculator": {
+              "type": "SharedSlice"
+            },
+            "callout": {
+              "type": "SharedSlice"
+            },
+            "benefits": {
+              "type": "SharedSlice"
+            },
+            "blog_post_body": {
+              "type": "SharedSlice"
+            },
+            "about_us": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}

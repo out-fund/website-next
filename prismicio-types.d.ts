@@ -394,6 +394,103 @@ export type GlobalSeoDocument<Lang extends string = string> =
     Lang
   >
 
+type LandingPageDocumentDataSlicesSlice =
+  | UsingFundsSlice
+  | FeaturedBrandsSlice
+  | ImageRightSlice
+  | HeroSlice
+  | UnmatchedServiceSlice
+  | TrustPilotStripSlice
+  | SuccessStoryHeroSlice
+  | SuccessStoryStatementsSlice
+  | ScheduleCallSlice
+  | FeaturedInSlice
+  | ProcessStepsSlice
+  | PerfectFitSlice
+  | FundingExplainedSlice
+  | PartnersSlice
+  | ContactUsSlice
+  | ClientsSaySlice
+  | CalculatorSlice
+  | CalloutSlice
+  | BenefitsSlice
+  | BlogPostBodySlice
+  | AboutUsSlice
+
+/**
+ * Content for Landing Page documents
+ */
+interface LandingPageDocumentData {
+  /**
+   * Title (Browser Tab Title) field in *Landing Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Browser Tab Title
+   * - **API ID Path**: landing_page.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *Landing Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<LandingPageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Landing Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: landing_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Landing Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Landing Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: landing_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Landing Page document from Prismic
+ *
+ * - **API ID**: `landing_page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LandingPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<LandingPageDocumentData>,
+    "landing_page",
+    Lang
+  >
+
 /**
  * Item in *Navbar → Navbar Left*
  */
@@ -875,6 +972,7 @@ export type AllDocumentTypes =
   | BlogPostDocument
   | FooterDocument
   | GlobalSeoDocument
+  | LandingPageDocument
   | NavbarDocument
   | PageDocument
   | SuccessStoryDocument
@@ -2994,6 +3092,9 @@ declare module "@prismicio/client" {
       FooterDocumentDataPolicyLinksItem,
       GlobalSeoDocument,
       GlobalSeoDocumentData,
+      LandingPageDocument,
+      LandingPageDocumentData,
+      LandingPageDocumentDataSlicesSlice,
       NavbarDocument,
       NavbarDocumentData,
       NavbarDocumentDataNavbarLeftItem,

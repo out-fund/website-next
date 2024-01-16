@@ -15,18 +15,6 @@ const components: JSXMapSerializer = {
       {children}
     </p>
   ),
-  // hyperlink: ({ node, children, key }) => (
-  //   // <PrismicLink
-  //   //   key={key}
-  //   //   field={node.data}
-  //   //   linkResolver={args.linkResolver}
-  //   //   internalComponent={args.internalLinkComponent}
-  //   //   externalComponent={args.externalLinkComponent}
-  //   // >
-  //   //   {children}
-  //   // </PrismicLink>
-  //   // <Link>{children}</Link>
-  // ),
   hyperlink: ({ node, children }) => {
     return (
       <a
