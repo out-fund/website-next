@@ -24,6 +24,7 @@ export default async function Page({ params }: Props) {
   return (
     <PageLayout locale={params.locale}>
       <SliceZone slices={page.data.slices} components={components} />
+      <PageEvent name="Home" />
     </PageLayout>
   )
 }

@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { SliceZone } from "@prismicio/react"
 import { Organization, WithContext } from "schema-dts"
+import { JSXMapSerializer, PrismicRichText } from "@prismicio/react"
 
 import { createClient } from "@/prismicio"
 import { components } from "@/slices"
@@ -15,31 +16,15 @@ type Params = {
   locale: string
 }
 
-const jsonLd: WithContext<Organization> = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  image: "https://www.example.com/example_image.jpg",
-  url: "https://www.example.com",
-  sameAs: [
-    "https://example.net/profile/example1234",
-    "https://example.org/example1234",
-  ],
-  logo: "https://www.example.com/images/logo.png",
-  name: "Example Corporation",
-  description:
-    "The example corporation is well-known for producing high-quality widgets",
-  email: "contact@example.com",
-  telephone: "+47-99-999-9999",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Rue Improbable 99",
-    addressLocality: "Paris",
-    addressCountry: "FR",
-    addressRegion: "Ile-de-France",
-    postalCode: "75001",
+const embedComponent: JSXMapSerializer = {
+  preformatted: ({ node }) => {
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: node.text }}
+      />
+    )
   },
-  vatID: "FR12345678901",
-  iso6523Code: "0199:724500PMK2A2M1SQQ228",
 }
 
 export default async function Page({ params }: { params: Params }) {
@@ -59,12 +44,15 @@ export default async function Page({ params }: { params: Params }) {
 
   return (
     <PageLayout locale={params.locale}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       <SliceZone slices={page.data.slices} components={components} />
       <PageEvent name={page.uid} />
+      {/* Schema.org */}
+      {page.data.schema_org_json_ld && (
+        <PrismicRichText
+          field={page.data.schema_org_json_ld}
+          components={embedComponent}
+        />
+      )}
     </PageLayout>
   )
 }

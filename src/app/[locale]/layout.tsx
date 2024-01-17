@@ -33,3 +33,28 @@ export default function RootLayout({
     </html>
   )
 }
+export async function generateMetadata({
+  params,
+}: {
+  children: React.ReactNode
+  params: {
+    locale: string
+  }
+}): Promise<Metadata> {
+  const client = createClient()
+  const globalSEO = await client.getSingle("global_seo", {
+    lang: params.locale,
+  })
+  return {
+    metadataBase: new URL("https://out.fund"),
+    title: {
+      template: "%s | Outfund",
+      default: `${globalSEO.data.site_title}`,
+    },
+    description: globalSEO.data.meta_description || "",
+    referrer: "origin-when-cross-origin",
+    openGraph: {
+      images: [globalSEO.data.og_image.url || ""],
+    },
+  }
+}
