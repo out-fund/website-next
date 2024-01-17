@@ -53,10 +53,25 @@ export async function generateMetadata({
     },
     description: globalSEO.data.meta_description || "",
     referrer: "origin-when-cross-origin",
-    openGraph: {
-      images: [globalSEO.data.og_image.url || ""],
-      siteName: "Outfund",
-      type: "website",
+    icons: {
+      icon: "/images/icon.png",
+      shortcut: "/images/shortcut-icon.png",
+      apple: "/images/apple-touch-icon.png",
+      other: {
+        rel: "apple-touch-icon-precomposed",
+        url: "/images/apple-touch-icon-precomposed.png",
+      },
     },
   }
+}
+
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+  userScalable: "yes",
+  colorScheme: "light",
 }

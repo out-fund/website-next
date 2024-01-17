@@ -38,6 +38,9 @@ export async function generateMetadata(
   const page = await client
     .getByUID("page", "home", { lang: params.locale })
     .catch(() => notFound())
+  const globalSEO = await client.getSingle("global_seo", {
+    lang: params.locale,
+  })
 
   const toOgLocale = (locale: string) => {
     const [lang, country] = locale.split("-")
@@ -62,6 +65,9 @@ export async function generateMetadata(
       description: `${page.data.meta_description}`,
       url: `/${params.locale}`,
       locale: toOgLocale(params.locale),
+      images: [page.data.meta_image.url || globalSEO.data.og_image.url || ""],
+      siteName: "Outfund",
+      type: "website",
     },
   }
 }

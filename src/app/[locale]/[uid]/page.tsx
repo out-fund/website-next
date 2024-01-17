@@ -87,7 +87,7 @@ export async function generateMetadata(
     languages[lang.id] = `/${lang.id}/${params.uid}`
   })
 
-  console.log("meta url", page.data.meta_image.url)
+  // console.log("meta url", page.data.meta_image.url)
 
   return {
     title: `${page.data.title}`,
