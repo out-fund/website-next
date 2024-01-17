@@ -55,6 +55,8 @@ export async function generateMetadata({
     referrer: "origin-when-cross-origin",
     openGraph: {
       images: [globalSEO.data.og_image.url || ""],
+      siteName: "Outfund",
+      type: "website",
     },
   }
 }

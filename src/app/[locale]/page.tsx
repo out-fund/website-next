@@ -10,7 +10,7 @@ import { PageEvent } from "@/lib/events"
 import { sortLocales } from "@/lib/utils"
 
 type Props = {
-  params: { id: string; locale: string }
+  params: { uid: string; locale: string }
   searchParams?: { [key: string]: string | string[] | undefined }
 }
 
@@ -61,9 +61,7 @@ export async function generateMetadata(
       title: `${page.data.meta_title}`,
       description: `${page.data.meta_description}`,
       url: `/${params.locale}`,
-      siteName: "Outfund",
       locale: toOgLocale(params.locale),
-      type: "website",
     },
   }
 }
