@@ -80,7 +80,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                     priority={true}
                     height={512}
                     width={768}
-                    className="w-full lg:hidden "
+                    className="w-full h-auto lg:hidden "
                     quality={60}
                   />
                   <PrismicNextImage
@@ -90,7 +90,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                     height={512}
                     width={1200}
                     quality={60}
-                    className="hidden lg:block object-cover object-[20%] lg:object-left-top w-full h-full"
+                    className="hidden lg:block object-cover object-[20%] lg:object-left-top w-auto h-full"
                   />
                 </div>
               </div>

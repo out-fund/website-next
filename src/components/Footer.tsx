@@ -103,7 +103,7 @@ export default async function Footer(props: any) {
                         width={24}
                         height={16}
                         alt={`${language.id.split("-")[1]} flag`}
-                        className="w-[24px] h-[16px]"
+                        // className="w-[24px] h-[16px]"
                         priority={false}
                         loading="lazy"
                       />
