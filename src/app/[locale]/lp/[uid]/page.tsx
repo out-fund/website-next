@@ -25,6 +25,7 @@ export default async function LandingPage({ params }: { params: Params }) {
     <PageLayout locale={params.locale}>
       <SliceZone slices={landingPage.data.slices} components={components} />
 
+      {/* Segment Event */}
       <PageEvent name={landingPage.uid} />
     </PageLayout>
   )

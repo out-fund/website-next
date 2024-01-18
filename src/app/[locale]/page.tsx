@@ -14,6 +14,17 @@ type Props = {
   searchParams?: { [key: string]: string | string[] | undefined }
 }
 
+const embedComponent: JSXMapSerializer = {
+  preformatted: ({ node }) => {
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: node.text }}
+      />
+    )
+  },
+}
+
 export default async function Page({ params }: Props) {
   const client = createClient()
 
@@ -24,7 +35,17 @@ export default async function Page({ params }: Props) {
   return (
     <PageLayout locale={params.locale}>
       <SliceZone slices={page.data.slices} components={components} />
+
+      {/* Segment Event */}
       <PageEvent name="Home" />
+
+      {/* Schema.org */}
+      {page.data.schema_org_json_ld && (
+        <PrismicRichText
+          field={page.data.schema_org_json_ld}
+          components={embedComponent}
+        />
+      )}
     </PageLayout>
   )
 }

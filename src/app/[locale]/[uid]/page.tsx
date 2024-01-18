@@ -50,7 +50,10 @@ export default async function Page({ params }: Props) {
   return (
     <PageLayout locale={params.locale}>
       <SliceZone slices={page.data.slices} components={components} />
+
+      {/* Segment Event */}
       <PageEvent name={page.uid} />
+
       {/* Schema.org */}
       {page.data.schema_org_json_ld && (
         <PrismicRichText

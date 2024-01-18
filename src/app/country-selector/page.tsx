@@ -35,6 +35,7 @@ const CountrySelectorPage = async () => {
         </div>
       </Wrapper>
 
+      {/* Segment Event */}
       <PageEvent name="Country Selector" />
     </main>
   )

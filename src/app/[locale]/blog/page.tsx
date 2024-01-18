@@ -89,6 +89,7 @@ export default async function Page({ params }: { params: Params }) {
         {label}
       </PageLink> */}
 
+      {/* Segment Event */}
       <PageEvent name="Blog" />
     </PageLayout>
   )
