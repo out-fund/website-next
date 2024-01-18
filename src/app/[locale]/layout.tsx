@@ -1,3 +1,4 @@
+import Script from "next/script"
 import { GoogleAnalytics } from "@next/third-parties/google"
 import type { Metadata } from "next"
 import { createClient } from "@/prismicio"
@@ -32,6 +33,9 @@ export default function RootLayout({
         ></script> */}
       </body>
       <GoogleAnalytics gaId="G-V6R3GNYBT3" />
+
+      {/* Segment JS */}
+      <Script src="/js/segment.js" />
     </html>
   )
 }
