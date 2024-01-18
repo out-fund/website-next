@@ -33,8 +33,8 @@ export default function RootLayout({
         ></script> */}
       </body>
       <GoogleAnalytics gaId="G-V6R3GNYBT3" />
-
       <Script src="/js/segment.js" />
+      <Script src="/js/intercom-window.js" />
       <Script src="/js/intercom.js" />
     </html>
   )
