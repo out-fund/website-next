@@ -140,6 +140,7 @@ export default async function Footer(props: any) {
                     <PageLink
                       field={link}
                       className="text-xs text-body font-[400] opacity-70 "
+                      target="_blank"
                     >
                       {label}
                     </PageLink>
