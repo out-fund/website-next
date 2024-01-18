@@ -55,7 +55,7 @@ const UnmatchedService = ({ slice }: UnmatchedServiceProps): JSX.Element => {
                   {item.title}
                 </Heading>
 
-                <div className="mb-auto mb-5">
+                <div className="mb-5">
                   <PrismicRichText
                     field={item.description}
                     components={components}
