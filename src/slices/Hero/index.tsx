@@ -91,8 +91,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                     field={slice.primary.image}
                     loading="eager"
                     priority={true}
-                    // fill={true}
                     height={512}
+                    sizes="1200px"
                     width={1200}
                     className="hidden md:block object-cover object-[20%] h-full w-auto"
                     quality={30}
