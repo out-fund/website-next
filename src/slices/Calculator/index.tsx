@@ -150,6 +150,9 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                     </Heading>
                   </div>
                   <div className={classes.slider}>
+                    <label className="sr-only" htmlFor="amount">
+                      {slice.primary.amount_title}
+                    </label>
                     <input
                       type="range"
                       id="amount"
@@ -179,10 +182,13 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                     </Heading>
                   </div>
                   <div className={classes.slider}>
+                    <label className="sr-only" htmlFor="term">
+                      {slice.primary.term_title}
+                    </label>
                     <input
                       type="range"
-                      id="amount"
-                      name="amount"
+                      id="term"
+                      name="term"
                       min="0"
                       max={termLengths.length - 1}
                       step="1"

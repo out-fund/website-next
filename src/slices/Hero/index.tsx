@@ -81,6 +81,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                     height={512}
                     width={768}
                     className="w-full lg:hidden "
+                    quality={60}
                   />
                   <PrismicNextImage
                     field={slice.primary.image}
