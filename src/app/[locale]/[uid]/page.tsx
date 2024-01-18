@@ -18,7 +18,6 @@ import { sortLocales } from "@/lib/utils"
 
 type Props = {
   params: { uid: string; locale: string }
-  searchParams?: { [key: string]: string | string[] | undefined }
 }
 
 const embedComponent: JSXMapSerializer = {
@@ -52,7 +51,7 @@ export default async function Page({ params }: Props) {
       <SliceZone slices={page.data.slices} components={components} />
 
       {/* Segment Event */}
-      <PageEvent name={page.uid} />
+      {/* <PageEvent name={page.uid} /> */}
 
       {/* Schema.org */}
       {page.data.schema_org_json_ld && (
@@ -66,7 +65,7 @@ export default async function Page({ params }: Props) {
 }
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
+  { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const client = createClient()
@@ -116,9 +115,10 @@ export async function generateStaticParams() {
   const pages = await client.getAllByType("page", { lang: "*" })
 
   return pages.map((page) => {
+    // console.log("page.lang", page.lang)
     return {
       uid: page.uid,
-      lang: page.lang,
+      locale: page.lang,
     }
   })
 }
@@ -180,7 +180,7 @@ export async function generateStaticParams() {
 //   return pages.map((page) => {
 //     return {
 //       uid: page.uid,
-//       lang: page.lang,
+//             locale: page.lang,
 //     }
 //   })
 // }
@@ -198,7 +198,7 @@ export async function generateStaticParams() {
 //   return pages.map((page) => {
 //     return {
 //       uid: page.uid,
-//       lang: page.lang,
+//             locale: page.lang,
 //     }
 //   })
 // }

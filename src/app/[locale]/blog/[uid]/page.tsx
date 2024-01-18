@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: Params }) {
         </Wrapper>
       </article>
 
-      <PageEvent name={blogPost.uid} />
+      {/* <PageEvent name={blogPost.uid} /> */}
     </PageLayout>
   )
 }
@@ -49,7 +49,7 @@ export async function generateStaticParams() {
   return pages.map((page) => {
     return {
       uid: page.uid,
-      lang: page.lang,
+      locale: page.lang,
     }
   })
 }
@@ -74,7 +74,7 @@ export async function generateStaticParams() {
 //   return pages.map((page) => {
 //     return {
 //       uid: page.uid,
-//       lang: page.lang,
+//             locale: page.lang,
 //     }
 //   })
 // }

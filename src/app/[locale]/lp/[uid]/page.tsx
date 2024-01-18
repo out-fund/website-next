@@ -26,7 +26,7 @@ export default async function LandingPage({ params }: { params: Params }) {
       <SliceZone slices={landingPage.data.slices} components={components} />
 
       {/* Segment Event */}
-      <PageEvent name={landingPage.uid} />
+      {/* <PageEvent name={landingPage.uid} /> */}
     </PageLayout>
   )
 }
@@ -38,7 +38,7 @@ export async function generateStaticParams() {
   return pages.map((page) => {
     return {
       uid: page.uid,
-      lang: page.lang,
+      locale: page.lang,
     }
   })
 }

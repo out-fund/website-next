@@ -37,15 +37,15 @@ export default async function Page({ params }: Props) {
       <SliceZone slices={page.data.slices} components={components} />
 
       {/* Segment Event */}
-      <PageEvent name="Home" />
+      {/* <PageEvent name="Home" /> */}
 
       {/* Schema.org */}
-      {page.data.schema_org_json_ld && (
+      {/* {page.data.schema_org_json_ld && (
         <PrismicRichText
           field={page.data.schema_org_json_ld}
           components={embedComponent}
         />
-      )}
+      )} */}
     </PageLayout>
   )
 }

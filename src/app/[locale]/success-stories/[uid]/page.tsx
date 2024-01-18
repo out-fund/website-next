@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: Params }) {
           <SliceZone slices={sucessStory.data.slices} components={components} />
         </Wrapper>
       </article>
-      <PageEvent name={sucessStory.uid} />
+      {/* <PageEvent name={sucessStory.uid} /> */}
     </PageLayout>
   )
 }
@@ -43,7 +43,7 @@ export async function generateStaticParams() {
   return pages.map((page) => {
     return {
       uid: page.uid,
-      lang: page.lang,
+      locale: page.lang,
     }
   })
 }
