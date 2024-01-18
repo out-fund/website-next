@@ -98,15 +98,15 @@ export default async function Footer(props: any) {
                       className="flex gap-2 pl-[3px] items-center"
                     >
                       {/* <span className={`fi fi-${language.id.split("-")[1]}`} /> */}
-                      <Image
-                        src={`/images/${language.id.split("-")[1]}.png`}
+                      {/* <Image
+                        src={`https://out.fund/images/${language.id.split("-")[1]}.png`}
                         width={24}
                         height={16}
                         alt={`${language.id.split("-")[1]} flag`}
                         // className="w-[24px] h-[16px]"
                         priority={false}
                         loading="lazy"
-                      />
+                      /> */}
                       <Link
                         href={`/${language.id}`}
                         className="font-normal hover:underline underline-offset-2 focus:underline focus:outline-none whitespace-nowrap decoration-1 decoration-[#8D9BA9] select-none"
