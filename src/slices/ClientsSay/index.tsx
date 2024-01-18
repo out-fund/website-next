@@ -69,6 +69,7 @@ const ClientsSay = async ({ slice }: ClientsSayProps): Promise<JSX.Element> => {
                     field={item.data.company_logo}
                     width={160}
                     height={40}
+                    loading="lazy"
                   />
                   <p className="mb-2 text-md text-body">{item.data.quote}</p>
 
@@ -77,6 +78,7 @@ const ClientsSay = async ({ slice }: ClientsSayProps): Promise<JSX.Element> => {
                       field={item.data.profile_photo}
                       width={40}
                       height={40}
+                      loading="lazy"
                       imgixParams={{ ar: "1:1", fit: "crop" }}
                       className="rounded-full"
                     />

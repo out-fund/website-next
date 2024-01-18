@@ -60,6 +60,7 @@ const FeaturedStories = async ({
 
                 <div className="mt-auto max-h-[32px] ">
                   <PrismicNextImage
+                    loading="lazy"
                     field={item?.data.brand_logo}
                     className="w-full h-full"
                   />
@@ -77,6 +78,7 @@ const FeaturedStories = async ({
                   field={item?.data.card_background_image}
                   className="object-cover object-center w-full h-full"
                   priority={false}
+                  loading="lazy"
                 />
               </div>
             </article>

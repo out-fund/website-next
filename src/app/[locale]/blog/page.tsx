@@ -70,6 +70,7 @@ export default async function Page({ params }: { params: Params }) {
                     <div className="w-full h-[240px] border-[2px] border-bgDark">
                       <PrismicNextImage
                         field={post.data.card_image}
+                        loading="lazy"
                         className="w-full h-full object-cover"
                       />
                     </div>

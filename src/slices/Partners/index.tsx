@@ -45,7 +45,11 @@ const Partners = ({ slice }: PartnersProps): JSX.Element => {
         <div className="flex flex-wrap justify-center gap-4 md:justify-between ">
           {slice.items.map((item, index) => (
             <div key={index}>
-              <PrismicNextImage field={item.partner_logo} />
+              <PrismicNextImage
+                field={item.partner_logo}
+                loading="lazy"
+                priority={false}
+              />
             </div>
           ))}
         </div>

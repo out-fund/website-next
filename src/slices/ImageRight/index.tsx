@@ -47,7 +47,8 @@ const ImageRight = ({ slice }: ImageRightProps): JSX.Element => {
           <div className="max-h-[400px] lg:max-h-none">
             <PrismicNextImage
               field={slice.primary.image}
-              priority
+              loading="lazy"
+              priority={false}
               height={512}
               width={768}
               className="object-cover w-full h-full"

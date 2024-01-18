@@ -47,6 +47,8 @@ const UnmatchedService = ({ slice }: UnmatchedServiceProps): JSX.Element => {
                   width={48}
                   height={48}
                   className=""
+                  priority={false}
+                  loading="lazy"
                 />
 
                 <Heading as="h3" size="h3" className=" ">
@@ -91,6 +93,8 @@ const UnmatchedService = ({ slice }: UnmatchedServiceProps): JSX.Element => {
                   width={48}
                   height={48}
                   className=""
+                  priority={false}
+                  loading="lazy"
                 />
 
                 <Heading as="h3" size="h3" className=" ">

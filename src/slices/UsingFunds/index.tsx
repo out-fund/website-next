@@ -32,6 +32,8 @@ const UsingFunds = ({ slice }: UsingFundsProps): JSX.Element => {
                   width={80}
                   height={80}
                   className="mb-3"
+                  priority={false}
+                  loading="lazy"
                 />
 
                 <Heading as="h3" size="h3" className="mb-1">

@@ -55,12 +55,14 @@ const FeaturedBrands = async ({
                     field={item?.data.brand_logo}
                     className="w-full h-full"
                     priority={false}
+                    loading="lazy"
                   />
                 </div>
               </div>
 
               <div className="absolute top-0 left-0 w-full h-full ">
                 <PrismicNextImage
+                  loading="lazy"
                   field={item?.data.card_background_image}
                   className="object-cover object-center w-full h-full"
                   priority={false}

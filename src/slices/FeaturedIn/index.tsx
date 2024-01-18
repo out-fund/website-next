@@ -51,7 +51,11 @@ const FeaturedIn = ({ slice }: FeaturedInProps): JSX.Element => {
               />
 
               <PrismicNextLink field={item.url} className="mt-auto">
-                <PrismicNextImage field={item.logo} className="" />
+                <PrismicNextImage
+                  field={item.logo}
+                  className=""
+                  loading="lazy"
+                />
               </PrismicNextLink>
             </div>
           ))}

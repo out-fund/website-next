@@ -40,6 +40,8 @@ const ScheduleCall = ({ slice }: ScheduleCallProps): JSX.Element => {
           <div className="image overflow-hidden rounded-tr-[100px] md:rounded-tr-none md:rounded-bl-[160px] h-full object-cover">
             <PrismicNextImage
               field={slice.primary.image}
+              loading="lazy"
+              priority={false}
               className="object-cover h-full"
             />
           </div>

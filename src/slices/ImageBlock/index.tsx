@@ -24,11 +24,13 @@ const ImageBlock = ({ slice }: ImageBlockProps): JSX.Element => {
             field={slice.primary.left_image}
             className="w-full h-full object-cover"
             priority={false}
+            loading="lazy"
           />
           <PrismicNextImage
             field={slice.primary.right_image}
             className="w-full h-full object-cover"
             priority={false}
+            loading="lazy"
           />
         </div>
       </div>
