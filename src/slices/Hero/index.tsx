@@ -84,7 +84,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                     // width={1200}
                     // className="h-auto lg:hidden "
                     // className=" object-cover object-[20%] lg:object-left-top "
-                    className="lg:hidden object-cover object-[20%] w-auto h-auto"
+                    className="md:hidden object-cover object-[20%] w-auto h-auto"
                     quality={40}
                   />
                   <PrismicNextImage
@@ -94,7 +94,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                     // fill={true}
                     height={512}
                     width={1200}
-                    className="hidden lg:block object-cover object-[20%] h-full w-auto"
+                    className="hidden md:block object-cover object-[20%] h-full w-auto"
                     quality={40}
                   />
                   {/* <PrismicNextImage
