@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: Params }) {
   )
 }
 
-export async function generateStaticProp() {
+export async function generateStaticParams() {
   const client = createClient()
   const pages = await client.getAllByType("success_story", { lang: "*" })
 
