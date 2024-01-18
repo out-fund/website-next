@@ -41,7 +41,7 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
           components={components}
         />
         <form
-          name="contact-us"
+          name="contact-next"
           method="POST"
           data-netlify="true"
           netlify-honeypot="bot-field"
