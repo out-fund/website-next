@@ -42,6 +42,18 @@ export default async function Page({ params }: { params: Params }) {
   )
 }
 
+export async function generateStaticParams() {
+  const client = createClient()
+  const pages = await client.getAllByType("blog_post", { lang: "*" })
+
+  return pages.map((page) => {
+    return {
+      uid: page.uid,
+      lang: page.lang,
+    }
+  })
+}
+
 // export async function generateMetadata(props: any): Promise<Metadata> {
 //   const { params } = props
 //   const client = createClient()

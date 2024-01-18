@@ -36,6 +36,18 @@ export default async function Page({ params }: { params: Params }) {
   )
 }
 
+export async function generateStaticProp() {
+  const client = createClient()
+  const pages = await client.getAllByType("success_story", { lang: "*" })
+
+  return pages.map((page) => {
+    return {
+      uid: page.uid,
+      lang: page.lang,
+    }
+  })
+}
+
 // export async function generateMetadata({
 //   params,
 // }: {
@@ -50,16 +62,4 @@ export default async function Page({ params }: { params: Params }) {
 //     metadataBase: new URL("https://out.fund"),
 //     title: `${page.data.title} | Outfund`,
 //   }
-// }
-
-// export async function generateStaticProp() {
-//   const client = createClient()
-//   const pages = await client.getAllByType("success_story", { lang: "*" })
-
-//   return pages.map((page) => {
-//     return {
-//       uid: page.uid,
-//       lang: page.lang,
-//     }
-//   })
 // }

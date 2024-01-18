@@ -111,6 +111,27 @@ export async function generateMetadata(
   }
 }
 
+export async function generateStaticParams() {
+  const client = createClient()
+  const pages = await client.getAllByType("page", { lang: "*" })
+
+  return pages.map((page) => {
+    return {
+      uid: page.uid,
+      lang: page.lang,
+    }
+  })
+}
+
+// export async function generateStaticParams() {
+//   const client = createClient()
+//   const pages = await client.getAllByType("page")
+
+//   return pages.map((page) => {
+//     return { uid: page.uid }
+//   })
+// }
+
 // export async function generateMetadata({
 //   params,
 // }: {
@@ -150,15 +171,6 @@ export async function generateMetadata(
 //     //   type: "website",
 //     // },
 //   }
-// }
-
-// export async function generateStaticParams() {
-//   const client = createClient()
-//   const pages = await client.getAllByType("page")
-
-//   return pages.map((page) => {
-//     return { uid: page.uid }
-//   })
 // }
 
 // export async function generateStaticParams() {
