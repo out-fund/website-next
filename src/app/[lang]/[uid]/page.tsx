@@ -1,5 +1,5 @@
 import * as prismic from "@prismicio/client"
-import { Metadata, ResolvingMetadata } from "next"
+import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { SliceZone } from "@prismicio/react"
 // import { Organization, WithContext } from "schema-dts"
@@ -62,10 +62,7 @@ export default async function Page({ params }: Props) {
   )
 }
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const client = createClient()
 
   const page = await client
@@ -113,7 +110,10 @@ export async function generateStaticParams() {
   // const pages = await client.getAllByType("page", { lang: "*" })
   const pages = await client.getAllByType("page", {
     lang: "*",
-    filters: [prismic.filter.not("my.page.uid", "home")],
+    filters: [
+      prismic.filter.not("my.page.uid", "home"),
+      prismic.filter.not("my.page.uid", "blog"),
+    ],
   })
 
   return pages.map((page) => {

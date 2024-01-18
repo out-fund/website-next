@@ -1,11 +1,12 @@
-import { Metadata } from "next"
+import * as prismic from "@prismicio/client"
+// import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { SliceZone } from "@prismicio/react"
 
 import { createClient } from "@/prismicio"
 import { components } from "@/slices"
 import { PageLayout } from "@/components"
-import { PageEvent } from "@/lib/events"
+// import { PageEvent } from "@/lib/events"
 
 import { Wrapper } from "@/components/atoms"
 
@@ -44,7 +45,10 @@ export default async function Page({ params }: { params: Params }) {
 
 export async function generateStaticParams() {
   const client = createClient()
-  const pages = await client.getAllByType("blog_post", { lang: "*" })
+  const pages = await client.getAllByType("blog_post", {
+    lang: "*",
+    filters: [prismic.filter.not("my.page.uid", "blog")],
+  })
 
   return pages.map((page) => {
     return {
@@ -53,6 +57,18 @@ export async function generateStaticParams() {
     }
   })
 }
+
+// export async function generateStaticParams() {
+//   const client = createClient()
+//   const pages = await client.getAllByType("blog_post", { lang: "*" })
+
+//   return pages.map((page) => {
+//     return {
+//       uid: page.uid,
+//       lang: page.lang,
+//     }
+//   })
+// }
 
 // export async function generateMetadata(props: any): Promise<Metadata> {
 //   const { params } = props

@@ -1,4 +1,5 @@
-import { Metadata } from "next"
+import * as prismic from "@prismicio/client"
+// import { Metadata } from "next"
 import { SliceZone } from "@prismicio/react"
 import { notFound } from "next/navigation"
 
@@ -8,7 +9,7 @@ import { PrismicNextImage } from "@prismicio/next"
 // import { getTranslatedLocales } from "@/lib/getTranslatedLocales"
 
 import { PageLayout } from "@/components"
-import { PageEvent } from "@/lib/events"
+// import { PageEvent } from "@/lib/events"
 import { Wrapper, Heading, PageLink } from "@/components/atoms"
 import Link from "next/link"
 
@@ -94,6 +95,22 @@ export default async function Page({ params }: { params: Params }) {
       {/* <PageEvent name="Blog" /> */}
     </PageLayout>
   )
+}
+
+export async function generateStaticParams() {
+  const client = createClient()
+  // const pages = await client.getAllByType("page", { lang: "*" })
+  const pages = await client.getAllByType("page", {
+    lang: "*",
+    filters: [prismic.filter.at("my.page.uid", "blog")],
+  })
+
+  return pages.map((page) => {
+    // console.log("page.lang", page.lang)
+    return {
+      lang: page.lang,
+    }
+  })
 }
 
 // export async function generateMetadata({ params }: PageProps) {
