@@ -5,25 +5,22 @@ import { sortLocales } from "@/lib/utils"
 
 type PageLayoutParams = {
   children: React.ReactNode
-  locale: string
+  lang: string
 }
 
-export default async function PageLayout({
-  locale,
-  children,
-}: PageLayoutParams) {
+export default async function PageLayout({ lang, children }: PageLayoutParams) {
   const client = createClient()
-  const NavbarData = await client.getSingle("navbar", { lang: locale })
-  const FooterData = await client.getSingle("footer", { lang: locale })
+  const NavbarData = await client.getSingle("navbar", { lang: lang })
+  const FooterData = await client.getSingle("footer", { lang: lang })
   const FooterLanguages = await sortLocales(
     (await client.getRepository()).languages,
   )
 
   return (
     <>
-      <Navbar data={NavbarData} locale={locale} />
+      <Navbar data={NavbarData} lang={lang} />
       <main className="overflow-hidden ">{children}</main>
-      <Footer data={FooterData} languages={FooterLanguages} locale={locale} />
+      <Footer data={FooterData} languages={FooterLanguages} lang={lang} />
     </>
   )
 }

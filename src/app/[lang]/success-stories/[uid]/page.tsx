@@ -11,20 +11,20 @@ import { Wrapper } from "@/components/atoms"
 
 type Params = {
   uid: string
-  locale: string
+  lang: string
 }
 
 export default async function Page({ params }: { params: Params }) {
   const client = createClient()
 
   const sucessStory = await client
-    .getByUID("success_story", params.uid, { lang: params.locale })
+    .getByUID("success_story", params.uid, { lang: params.lang })
     .catch(() => notFound())
 
-  // console.log("params.locale", params.locale)
+  // console.log("params.lang", params.lang)
 
   return (
-    <PageLayout locale={params.locale}>
+    <PageLayout lang={params.lang}>
       {/* <SliceZone slices={sucessStory.data.slices} components={components} /> */}
       <article className="">
         <Wrapper width="medium">
@@ -43,7 +43,7 @@ export async function generateStaticParams() {
   return pages.map((page) => {
     return {
       uid: page.uid,
-      locale: page.lang,
+      lang: page.lang,
     }
   })
 }
@@ -55,7 +55,7 @@ export async function generateStaticParams() {
 // }): Promise<Metadata> {
 //   const client = createClient()
 //   const page = await client
-//     .getByUID("success_story", params.uid, { lang: params.locale })
+//     .getByUID("success_story", params.uid, { lang: params.lang })
 //     .catch(() => notFound())
 
 //   return {

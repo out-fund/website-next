@@ -32,7 +32,7 @@ export default async function Footer(props: any) {
         <div className="flex flex-col pt-10 pb-1 mx-auto md:mx-0 max-w-[90%] md:max-w-none  ">
           <div className="top">
             <div className="grid gap-5 md:grid-rows-none md:grid-cols-5">
-              <Link href={`/${props.locale}`} className="h-[26px] w-[142px]">
+              <Link href={`/${props.lang}`} className="h-[26px] w-[142px]">
                 <span className="sr-only">Outfund</span>
                 <Logo variant="mono" />
               </Link>

@@ -12,7 +12,7 @@ export default function Navbar(props: any) {
         <div className=" md:hidden">
           <div className="flex justify-between pt-3 pb-3 mobileTopWrapper">
             <Link
-              href={`/${props.locale}/`}
+              href={`/${props.lang}/`}
               className="h-[42px] w-[142px] pt-1 pb-1 block"
             >
               <span className="sr-only">Outfund</span>
@@ -62,7 +62,7 @@ export default function Navbar(props: any) {
         {/* ------------------------------------------------ Desktop nav */}
         <div className="hidden md:flex h-[110px] items-center md:gap-1 lg:gap-4">
           <Link
-            href={`/${props.locale}`}
+            href={`/${props.lang}`}
             className="h-[42px] w-[142px] py-1 block"
           >
             <span className="sr-only">Outfund</span>

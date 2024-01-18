@@ -1,39 +1,40 @@
-import { Metadata, ResolvingMetadata } from "next"
+import * as prismic from "@prismicio/client"
+import { Metadata } from "next"
 import { SliceZone } from "@prismicio/react"
 import { notFound } from "next/navigation"
-import { JSXMapSerializer, PrismicRichText } from "@prismicio/react"
+// import { JSXMapSerializer, PrismicRichText } from "@prismicio/react"
 import { createClient } from "@/prismicio"
 import { components } from "@/slices"
-import { getTranslatedLocales } from "@/lib/getTranslatedLocales"
+// import { getTranslatedLocales } from "@/lib/getTranslatedLocales"
 import { PageLayout } from "@/components"
-import { PageEvent } from "@/lib/events"
+// import { PageEvent } from "@/lib/events"
 import { sortLocales } from "@/lib/utils"
 
 type Props = {
-  params: { uid: string; locale: string }
-  searchParams?: { [key: string]: string | string[] | undefined }
+  params: { uid: string; lang: string }
+  // searchParams?: { [key: string]: string | string[] | undefined }
 }
 
-const embedComponent: JSXMapSerializer = {
-  preformatted: ({ node }) => {
-    return (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: node.text }}
-      />
-    )
-  },
-}
+// const embedComponent: JSXMapSerializer = {
+//   preformatted: ({ node }) => {
+//     return (
+//       <script
+//         type="application/ld+json"
+//         dangerouslySetInnerHTML={{ __html: node.text }}
+//       />
+//     )
+//   },
+// }
 
 export default async function Page({ params }: Props) {
   const client = createClient()
 
   const page = await client
-    .getByUID("page", "home", { lang: params.locale })
+    .getByUID("page", "home", { lang: params.lang })
     .catch(() => notFound())
 
   return (
-    <PageLayout locale={params.locale}>
+    <PageLayout lang={params.lang}>
       <SliceZone slices={page.data.slices} components={components} />
 
       {/* Segment Event */}
@@ -50,22 +51,19 @@ export default async function Page({ params }: Props) {
   )
 }
 
-export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const client = createClient()
 
   const page = await client
-    .getByUID("page", "home", { lang: params.locale })
+    .getByUID("page", "home", { lang: params.lang })
     .catch(() => notFound())
   const globalSEO = await client.getSingle("global_seo", {
-    lang: params.locale,
+    lang: params.lang,
   })
 
-  const toOgLocale = (locale: string) => {
-    const [lang, country] = locale.split("-")
-    return `${lang}_${country.toUpperCase()}`
+  const langToOgLocale = (lang: string) => {
+    const [language, country] = lang.split("-")
+    return `${language}_${country.toUpperCase()}`
   }
 
   const languages: { [key: string]: string } = {}
@@ -78,19 +76,34 @@ export async function generateMetadata(
     title: `${page.data.title}`,
     description: page.data.meta_description,
     alternates: {
-      canonical: `/${params.locale}`,
+      canonical: `/${params.lang}`,
       languages,
     },
     openGraph: {
       title: `${page.data.meta_title}`,
       description: `${page.data.meta_description}`,
-      url: `/${params.locale}`,
-      locale: toOgLocale(params.locale),
+      url: `/${params.lang}`,
+      locale: langToOgLocale(params.lang),
       images: [page.data.meta_image.url || globalSEO.data.og_image.url || ""],
       siteName: "Outfund",
       type: "website",
     },
   }
+}
+
+export async function generateStaticParams() {
+  const client = createClient()
+
+  const pages = await client.getAllByType("page", {
+    lang: "*",
+    filters: [prismic.filter.at("my.page.uid", "home")],
+  })
+
+  return pages.map((page) => {
+    return {
+      lang: page.lang,
+    }
+  })
 }
 
 // ------------------------
@@ -110,15 +123,15 @@ export async function generateMetadata(
 //   const client = createClient()
 
 //   const page = await client
-//     .getByUID("page", "home", { lang: params.locale })
+//     .getByUID("page", "home", { lang: params.lang })
 //     .catch(() => notFound())
-//   // console.log("params lang", params.locale)
+//   // console.log("params lang", params.lang)
 
 //   // const locales = await getTranslatedLocales(page, client)
 //   // console.log("locales-home", locales)
 
 //   return (
-//     <PageLayout locale={params.locale}>
+//     <PageLayout lang={params.lang}>
 //       <SliceZone slices={page.data.slices} components={components} />
 //       <PageEvent name="Home" />
 //       {/* Schema.org */}
@@ -136,7 +149,7 @@ export async function generateMetadata(
 //   // const { params } = props
 //   const client = createClient()
 //   const page = await client
-//     .getByUID("page", "home", { lang: params.locale })
+//     .getByUID("page", "home", { lang: params.lang })
 //     .catch(() => notFound())
 
 //   const langs = await sortLocales((await client.getRepository()).languages)
@@ -153,7 +166,7 @@ export async function generateMetadata(
 //     title: `${page.data.title}`,
 //     description: page.data.meta_description || "",
 //     alternates: {
-//       canonical: `/${params.locale}`,
+//       canonical: `/${params.lang}`,
 //       languages,
 //     },
 //     openGraph: {

@@ -1,23 +1,24 @@
+import * as prismic from "@prismicio/client"
 import { Metadata, ResolvingMetadata } from "next"
 import { notFound } from "next/navigation"
 import { SliceZone } from "@prismicio/react"
-import { Organization, WithContext } from "schema-dts"
+// import { Organization, WithContext } from "schema-dts"
 import { JSXMapSerializer, PrismicRichText } from "@prismicio/react"
 import { createClient } from "@/prismicio"
 import { components } from "@/slices"
 // import { getTranslatedLocales } from "@/lib/getTranslatedLocales"
 import { PageLayout } from "@/components"
-import { PageEvent } from "@/lib/events"
-import { titleCase } from "@/lib/utils"
+// import { PageEvent } from "@/lib/events"
+// import { titleCase } from "@/lib/utils"
 import { sortLocales } from "@/lib/utils"
 
 // type Params = {
 //   uid: string
-//   locale: string
+//   lang: string
 // }
 
 type Props = {
-  params: { uid: string; locale: string }
+  params: { uid: string; lang: string }
 }
 
 const embedComponent: JSXMapSerializer = {
@@ -35,7 +36,7 @@ export default async function Page({ params }: Props) {
   const client = createClient()
 
   const page = await client
-    .getByUID("page", params.uid, { lang: params.locale })
+    .getByUID("page", params.uid, { lang: params.lang })
     .catch(() => notFound())
 
   // const locales = await getTranslatedLocales(page, client)
@@ -47,7 +48,7 @@ export default async function Page({ params }: Props) {
   // console.log("pageName", pageName)
 
   return (
-    <PageLayout locale={params.locale}>
+    <PageLayout lang={params.lang}>
       <SliceZone slices={page.data.slices} components={components} />
 
       {/* Schema.org */}
@@ -68,16 +69,16 @@ export async function generateMetadata(
   const client = createClient()
 
   const page = await client
-    .getByUID("page", params.uid, { lang: params.locale })
+    .getByUID("page", params.uid, { lang: params.lang })
     .catch(() => notFound())
 
   const globalSEO = await client.getSingle("global_seo", {
-    lang: params.locale,
+    lang: params.lang,
   })
 
-  const toOgLocale = (locale: string) => {
-    const [lang, country] = locale.split("-")
-    return `${lang}_${country.toUpperCase()}`
+  const toOgLocale = (lang: string) => {
+    const [language, country] = lang.split("-")
+    return `${language}_${country.toUpperCase()}`
   }
 
   const languages: { [key: string]: string } = {}
@@ -92,14 +93,14 @@ export async function generateMetadata(
     title: `${page.data.title}`,
     description: page.data.meta_description,
     alternates: {
-      canonical: `/${params.locale}/${params.uid}`,
+      canonical: `/${params.lang}/${params.uid}`,
       languages,
     },
     openGraph: {
       title: `${page.data.meta_title || page.data.title}`,
       description: `${page.data.meta_description}`,
-      url: `/${params.locale}/${params.uid}`,
-      locale: toOgLocale(params.locale),
+      url: `/${params.lang}/${params.uid}`,
+      locale: toOgLocale(params.lang),
       images: [page.data.meta_image.url || globalSEO.data.og_image.url || ""],
       siteName: "Outfund",
       type: "website",
@@ -109,13 +110,17 @@ export async function generateMetadata(
 
 export async function generateStaticParams() {
   const client = createClient()
-  const pages = await client.getAllByType("page", { lang: "*" })
+  // const pages = await client.getAllByType("page", { lang: "*" })
+  const pages = await client.getAllByType("page", {
+    lang: "*",
+    filters: [prismic.filter.not("my.page.uid", "home")],
+  })
 
   return pages.map((page) => {
     // console.log("page.lang", page.lang)
     return {
       uid: page.uid,
-      locale: page.lang,
+      lang: page.lang,
     }
   })
 }
@@ -136,7 +141,7 @@ export async function generateStaticParams() {
 // }): Promise<Metadata> {
 //   const client = createClient()
 //   const page = await client
-//     .getByUID("page", params.uid, { lang: params.locale })
+//     .getByUID("page", params.uid, { lang: params.lang })
 //     .catch(() => notFound())
 
 //   return {
@@ -177,7 +182,7 @@ export async function generateStaticParams() {
 //   return pages.map((page) => {
 //     return {
 //       uid: page.uid,
-//             locale: page.lang,
+//             lang: page.lang,
 //     }
 //   })
 // }
@@ -195,7 +200,7 @@ export async function generateStaticParams() {
 //   return pages.map((page) => {
 //     return {
 //       uid: page.uid,
-//             locale: page.lang,
+//             lang: page.lang,
 //     }
 //   })
 // }

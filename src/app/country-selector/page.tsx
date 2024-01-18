@@ -10,7 +10,7 @@ import { PageEvent } from "@/lib/events"
 const CountrySelectorPage = async () => {
   const client = createClient()
   const repository = await client.getRepository()
-  const locales = sortLocales(repository.languages)
+  const langs = sortLocales(repository.languages)
 
   return (
     <main>
@@ -20,14 +20,14 @@ const CountrySelectorPage = async () => {
             Choose Your Country
           </Heading>
           <ul className="flex flex-col gap-2">
-            {locales.map((locale) => (
-              <li key={locale.id} className="flex gap-2">
-                <span className={`fi fi-${locale.id.split("-")[1]}`} />
+            {langs.map((lang) => (
+              <li key={lang.id} className="flex gap-2">
+                <span className={`fi fi-${lang.id.split("-")[1]}`} />
                 <Link
-                  href={`/${locale.id}`}
+                  href={`/${lang.id}`}
                   className="inline-block text-base font-[500] text-cobalt underline-offset-2 antialiased hover:underline focus:underline focus:outline-none"
                 >
-                  {locale.name.split("- ")[1]}
+                  {lang.name.split("- ")[1]}
                 </Link>
               </li>
             ))}

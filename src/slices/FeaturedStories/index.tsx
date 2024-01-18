@@ -34,7 +34,7 @@ const FeaturedStories = async ({
   )
 
   // console.log("successStories", successStories)
-  // console.log("params.locale", params.locale)
+  // console.log("params.lang", params.lang)
 
   return (
     <section

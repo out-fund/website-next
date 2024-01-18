@@ -5,12 +5,12 @@ import { usePathname, useSearchParams } from "next/navigation"
 import { analytics } from "@/lib/segment"
 
 type SegmentAnalyticsParams = {
-  locale: string
+  lang: string
   pageData?: any
 }
 
 export default function SegmentAnalytics({
-  locale,
+  lang,
   pageData,
 }: SegmentAnalyticsParams) {
   const pathname = usePathname()

@@ -14,48 +14,48 @@ import Link from "next/link"
 
 // type PageProps = {
 //   params: {
-//     locale: string
+//     lang: string
 //   }
 // }
 
 // type PageProps = {
-//   params: { uid: string; locale: string }
+//   params: { uid: string; lang: string }
 //   searchParams?: { [key: string]: string | string[] | undefined }
 // }
 
 // type PageProps = {
 //   uid: string
-//   locale: string
+//   lang: string
 // }
 
 type Params = {
   uid: string
-  locale: string
+  lang: string
 }
 
 export default async function Page({ params }: { params: Params }) {
   const client = createClient()
 
   const blogPage = await client
-    .getByUID("page", "blog", { lang: params.locale })
+    .getByUID("page", "blog", { lang: params.lang })
     .catch(() => notFound())
 
   const posts = await client.getAllByType("blog_post", {
-    lang: params.locale,
+    lang: params.lang,
     orderings: [
       { field: "document.first_publication_date", direction: "desc" },
     ],
   })
 
   // const locales = await getTranslatedLocales(page, client)
-  // console.log("params.locale", params.locale)
+  // console.log("params.lang", params.lang)
   // console.log("post", posts)
   // posts.map((post) => {
   //   console.log("post", post)
   // })
 
   return (
-    <PageLayout locale={params.locale}>
+    <PageLayout lang={params.lang}>
       <SliceZone slices={blogPage.data.slices} components={components} />
       <Wrapper width="medium">
         <ul className="grid grid-cols-2 gap-4 mt-5 mb-5">
@@ -63,7 +63,7 @@ export default async function Page({ params }: { params: Params }) {
             return (
               <li key={post.uid} className="mb-2">
                 <Link
-                  href={`/${params.locale}/blog/${post.uid}`}
+                  href={`/${params.lang}/blog/${post.uid}`}
                   className="hover:underline block"
                 >
                   {post.data.card_image.id && (
@@ -98,7 +98,7 @@ export default async function Page({ params }: { params: Params }) {
 
 // export async function generateMetadata({ params }: PageProps) {
 //   const client = createClient()
-//   const page = await client.getByUID("page", "blog", { lang: params.locale })
+//   const page = await client.getByUID("page", "blog", { lang: params.lang })
 
 //   return {
 //     metadataBase: new URL("https://out.fund"),

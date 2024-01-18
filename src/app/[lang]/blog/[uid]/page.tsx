@@ -11,26 +11,26 @@ import { Wrapper } from "@/components/atoms"
 
 // type Params = {
 //   uid: string
-//   locale: string
+//   lang: string
 // }
 
 // type Params = {
-//   params: { uid: string; locale: string }
+//   params: { uid: string; lang: string }
 // }
 type Params = {
   uid: string
-  locale: string
+  lang: string
 }
 
 export default async function Page({ params }: { params: Params }) {
   const client = createClient()
 
   const blogPost = await client
-    .getByUID("blog_post", params.uid, { lang: params.locale })
+    .getByUID("blog_post", params.uid, { lang: params.lang })
     .catch(() => notFound())
 
   return (
-    <PageLayout locale={params.locale}>
+    <PageLayout lang={params.lang}>
       <article className="mb-5">
         <Wrapper width="narrow">
           <SliceZone slices={blogPost.data.slices} components={components} />
@@ -49,7 +49,7 @@ export async function generateStaticParams() {
   return pages.map((page) => {
     return {
       uid: page.uid,
-      locale: page.lang,
+      lang: page.lang,
     }
   })
 }
@@ -58,7 +58,7 @@ export async function generateStaticParams() {
 //   const { params } = props
 //   const client = createClient()
 //   const page = await client
-//     .getByUID("blog_post", params.uid, { lang: params.locale })
+//     .getByUID("blog_post", params.uid, { lang: params.lang })
 //     .catch(() => notFound())
 
 //   return {
@@ -74,7 +74,7 @@ export async function generateStaticParams() {
 //   return pages.map((page) => {
 //     return {
 //       uid: page.uid,
-//             locale: page.lang,
+//             lang: page.lang,
 //     }
 //   })
 // }

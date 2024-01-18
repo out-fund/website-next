@@ -11,18 +11,18 @@ import { Wrapper } from "@/components/atoms"
 
 type Params = {
   uid: string
-  locale: string
+  lang: string
 }
 
 export default async function LandingPage({ params }: { params: Params }) {
   const client = createClient()
 
   const landingPage = await client
-    .getByUID("landing_page", params.uid, { lang: params.locale })
+    .getByUID("landing_page", params.uid, { lang: params.lang })
     .catch(() => notFound())
 
   return (
-    <PageLayout locale={params.locale}>
+    <PageLayout lang={params.lang}>
       <SliceZone slices={landingPage.data.slices} components={components} />
 
       {/* Segment Event */}
@@ -38,7 +38,7 @@ export async function generateStaticParams() {
   return pages.map((page) => {
     return {
       uid: page.uid,
-      locale: page.lang,
+      lang: page.lang,
     }
   })
 }

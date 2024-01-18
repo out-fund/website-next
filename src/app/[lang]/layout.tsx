@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import { createClient } from "@/prismicio"
 
 import { inter } from "@/lib/font"
-import { convertLocaleToLang } from "@/lib/utils"
+import { langToHtmlLang } from "@/lib/utils"
 import { cn } from "@/lib/utils"
 import "@/styles/globals.css"
 
@@ -14,14 +14,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
   params: {
-    locale: string
+    lang: string
   }
 }) {
   return (
-    <html
-      lang={convertLocaleToLang(params.locale)}
-      className={cn(inter.className)}
-    >
+    <html lang={langToHtmlLang(params.lang)} className={cn(inter.className)}>
       {/* text-base box-border bg-white tracking-tighter antialiased */}
       <body className="box-border antialiased LocaleLayout ">
         {children}
@@ -57,12 +54,12 @@ export async function generateMetadata({
 }: {
   children: React.ReactNode
   params: {
-    locale: string
+    lang: string
   }
 }): Promise<Metadata> {
   const client = createClient()
   const globalSEO = await client.getSingle("global_seo", {
-    lang: params.locale,
+    lang: params.lang,
   })
   return {
     metadataBase: new URL("https://out.fund"),
