@@ -61,7 +61,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                   </div>
 
                   <div className="flex flex-col items-center gap-1 buttonWrappe">
-                    <Button href="/">{slice.primary.button_text}</Button>
+                    <Button href="https://client.out.fund/signup">
+                      {slice.primary.button_text}
+                    </Button>
                     {slice.primary.button_note && (
                       <div className="text-[12px] leading-[16px] tracking-tight text-[#5B6F85] ">
                         {slice.primary.button_note}

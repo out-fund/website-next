@@ -62,7 +62,9 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
             />
           </div>
           <div>
-            <Button href="#">{slice.primary.form_button_text ?? ""}</Button>
+            <Button href="https://client.out.fund/signup">
+              {slice.primary.form_button_text ?? ""}
+            </Button>
           </div>
         </form>
       </Wrapper>

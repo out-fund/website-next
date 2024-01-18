@@ -212,7 +212,10 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                   </div>
                 </div>
                 <div className="flex flex-col items-center ButtonGroup relative ">
-                  <Button href="#" className="w-full">
+                  <Button
+                    href="https://client.out.fund/signup"
+                    className="w-full"
+                  >
                     {slice.primary.button_text}{" "}
                     {getAmount(parseInt(selectedLoanAmount))}
                   </Button>

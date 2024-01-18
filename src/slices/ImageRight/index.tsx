@@ -40,7 +40,9 @@ const ImageRight = ({ slice }: ImageRightProps): JSX.Element => {
                 components={components}
               />
             </div>
-            <Button href="/">{slice.primary.button_text}</Button>
+            <Button href="https://client.out.fund/signup">
+              {slice.primary.button_text}
+            </Button>
           </div>
           <div className="max-h-[400px] lg:max-h-none">
             <PrismicNextImage

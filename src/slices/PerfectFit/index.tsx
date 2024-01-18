@@ -64,7 +64,7 @@ const PerfectFit = ({ slice }: PerfectFitProps): JSX.Element => {
               </tbody>
             </table>
           </div>
-          <Button href="#" className="mt-5 ">
+          <Button href="https://client.out.fund/signup" className="mt-5 ">
             {slice.primary.button_text}
           </Button>
         </div>

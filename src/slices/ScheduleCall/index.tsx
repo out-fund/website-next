@@ -30,7 +30,10 @@ const ScheduleCall = ({ slice }: ScheduleCallProps): JSX.Element => {
             {/* <PageLink field={slice.primary.button_link} className="">
               {slice.primary.button_text}
             </PageLink> */}
-            <Button href="" className="self-start mt-2 ">
+            <Button
+              href="https://client.out.fund/signup"
+              className="self-start mt-2 "
+            >
               {slice.primary.button_text}
             </Button>
           </div>

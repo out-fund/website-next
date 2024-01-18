@@ -24,7 +24,9 @@ const Callout = ({ slice }: CalloutProps): JSX.Element => {
               <Heading as="h2" size="h2" className="mb-4">
                 {slice.primary.title}
               </Heading>
-              <Button href="/">{slice.primary.button_text}</Button>
+              <Button href="https://client.out.fund/signup">
+                {slice.primary.button_text}
+              </Button>
             </div>
           </Wrapper>
         </div>
@@ -35,7 +37,9 @@ const Callout = ({ slice }: CalloutProps): JSX.Element => {
           <Heading as="h2" size="h2" className="mb-4">
             {slice.primary.title}
           </Heading>
-          <Button href="/">{slice.primary.button_text}</Button>
+          <Button href="https://client.out.fund/signup">
+            {slice.primary.button_text}
+          </Button>
         </div>
       )}
     </section>

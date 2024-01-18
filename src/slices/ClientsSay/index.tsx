@@ -93,7 +93,9 @@ const ClientsSay = async ({ slice }: ClientsSayProps): Promise<JSX.Element> => {
               {slice.primary.cta_title}
             </Heading>
 
-            <Button href="#">{slice.primary.button_text}</Button>
+            <Button href="https://client.out.fund/signup">
+              {slice.primary.button_text}
+            </Button>
           </div>
         </div>
       </Wrapper>

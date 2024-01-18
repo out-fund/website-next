@@ -73,7 +73,9 @@ const FeaturedBrands = async ({
               <Heading size="h3" as="h3" className="text-center ">
                 {slice.primary.final_box_title}
               </Heading>
-              <Button href="/">{slice.primary.button_text}</Button>
+              <Button href="https://client.out.fund/signup">
+                {slice.primary.button_text}
+              </Button>
             </div>
           </li>
         </ul>
