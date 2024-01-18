@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google"
 import type { Metadata } from "next"
 import { createClient } from "@/prismicio"
 
@@ -30,6 +31,7 @@ export default function RootLayout({
           src="https://static.cdn.prismic.io/prismic.js?new=true&repo=outfund-website"
         ></script>
       </body>
+      <GoogleAnalytics gaId="G-V6R3GNYBT3" />
     </html>
   )
 }
