@@ -53,6 +53,7 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
               className="shadow appearance-none border-cobalt rounded w-full p-1  "
               type="text"
               placeholder={slice.primary.form_full_name ?? ""}
+              required
             />
           </div>
           <div>
@@ -60,12 +61,14 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
               className="shadow appearance-none border-cobalt rounded w-full p-1  "
               type="email"
               placeholder={slice.primary.form_business_email ?? ""}
+              required
             />
           </div>
           <div>
             <textarea
               className="shadow appearance-none border-cobalt rounded w-full p-1  "
               placeholder={slice.primary.form_message ?? ""}
+              required
             />
           </div>
           <input type="hidden" name="form-name" value="contact-us" />
