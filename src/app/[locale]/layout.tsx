@@ -34,8 +34,8 @@ export default function RootLayout({
       </body>
       <GoogleAnalytics gaId="G-V6R3GNYBT3" />
 
-      {/* Segment JS */}
       <Script src="/js/segment.js" />
+      <Script src="/js/intercom.js" />
     </html>
   )
 }
