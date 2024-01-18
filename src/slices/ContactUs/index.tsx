@@ -76,11 +76,12 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
               required
             />
           </div>
-          <input type="hidden" name="form-name" value="contact-us" />
+
           <div className="sr-only">
             <label>
               Don’t fill this out if you’re human: <input name="bot-field" />
             </label>
+            <input type="hidden" name="form-name" value="contact-next" />
           </div>
           <div>
             <button
