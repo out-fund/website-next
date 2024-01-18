@@ -40,7 +40,13 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
           field={slice.primary.description}
           components={components}
         />
-        <form action="" className="flex flex-col gap-2 mt-3">
+        <form
+          name="contact-us"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          className="flex flex-col gap-2 mt-3"
+        >
           <div className="">
             <input
               className="shadow appearance-none border-cobalt rounded w-full p-1  "
@@ -61,10 +67,19 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
               placeholder={slice.primary.form_message ?? ""}
             />
           </div>
+          <input type="hidden" name="form-name" value="contact-us" />
+          <div className="sr-only">
+            <label>
+              Don’t fill this out if you’re human: <input name="bot-field" />
+            </label>
+          </div>
           <div>
-            <Button href="https://client.out.fund/signup">
+            <button
+              type="submit"
+              className="border-none rounded-3xl bg-cobalt text-white px-[40px] py-[12px] leading-[24px] text-[16px] inline-block text-center font-medium hover:underline hover:outline-none focus:underline focus:outline-2 focus:outline-offset-2 decoration-1 underline-offset-2 whitespace-nowrap flex-nowrap"
+            >
               {slice.primary.form_button_text ?? ""}
-            </Button>
+            </button>
           </div>
         </form>
       </Wrapper>
