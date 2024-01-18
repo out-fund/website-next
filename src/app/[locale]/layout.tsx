@@ -58,7 +58,7 @@ export async function generateMetadata({
       default: `${globalSEO.data.site_title}`,
     },
     description: globalSEO.data.meta_description || "",
-    referrer: "origin-when-cross-origin",
+    // referrer: "origin-when-cross-origin",
     icons: {
       icon: "/images/icon.png",
       shortcut: "/images/shortcut-icon.png",
