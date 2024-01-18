@@ -12,13 +12,13 @@ export default function Navbar(props: any) {
         <div className=" md:hidden">
           <div className="flex justify-between pt-3 pb-3 mobileTopWrapper">
             <Link
-              href={`/${props.locale}`}
+              href={`/${props.locale}/`}
               className="h-[42px] w-[142px] pt-1 pb-1 block"
             >
               <span className="sr-only">Outfund</span>
               <Logo />
             </Link>
-            <button>Menu</button>
+            {/* <button>Menu</button> */}
           </div>
 
           <nav className="pb-2 Nav hidden">
