@@ -25,11 +25,11 @@ export default function RootLayout({
       <body className="box-border antialiased LocaleLayout ">
         {children}
         {/* Prismic Previews script */}
-        <script
+        {/* <script
           async
           defer
           src="https://static.cdn.prismic.io/prismic.js?new=true&repo=outfund-website"
-        ></script>
+        ></script> */}
       </body>
       <GoogleAnalytics gaId="G-V6R3GNYBT3" />
     </html>
