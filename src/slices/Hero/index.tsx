@@ -76,16 +76,16 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 <div className=" lg:absolute lg:top-[40px] lg:left-[-40px] h-full lg:w-[calc(50vw+40px)] ">
                   <PrismicNextImage
                     field={slice.primary.image.mobile}
-                    loading="lazy"
-                    priority={false}
+                    loading="eager"
+                    priority={true}
                     height={512}
                     width={768}
                     className="w-full lg:hidden "
                   />
                   <PrismicNextImage
                     field={slice.primary.image}
-                    loading="lazy"
-                    priority={false}
+                    loading="eager"
+                    priority={true}
                     height={512}
                     width={1200}
                     className="hidden lg:block object-cover object-[20%] lg:object-left-top w-full h-full"
@@ -146,9 +146,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 >
                   <div className="h-full overflow-hidden max-h-[400px]">
                     <PrismicNextImage
-                      loading="lazy"
+                      loading="eager"
                       field={slice.primary.image}
-                      priority={false}
+                      priority={true}
                       className="object-cover object-center w-full h-full relative z-10"
                     />
                   </div>
