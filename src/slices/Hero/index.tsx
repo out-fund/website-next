@@ -95,7 +95,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                     height={512}
                     width={625}
                     // className="hidden md:block object-cover object-[20%] h-full w-auto"
-                    className="hidden md:block "
+                    className="hidden lg:block "
                     quality={40}
                   />
                   {/* <PrismicNextImage

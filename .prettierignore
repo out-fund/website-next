@@ -1,2 +1,3 @@
 # Ignore all JS files in public folder:
 /public/js/*.js
+_redirects

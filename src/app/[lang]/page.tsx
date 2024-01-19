@@ -74,14 +74,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${page.data.title}`,
-    description: page.data.meta_description,
+    description:
+      page.data.meta_description || globalSEO.data.meta_description || "",
     alternates: {
-      canonical: `/${params.lang}`,
+      canonical: `/${params.lang}/`,
       languages,
     },
     openGraph: {
-      title: `${page.data.meta_title}`,
-      description: `${page.data.meta_description}`,
+      title: page.data.meta_title || page.data.title || "",
+      description:
+        page.data.meta_description || globalSEO.data.meta_description || "",
       url: `/${params.lang}`,
       locale: langToOgLocale(params.lang),
       images: [page.data.meta_image.url || globalSEO.data.og_image.url || ""],

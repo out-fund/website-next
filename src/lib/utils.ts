@@ -24,3 +24,17 @@ export function titleCase(str: string) {
   }
   return splitStr.join(" ")
 }
+
+export function langLoOgLocale(lang: string) {
+  const [language, country] = lang.split("-")
+  return `${language}_${country.toUpperCase()}`
+}
+
+// export async function getAlternates(repository: any, uid: any) {
+//   const languages: { [key: string]: string } = {}
+//   const langs = await sortLocales(repository.languages)
+//   langs.forEach((lang) => {
+//     languages[lang.id] = `/${lang.id}/${uid}`
+//   })
+//   return languages
+// }

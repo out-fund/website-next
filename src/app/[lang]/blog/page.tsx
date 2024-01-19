@@ -73,10 +73,12 @@ export default async function Page({ params }: { params: Params }) {
                         field={post.data.card_image}
                         loading="lazy"
                         className="w-full h-full object-cover"
+                        quality={40}
+                        width={465}
+                        height={236}
                       />
                     </div>
                   )}
-                  {/* {!post.data.card_image.id && <div>{post.data.title}</div>} */}
                   <Heading size="h3" as="span" className="mt-2 block px-2">
                     {post.data.title}
                   </Heading>

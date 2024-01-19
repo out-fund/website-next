@@ -10,7 +10,7 @@ import { components } from "@/slices"
 import { PageLayout } from "@/components"
 // import { PageEvent } from "@/lib/events"
 // import { titleCase } from "@/lib/utils"
-import { sortLocales } from "@/lib/utils"
+import { sortLocales, langLoOgLocale } from "@/lib/utils"
 
 // type Params = {
 //   uid: string
@@ -36,16 +36,14 @@ export default async function Page({ params }: Props) {
   const client = createClient()
 
   const page = await client
-    .getByUID("page", params.uid, { lang: params.lang })
+    .getByUID("page", params.uid, {
+      lang: params.lang,
+      filters: [
+        prismic.filter.not("my.page.uid", "home"),
+        prismic.filter.not("my.page.uid", "blog"),
+      ],
+    })
     .catch(() => notFound())
-
-  // const locales = await getTranslatedLocales(page, client)
-  // console.log("pageData", page)
-  // console.log("page.uid", page.uid)
-  // console.log("slices", page.data.slices)
-
-  // const pageName = titleCase(page.uid.replace(/-/g, " "))
-  // console.log("pageName", pageName)
 
   return (
     <PageLayout lang={params.lang}>
@@ -73,31 +71,48 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     lang: params.lang,
   })
 
-  const toOgLocale = (lang: string) => {
-    const [language, country] = lang.split("-")
-    return `${language}_${country.toUpperCase()}`
-  }
-
   const languages: { [key: string]: string } = {}
   const langs = await sortLocales((await client.getRepository()).languages)
   langs.forEach((lang) => {
     languages[lang.id] = `/${lang.id}/${params.uid}`
   })
 
-  // console.log("meta url", page.data.meta_image.url)
+  const titleCountry = () => {
+    const country = params.lang.split("-")[1]
+    switch (country) {
+      case "us":
+        return " | USA"
+      case "de":
+        return " | Deutschland"
+      case "gb":
+        return " | UK"
+      case "nl":
+        return " | Nederland"
+      case "ie":
+        return " | Ireland"
+      case "au":
+        return " | Australia"
+      case "es":
+        return " | España"
+      default:
+        return ""
+    }
+  }
 
   return {
-    title: `${page.data.title}`,
-    description: page.data.meta_description,
+    title: `${page.data.title} | Outfund${titleCountry()}`,
+    description:
+      page.data.meta_description || globalSEO.data.meta_description || "",
     alternates: {
-      canonical: `/${params.lang}/${params.uid}`,
+      canonical: `/${params.lang}/${params.uid}/`,
       languages,
     },
     openGraph: {
-      title: `${page.data.meta_title || page.data.title}`,
-      description: `${page.data.meta_description}`,
+      title: page.data.meta_title || page.data.title || "",
+      description:
+        page.data.meta_description || globalSEO.data.meta_description || "",
       url: `/${params.lang}/${params.uid}`,
-      locale: toOgLocale(params.lang),
+      locale: langLoOgLocale(params.lang),
       images: [page.data.meta_image.url || globalSEO.data.og_image.url || ""],
       siteName: "Outfund",
       type: "website",
@@ -107,7 +122,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export async function generateStaticParams() {
   const client = createClient()
-  // const pages = await client.getAllByType("page", { lang: "*" })
   const pages = await client.getAllByType("page", {
     lang: "*",
     filters: [
@@ -117,7 +131,6 @@ export async function generateStaticParams() {
   })
 
   return pages.map((page) => {
-    // console.log("page.lang", page.lang)
     return {
       uid: page.uid,
       lang: page.lang,
