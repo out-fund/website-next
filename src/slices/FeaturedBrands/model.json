@@ -40,9 +40,7 @@
           "config": {
             "label": "Brand",
             "select": "document",
-            "customtypes": [
-              "success_story_brand"
-            ]
+            "customtypes": ["success_story_brand"]
           }
         }
       }

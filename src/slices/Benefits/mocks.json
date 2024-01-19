@@ -1,58 +1,58 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"top_text",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "guess",
-							"type": "Text"
-						}
-					],
-					[
-						"bottom_text",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "buffalo",
-							"type": "Text"
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "onWhite",
-		"primary": {},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"top_text",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "manner",
-							"type": "Text"
-						}
-					],
-					[
-						"bottom_text",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "graph",
-							"type": "Text"
-						}
-					]
-				]
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {},
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "top_text",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "guess",
+              "type": "Text"
+            }
+          ],
+          [
+            "bottom_text",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "buffalo",
+              "type": "Text"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "onWhite",
+    "primary": {},
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "top_text",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "manner",
+              "type": "Text"
+            }
+          ],
+          [
+            "bottom_text",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "graph",
+              "type": "Text"
+            }
+          ]
+        ]
+      }
+    ]
+  }
 ]

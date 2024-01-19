@@ -40,12 +40,7 @@
           "config": {
             "label": "Currency",
             "placeholder": "",
-            "options": [
-              "GBP",
-              "EUR",
-              "USD",
-              "AUD"
-            ]
+            "options": ["GBP", "EUR", "USD", "AUD"]
           }
         },
         "amount_title": {

@@ -1,54 +1,54 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"title",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "cookies",
-							"type": "Text"
-						}
-					],
-					[
-						"review",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "thousand",
-							"type": "Text"
-						}
-					],
-					[
-						"name",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "trunk",
-							"type": "Text"
-						}
-					],
-					[
-						"date",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Timestamp",
-							"value": "2020-11-05T22:53:13Z"
-						}
-					],
-					[
-						"url",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "someone",
-							"type": "Text"
-						}
-					]
-				]
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {},
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "title",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "cookies",
+              "type": "Text"
+            }
+          ],
+          [
+            "review",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "thousand",
+              "type": "Text"
+            }
+          ],
+          [
+            "name",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "trunk",
+              "type": "Text"
+            }
+          ],
+          [
+            "date",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Timestamp",
+              "value": "2020-11-05T22:53:13Z"
+            }
+          ],
+          [
+            "url",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "someone",
+              "type": "Text"
+            }
+          ]
+        ]
+      }
+    ]
+  }
 ]

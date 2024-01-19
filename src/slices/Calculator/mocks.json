@@ -1,99 +1,99 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"heading": {
-				"__TYPE__": "FieldContent",
-				"value": "cup",
-				"type": "Text"
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Culpa voluptate ex reprehenderit non cupidatat minim aliquip labore nostrud fugiat proident."
-						}
-					}
-				]
-			},
-			"subheading": {
-				"__TYPE__": "FieldContent",
-				"value": "develop",
-				"type": "Text"
-			},
-			"amount_title": {
-				"__TYPE__": "FieldContent",
-				"value": "shake",
-				"type": "Text"
-			},
-			"term_title": {
-				"__TYPE__": "FieldContent",
-				"value": "produce",
-				"type": "Text"
-			},
-			"term_min": {
-				"__TYPE__": "FieldContent",
-				"value": "35",
-				"type": "Number"
-			},
-			"term_max": {
-				"__TYPE__": "FieldContent",
-				"value": "36",
-				"type": "Number"
-			},
-			"slider_months_text": {
-				"__TYPE__": "FieldContent",
-				"value": "disease",
-				"type": "Text"
-			},
-			"total_title": {
-				"__TYPE__": "FieldContent",
-				"value": "flow",
-				"type": "Text"
-			},
-			"currency": {
-				"__TYPE__": "FieldContent",
-				"value": "EUR",
-				"type": "Select"
-			},
-			"button_text": {
-				"__TYPE__": "FieldContent",
-				"value": "company",
-				"type": "Text"
-			},
-			"button_note": {
-				"__TYPE__": "FieldContent",
-				"value": "lower",
-				"type": "Text"
-			},
-			"amounts": {
-				"__TYPE__": "FieldContent",
-				"value": "theory",
-				"type": "Text"
-			},
-			"fees": {
-				"__TYPE__": "FieldContent",
-				"value": "cry",
-				"type": "Text"
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"bulletpoint",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "region",
-							"type": "Text"
-						}
-					]
-				]
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "heading": {
+        "__TYPE__": "FieldContent",
+        "value": "cup",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Culpa voluptate ex reprehenderit non cupidatat minim aliquip labore nostrud fugiat proident."
+            }
+          }
+        ]
+      },
+      "subheading": {
+        "__TYPE__": "FieldContent",
+        "value": "develop",
+        "type": "Text"
+      },
+      "amount_title": {
+        "__TYPE__": "FieldContent",
+        "value": "shake",
+        "type": "Text"
+      },
+      "term_title": {
+        "__TYPE__": "FieldContent",
+        "value": "produce",
+        "type": "Text"
+      },
+      "term_min": {
+        "__TYPE__": "FieldContent",
+        "value": "35",
+        "type": "Number"
+      },
+      "term_max": {
+        "__TYPE__": "FieldContent",
+        "value": "36",
+        "type": "Number"
+      },
+      "slider_months_text": {
+        "__TYPE__": "FieldContent",
+        "value": "disease",
+        "type": "Text"
+      },
+      "total_title": {
+        "__TYPE__": "FieldContent",
+        "value": "flow",
+        "type": "Text"
+      },
+      "currency": {
+        "__TYPE__": "FieldContent",
+        "value": "EUR",
+        "type": "Select"
+      },
+      "button_text": {
+        "__TYPE__": "FieldContent",
+        "value": "company",
+        "type": "Text"
+      },
+      "button_note": {
+        "__TYPE__": "FieldContent",
+        "value": "lower",
+        "type": "Text"
+      },
+      "amounts": {
+        "__TYPE__": "FieldContent",
+        "value": "theory",
+        "type": "Text"
+      },
+      "fees": {
+        "__TYPE__": "FieldContent",
+        "value": "cry",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "bulletpoint",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "region",
+              "type": "Text"
+            }
+          ]
+        ]
+      }
+    ]
+  }
 ]

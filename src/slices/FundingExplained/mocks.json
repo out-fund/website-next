@@ -1,66 +1,66 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"heading": {
-				"__TYPE__": "FieldContent",
-				"value": "mood",
-				"type": "Text"
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"title",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "ball",
-							"type": "Text"
-						}
-					],
-					[
-						"description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Ad occaecat reprehenderit fugiat elit voluptate pariatur et ad elit. Nostrud anim dolore aute quis voluptate reprehenderit incididunt ex do aliqua laboris sint. Sunt cupidatat non sint aute sint pariatur quis do magna ipsum eiusmod magna excepteur esse."
-									}
-								}
-							]
-						}
-					],
-					[
-						"icon",
-						{
-							"__TYPE__": "ImageContent",
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
-								"width": 3456,
-								"height": 3456
-							},
-							"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?rect=0%2C744%2C3456%2C1969&w=79&h=45",
-							"width": 79,
-							"height": 45,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 744
-								},
-								"background": "transparent"
-							},
-							"thumbnails": {}
-						}
-					]
-				]
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "heading": {
+        "__TYPE__": "FieldContent",
+        "value": "mood",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "title",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "ball",
+              "type": "Text"
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Ad occaecat reprehenderit fugiat elit voluptate pariatur et ad elit. Nostrud anim dolore aute quis voluptate reprehenderit incididunt ex do aliqua laboris sint. Sunt cupidatat non sint aute sint pariatur quis do magna ipsum eiusmod magna excepteur esse."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "icon",
+            {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+                "width": 3456,
+                "height": 3456
+              },
+              "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?rect=0%2C744%2C3456%2C1969&w=79&h=45",
+              "width": 79,
+              "height": 45,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 744
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            }
+          ]
+        ]
+      }
+    ]
+  }
 ]

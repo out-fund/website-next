@@ -1,47 +1,47 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"quote": {
-				"__TYPE__": "FieldContent",
-				"value": "recently",
-				"type": "Text"
-			},
-			"quote_by": {
-				"__TYPE__": "FieldContent",
-				"value": "particularly",
-				"type": "Text"
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"title",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "sharp",
-							"type": "Text"
-						}
-					],
-					[
-						"description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Ut dolor id dolore mollit voluptate qui elit laboris sunt labore deserunt. Tempor occaecat sunt laborum reprehenderit ea sint Lorem consequat proident esse magna sit ullamco labore fugiat. Do dolore irure quis consectetur commodo ullamco enim nulla est elit proident officia aliquip ex."
-									}
-								}
-							]
-						}
-					]
-				]
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "quote": {
+        "__TYPE__": "FieldContent",
+        "value": "recently",
+        "type": "Text"
+      },
+      "quote_by": {
+        "__TYPE__": "FieldContent",
+        "value": "particularly",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "title",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "sharp",
+              "type": "Text"
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Ut dolor id dolore mollit voluptate qui elit laboris sunt labore deserunt. Tempor occaecat sunt laborum reprehenderit ea sint Lorem consequat proident esse magna sit ullamco labore fugiat. Do dolore irure quis consectetur commodo ullamco enim nulla est elit proident officia aliquip ex."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  }
 ]

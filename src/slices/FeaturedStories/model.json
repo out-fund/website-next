@@ -26,9 +26,7 @@
           "config": {
             "label": "Featured Story",
             "select": "document",
-            "customtypes": [
-              "success_story"
-            ]
+            "customtypes": ["success_story"]
           }
         }
       }
