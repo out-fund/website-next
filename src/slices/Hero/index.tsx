@@ -73,7 +73,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 </div>
               </div>
               <div className="lg:relative lg:z-10 ">
-                <div className=" lg:absolute lg:top-[40px] lg:left-[-40px] h-full lg:w-[calc(50vw+40px)] ">
+                {/* <div className=" lg:absolute lg:top-[40px] lg:left-[-40px] h-full lg:w-[calc(50vw+40px)] "> */}
+                <div className=" lg:absolute lg:top-[40px] lg:left-[-40px] h-full  ">
                   {/* <PrismicNextImage
                     field={slice.primary.image.mobile}
                     loading="eager"
@@ -92,10 +93,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                     loading="eager"
                     priority={true}
                     height={512}
-                    sizes="1200px"
-                    width={1200}
-                    className="hidden md:block object-cover object-[20%] h-full w-auto"
-                    quality={30}
+                    width={625}
+                    // className="hidden md:block object-cover object-[20%] h-full w-auto"
+                    className="hidden md:block "
+                    quality={40}
                   />
                   {/* <PrismicNextImage
                     field={slice.primary.image}

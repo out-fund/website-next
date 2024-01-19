@@ -2005,7 +2005,7 @@ export interface HeroSliceDefaultPrimary {
    * - **API ID Path**: hero.primary.image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image: prismic.ImageField<"mobile">
+  image: prismic.ImageField<never>
 
   /**
    * Button Note field in *Hero → Primary*

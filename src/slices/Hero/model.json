@@ -42,16 +42,10 @@
           "config": {
             "label": "Image",
             "constraint": {
-              "width": 1200,
+              "width": 625,
               "height": 512
             },
-            "thumbnails": [
-              {
-                "name": "mobile",
-                "width": 768,
-                "height": 512
-              }
-            ]
+            "thumbnails": []
           }
         },
         "button_note": {

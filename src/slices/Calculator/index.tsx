@@ -106,7 +106,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className=" mt-10 mb-10 md:mt-15 md:mb-15 md:pb-[56px] "
+      className=" mt-7 mb-10 md:mt-10 md:mb-15 md:pb-[56px] "
     >
       <Wrapper>
         <div className="mx-auto md:mx-0 max-w-[90%] md:max-w-none">
