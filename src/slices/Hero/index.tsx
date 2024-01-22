@@ -20,6 +20,16 @@ const components: JSXMapSerializer = {
     </p>
   ),
 }
+const componentsBlog: JSXMapSerializer = {
+  heading1: ({ children }) => (
+    <h1
+      className="text-heading text-[40px] leading-[48px] font-[350] md:text-[56px] md:leading-[64px] md:font-[350] tracking-[-0.04em]"
+      itemProp="headline"
+    >
+      {children}
+    </h1>
+  ),
+}
 
 const isObjectEmpty = (obj: any) => {
   return Object.keys(obj).length === 0
@@ -73,41 +83,16 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 </div>
               </div>
               <div className="lg:relative lg:z-10 ">
-                {/* <div className=" lg:absolute lg:top-[40px] lg:left-[-40px] h-full lg:w-[calc(50vw+40px)] "> */}
                 <div className=" lg:absolute lg:top-[40px] lg:left-[-40px] h-full  ">
-                  {/* <PrismicNextImage
-                    field={slice.primary.image.mobile}
-                    loading="eager"
-                    priority={true}
-                    // height={512}
-                    // width={768}
-                    // height={512}
-                    // width={1200}
-                    // className="h-auto lg:hidden "
-                    // className=" object-cover object-[20%] lg:object-left-top "
-                    className="md:hidden object-cover object-[20%] w-auto h-auto"
-                    quality={30}
-                  /> */}
                   <PrismicNextImage
                     field={slice.primary.image}
                     loading="eager"
                     priority={true}
                     height={512}
                     width={625}
-                    // className="hidden md:block object-cover object-[20%] h-full w-auto"
                     className="hidden lg:block "
                     quality={40}
                   />
-                  {/* <PrismicNextImage
-                    field={slice.primary.image}
-                    loading="eager"
-                    priority={true}
-                    height={512}
-                    width={1200}
-                    quality={40}
-                    fill={true}
-                    className="hidden lg:block object-cover object-[20%] lg:object-left-top "
-                  /> */}
                 </div>
               </div>
             </div>
@@ -154,7 +139,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             <div className="flex flex-col gap-6 text-center relative">
               <PrismicRichText
                 field={slice.primary.heading}
-                components={components}
+                components={componentsBlog}
               />
 
               {!isObjectEmpty(slice.primary.image) && (
@@ -168,6 +153,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                       field={slice.primary.image}
                       priority={true}
                       className="object-cover object-center w-full h-full relative z-10"
+                      itemProp="image"
+                      width={770}
+                      height={433}
+                      content={slice.primary.image.url || ""}
                     />
                   </div>
                 </div>

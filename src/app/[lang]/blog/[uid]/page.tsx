@@ -2,6 +2,7 @@ import * as prismic from "@prismicio/client"
 // import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { SliceZone } from "@prismicio/react"
+import moment from "moment"
 
 import { createClient } from "@/prismicio"
 import { components } from "@/slices"
@@ -26,6 +27,11 @@ type Params = {
 export default async function Page({ params }: { params: Params }) {
   const client = createClient()
 
+  const formatedDate = (date: any) => {
+    moment.locale(params.lang)
+    return moment(date).format("DD MMMM YYYY")
+  }
+
   const blogPost = await client
     .getByUID("blog_post", params.uid, { lang: params.lang })
     .catch(() => notFound())
@@ -35,6 +41,32 @@ export default async function Page({ params }: { params: Params }) {
       <article className="mb-5">
         <Wrapper width="narrow">
           <SliceZone slices={blogPost.data.slices} components={components} />
+          {blogPost.data.publication_date && (
+            <div className="text-[14px] leading-[24px] text-body font-[400]">
+              <span>{blogPost.data.published_text}:</span>{" "}
+              <span
+                itemProp="datePublished"
+                content={moment(blogPost.data.publication_date).toISOString()}
+              >
+                {formatedDate(blogPost.data.publication_date)}
+              </span>
+            </div>
+          )}
+
+          {blogPost.data.published_by_text && (
+            <div className="text-[14px] leading-[24px] text-body font-[400]">
+              <span>{blogPost.data.published_by_text}</span>{" "}
+              <span
+                itemProp="author"
+                itemScope
+                itemType="https://schema.org/Organization"
+              >
+                <a itemProp="url" href="https://out.fund" className="underline">
+                  <span itemProp="name">Outfund</span>
+                </a>
+              </span>
+            </div>
+          )}
         </Wrapper>
       </article>
 

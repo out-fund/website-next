@@ -35,6 +35,20 @@
           "placeholder": "Used to create order on the blog page"
         }
       },
+      "published_text": {
+        "type": "Text",
+        "config": {
+          "label": "Published text",
+          "placeholder": ""
+        }
+      },
+      "published_by_text": {
+        "type": "Text",
+        "config": {
+          "label": "Published by Text",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
