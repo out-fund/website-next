@@ -153,9 +153,11 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                       field={slice.primary.image}
                       priority={true}
                       className="object-cover object-center w-full h-full relative z-10"
-                      itemProp="image"
                       width={770}
                       height={433}
+                    />
+                    <meta
+                      itemProp="image"
                       content={slice.primary.image.url || ""}
                     />
                   </div>

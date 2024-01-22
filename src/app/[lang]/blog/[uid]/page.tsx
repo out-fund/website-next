@@ -38,7 +38,11 @@ export default async function Page({ params }: { params: Params }) {
 
   return (
     <PageLayout lang={params.lang}>
-      <article className="mb-5">
+      <article
+        className="mb-5"
+        itemScope
+        itemType="https://schema.org/BlogPosting"
+      >
         <Wrapper width="narrow">
           <SliceZone slices={blogPost.data.slices} components={components} />
           {blogPost.data.publication_date && (

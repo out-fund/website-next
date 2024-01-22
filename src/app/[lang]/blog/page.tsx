@@ -57,46 +57,44 @@ export default async function Page({ params }: { params: Params }) {
 
   return (
     <PageLayout lang={params.lang}>
-      <div itemScope itemType="https://schema.org/BlogPosting">
-        <SliceZone slices={blogPage.data.slices} components={components} />
-        <Wrapper width="medium">
-          <ul className="grid grid-cols-2 gap-4 mt-5 mb-5">
-            {posts.map((post) => {
-              return (
-                <li key={post.uid} className="mb-2">
-                  <Link
-                    href={`/${params.lang}/blog/${post.uid}`}
-                    className="hover:underline block"
-                  >
-                    {post.data.card_image.id && (
-                      <div className="w-full h-[240px] border-[2px] border-bgDark">
-                        <PrismicNextImage
-                          field={post.data.card_image}
-                          loading="lazy"
-                          className="w-full h-full object-cover"
-                          quality={40}
-                          width={465}
-                          height={236}
-                        />
-                      </div>
-                    )}
-                    <Heading size="h3" as="span" className="mt-2 block px-2">
-                      {post.data.title}
-                    </Heading>
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
-        </Wrapper>
+      <SliceZone slices={blogPage.data.slices} components={components} />
+      <Wrapper width="medium">
+        <ul className="grid grid-cols-2 gap-4 mt-5 mb-5">
+          {posts.map((post) => {
+            return (
+              <li key={post.uid} className="mb-2">
+                <Link
+                  href={`/${params.lang}/blog/${post.uid}`}
+                  className="hover:underline block"
+                >
+                  {post.data.card_image.id && (
+                    <div className="w-full h-[240px] border-[2px] border-bgDark">
+                      <PrismicNextImage
+                        field={post.data.card_image}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                        quality={40}
+                        width={465}
+                        height={236}
+                      />
+                    </div>
+                  )}
+                  <Heading size="h3" as="span" className="mt-2 block px-2">
+                    {post.data.title}
+                  </Heading>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+      </Wrapper>
 
-        {/* <PageLink field={link} className="text-body">
+      {/* <PageLink field={link} className="text-body">
         {label}
       </PageLink> */}
 
-        {/* Segment Event */}
-        {/* <PageEvent name="Blog" /> */}
-      </div>
+      {/* Segment Event */}
+      {/* <PageEvent name="Blog" /> */}
     </PageLayout>
   )
 }
