@@ -2,7 +2,7 @@ import * as prismic from "@prismicio/client"
 import { Metadata } from "next"
 import { SliceZone } from "@prismicio/react"
 import { notFound } from "next/navigation"
-// import { JSXMapSerializer, PrismicRichText } from "@prismicio/react"
+import { JSXMapSerializer, PrismicRichText } from "@prismicio/react"
 import { createClient } from "@/prismicio"
 import { components } from "@/slices"
 // import { getTranslatedLocales } from "@/lib/getTranslatedLocales"
@@ -15,16 +15,16 @@ type Props = {
   // searchParams?: { [key: string]: string | string[] | undefined }
 }
 
-// const embedComponent: JSXMapSerializer = {
-//   preformatted: ({ node }) => {
-//     return (
-//       <script
-//         type="application/ld+json"
-//         dangerouslySetInnerHTML={{ __html: node.text }}
-//       />
-//     )
-//   },
-// }
+const embedComponent: JSXMapSerializer = {
+  preformatted: ({ node }) => {
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: node.text }}
+      />
+    )
+  },
+}
 
 export default async function Page({ params }: Props) {
   const client = createClient()
@@ -41,12 +41,12 @@ export default async function Page({ params }: Props) {
       {/* <PageEvent name="Home" /> */}
 
       {/* Schema.org */}
-      {/* {page.data.schema_org_json_ld && (
+      {page.data.schema_org_json_ld && (
         <PrismicRichText
           field={page.data.schema_org_json_ld}
           components={embedComponent}
         />
-      )} */}
+      )}
     </PageLayout>
   )
 }
