@@ -65,7 +65,11 @@ export default async function Page({ params }: { params: Params }) {
                 itemScope
                 itemType="https://schema.org/Organization"
               >
-                <a itemProp="url" href="https://out.fund" className="underline">
+                <a
+                  itemProp="url"
+                  href="https://out.fund/en-gb/"
+                  className="underline"
+                >
                   <span itemProp="name">Outfund</span>
                 </a>
               </span>

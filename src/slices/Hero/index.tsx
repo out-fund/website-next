@@ -155,6 +155,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                       className="object-cover object-center w-full h-full relative z-10"
                       width={770}
                       height={433}
+                      quality={40}
                     />
                     <meta
                       itemProp="image"
