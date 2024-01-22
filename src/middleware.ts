@@ -3,6 +3,13 @@ import { createClient } from "@/prismicio"
 import { NextResponse, type NextRequest } from "next/server"
 
 export async function middleware(request: NextRequest) {
+  // Temporary redirect for the old signature banner
+  if (request.nextUrl.pathname.startsWith("/email/signatureBanner.jpg")) {
+    return NextResponse.rewrite(
+      new URL("/images/signatureBanner.jpg", request.url),
+    )
+  }
+  // Country redirects
   if (request.nextUrl.pathname.includes("/us/")) {
     return NextResponse.redirect(
       new URL(request.url.replace(`/us/`, "/en-us/")),
