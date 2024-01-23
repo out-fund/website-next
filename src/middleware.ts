@@ -7,6 +7,10 @@ export async function middleware(request: NextRequest) {
   if (!request.nextUrl.pathname.endsWith("/")) {
     return NextResponse.redirect(new URL(`${request.url}/`))
   }
+  // Language redirects
+  if (request.nextUrl.pathname.includes("grow2024")) {
+    return NextResponse.redirect(new URL(`/`, request.url))
+  }
 
   // Temporary redirect for the old images and signature images
   if (request.nextUrl.pathname.includes("/signatures/images/")) {
