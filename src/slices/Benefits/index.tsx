@@ -30,7 +30,7 @@ const Benefits = ({ slice }: BenefitsProps): JSX.Element => {
                   className="flex flex-col gap-1"
                 >
                   <span className="text-[16px] leading-[24px] text-body">
-                    {item.top_text}
+                    {item.top_text}{" "}
                   </span>
                   <span className="text-[24px] leading-[32px] font-medium text-body">
                     {item.bottom_text}
@@ -53,7 +53,7 @@ const Benefits = ({ slice }: BenefitsProps): JSX.Element => {
                   className="flex flex-col gap-1"
                 >
                   <span className="text-[16px] leading-[24px] text-body">
-                    {item.top_text}
+                    {item.top_text}{" "}
                   </span>
                   <span className="text-[24px] leading-[32px] font-medium text-body">
                     {item.bottom_text}

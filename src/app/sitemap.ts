@@ -20,21 +20,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const homePagesURLs = homePages.map((page) => ({
     url: `https://out.fund/${page.lang}/`,
     lastModified: page.last_publication_date,
-    changeFrequency: "weekly" as const,
+    changeFrequency: "monthly" as const,
     priority: 1,
   }))
 
   const pageURLs = pages.map((page) => ({
     url: `https://out.fund/${page.lang}/${page.uid}/`,
     lastModified: page.last_publication_date,
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
   }))
 
   const blogPostsURLs = blogPosts.map((page) => ({
     url: `https://out.fund/${page.lang}/blog/${page.uid}/`,
     lastModified: page.last_publication_date,
-    changeFrequency: "weekly" as const,
+    changeFrequency: "monthly" as const,
     priority: 0.5,
   }))
 

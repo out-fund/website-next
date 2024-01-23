@@ -122,7 +122,8 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                 />
               </div>
 
-              <div className="hidden md:block">
+              {/* <div className="hidden md:block"> */}
+              <div className="">
                 <Heading as="h3" size="h3" className="mb-2">
                   {slice.primary.subheading}
                 </Heading>
@@ -231,7 +232,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                 </div>
               </div>
             </div>
-            <div className="mt-8 md:hidden">
+            {/* <div className="mt-8 md:hidden">
               <Heading as="h3" size="h3" className="mb-2">
                 {slice.primary.subheading}
               </Heading>
@@ -245,7 +246,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </Wrapper>

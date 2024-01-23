@@ -47,7 +47,7 @@ const AboutUs = ({ slice }: AboutUsProps): JSX.Element => {
                 className="flex flex-col gap-1"
               >
                 <span className="text-[16px] leading-[24px] text-body font-[400] tracking-normal">
-                  {item.text_top}
+                  {item.text_top}{" "}
                 </span>
                 <span className="text-[24px] leading-[32px] text-body font-[400] tracking-normal">
                   {item.text_bottom}
