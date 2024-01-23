@@ -3,27 +3,6 @@ import { createClient } from "@/prismicio"
 import { NextResponse, type NextRequest } from "next/server"
 
 export async function middleware(request: NextRequest) {
-  // add trailing slash to all paths
-  if (!request.nextUrl.pathname.endsWith("/")) {
-    return NextResponse.redirect(new URL(`${request.url}/`))
-  }
-  // Language redirects
-  if (request.nextUrl.pathname.includes("grow2024")) {
-    return NextResponse.redirect(new URL(`/`, request.url))
-  }
-
-  // Temporary redirect for the old images and signature images
-  if (request.nextUrl.pathname.includes("/signatures/images/")) {
-    return NextResponse.rewrite(
-      new URL(request.url.replace(`/signatures/images/`, "/images/")),
-    )
-  }
-  if (request.nextUrl.pathname.includes("/email/")) {
-    return NextResponse.rewrite(
-      new URL(request.url.replace(`/email/`, "/images/")),
-    )
-  }
-
   // Country redirects
   if (request.nextUrl.pathname.includes("/us/")) {
     return NextResponse.redirect(
@@ -58,6 +37,27 @@ export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.includes("/ie/")) {
     return NextResponse.redirect(
       new URL(request.url.replace(`/ie/`, "/en-ie/")),
+    )
+  }
+
+  // add trailing slash to all paths
+  if (!request.nextUrl.pathname.endsWith("/")) {
+    return NextResponse.redirect(new URL(`${request.url}/`))
+  }
+  // Language redirects
+  if (request.nextUrl.pathname.includes("grow2024")) {
+    return NextResponse.redirect(new URL(`/`, request.url))
+  }
+
+  // Temporary redirect for the old images and signature images
+  if (request.nextUrl.pathname.includes("/signatures/images/")) {
+    return NextResponse.rewrite(
+      new URL(request.url.replace(`/signatures/images/`, "/images/")),
+    )
+  }
+  if (request.nextUrl.pathname.includes("/email/")) {
+    return NextResponse.rewrite(
+      new URL(request.url.replace(`/email/`, "/images/")),
     )
   }
 
