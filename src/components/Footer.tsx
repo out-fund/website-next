@@ -6,6 +6,7 @@ import {
   PrismicLink,
 } from "@prismicio/react"
 import Link from "next/link"
+import { translatedCountryNames } from "@/lib/utils"
 
 import "/node_modules/flag-icons/css/flag-icons.min.css"
 import { Wrapper, PageLink, Logo } from "@/components/atoms"
@@ -25,6 +26,7 @@ const components: JSXMapSerializer = {
 
 export default async function Footer(props: any) {
   // console.log("footer", props)
+  const translatedCountrys = await translatedCountryNames()
   return (
     <footer className="  bg-bgMedium">
       <PrismicRichText field={props.legal_text} components={components} />
@@ -92,23 +94,16 @@ export default async function Footer(props: any) {
                   {props.data.data.countries_title}
                 </div>
                 <ul className="flex flex-col gap-2 ">
-                  {props.languages.map((language: any) => (
-                    <li key={language.id} className="flex gap-2  items-center">
-                      {/* <span className={`fi fi-${language.id.split("-")[1]}`} /> */}
-                      {/* <Image
-                        src={`https://out.fund/images/${language.id.split("-")[1]}.png`}
-                        width={24}
-                        height={16}
-                        alt={`${language.id.split("-")[1]} flag`}
-                        // className="w-[24px] h-[16px]"
-                        priority={false}
-                        loading="lazy"
+                  {translatedCountrys.map((country: any) => (
+                    <li key={country.id} className="flex gap-2 items-center">
+                      {/* <div
+                        className={`fi fi-${country.id.split("-")[1]} block w-3`}
                       /> */}
                       <Link
-                        href={`/${language.id}`}
+                        href={`/${country.id}`}
                         className="font-normal hover:underline underline-offset-2 focus:underline focus:outline-none whitespace-nowrap decoration-1 decoration-[#8D9BA9] select-none"
                       >
-                        {language.name.split("- ")[1]}
+                        {country.name}
                       </Link>
                     </li>
                   ))}
