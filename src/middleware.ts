@@ -4,16 +4,21 @@ import { NextResponse, type NextRequest } from "next/server"
 
 export async function middleware(request: NextRequest) {
   // Temporary redirect for the old signature banner
-  if (request.nextUrl.pathname.includes("signatureBanner.jpg")) {
+  if (request.nextUrl.pathname.includes("/signatures/images/")) {
     return NextResponse.rewrite(
-      new URL("/images/signatureBanner.jpg", request.url),
+      new URL(request.url.replace(`/signatures/images/`, "/images/")),
     )
   }
-  if (request.nextUrl.pathname.includes("email-banner.jpg")) {
-    return NextResponse.rewrite(
-      new URL("/images/email-banner.jpg", request.url),
-    )
-  }
+  // if (request.nextUrl.pathname.includes("signatureBanner.jpg")) {
+  //   return NextResponse.rewrite(
+  //     new URL("/images/signatureBanner.jpg", request.url),
+  //   )
+  // }
+  // if (request.nextUrl.pathname.includes("email-banner.jpg")) {
+  //   return NextResponse.rewrite(
+  //     new URL("/images/email-banner.jpg", request.url),
+  //   )
+  // }
   // Country redirects
   if (request.nextUrl.pathname.includes("/us/")) {
     return NextResponse.redirect(
