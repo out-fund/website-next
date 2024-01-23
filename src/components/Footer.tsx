@@ -93,10 +93,7 @@ export default async function Footer(props: any) {
                 </div>
                 <ul className="flex flex-col gap-2 ">
                   {props.languages.map((language: any) => (
-                    <li
-                      key={language.id}
-                      className="flex gap-2 pl-[3px] items-center"
-                    >
+                    <li key={language.id} className="flex gap-2  items-center">
                       {/* <span className={`fi fi-${language.id.split("-")[1]}`} /> */}
                       {/* <Image
                         src={`https://out.fund/images/${language.id.split("-")[1]}.png`}
