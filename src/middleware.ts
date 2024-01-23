@@ -3,7 +3,12 @@ import { createClient } from "@/prismicio"
 import { NextResponse, type NextRequest } from "next/server"
 
 export async function middleware(request: NextRequest) {
-  // Temporary redirect for the old signature banner
+  // add trailing slash to all paths
+  if (request.nextUrl.pathname.slice(-4).startsWith(".")) {
+    return NextResponse.redirect(new URL(`${request.nextUrl.pathname}/`))
+  }
+
+  // Temporary redirect for the old images and signature images
   if (request.nextUrl.pathname.includes("/signatures/images/")) {
     return NextResponse.rewrite(
       new URL(request.url.replace(`/signatures/images/`, "/images/")),
@@ -14,16 +19,7 @@ export async function middleware(request: NextRequest) {
       new URL(request.url.replace(`/email/`, "/images/")),
     )
   }
-  // if (request.nextUrl.pathname.includes("signatureBanner.jpg")) {
-  //   return NextResponse.rewrite(
-  //     new URL("/images/signatureBanner.jpg", request.url),
-  //   )
-  // }
-  // if (request.nextUrl.pathname.includes("email-banner.jpg")) {
-  //   return NextResponse.rewrite(
-  //     new URL("/images/email-banner.jpg", request.url),
-  //   )
-  // }
+
   // Country redirects
   if (request.nextUrl.pathname.includes("/us/")) {
     return NextResponse.redirect(
