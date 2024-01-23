@@ -9,6 +9,11 @@ export async function middleware(request: NextRequest) {
       new URL(request.url.replace(`/signatures/images/`, "/images/")),
     )
   }
+  if (request.nextUrl.pathname.includes("/email/")) {
+    return NextResponse.rewrite(
+      new URL(request.url.replace(`/email/`, "/images/")),
+    )
+  }
   // if (request.nextUrl.pathname.includes("signatureBanner.jpg")) {
   //   return NextResponse.rewrite(
   //     new URL("/images/signatureBanner.jpg", request.url),
