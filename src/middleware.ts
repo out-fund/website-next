@@ -3,6 +3,11 @@ import { createClient } from "@/prismicio"
 import { NextResponse, type NextRequest } from "next/server"
 
 export async function middleware(request: NextRequest) {
+  // add trailing slash to all paths
+  if (!request.nextUrl.pathname.endsWith("/")) {
+    return NextResponse.redirect(new URL(`${request.url}/`))
+  }
+
   // Country redirects
   if (request.nextUrl.pathname.includes("/us/")) {
     return NextResponse.redirect(
@@ -39,11 +44,12 @@ export async function middleware(request: NextRequest) {
       new URL(request.url.replace(`/ie/`, "/en-ie/")),
     )
   }
-
-  // add trailing slash to all paths
-  if (!request.nextUrl.pathname.endsWith("/")) {
-    return NextResponse.redirect(new URL(`${request.url}/`))
+  if (request.nextUrl.pathname.includes("/en/")) {
+    return NextResponse.redirect(
+      new URL(request.url.replace(`/en/`, "/en-gb/")),
+    )
   }
+
   // Language redirects
   if (request.nextUrl.pathname.includes("grow2024")) {
     return NextResponse.redirect(new URL(`/`, request.url))
