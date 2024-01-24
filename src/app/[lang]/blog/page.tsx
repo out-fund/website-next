@@ -1,5 +1,5 @@
 import * as prismic from "@prismicio/client"
-// import { Metadata } from "next"
+import { Metadata } from "next"
 import { SliceZone } from "@prismicio/react"
 import { notFound } from "next/navigation"
 
@@ -12,29 +12,13 @@ import { PageLayout } from "@/components"
 // import { PageEvent } from "@/lib/events"
 import { Wrapper, Heading, PageLink } from "@/components/atoms"
 import Link from "next/link"
+import { sortLocales, langLoOgLocale } from "@/lib/utils"
 
-// type PageProps = {
-//   params: {
-//     lang: string
-//   }
-// }
-
-// type PageProps = {
-//   params: { uid: string; lang: string }
-//   searchParams?: { [key: string]: string | string[] | undefined }
-// }
-
-// type PageProps = {
-//   uid: string
-//   lang: string
-// }
-
-type Params = {
-  uid: string
-  lang: string
+type Props = {
+  params: { uid: string; lang: string }
 }
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page({ params }: Props) {
   const client = createClient()
 
   const blogPage = await client
@@ -47,13 +31,6 @@ export default async function Page({ params }: { params: Params }) {
       { field: "document.first_publication_date", direction: "desc" },
     ],
   })
-
-  // const locales = await getTranslatedLocales(page, client)
-  // console.log("params.lang", params.lang)
-  // console.log("post", posts)
-  // posts.map((post) => {
-  //   console.log("post", post)
-  // })
 
   return (
     <PageLayout lang={params.lang}>
@@ -115,12 +92,66 @@ export async function generateStaticParams() {
   })
 }
 
-// export async function generateMetadata({ params }: PageProps) {
-//   const client = createClient()
-//   const page = await client.getByUID("page", "blog", { lang: params.lang })
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const client = createClient()
 
-//   return {
-//     metadataBase: new URL("https://out.fund"),
-//     title: `Blog test ${page.data.title} | Outfund`,
-//   }
-// }
+  const page = await client
+    .getByUID("page", "blog", { lang: params.lang })
+    .catch(() => notFound())
+
+  const globalSEO = await client.getSingle("global_seo", {
+    lang: params.lang,
+  })
+
+  const languages: { [key: string]: string } = {}
+  const langs = await sortLocales((await client.getRepository()).languages)
+  langs.forEach((lang) => {
+    languages[lang.id] = `/${lang.id}/${params.uid}`
+  })
+
+  const titleCountry = () => {
+    const country = params.lang.split("-")[1]
+    switch (country) {
+      case "us":
+        return " | US"
+      case "de":
+        return " | Deutschland"
+      case "gb":
+        return " | UK"
+      case "nl":
+        return " | Nederland"
+      case "ie":
+        return " | Ireland"
+      case "au":
+        return " | Australia"
+      case "es":
+        return " | España"
+      default:
+        return ""
+    }
+  }
+
+  const pageTitle = page.data.title
+    ? `${page.data.title} | Outfund${titleCountry()}`
+    : `${page.lang} ${page.uid}`
+
+  return {
+    title: pageTitle,
+    description:
+      page.data.meta_description || globalSEO.data.meta_description || "",
+    alternates: {
+      canonical: `/${params.lang}/${params.uid}/`,
+      languages,
+    },
+    openGraph: {
+      title: page.data.meta_title || page.data.title || "",
+      description:
+        page.data.meta_description || globalSEO.data.meta_description || "",
+      url: `/${params.lang}/${params.uid}`,
+      locale: langLoOgLocale(params.lang),
+      images: [page.data.meta_image.url || globalSEO.data.og_image.url || ""],
+      siteName: "Outfund",
+      type: "website",
+    },
+  }
+}

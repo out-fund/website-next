@@ -99,8 +99,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
+  const pageTitle = page.data.title
+    ? `${page.data.title} | Outfund${titleCountry()}`
+    : `${page.lang} ${page.uid}`
+
   return {
-    title: `${page.data.title} | Outfund${titleCountry()}`,
+    title: pageTitle,
     description:
       page.data.meta_description || globalSEO.data.meta_description || "",
     alternates: {
@@ -137,83 +141,3 @@ export async function generateStaticParams() {
     }
   })
 }
-
-// export async function generateStaticParams() {
-//   const client = createClient()
-//   const pages = await client.getAllByType("page")
-
-//   return pages.map((page) => {
-//     return { uid: page.uid }
-//   })
-// }
-
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: Params
-// }): Promise<Metadata> {
-//   const client = createClient()
-//   const page = await client
-//     .getByUID("page", params.uid, { lang: params.lang })
-//     .catch(() => notFound())
-
-//   return {
-//     // title: page.data.meta_title,
-//     // description: page.data.meta_description,
-//     metadataBase: new URL("https://out.fund"),
-//     title: `${page.data.title} | Outfund`,
-//     // alternates: {
-//     //   canonical: `${page.url}`,
-//     //   languages: {
-//     //     "en-US": "/en-US",
-//     //     "de-DE": "/de-DE",
-//     //   },
-//     // },
-//     // openGraph: {
-//     //   title: "Next.js",
-//     //   description: "The React Framework for the Web",
-//     //   url: "https://nextjs.org",
-//     //   siteName: "Next.js",
-//     //   images: [
-//     //     {
-//     //       url: "https://nextjs.org/og-alt.png",
-//     //       width: 1800,
-//     //       height: 1600,
-//     //       alt: "My custom alt",
-//     //     },
-//     //   ],
-//     //   locale: "en_US",
-//     //   type: "website",
-//     // },
-//   }
-// }
-
-// export async function generateStaticParams() {
-//   const client = createClient()
-//   const pages = await client.getAllByType("page", { lang: "*" })
-
-//   return pages.map((page) => {
-//     return {
-//       uid: page.uid,
-//             lang: page.lang,
-//     }
-//   })
-// }
-
-// export async function generateStaticParams() {
-//   const client = createClient()
-//   const pages = await client.getAllByType("page", { lang: "*" })
-//   // const sucessPages = await client.getAllByType("success_story", { lang: "*" })
-//   // const pages = await client.getByUID("page", "home", { lang: "*" })
-
-//   // const allPages = pages.concat(sucessPages)
-
-//   // console.log(sucessPages)
-
-//   return pages.map((page) => {
-//     return {
-//       uid: page.uid,
-//             lang: page.lang,
-//     }
-//   })
-// }
