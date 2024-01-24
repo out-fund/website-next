@@ -17,36 +17,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lang: "*",
   })
 
+  // TODO: change weekly to monthly for pages that are not updated often later
   const homePagesURLs = homePages.map((page) => ({
     url: `https://out.fund/${page.lang}/`,
     lastModified: page.last_publication_date,
-    changeFrequency: "monthly" as const,
+    changeFrequency: "weekly" as const,
     priority: 1,
   }))
 
   const pageURLs = pages.map((page) => ({
     url: `https://out.fund/${page.lang}/${page.uid}/`,
     lastModified: page.last_publication_date,
-    changeFrequency: "monthly" as const,
+    changeFrequency: "weekly" as const,
     priority: 0.9,
   }))
 
   const blogPostsURLs = blogPosts.map((page) => ({
     url: `https://out.fund/${page.lang}/blog/${page.uid}/`,
     lastModified: page.last_publication_date,
-    changeFrequency: "monthly" as const,
+    changeFrequency: "weekly" as const,
     priority: 0.5,
   }))
 
-  return [
-    // {
-    //   url: "https://acme.com",
-    //   lastModified: new Date(),
-    //   changeFrequency: "weekly",
-    //   priority: 1,
-    // },
-    ...homePagesURLs,
-    ...pageURLs,
-    ...blogPostsURLs,
-  ]
+  return [...homePagesURLs, ...pageURLs, ...blogPostsURLs]
 }

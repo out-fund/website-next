@@ -81,7 +81,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const country = params.lang.split("-")[1]
     switch (country) {
       case "us":
-        return " | USA"
+        return " | US"
       case "de":
         return " | Deutschland"
       case "gb":
