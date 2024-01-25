@@ -2,20 +2,11 @@ import * as prismic from "@prismicio/client"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { SliceZone } from "@prismicio/react"
-// import { Organization, WithContext } from "schema-dts"
 import { JSXMapSerializer, PrismicRichText } from "@prismicio/react"
 import { createClient } from "@/prismicio"
 import { components } from "@/slices"
-// import { getTranslatedLocales } from "@/lib/getTranslatedLocales"
 import { PageLayout } from "@/components"
-// import { PageEvent } from "@/lib/events"
-// import { titleCase } from "@/lib/utils"
 import { sortLocales, langLoOgLocale } from "@/lib/utils"
-
-// type Params = {
-//   uid: string
-//   lang: string
-// }
 
 type Props = {
   params: { uid: string; lang: string }
@@ -35,15 +26,13 @@ const embedComponent: JSXMapSerializer = {
 export default async function Page({ params }: Props) {
   const client = createClient()
 
-  const page = await client
-    .getByUID("page", params.uid, {
-      lang: params.lang,
-      filters: [
-        prismic.filter.not("my.page.uid", "home"),
-        prismic.filter.not("my.page.uid", "blog"),
-      ],
-    })
-    .catch(() => notFound())
+  const page = await client.getByUID("page", params.uid, {
+    lang: params.lang,
+    filters: [
+      prismic.filter.not("my.page.uid", "home"),
+      prismic.filter.not("my.page.uid", "blog"),
+    ],
+  })
 
   return (
     <PageLayout lang={params.lang}>

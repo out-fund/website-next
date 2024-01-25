@@ -14,6 +14,7 @@ export default function robots(): MetadataRoute.Robots {
         "/es-es/thank-you*",
         "/de-de/thank-you*",
         "/api*",
+        "/lp/*",
       ],
     },
   }
