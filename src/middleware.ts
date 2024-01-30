@@ -4,8 +4,10 @@ import { NextResponse, type NextRequest } from "next/server"
 
 export async function middleware(request: NextRequest) {
   // add trailing slash to all paths
-  if (!request.nextUrl.pathname.endsWith("/")) {
-    return NextResponse.redirect(new URL(`${request.url}/`))
+  if (!request.nextUrl.pathname.includes("utm")) {
+    if (!request.nextUrl.pathname.endsWith("/")) {
+      return NextResponse.redirect(new URL(`${request.url}/`))
+    }
   }
 
   // Country redirects
