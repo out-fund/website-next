@@ -11,7 +11,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   })
   const pages = await client.getAllByType("page", {
     lang: "*",
-    filters: [prismic.filter.not("my.page.uid", "home")],
+    filters: [
+      prismic.filter.not("my.page.uid", "home"),
+      prismic.filter.not("my.page.uid", "thank-you"),
+    ],
   })
 
   const blogPosts = await client.getAllByType("blog_post", {

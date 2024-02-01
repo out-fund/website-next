@@ -26,13 +26,17 @@ const embedComponent: JSXMapSerializer = {
 export default async function Page({ params }: Props) {
   const client = createClient()
 
-  const page = await client.getByUID("page", params.uid, {
-    lang: params.lang,
-    filters: [
-      prismic.filter.not("my.page.uid", "home"),
-      prismic.filter.not("my.page.uid", "blog"),
-    ],
-  })
+  const page = await client
+    .getByUID("page", params.uid, {
+      lang: params.lang,
+      filters: [
+        prismic.filter.not("my.page.uid", "home"),
+        prismic.filter.not("my.page.uid", "blog"),
+      ],
+    })
+    .catch(() => notFound())
+
+  console.log(page)
 
   return (
     <PageLayout lang={params.lang}>
