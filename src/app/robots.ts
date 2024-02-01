@@ -17,5 +17,6 @@ export default function robots(): MetadataRoute.Robots {
         "/lp/*",
       ],
     },
+    sitemap: "https://out.fund/sitemap.xml",
   }
 }
