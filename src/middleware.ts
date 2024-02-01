@@ -54,6 +54,13 @@ export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.includes("grow2024")) {
     return NextResponse.redirect(new URL(`/`, request.url))
   }
+  if (request.nextUrl.pathname.includes("/flex/")) {
+    return NextResponse.redirect(new URL(`/`, request.url))
+  }
+  // FAQ redirect
+  if (request.nextUrl.pathname.includes("support/faq")) {
+    return NextResponse.redirect(new URL(`https://help.out.fund/`))
+  }
 
   // Temporary redirect for the old images and signature images
   if (request.nextUrl.pathname.includes("/signatures/images/")) {
