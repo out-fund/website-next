@@ -52,22 +52,6 @@ export async function generateStaticParams() {
   })
 }
 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: Params
-// }): Promise<Metadata> {
-//   const client = createClient()
-//   const page = await client
-//     .getByUID("success_story", params.uid, { lang: params.lang })
-//     .catch(() => notFound())
-
-//   return {
-//     metadataBase: new URL("https://out.fund"),
-//     title: `${page.data.title} | Outfund`,
-//   }
-// }
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const client = createClient()
 

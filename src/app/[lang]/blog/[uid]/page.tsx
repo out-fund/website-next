@@ -7,24 +7,16 @@ import moment from "moment"
 import { createClient } from "@/prismicio"
 import { components } from "@/slices"
 import { PageLayout } from "@/components"
-// import { PageEvent } from "@/lib/events"
+import { Metadata } from "next"
+import { sortLocales, langLoOgLocale } from "@/lib/utils"
 
 import { Wrapper } from "@/components/atoms"
 
-// type Params = {
-//   uid: string
-//   lang: string
-// }
-
-// type Params = {
-//   params: { uid: string; lang: string }
-// }
-type Params = {
-  uid: string
-  lang: string
+type Props = {
+  params: { uid: string; lang: string }
 }
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page({ params }: Props) {
   const client = createClient()
 
   const formatedDate = (date: any) => {
@@ -98,39 +90,66 @@ export async function generateStaticParams() {
   })
 }
 
-// export async function generateStaticParams() {
-//   const client = createClient()
-//   const pages = await client.getAllByType("blog_post", { lang: "*" })
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const client = createClient()
 
-//   return pages.map((page) => {
-//     return {
-//       uid: page.uid,
-//       lang: page.lang,
-//     }
-//   })
-// }
+  const page = await client.getByUID("blog_post", params.uid, {
+    lang: params.lang,
+  })
 
-// export async function generateMetadata(props: any): Promise<Metadata> {
-//   const { params } = props
-//   const client = createClient()
-//   const page = await client
-//     .getByUID("blog_post", params.uid, { lang: params.lang })
-//     .catch(() => notFound())
+  const globalSEO = await client.getSingle("global_seo", {
+    lang: params.lang,
+  })
 
-//   return {
-//     metadataBase: new URL("https://out.fund"),
-//     title: `${page.data.title} | Outfund`,
-//   }
-// }
+  const languages: { [key: string]: string } = {}
+  const langs = await sortLocales((await client.getRepository()).languages)
+  langs.forEach((lang) => {
+    languages[lang.id] = `/${lang.id}/${params.uid}`
+  })
 
-// export async function generateStaticParams() {
-//   const client = createClient()
-//   const pages = await client.getAllByType("blog_post", { lang: "*" })
+  const titleCountry = () => {
+    const country = params.lang.split("-")[1]
+    switch (country) {
+      case "us":
+        return " | US"
+      case "de":
+        return " | Deutschland"
+      case "gb":
+        return " | UK"
+      case "nl":
+        return " | Nederland"
+      case "ie":
+        return " | Ireland"
+      case "au":
+        return " | Australia"
+      case "es":
+        return " | España"
+      default:
+        return ""
+    }
+  }
 
-//   return pages.map((page) => {
-//     return {
-//       uid: page.uid,
-//             lang: page.lang,
-//     }
-//   })
-// }
+  const pageTitle = page.data.title
+    ? `${page.data.title} | Outfund${titleCountry()}`
+    : `${page.lang} ${page.uid}`
+
+  return {
+    title: pageTitle,
+    description:
+      page.data.meta_description || globalSEO.data.meta_description || "",
+    alternates: {
+      canonical: `/${params.lang}/${params.uid}/`,
+      languages,
+    },
+    openGraph: {
+      title: page.data.meta_title || page.data.title || "",
+      description:
+        page.data.meta_description || globalSEO.data.meta_description || "",
+      url: `/${params.lang}/${params.uid}`,
+      locale: langLoOgLocale(params.lang),
+      images: [page.data.meta_image.url || globalSEO.data.og_image.url || ""],
+      siteName: "Outfund",
+      type: "website",
+    },
+  }
+}
