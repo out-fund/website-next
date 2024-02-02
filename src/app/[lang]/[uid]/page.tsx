@@ -36,7 +36,7 @@ export default async function Page({ params }: Props) {
     })
     .catch(() => notFound())
 
-  console.log(page)
+  // console.log(page)
 
   return (
     <PageLayout lang={params.lang}>

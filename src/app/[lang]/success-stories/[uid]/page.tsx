@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const languages: { [key: string]: string } = {}
   const langs = await sortLocales((await client.getRepository()).languages)
   langs.forEach((lang) => {
-    languages[lang.id] = `/${lang.id}/${params.uid}`
+    languages[lang.id] = `/${lang.id}/success-stories/${params.uid}`
   })
 
   const titleCountry = () => {
@@ -100,7 +100,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description:
       page.data.meta_description || globalSEO.data.meta_description || "",
     alternates: {
-      canonical: `/${params.lang}/${params.uid}/`,
+      canonical: `/${params.lang}/success-stories/${params.uid}/`,
       languages,
     },
     openGraph: {
