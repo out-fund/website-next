@@ -71,13 +71,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   langs.forEach((lang) => {
     languages[lang.id] = `/${lang.id}`
   })
+  languages["x-default"] = `/country-selector`
+
+  let canonical = `/${params.lang}`
+  // if (params.lang === "en-gb") {
+  //   canonical = "/"
+  // }
 
   return {
     title: `${page.data.title}`,
     description:
       page.data.meta_description || globalSEO.data.meta_description || "",
     alternates: {
-      canonical: `/${params.lang}/`,
+      canonical: canonical,
       languages,
     },
     openGraph: {

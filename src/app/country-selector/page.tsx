@@ -9,7 +9,6 @@ import { PageEvent } from "@/lib/events"
 
 const CountrySelectorPage = async () => {
   const client = createClient()
-  // const repository = await client.getRepository()
   const langs = await translatedCountryNames()
 
   // console.log("langs", langs)
@@ -48,12 +47,15 @@ const CountrySelectorPage = async () => {
 
 export default CountrySelectorPage
 
-export const metadata: Metadata = {
+export const metadata = {
   metadataBase: new URL("https://out.fund"),
-  title: "Country Selector",
+  title: `Country Selector | Outfund`,
   description:
-    "Outfund operates in multiple countries. Please select your country to continue.",
+    "Outfund is available in multiple countries. Choose your country to get started.",
   alternates: {
     canonical: `/country-selector`,
+    languages: {
+      "x-default": "/country-selector",
+    },
   },
 }
