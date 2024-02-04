@@ -28,7 +28,7 @@ const CountrySelectorPage = async () => {
               <li key={lang.id} className="flex gap-2">
                 {/* <span className={`fi fi-${lang.id.split("-")[1]}`} /> */}
                 <Link
-                  href={`/${lang.id}`}
+                  href={`/${lang.id}/`}
                   className="inline-block text-base font-[500] text-cobalt underline-offset-2 antialiased hover:underline focus:underline focus:outline-none"
                 >
                   {lang.name}
@@ -53,9 +53,9 @@ export const metadata = {
   description:
     "Outfund is available in multiple countries. Choose your country to get started.",
   alternates: {
-    canonical: `/country-selector`,
+    canonical: `/country-selector/`,
     languages: {
-      "x-default": "/country-selector",
+      "x-default": "/country-selector/",
     },
   },
 }

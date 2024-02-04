@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const languages: { [key: string]: string } = {}
   const langs = await sortLocales((await client.getRepository()).languages)
   langs.forEach((lang) => {
-    languages[lang.id] = `/${lang.id}/${params.uid}`
+    languages[lang.id] = `/${lang.id}/${params.uid}/`
   })
 
   const titleCountry = () => {
@@ -108,7 +108,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: page.data.meta_title || page.data.title || "",
       description:
         page.data.meta_description || globalSEO.data.meta_description || "",
-      url: `/${params.lang}/${params.uid}`,
+      url: `/${params.lang}/${params.uid}/`,
       locale: langLoOgLocale(params.lang),
       images: [page.data.meta_image.url || globalSEO.data.og_image.url || ""],
       siteName: "Outfund",

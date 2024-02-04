@@ -69,11 +69,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const languages: { [key: string]: string } = {}
   const langs = await sortLocales((await client.getRepository()).languages)
   langs.forEach((lang) => {
-    languages[lang.id] = `/${lang.id}`
+    languages[lang.id] = `/${lang.id}/`
   })
-  languages["x-default"] = `/country-selector`
+  languages["x-default"] = `/country-selector/`
 
-  let canonical = `/${params.lang}`
+  let canonical = `/${params.lang}/`
   // if (params.lang === "en-gb") {
   //   canonical = "/"
   // }
@@ -90,7 +90,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: page.data.meta_title || page.data.title || "",
       description:
         page.data.meta_description || globalSEO.data.meta_description || "",
-      url: `/${params.lang}`,
+      url: `/${params.lang}/`,
       locale: langToOgLocale(params.lang),
       images: [page.data.meta_image.url || globalSEO.data.og_image.url || ""],
       siteName: "Outfund",

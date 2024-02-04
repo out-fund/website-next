@@ -66,7 +66,7 @@ const FeaturedStories = async ({
                   />
                 </div>
                 <Button
-                  href={`/${item?.lang}/success-stories/${item?.uid}`}
+                  href={`/${item?.lang}/success-stories/${item?.uid}/`}
                   className="p-0 bg-transparent border-2 border-white "
                 >
                   {item?.data.card_link_text}
