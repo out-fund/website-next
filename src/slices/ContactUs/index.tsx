@@ -45,7 +45,6 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
         <form
           name="contact-next"
           method="POST"
-          action="/thank-you"
           data-netlify="true"
           netlify-honeypot="bot-field"
           className="flex flex-col gap-2 mt-3"
@@ -79,9 +78,8 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
 
           <div className="sr-only">
             <label>
-              Don’t fill this out if you’re human: <input name="bot-field" />
+              Don't fill this out if you're human: <input name="bot-field" />
             </label>
-            <input type="hidden" name="form-name" value="contact-next" />
           </div>
           <div>
             <button
