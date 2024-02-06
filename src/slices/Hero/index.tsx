@@ -5,6 +5,7 @@ import {
   PrismicRichText,
   SliceComponentProps,
 } from "@prismicio/react"
+import { PageLink } from "@/components/atoms"
 
 import { Wrapper, Button, Heading } from "@/components/atoms"
 
@@ -122,6 +123,42 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                       components={components}
                     />
                   </div>
+                )}
+              </div>
+            </div>
+          </Wrapper>
+        </header>
+      )}
+      {/* -------------------------------------- Simple with Button */}
+      {slice.variation === "simpleWithCta" && (
+        <header
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+          className="py-10 bg-bgMedium md:py-15"
+        >
+          <Wrapper>
+            <div className="mx-auto md:mx-0 max-w-[90%] md:max-w-none">
+              <div className="flex flex-col gap-3 text-center items-center">
+                <PrismicRichText
+                  field={slice.primary.heading}
+                  components={components}
+                />
+
+                {!isObjectEmpty(slice.primary.description) && (
+                  <div className="max-w-[670px] mx-auto">
+                    <PrismicRichText
+                      field={slice.primary.description}
+                      components={components}
+                    />
+                  </div>
+                )}
+                {!isObjectEmpty(slice.primary.button_link) && (
+                  <PageLink
+                    field={slice.primary.button_link}
+                    className="border-none rounded-3xl bg-cobalt text-white px-[40px] py-[12px] leading-[24px] text-[16px] inline-block text-center font-medium hover:underline hover:outline-none focus:underline focus:outline-2 focus:outline-offset-2 decoration-1 underline-offset-2 whitespace-nowrap flex-nowrap"
+                  >
+                    {slice.primary.button_text}
+                  </PageLink>
                 )}
               </div>
             </div>

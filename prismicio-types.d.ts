@@ -2130,9 +2130,71 @@ export type HeroSliceBlogPost = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceSimpleWithCtaPrimary {
+  /**
+   * Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Text field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+
+  /**
+   * Button Link field in *Hero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+}
+
+/**
+ * Simple + CTA variation for Hero Slice
+ *
+ * - **API ID**: `simpleWithCta`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceSimpleWithCta = prismic.SharedSliceVariation<
+  "simpleWithCta",
+  Simplify<HeroSliceSimpleWithCtaPrimary>,
+  never
+>
+
+/**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation = HeroSliceDefault | HeroSliceSimple | HeroSliceBlogPost
+type HeroSliceVariation =
+  | HeroSliceDefault
+  | HeroSliceSimple
+  | HeroSliceBlogPost
+  | HeroSliceSimpleWithCta
 
 /**
  * Hero Shared Slice
@@ -3202,10 +3264,12 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceSimplePrimary,
       HeroSliceBlogPostPrimary,
+      HeroSliceSimpleWithCtaPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceSimple,
       HeroSliceBlogPost,
+      HeroSliceSimpleWithCta,
       ImageBlockSlice,
       ImageBlockSliceDefaultPrimary,
       ImageBlockSliceVariation,
