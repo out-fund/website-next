@@ -78,7 +78,7 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
 
           <div className="sr-only">
             <label>
-              Don't fill this out if you're human: <input name="bot-field" />
+              Do not fill this out if you are human: <input name="bot-field" />
             </label>
           </div>
           <div>
