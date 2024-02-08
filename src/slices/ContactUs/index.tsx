@@ -1,6 +1,7 @@
 "use client"
 
 import { Content } from "@prismicio/client"
+import Script from "next/script"
 import {
   JSXMapSerializer,
   PrismicRichText,
@@ -91,6 +92,8 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
           </div>
         </form>
       </Wrapper>
+      <Script src="/js/intercomSettings.js" strategy="afterInteractive" />
+      <Script src="/js/intercomChat.js" strategy="afterInteractive" />
     </section>
   )
 }

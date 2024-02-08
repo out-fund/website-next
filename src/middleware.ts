@@ -87,6 +87,6 @@ export async function middleware(request: NextRequest) {
 export const config = {
   // Do not localize these paths
   matcher: [
-    "/((?!api|_next/static|_next/image|slice-simulator|sitemap.xml|_redirects|images|docs|misc|country-selector|robots.txt|favicon.ico).*)",
+    "/((?!api|_next/static|_next/image|slice-simulator|sitemap.xml|_redirects|images|docs|misc|js|country-selector|robots.txt|favicon.ico).*)",
   ],
 }
