@@ -54,7 +54,10 @@ export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.includes("grow2024")) {
     return NextResponse.redirect(new URL(`/`, request.url))
   }
-  if (request.nextUrl.pathname.includes("/flex/")) {
+  if (request.nextUrl.pathname.includes("accelerate2024")) {
+    return NextResponse.redirect(new URL(`/`, request.url))
+  }
+  if (request.nextUrl.pathname.includes("flexible-finance")) {
     return NextResponse.redirect(new URL(`/`, request.url))
   }
   // FAQ redirect
