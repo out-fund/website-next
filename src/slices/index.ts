@@ -8,6 +8,7 @@ export const components = {
   blog_post_body: dynamic(() => import("./BlogPostBody")),
   calculator: dynamic(() => import("./Calculator")),
   callout: dynamic(() => import("./Callout")),
+  check_list: dynamic(() => import("./CheckList")),
   clients_say: dynamic(() => import("./ClientsSay")),
   contact_us: dynamic(() => import("./ContactUs")),
   featured_brands: dynamic(() => import("./FeaturedBrands")),

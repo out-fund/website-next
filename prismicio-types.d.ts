@@ -1511,6 +1511,76 @@ type CalloutSliceVariation = CalloutSliceDefault | CalloutSliceForBlogPage
 export type CalloutSlice = prismic.SharedSlice<"callout", CalloutSliceVariation>
 
 /**
+ * Primary content in *CheckList → Primary*
+ */
+export interface CheckListSliceDefaultPrimary {
+  /**
+   * Heading field in *CheckList → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: check_list.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+
+  /**
+   * Description field in *CheckList → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: check_list.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *CheckList → Items*
+ */
+export interface CheckListSliceDefaultItem {
+  /**
+   * List Item field in *CheckList → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: check_list.items[].list_item
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  list_item: prismic.RichTextField
+}
+
+/**
+ * Default variation for CheckList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CheckListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CheckListSliceDefaultPrimary>,
+  Simplify<CheckListSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *CheckList*
+ */
+type CheckListSliceVariation = CheckListSliceDefault
+
+/**
+ * CheckList Shared Slice
+ *
+ * - **API ID**: `check_list`
+ * - **Description**: CheckList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CheckListSlice = prismic.SharedSlice<
+  "check_list",
+  CheckListSliceVariation
+>
+
+/**
  * Primary content in *ClientsSay → Primary*
  */
 export interface ClientsSaySliceDefaultPrimary {
@@ -2358,6 +2428,26 @@ export interface PartnersSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField
+
+  /**
+   * Button Text field in *Partners → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+
+  /**
+   * Button Link field in *Partners → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
 }
 
 /**
@@ -2389,9 +2479,84 @@ export type PartnersSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Partners → Primary*
+ */
+export interface PartnersSliceLogoStripWithBgPrimary {
+  /**
+   * Heading field in *Partners → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+
+  /**
+   * Description field in *Partners → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Text field in *Partners → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+
+  /**
+   * Button Link field in *Partners → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+}
+
+/**
+ * Primary content in *Partners → Items*
+ */
+export interface PartnersSliceLogoStripWithBgItem {
+  /**
+   * Partner Logo field in *Partners → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.items[].partner_logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  partner_logo: prismic.ImageField<never>
+}
+
+/**
+ * Logo Strip - With BG variation for Partners Slice
+ *
+ * - **API ID**: `logoStripWithBg`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PartnersSliceLogoStripWithBg = prismic.SharedSliceVariation<
+  "logoStripWithBg",
+  Simplify<PartnersSliceLogoStripWithBgPrimary>,
+  Simplify<PartnersSliceLogoStripWithBgItem>
+>
+
+/**
  * Slice variation for *Partners*
  */
-type PartnersSliceVariation = PartnersSliceDefault
+type PartnersSliceVariation =
+  | PartnersSliceDefault
+  | PartnersSliceLogoStripWithBg
 
 /**
  * Partners Shared Slice
@@ -3231,6 +3396,11 @@ declare module "@prismicio/client" {
       CalloutSliceVariation,
       CalloutSliceDefault,
       CalloutSliceForBlogPage,
+      CheckListSlice,
+      CheckListSliceDefaultPrimary,
+      CheckListSliceDefaultItem,
+      CheckListSliceVariation,
+      CheckListSliceDefault,
       ClientsSaySlice,
       ClientsSaySliceDefaultPrimary,
       ClientsSaySliceDefaultItem,
@@ -3281,8 +3451,11 @@ declare module "@prismicio/client" {
       PartnersSlice,
       PartnersSliceDefaultPrimary,
       PartnersSliceDefaultItem,
+      PartnersSliceLogoStripWithBgPrimary,
+      PartnersSliceLogoStripWithBgItem,
       PartnersSliceVariation,
       PartnersSliceDefault,
+      PartnersSliceLogoStripWithBg,
       PerfectFitSlice,
       PerfectFitSliceDefaultPrimary,
       PerfectFitSliceDefaultItem,

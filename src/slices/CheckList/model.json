@@ -1,0 +1,43 @@
+{
+  "id": "check_list",
+  "type": "SharedSlice",
+  "name": "CheckList",
+  "description": "CheckList",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "list_item": {
+          "type": "StructuredText",
+          "config": {
+            "label": "List Item",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "strong,em,hyperlink"
+          }
+        }
+      }
+    }
+  ]
+}
