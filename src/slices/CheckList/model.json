@@ -25,13 +25,6 @@
             "label": "Description",
             "placeholder": ""
           }
-        },
-        "test": {
-          "type": "Date",
-          "config": {
-            "label": "test",
-            "placeholder": ""
-          }
         }
       },
       "items": {

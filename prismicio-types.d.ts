@@ -607,6 +607,7 @@ export type NavbarDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | CheckListSlice
   | ContactUsSlice
   | CalloutSlice
   | FeaturedStoriesSlice
@@ -1533,16 +1534,6 @@ export interface CheckListSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField
-
-  /**
-   * test field in *CheckList → Primary*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: *None*
-   * - **API ID Path**: check_list.primary.test
-   * - **Documentation**: https://prismic.io/docs/field#date
-   */
-  test: prismic.DateField
 }
 
 /**
@@ -2562,11 +2553,115 @@ export type PartnersSliceLogoStripWithBg = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Partners → Primary*
+ */
+export interface PartnersSliceWithVideoEmbedPrimary {
+  /**
+   * Heading field in *Partners → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+
+  /**
+   * Description field in *Partners → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Text field in *Partners → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+
+  /**
+   * Button Link field in *Partners → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Quote field in *Partners → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField
+
+  /**
+   * QuoteBy field in *Partners → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.quoteby
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quoteby: prismic.KeyTextField
+
+  /**
+   * Video field in *Partners → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.primary.video
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  video: prismic.EmbedField
+}
+
+/**
+ * Primary content in *Partners → Items*
+ */
+export interface PartnersSliceWithVideoEmbedItem {
+  /**
+   * Partner Logo field in *Partners → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.items[].partner_logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  partner_logo: prismic.ImageField<never>
+}
+
+/**
+ * WithVideoEmbed variation for Partners Slice
+ *
+ * - **API ID**: `withVideoEmbed`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PartnersSliceWithVideoEmbed = prismic.SharedSliceVariation<
+  "withVideoEmbed",
+  Simplify<PartnersSliceWithVideoEmbedPrimary>,
+  Simplify<PartnersSliceWithVideoEmbedItem>
+>
+
+/**
  * Slice variation for *Partners*
  */
 type PartnersSliceVariation =
   | PartnersSliceDefault
   | PartnersSliceLogoStripWithBg
+  | PartnersSliceWithVideoEmbed
 
 /**
  * Partners Shared Slice
@@ -3463,9 +3558,12 @@ declare module "@prismicio/client" {
       PartnersSliceDefaultItem,
       PartnersSliceLogoStripWithBgPrimary,
       PartnersSliceLogoStripWithBgItem,
+      PartnersSliceWithVideoEmbedPrimary,
+      PartnersSliceWithVideoEmbedItem,
       PartnersSliceVariation,
       PartnersSliceDefault,
       PartnersSliceLogoStripWithBg,
+      PartnersSliceWithVideoEmbed,
       PerfectFitSlice,
       PerfectFitSliceDefaultPrimary,
       PerfectFitSliceDefaultItem,

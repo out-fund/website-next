@@ -12,11 +12,6 @@
 				"__TYPE__": "FieldContent",
 				"value": "trouble",
 				"type": "Text"
-			},
-			"test": {
-				"__TYPE__": "FieldContent",
-				"type": "Date",
-				"value": "2015-12-14"
 			}
 		},
 		"items": [

@@ -25,6 +25,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "check_list": {
+              "type": "SharedSlice"
+            },
             "contact_us": {
               "type": "SharedSlice"
             },
