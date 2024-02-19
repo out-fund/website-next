@@ -1533,6 +1533,16 @@ export interface CheckListSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField
+
+  /**
+   * test field in *CheckList → Primary*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: check_list.primary.test
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  test: prismic.DateField
 }
 
 /**
