@@ -136,7 +136,7 @@ const Partners = ({ slice }: PartnersProps): JSX.Element => {
                 </div>
               ))}
             </div>
-            <div className="grid md:grid-cols-2 mt-10 items-center gap-2">
+            <div className="grid md:grid-cols-2 mt-10 items-center gap-3">
               <div className="text-center">
                 <figure>
                   <blockquote className=" text-[24px] md:text-[32px] text-heading mb-2">
