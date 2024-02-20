@@ -137,14 +137,22 @@ const Partners = ({ slice }: PartnersProps): JSX.Element => {
               ))}
             </div>
             <div className="grid md:grid-cols-2 mt-10 items-center gap-2">
-              <figure>
-                <blockquote className=" text-[24px] md:text-[32px] text-heading mb-2">
-                  {slice.primary.quote}
-                </blockquote>
-                <figcaption className="text-[16px] font-[400] tracking-tighter text-body">
-                  {slice.primary.quoteby}
-                </figcaption>
-              </figure>
+              <div className="text-center">
+                <figure>
+                  <blockquote className=" text-[24px] md:text-[32px] text-heading mb-2">
+                    {slice.primary.quote}
+                  </blockquote>
+                  <figcaption className="text-[16px] font-[400] tracking-tighter text-body">
+                    {slice.primary.quoteby}
+                  </figcaption>
+                </figure>
+                <PageLink
+                  field={slice.primary.button_link}
+                  className="border-none rounded-3xl bg-cobalt text-white px-[40px] py-[12px] leading-[24px] text-[16px] inline-block text-center font-medium hover:underline hover:outline-none focus:underline focus:outline-2 focus:outline-offset-2 decoration-1 underline-offset-2 whitespace-nowrap flex-nowrap mt-4"
+                >
+                  {slice.primary.button_text}
+                </PageLink>
+              </div>
 
               <div
                 className="relative min-h-[325px] rounded-[10px] overflow-hidden"
