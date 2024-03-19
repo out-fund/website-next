@@ -127,6 +127,82 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >
 
+type FlexpageDocumentDataSlicesSlice = FlexHeroSlice
+
+/**
+ * Content for FlexPage documents
+ */
+interface FlexpageDocumentData {
+  /**
+   * Title field in *FlexPage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flexpage.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *FlexPage*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flexpage.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FlexpageDocumentDataSlicesSlice> /**
+   * Meta Title (Social Share Title) field in *FlexPage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used when sharing on social media
+   * - **API ID Path**: flexpage.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *FlexPage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: flexpage.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *FlexPage*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flexpage.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+}
+
+/**
+ * FlexPage document from Prismic
+ *
+ * - **API ID**: `flexpage`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FlexpageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<FlexpageDocumentData>,
+    "flexpage",
+    Lang
+  >
+
 /**
  * Item in *Footer → Company Links*
  */
@@ -1004,6 +1080,7 @@ export type TestimonialDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | BlogPostDocument
+  | FlexpageDocument
   | FooterDocument
   | GlobalSeoDocument
   | LandingPageDocument
@@ -1974,6 +2051,81 @@ type FeaturedStoriesSliceVariation = FeaturedStoriesSliceDefault
 export type FeaturedStoriesSlice = prismic.SharedSlice<
   "featured_stories",
   FeaturedStoriesSliceVariation
+>
+
+/**
+ * Primary content in *FlexHero → Primary*
+ */
+export interface FlexHeroSliceDefaultPrimary {
+  /**
+   * Heading field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Text field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+
+  /**
+   * Button Link field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+}
+
+/**
+ * Default variation for FlexHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlexHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FlexHeroSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *FlexHero*
+ */
+type FlexHeroSliceVariation = FlexHeroSliceDefault
+
+/**
+ * FlexHero Shared Slice
+ *
+ * - **API ID**: `flex_hero`
+ * - **Description**: FlexHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlexHeroSlice = prismic.SharedSlice<
+  "flex_hero",
+  FlexHeroSliceVariation
 >
 
 /**
@@ -3449,6 +3601,9 @@ declare module "@prismicio/client" {
       BlogPostDocument,
       BlogPostDocumentData,
       BlogPostDocumentDataSlicesSlice,
+      FlexpageDocument,
+      FlexpageDocumentData,
+      FlexpageDocumentDataSlicesSlice,
       FooterDocument,
       FooterDocumentData,
       FooterDocumentDataCompanyLinksItem,
@@ -3530,6 +3685,10 @@ declare module "@prismicio/client" {
       FeaturedStoriesSliceDefaultItem,
       FeaturedStoriesSliceVariation,
       FeaturedStoriesSliceDefault,
+      FlexHeroSlice,
+      FlexHeroSliceDefaultPrimary,
+      FlexHeroSliceVariation,
+      FlexHeroSliceDefault,
       FundingExplainedSlice,
       FundingExplainedSliceDefaultPrimary,
       FundingExplainedSliceDefaultItem,
