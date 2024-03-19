@@ -3,7 +3,7 @@ import { GoogleAnalytics } from "@next/third-parties/google"
 import type { Metadata } from "next"
 import { createClient } from "@/prismicio"
 
-import { inter } from "@/lib/font"
+import { inter, dmSans } from "@/lib/font"
 import { langToHtmlLang } from "@/lib/utils"
 import { cn } from "@/lib/utils"
 import "@/styles/globals.css"
@@ -18,7 +18,7 @@ export default function RootLayout({
   }
 }) {
   return (
-    <html lang={langToHtmlLang(params.lang)} className={cn(inter.className)}>
+    <html lang={langToHtmlLang(params.lang)} className={dmSans.variable}>
       <body className="box-border antialiased">{children}</body>
       <GoogleAnalytics gaId="G-V6R3GNYBT3" />
       <Script strategy="afterInteractive" id="microsoftAds-UET">
