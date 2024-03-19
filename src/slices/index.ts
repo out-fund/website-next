@@ -14,6 +14,7 @@ export const components = {
   featured_brands: dynamic(() => import("./FeaturedBrands")),
   featured_in: dynamic(() => import("./FeaturedIn")),
   featured_stories: dynamic(() => import("./FeaturedStories")),
+  flex_header: dynamic(() => import("./FlexHeader")),
   flex_hero: dynamic(() => import("./FlexHero")),
   funding_explained: dynamic(() => import("./FundingExplained")),
   hero: dynamic(() => import("./Hero")),

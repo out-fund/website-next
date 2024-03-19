@@ -1,0 +1,50 @@
+{
+  "id": "flex_header",
+  "type": "SharedSlice",
+  "name": "FlexHeader",
+  "description": "FlexHeader",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {
+        "navlink_text": {
+          "type": "Text",
+          "config": {
+            "label": "NavLink Text",
+            "placeholder": ""
+          }
+        },
+        "navlink_link": {
+          "type": "Link",
+          "config": {
+            "label": "NavLink Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    }
+  ]
+}

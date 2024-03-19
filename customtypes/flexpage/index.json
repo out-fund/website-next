@@ -24,6 +24,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "flex_header": {
+              "type": "SharedSlice"
+            },
             "flex_hero": {
               "type": "SharedSlice"
             }

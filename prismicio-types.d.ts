@@ -127,7 +127,7 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >
 
-type FlexpageDocumentDataSlicesSlice = FlexHeroSlice
+type FlexpageDocumentDataSlicesSlice = FlexHeaderSlice | FlexHeroSlice
 
 /**
  * Content for FlexPage documents
@@ -2054,6 +2054,86 @@ export type FeaturedStoriesSlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *FlexHeader → Primary*
+ */
+export interface FlexHeaderSliceDefaultPrimary {
+  /**
+   * Button Text field in *FlexHeader → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_header.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+
+  /**
+   * Button Link field in *FlexHeader → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_header.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+}
+
+/**
+ * Primary content in *FlexHeader → Items*
+ */
+export interface FlexHeaderSliceDefaultItem {
+  /**
+   * NavLink Text field in *FlexHeader → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_header.items[].navlink_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  navlink_text: prismic.KeyTextField
+
+  /**
+   * NavLink Link field in *FlexHeader → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_header.items[].navlink_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  navlink_link: prismic.LinkField
+}
+
+/**
+ * Default variation for FlexHeader Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlexHeaderSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FlexHeaderSliceDefaultPrimary>,
+  Simplify<FlexHeaderSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *FlexHeader*
+ */
+type FlexHeaderSliceVariation = FlexHeaderSliceDefault
+
+/**
+ * FlexHeader Shared Slice
+ *
+ * - **API ID**: `flex_header`
+ * - **Description**: FlexHeader
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlexHeaderSlice = prismic.SharedSlice<
+  "flex_header",
+  FlexHeaderSliceVariation
+>
+
+/**
  * Primary content in *FlexHero → Primary*
  */
 export interface FlexHeroSliceDefaultPrimary {
@@ -3685,6 +3765,11 @@ declare module "@prismicio/client" {
       FeaturedStoriesSliceDefaultItem,
       FeaturedStoriesSliceVariation,
       FeaturedStoriesSliceDefault,
+      FlexHeaderSlice,
+      FlexHeaderSliceDefaultPrimary,
+      FlexHeaderSliceDefaultItem,
+      FlexHeaderSliceVariation,
+      FlexHeaderSliceDefault,
       FlexHeroSlice,
       FlexHeroSliceDefaultPrimary,
       FlexHeroSliceVariation,
