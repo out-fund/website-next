@@ -12,6 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "home_page_text": {
+          "type": "Text",
+          "config": {
+            "label": "Home Page Text",
+            "placeholder": ""
+          }
+        },
         "button_text": {
           "type": "Text",
           "config": {

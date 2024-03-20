@@ -14,6 +14,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "depend",
 				"type": "Text"
+			},
+			"home_page_text": {
+				"__TYPE__": "FieldContent",
+				"value": "folks",
+				"type": "Text"
 			}
 		},
 		"items": [

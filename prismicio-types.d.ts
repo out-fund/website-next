@@ -2058,6 +2058,16 @@ export type FeaturedStoriesSlice = prismic.SharedSlice<
  */
 export interface FlexHeaderSliceDefaultPrimary {
   /**
+   * Home Page Text field in *FlexHeader → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_header.primary.home_page_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  home_page_text: prismic.KeyTextField
+
+  /**
    * Button Text field in *FlexHeader → Primary*
    *
    * - **Field Type**: Text
