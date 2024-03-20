@@ -7,11 +7,6 @@ const config: Config = {
     "./src/slices/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ["var(--font-dm-sans)"],
-      },
-    },
     screens: {
       xs: "400px",
       sm: "640px",
