@@ -18,7 +18,7 @@ export default function RootLayout({
   }
 }) {
   return (
-    <html lang={langToHtmlLang(params.lang)} className={dmSans.variable}>
+    <html lang={langToHtmlLang(params.lang)} className={inter.className}>
       <body className="box-border antialiased">{children}</body>
       <GoogleAnalytics gaId="G-V6R3GNYBT3" />
       <Script strategy="afterInteractive" id="microsoftAds-UET">
