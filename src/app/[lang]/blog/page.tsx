@@ -36,20 +36,20 @@ export default async function Page({ params }: Props) {
     <PageLayout lang={params.lang}>
       <SliceZone slices={blogPage.data.slices} components={components} />
       <Wrapper width="medium">
-        <ul className="grid grid-cols-2 gap-4 mt-5 mb-5">
+        <ul className="mb-5 mt-5 grid grid-cols-2 gap-4">
           {posts.map((post) => {
             return (
               <li key={post.uid} className="mb-2">
                 <Link
                   href={`/${params.lang}/blog/${post.uid}/`}
-                  className="hover:underline block"
+                  className="block hover:underline"
                 >
                   {post.data.card_image.id && (
-                    <div className="w-full h-[240px] border-[2px] border-bgDark">
+                    <div className="h-[240px] w-full border-[2px] border-bgDark">
                       <PrismicNextImage
                         field={post.data.card_image}
                         loading="lazy"
-                        className="w-full h-full object-cover"
+                        className="h-full w-full object-cover"
                         quality={40}
                         width={465}
                         height={236}
@@ -106,7 +106,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const languages: { [key: string]: string } = {}
   const langs = await sortLocales((await client.getRepository()).languages)
   langs.forEach((lang) => {
-    languages[lang.id] = `/${lang.id}/${params.uid}/`
+    languages[lang.id] = `/${lang.id}/${params.uid}`
   })
 
   const titleCountry = () => {
@@ -140,14 +140,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description:
       page.data.meta_description || globalSEO.data.meta_description || "",
     alternates: {
-      canonical: `/${params.lang}/${params.uid}/`,
+      canonical: `/${params.lang}/${params.uid}`,
       languages,
     },
     openGraph: {
       title: page.data.meta_title || page.data.title || "",
       description:
         page.data.meta_description || globalSEO.data.meta_description || "",
-      url: `/${params.lang}/${params.uid}/`,
+      url: `/${params.lang}/${params.uid}`,
       locale: langLoOgLocale(params.lang),
       images: [page.data.meta_image.url || globalSEO.data.og_image.url || ""],
       siteName: "Outfund",
