@@ -3,6 +3,9 @@ import { Content, isFilled } from "@prismicio/client"
 import { PrismicNextLink } from "@prismicio/next"
 import { SliceComponentProps } from "@prismicio/react"
 import Link from "next/link"
+import classes from "./FlexHeader.module.scss"
+import ButtonLink from "@/components/ButtonLink/ButtonLink"
+import Wrapper from "@/components/Wrapper/Wrapper"
 
 /**
  * Props for `FlexHeader`.
@@ -13,25 +16,19 @@ export type FlexHeaderProps = SliceComponentProps<Content.FlexHeaderSlice>
  * Component for "FlexHeader" Slices.
  */
 const FlexHeader = ({ slice }: FlexHeaderProps): JSX.Element => {
+  const links = slice.items
+  const pageLinks = links.slice(0, links.length - 2)
+  const actionLinks = links.slice(-2)
+
   return (
-    <section
+    <Wrapper
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      as="header"
+      className={classes.header}
     >
-      <div className="navbar">
-        <Link href="/" className="logo">
-          <span className="sr-only">{slice.primary.home_page_text}</span>
-          <Logo />
-        </Link>
-        {isFilled.keyText(slice.primary.button_text) && (
-          <PrismicNextLink field={slice.primary.button_link}>
-            {slice.primary.button_text}
-          </PrismicNextLink>
-        )}
-      </div>
-
-      <ul>
-        {slice.items.map((item, index) => (
+      <ul className={classes.links__action__mobile}>
+        {actionLinks.map((item, index) => (
           <li key={index}>
             <PrismicNextLink field={item.navlink_link}>
               {item.navlink_text}
@@ -39,7 +36,39 @@ const FlexHeader = ({ slice }: FlexHeaderProps): JSX.Element => {
           </li>
         ))}
       </ul>
-    </section>
+      <div className={classes.navbar}>
+        <Link href="/" className={classes.logo}>
+          <span className="sr-only">{slice.primary.home_page_text}</span>
+          <Logo />
+        </Link>
+        {isFilled.keyText(slice.primary.button_text) && (
+          <ButtonLink field={slice.primary.button_link} className="">
+            {slice.primary.button_text}
+          </ButtonLink>
+        )}
+      </div>
+
+      <div className={classes.links}>
+        <ul className={classes.links__page}>
+          {pageLinks.map((item, index) => (
+            <li key={index}>
+              <PrismicNextLink field={item.navlink_link}>
+                {item.navlink_text}
+              </PrismicNextLink>
+            </li>
+          ))}
+        </ul>
+        <ul className={classes.links__action}>
+          {actionLinks.map((item, index) => (
+            <li key={index}>
+              <PrismicNextLink field={item.navlink_link}>
+                {item.navlink_text}
+              </PrismicNextLink>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Wrapper>
   )
 }
 

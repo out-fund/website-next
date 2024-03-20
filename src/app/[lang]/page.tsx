@@ -74,9 +74,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   languages["x-default"] = `/country-selector`
 
   let canonical = `/${params.lang}`
-  // if (params.lang === "en-gb") {
-  //   canonical = "/"
-  // }
 
   return {
     title: `${page.data.title}`,
