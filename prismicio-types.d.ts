@@ -127,7 +127,10 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >
 
-type FlexpageDocumentDataSlicesSlice = FlexHeaderSlice | FlexHeroSlice
+type FlexpageDocumentDataSlicesSlice =
+  | BenefitsSlice
+  | FlexHeaderSlice
+  | FlexHeroSlice
 
 /**
  * Content for FlexPage documents
@@ -2186,6 +2189,16 @@ export interface FlexHeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   button_link: prismic.LinkField
+
+  /**
+   * Note field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.note
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  note: prismic.KeyTextField
 }
 
 /**
@@ -2244,6 +2257,16 @@ export interface FlexHeroSliceImageBgPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   button_link: prismic.LinkField
+
+  /**
+   * Note field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.note
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  note: prismic.KeyTextField
 
   /**
    * Image BG field in *FlexHero → Primary*
@@ -2312,6 +2335,16 @@ export interface FlexHeroSliceColorBgPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   button_link: prismic.LinkField
+
+  /**
+   * Note field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.note
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  note: prismic.KeyTextField
 
   /**
    * Color BG field in *FlexHero → Primary*

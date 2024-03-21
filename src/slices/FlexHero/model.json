@@ -44,6 +44,13 @@
             "placeholder": "",
             "select": null
           }
+        },
+        "note": {
+          "type": "Text",
+          "config": {
+            "label": "Note",
+            "placeholder": ""
+          }
         }
       },
       "items": {}
@@ -87,6 +94,13 @@
             "label": "Button Link",
             "placeholder": "",
             "select": null
+          }
+        },
+        "note": {
+          "type": "Text",
+          "config": {
+            "label": "Note",
+            "placeholder": ""
           }
         },
         "image_bg": {
@@ -139,6 +153,13 @@
             "label": "Button Link",
             "placeholder": "",
             "select": null
+          }
+        },
+        "note": {
+          "type": "Text",
+          "config": {
+            "label": "Note",
+            "placeholder": ""
           }
         },
         "color_bg": {

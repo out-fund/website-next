@@ -36,6 +36,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "arrange",
 				"type": "Text"
+			},
+			"note": {
+				"__TYPE__": "FieldContent",
+				"value": "action",
+				"type": "Text"
 			}
 		},
 		"items": []
@@ -100,6 +105,11 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"note": {
+				"__TYPE__": "FieldContent",
+				"value": "where",
+				"type": "Text"
 			}
 		},
 		"items": [
@@ -151,6 +161,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "cobalt",
 				"type": "Select"
+			},
+			"note": {
+				"__TYPE__": "FieldContent",
+				"value": "handle",
+				"type": "Text"
 			}
 		},
 		"items": [

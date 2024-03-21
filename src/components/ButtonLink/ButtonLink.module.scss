@@ -3,6 +3,7 @@
   transition: all 0.15s ease-in-out;
   cursor: pointer;
   outline: none;
+  outline-offset: 0;
   border: none;
   border-radius: 55px;
   background-color: #ccc;
@@ -30,8 +31,10 @@
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 
-  &:hover {
+  &:hover,
+  &:focus {
     outline: 8px solid rgba(#49cce9, 0.2);
+    border: none;
     text-decoration-line: underline;
   }
 }
