@@ -1,4 +1,40 @@
 .buttonLink {
-  background-color: red;
+  background-color: #ccc;
   display: inline-block;
+  border: none;
+  border-radius: 55px;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+  outline: none;
+}
+
+.buttonLink__medium {
+  padding: 4px 16px;
+  line-height: 1.5;
+  font-size: 14px;
+
+  @media screen and (min-width: 800px) {
+    padding: 8px 24px;
+    font-size: 16px;
+  }
+}
+
+.buttonLink__primary {
+  background-color: #0d51ff;
+  color: #fff;
+  font-weight: 500;
+  outline: 4px solid #49cce9;
+
+  &:hover {
+    text-decoration-line: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+    outline: 8px solid rgba(#49cce9, 0.2);
+  }
+}
+
+.buttonLink__secondary {
+  background-color: green;
 }

@@ -42,7 +42,11 @@ const FlexHeader = ({ slice }: FlexHeaderProps): JSX.Element => {
           <Logo />
         </Link>
         {isFilled.keyText(slice.primary.button_text) && (
-          <ButtonLink field={slice.primary.button_link} className="">
+          <ButtonLink
+            field={slice.primary.button_link}
+            className=""
+            variant="primary"
+          >
             {slice.primary.button_text}
           </ButtonLink>
         )}
