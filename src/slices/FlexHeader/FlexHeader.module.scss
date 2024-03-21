@@ -1,12 +1,30 @@
 .header {
   display: flex;
   flex-direction: column;
+  padding-bottom: 40px;
+  color: #1c3654;
+
+  @media (min-width: 800px) {
+    &::before {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      background-color: #f0f4f9;
+      width: 100%;
+      height: 4px;
+      content: "";
+    }
+  }
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 24px;
+  padding-bottom: 32px;
 }
 
 .logo {
@@ -24,26 +42,44 @@
   width: 100%;
 
   @media (min-width: 800px) {
+    flex-wrap: wrap;
     justify-content: flex-start;
-    width: auto;
     gap: 40px;
+    width: auto;
   }
 }
 
 .links__action {
   display: none;
+
   @media (min-width: 800px) {
     display: flex;
     justify-content: flex-start;
-    width: auto;
     gap: 40px;
+    width: auto;
   }
 }
 .links__action__mobile {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  background-color: #f0f4f9;
+
   @media (min-width: 800px) {
     display: none;
+  }
+}
+
+.links__action__mobile,
+.links,
+.navbar {
+  padding-right: 3%;
+  padding-left: 3%;
+  width: 100%;
+
+  @media (min-width: 1750px) {
+    margin: 0 auto;
+    padding-right: 0%;
+    padding-left: 0%;
+    max-width: 1650px;
   }
 }

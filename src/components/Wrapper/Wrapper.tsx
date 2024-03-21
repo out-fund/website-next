@@ -1,18 +1,18 @@
 import clsx from "clsx"
 import classes from "./Wrapper.module.scss"
 
-type BoundedProps = {
+type WrapperProps = {
   as?: React.ElementType
   className?: string
   children: React.ReactNode
 }
 
-export default function Bounded({
+export default function Wrapper({
   as: Comp = "section",
   className,
   children,
   ...restProps
-}: BoundedProps) {
+}: WrapperProps) {
   return (
     <Comp className={classes.wrapper} {...restProps}>
       <div className={clsx(classes.wrapper__inner, className)}>{children}</div>

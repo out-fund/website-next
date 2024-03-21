@@ -1,11 +1,12 @@
 import { Logo } from "@/components/atoms"
 import { Content, isFilled } from "@prismicio/client"
-import { PrismicNextLink } from "@prismicio/next"
+import NavLink from "@/components/NavLink/NavLink"
 import { SliceComponentProps } from "@prismicio/react"
 import Link from "next/link"
 import classes from "./FlexHeader.module.scss"
 import ButtonLink from "@/components/ButtonLink/ButtonLink"
 import Wrapper from "@/components/Wrapper/Wrapper"
+import { FlexGlobe } from "@/components/atoms/Icons"
 
 /**
  * Props for `FlexHeader`.
@@ -21,21 +22,25 @@ const FlexHeader = ({ slice }: FlexHeaderProps): JSX.Element => {
   const actionLinks = links.slice(-2)
 
   return (
-    <Wrapper
+    <header
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      as="header"
       className={classes.header}
     >
       <ul className={classes.links__action__mobile}>
-        {actionLinks.map((item, index) => (
-          <li key={index}>
-            <PrismicNextLink field={item.navlink_link}>
-              {item.navlink_text}
-            </PrismicNextLink>
-          </li>
-        ))}
+        <li>
+          <NavLink field={actionLinks[0].navlink_link}>
+            {actionLinks[0].navlink_text}
+          </NavLink>
+        </li>
+        <li>
+          <NavLink field={actionLinks[1].navlink_link}>
+            <FlexGlobe />
+            {actionLinks[1].navlink_text}
+          </NavLink>
+        </li>
       </ul>
+
       <div className={classes.navbar}>
         <Link href="/" className={classes.logo}>
           <span className="sr-only">{slice.primary.home_page_text}</span>
@@ -56,23 +61,25 @@ const FlexHeader = ({ slice }: FlexHeaderProps): JSX.Element => {
         <ul className={classes.links__page}>
           {pageLinks.map((item, index) => (
             <li key={index}>
-              <PrismicNextLink field={item.navlink_link}>
-                {item.navlink_text}
-              </PrismicNextLink>
+              <NavLink field={item.navlink_link}>{item.navlink_text}</NavLink>
             </li>
           ))}
         </ul>
         <ul className={classes.links__action}>
-          {actionLinks.map((item, index) => (
-            <li key={index}>
-              <PrismicNextLink field={item.navlink_link}>
-                {item.navlink_text}
-              </PrismicNextLink>
-            </li>
-          ))}
+          <li>
+            <NavLink field={actionLinks[0].navlink_link}>
+              {actionLinks[0].navlink_text}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink field={actionLinks[1].navlink_link}>
+              <FlexGlobe />
+              {actionLinks[1].navlink_text}
+            </NavLink>
+          </li>
         </ul>
       </div>
-    </Wrapper>
+    </header>
   )
 }
 
