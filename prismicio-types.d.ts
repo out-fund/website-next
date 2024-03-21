@@ -2189,7 +2189,7 @@ export interface FlexHeroSliceDefaultPrimary {
 }
 
 /**
- * Default variation for FlexHero Slice
+ * BigText variation for FlexHero Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -2202,9 +2202,149 @@ export type FlexHeroSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *FlexHero → Primary*
+ */
+export interface FlexHeroSliceImageBgPrimary {
+  /**
+   * Heading field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Text field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+
+  /**
+   * Button Link field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Image BG field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.image_bg
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_bg: prismic.ImageField<never>
+}
+
+/**
+ * ImageBG variation for FlexHero Slice
+ *
+ * - **API ID**: `imageBg`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlexHeroSliceImageBg = prismic.SharedSliceVariation<
+  "imageBg",
+  Simplify<FlexHeroSliceImageBgPrimary>,
+  never
+>
+
+/**
+ * Primary content in *FlexHero → Primary*
+ */
+export interface FlexHeroSliceColorBgPrimary {
+  /**
+   * Heading field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Text field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+
+  /**
+   * Button Link field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Color BG field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: cobalt
+   * - **API ID Path**: flex_hero.primary.color_bg
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  color_bg: prismic.SelectField<"cobalt" | "lavander" | "sky", "filled">
+}
+
+/**
+ * ColorBG variation for FlexHero Slice
+ *
+ * - **API ID**: `colorBg`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlexHeroSliceColorBg = prismic.SharedSliceVariation<
+  "colorBg",
+  Simplify<FlexHeroSliceColorBgPrimary>,
+  never
+>
+
+/**
  * Slice variation for *FlexHero*
  */
-type FlexHeroSliceVariation = FlexHeroSliceDefault
+type FlexHeroSliceVariation =
+  | FlexHeroSliceDefault
+  | FlexHeroSliceImageBg
+  | FlexHeroSliceColorBg
 
 /**
  * FlexHero Shared Slice
@@ -3782,8 +3922,12 @@ declare module "@prismicio/client" {
       FlexHeaderSliceDefault,
       FlexHeroSlice,
       FlexHeroSliceDefaultPrimary,
+      FlexHeroSliceImageBgPrimary,
+      FlexHeroSliceColorBgPrimary,
       FlexHeroSliceVariation,
       FlexHeroSliceDefault,
+      FlexHeroSliceImageBg,
+      FlexHeroSliceColorBg,
       FundingExplainedSlice,
       FundingExplainedSliceDefaultPrimary,
       FundingExplainedSliceDefaultItem,

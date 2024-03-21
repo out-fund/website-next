@@ -1,7 +1,7 @@
 .header {
   display: flex;
   flex-direction: column;
-  padding-bottom: 40px;
+  padding-bottom: 24px;
   color: #1c3654;
 
   @media (min-width: 800px) {
@@ -76,10 +76,14 @@
   padding-left: 3%;
   width: 100%;
 
-  @media (min-width: 1750px) {
+  @media (min-width: 1200px) {
     margin: 0 auto;
     padding-right: 0%;
     padding-left: 0%;
+    max-width: 1170px;
+  }
+
+  @media (min-width: 1750px) {
     max-width: 1650px;
   }
 }
