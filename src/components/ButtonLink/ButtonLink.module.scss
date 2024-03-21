@@ -1,19 +1,19 @@
 .buttonLink {
-  background-color: #ccc;
   display: inline-block;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  outline: none;
   border: none;
   border-radius: 55px;
-  white-space: nowrap;
-  cursor: pointer;
+  background-color: #ccc;
   text-decoration: none;
-  transition: all 0.15s ease-in-out;
-  outline: none;
+  white-space: nowrap;
 }
 
 .buttonLink__medium {
   padding: 4px 16px;
-  line-height: 1.5;
   font-size: 14px;
+  line-height: 1.5;
 
   @media screen and (min-width: 800px) {
     padding: 8px 24px;
@@ -22,16 +22,16 @@
 }
 
 .buttonLink__primary {
+  outline: 4px solid #49cce9;
   background-color: #0d51ff;
   color: #fff;
   font-weight: 500;
-  outline: 4px solid #49cce9;
 
   &:hover {
-    text-decoration-line: underline;
-    text-underline-offset: 2px;
-    text-decoration-thickness: 1px;
     outline: 8px solid rgba(#49cce9, 0.2);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
   }
 }
 
