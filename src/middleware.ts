@@ -57,6 +57,14 @@ export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.includes("accelerate2024")) {
     return NextResponse.redirect(new URL(`/`, request.url))
   }
+  // /flex/go       /flexible-finance/?utm_medium=linkedinmsg&utm_source=linkedin&utm_content=jackstevens
+  if (request.nextUrl.pathname.includes("flex/go")) {
+    return NextResponse.redirect(new URL(`/?utm_medium=linkedinmsg&utm_source=linkedin&utm_content=jackstevens`, request.url))
+  }
+  // /flex/apply    /flexible-finance/?utm_medium=linkedinprofile&utm_source=linkedin&utm_content=jackstevens
+  if (request.nextUrl.pathname.includes("flex/apply")) {
+    return NextResponse.redirect(new URL(`/?utm_medium=linkedinprofile&utm_source=linkedin&utm_content=jackstevens`, request.url))
+  }
   if (request.nextUrl.pathname.includes("flexible-finance")) {
     return NextResponse.redirect(new URL(`/`, request.url))
   }
