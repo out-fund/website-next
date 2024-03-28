@@ -77,6 +77,7 @@ const FlexHero = ({ slice }: FlexHeroProps): JSX.Element => {
           <ButtonLink
             field={slice.primary.button_link}
             className=""
+            size="large"
             variant="primary"
           >
             {slice.primary.button_text}

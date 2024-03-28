@@ -24,9 +24,6 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "benefits": {
-              "type": "SharedSlice"
-            },
             "flex_header": {
               "type": "SharedSlice"
             },

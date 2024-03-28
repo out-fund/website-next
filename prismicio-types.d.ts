@@ -127,10 +127,7 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >
 
-type FlexpageDocumentDataSlicesSlice =
-  | BenefitsSlice
-  | FlexHeaderSlice
-  | FlexHeroSlice
+type FlexpageDocumentDataSlicesSlice = FlexHeaderSlice | FlexHeroSlice
 
 /**
  * Content for FlexPage documents

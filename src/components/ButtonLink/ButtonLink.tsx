@@ -3,17 +3,17 @@ import { cn } from "@/lib/utils"
 import classes from "./ButtonLink.module.scss"
 import { cva, type VariantProps } from "class-variance-authority"
 
-const variants = cva(classes.buttonLink, {
+const variants = cva(classes.buttonlink, {
   variants: {
     variant: {
-      primary: classes.buttonLink__primary,
-      secondary: classes.buttonLink__secondary,
-      line: classes.buttonLink__line,
+      primary: classes.buttonlink__primary,
+      secondary: classes.buttonlink__secondary,
+      line: classes.buttonlink__line,
     },
     size: {
-      small: classes.buttonLink__small,
-      medium: classes.buttonLink__medium,
-      large: classes.buttonLink__large,
+      small: classes.buttonlink__small,
+      medium: classes.buttonlink__medium,
+      large: classes.buttonlink__large,
     },
   },
   defaultVariants: {
@@ -31,11 +31,12 @@ interface ButtonLinkProps extends VariantProps<typeof variants> {
 export default function ButtonLink({
   className,
   variant,
+  size,
   ...restProps
 }: ButtonLinkProps) {
   return (
     <PrismicNextLink
-      className={cn(variants({ variant }), className)}
+      className={cn(variants({ variant, size }), className)}
       {...restProps}
     />
   )

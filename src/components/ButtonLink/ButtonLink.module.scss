@@ -1,4 +1,4 @@
-.buttonLink {
+.buttonlink {
   display: inline-block;
   transition: all 0.15s ease-in-out;
   cursor: pointer;
@@ -9,20 +9,31 @@
   background-color: #ccc;
   text-decoration: none;
   white-space: nowrap;
-}
 
-.buttonLink__medium {
-  padding: 4px 16px;
-  font-size: 14px;
-  line-height: 1.5;
+  &__medium {
+    padding: 4px 16px;
+    font-size: 14px;
+    line-height: 24px;
 
-  @media screen and (min-width: 800px) {
+    @media screen and (min-width: 800px) {
+      padding: 8px 24px;
+      font-size: 16px;
+    }
+  }
+
+  &__large {
     padding: 8px 24px;
     font-size: 16px;
+    line-height: 24px;
+
+    @media screen and (min-width: 800px) {
+      padding: 12px 32px;
+      font-size: 18px;
+    }
   }
 }
 
-.buttonLink__primary {
+.buttonlink__primary {
   outline: 4px solid #49cce9;
   background-color: #0d51ff;
   color: #fff;
@@ -39,6 +50,6 @@
   }
 }
 
-.buttonLink__secondary {
+.buttonlink__secondary {
   background-color: green;
 }
