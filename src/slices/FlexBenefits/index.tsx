@@ -3,7 +3,7 @@ import { SliceComponentProps } from "@prismicio/react"
 import { PrismicNextImage } from "@prismicio/next"
 import { cn } from "@/lib/utils"
 
-import Box from "@/components/Box/Box"
+import Box from "@/components/Box"
 
 import c from "./FlexBenefits.module.scss"
 // import sc from "./../../styles"
