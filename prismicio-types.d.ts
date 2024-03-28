@@ -127,7 +127,11 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >
 
-type FlexpageDocumentDataSlicesSlice = FlexHeaderSlice | FlexHeroSlice
+type FlexpageDocumentDataSlicesSlice =
+  | FelxCalculatorSlice
+  | FlexBenefitsSlice
+  | FlexHeaderSlice
+  | FlexHeroSlice
 
 /**
  * Content for FlexPage documents
@@ -2054,6 +2058,101 @@ export type FeaturedStoriesSlice = prismic.SharedSlice<
 >
 
 /**
+ * Default variation for FelxCalculator Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FelxCalculatorSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>
+
+/**
+ * Slice variation for *FelxCalculator*
+ */
+type FelxCalculatorSliceVariation = FelxCalculatorSliceDefault
+
+/**
+ * FelxCalculator Shared Slice
+ *
+ * - **API ID**: `felx_calculator`
+ * - **Description**: FelxCalculator
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FelxCalculatorSlice = prismic.SharedSlice<
+  "felx_calculator",
+  FelxCalculatorSliceVariation
+>
+
+/**
+ * Primary content in *FlexBenefits → Items*
+ */
+export interface FlexBenefitsSliceDefaultItem {
+  /**
+   * Small Text field in *FlexBenefits → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_benefits.items[].small_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_text: prismic.KeyTextField
+
+  /**
+   * Big Text field in *FlexBenefits → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_benefits.items[].big_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  big_text: prismic.KeyTextField
+
+  /**
+   * Icon field in *FlexBenefits → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_benefits.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>
+}
+
+/**
+ * Default variation for FlexBenefits Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlexBenefitsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<FlexBenefitsSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *FlexBenefits*
+ */
+type FlexBenefitsSliceVariation = FlexBenefitsSliceDefault
+
+/**
+ * FlexBenefits Shared Slice
+ *
+ * - **API ID**: `flex_benefits`
+ * - **Description**: FlexBenefits
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlexBenefitsSlice = prismic.SharedSlice<
+  "flex_benefits",
+  FlexBenefitsSliceVariation
+>
+
+/**
  * Primary content in *FlexHeader → Primary*
  */
 export interface FlexHeaderSliceDefaultPrimary {
@@ -2369,12 +2468,91 @@ export type FlexHeroSliceColorBg = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *FlexHero → Primary*
+ */
+export interface FlexHeroSliceImageRightPrimary {
+  /**
+   * Heading field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Text field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+
+  /**
+   * Button Link field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Note field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.note
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  note: prismic.KeyTextField
+
+  /**
+   * Image BG field in *FlexHero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_hero.primary.image_bg
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_bg: prismic.ImageField<never>
+}
+
+/**
+ * Image Right variation for FlexHero Slice
+ *
+ * - **API ID**: `imageRight`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlexHeroSliceImageRight = prismic.SharedSliceVariation<
+  "imageRight",
+  Simplify<FlexHeroSliceImageRightPrimary>,
+  never
+>
+
+/**
  * Slice variation for *FlexHero*
  */
 type FlexHeroSliceVariation =
   | FlexHeroSliceDefault
   | FlexHeroSliceImageBg
   | FlexHeroSliceColorBg
+  | FlexHeroSliceImageRight
 
 /**
  * FlexHero Shared Slice
@@ -3945,6 +4123,13 @@ declare module "@prismicio/client" {
       FeaturedStoriesSliceDefaultItem,
       FeaturedStoriesSliceVariation,
       FeaturedStoriesSliceDefault,
+      FelxCalculatorSlice,
+      FelxCalculatorSliceVariation,
+      FelxCalculatorSliceDefault,
+      FlexBenefitsSlice,
+      FlexBenefitsSliceDefaultItem,
+      FlexBenefitsSliceVariation,
+      FlexBenefitsSliceDefault,
       FlexHeaderSlice,
       FlexHeaderSliceDefaultPrimary,
       FlexHeaderSliceDefaultItem,
@@ -3954,10 +4139,12 @@ declare module "@prismicio/client" {
       FlexHeroSliceDefaultPrimary,
       FlexHeroSliceImageBgPrimary,
       FlexHeroSliceColorBgPrimary,
+      FlexHeroSliceImageRightPrimary,
       FlexHeroSliceVariation,
       FlexHeroSliceDefault,
       FlexHeroSliceImageBg,
       FlexHeroSliceColorBg,
+      FlexHeroSliceImageRight,
       FundingExplainedSlice,
       FundingExplainedSliceDefaultPrimary,
       FundingExplainedSliceDefaultItem,

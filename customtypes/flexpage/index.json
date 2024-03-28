@@ -24,6 +24,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "felx_calculator": {
+              "type": "SharedSlice"
+            },
+            "flex_benefits": {
+              "type": "SharedSlice"
+            },
             "flex_header": {
               "type": "SharedSlice"
             },

@@ -1,0 +1,18 @@
+{
+  "id": "felx_calculator",
+  "type": "SharedSlice",
+  "name": "FelxCalculator",
+  "description": "FelxCalculator",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

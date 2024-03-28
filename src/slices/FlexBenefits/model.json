@@ -1,0 +1,44 @@
+{
+  "id": "flex_benefits",
+  "type": "SharedSlice",
+  "name": "FlexBenefits",
+  "description": "FlexBenefits",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "small_text": {
+          "type": "Text",
+          "config": {
+            "label": "Small Text",
+            "placeholder": ""
+          }
+        },
+        "big_text": {
+          "type": "Text",
+          "config": {
+            "label": "Big Text",
+            "placeholder": ""
+          }
+        },
+        "icon": {
+          "type": "Image",
+          "config": {
+            "label": "Icon",
+            "constraint": {
+              "width": 80,
+              "height": 80
+            },
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}
