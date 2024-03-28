@@ -1,0 +1,26 @@
+.box {
+  border-radius: 8px;
+  background-color: white;
+  padding: 3%;
+  width: 100%;
+  overflow: hidden;
+
+  @media (min-width: 800px) {
+    // height: 560px;
+  }
+
+  @media (min-width: 1200px) {
+    margin: 0 auto; // Remove this line later
+
+    padding: 64px;
+    max-width: 1170px;
+  }
+
+  @media (min-width: 1750px) {
+    padding: 80px;
+    max-width: 1650px;
+  }
+}
+.boxGray {
+  background-color: var(--gray);
+}

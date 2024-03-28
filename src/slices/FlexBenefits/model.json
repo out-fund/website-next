@@ -11,7 +11,17 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
+      "primary": {
+        "gray_background": {
+          "type": "Boolean",
+          "config": {
+            "label": "Gray Background",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        }
+      },
       "items": {
         "small_text": {
           "type": "Text",

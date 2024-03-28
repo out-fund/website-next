@@ -2089,6 +2089,22 @@ export type FelxCalculatorSlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *FlexBenefits → Primary*
+ */
+export interface FlexBenefitsSliceDefaultPrimary {
+  /**
+   * Gray Background field in *FlexBenefits → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: flex_benefits.primary.gray_background
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  gray_background: prismic.BooleanField
+}
+
+/**
  * Primary content in *FlexBenefits → Items*
  */
 export interface FlexBenefitsSliceDefaultItem {
@@ -2132,7 +2148,7 @@ export interface FlexBenefitsSliceDefaultItem {
  */
 export type FlexBenefitsSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<FlexBenefitsSliceDefaultPrimary>,
   Simplify<FlexBenefitsSliceDefaultItem>
 >
 
@@ -4208,6 +4224,7 @@ declare module "@prismicio/client" {
       FelxCalculatorSliceVariation,
       FelxCalculatorSliceDefault,
       FlexBenefitsSlice,
+      FlexBenefitsSliceDefaultPrimary,
       FlexBenefitsSliceDefaultItem,
       FlexBenefitsSliceVariation,
       FlexBenefitsSliceDefault,

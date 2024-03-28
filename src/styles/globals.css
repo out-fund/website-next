@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --gray: #f0f4f9;
+}
+
 iframe {
   position: absolute;
   top: 0;
@@ -11,23 +15,23 @@ iframe {
 }
 
 #blogBgImage::after {
-  content: "";
   display: block;
   position: absolute;
-  background: #f0f4f9;
-  height: calc(100% + 4rem);
   top: -2rem;
-  width: 100vw;
   left: 50%;
   transform: translateX(-50%);
+  background: #f0f4f9;
+  width: 100vw;
+  height: calc(100% + 4rem);
+  content: "";
 }
 
 article table {
-  width: 100%;
   margin-bottom: 24px;
-  text-align: left;
   border-collapse: collapse;
   border-spacing: 5px;
+  width: 100%;
+  text-align: left;
 }
 
 article table th {
@@ -36,8 +40,8 @@ article table th {
 
 article table th,
 article table td {
-  padding: 8px 4px;
   border: 1px solid #1c3654;
+  padding: 8px 4px;
   color: #1c3654;
 }
 
