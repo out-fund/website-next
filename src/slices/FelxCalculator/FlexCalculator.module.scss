@@ -1,3 +1,32 @@
+.content__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.criteria__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+  }
+}
+
 .icon {
   position: relative;
   align-items: baseline;

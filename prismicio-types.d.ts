@@ -2065,12 +2065,12 @@ export interface FelxCalculatorSliceDefaultPrimary {
   /**
    * Heading field in *FelxCalculator → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: felx_calculator.primary.heading
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  heading: prismic.RichTextField
+  heading: prismic.TitleField
 
   /**
    * Description field in *FelxCalculator → Primary*
