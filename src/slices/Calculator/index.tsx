@@ -106,12 +106,12 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className=" mt-7 mb-10 md:mt-10 md:mb-15 md:pb-[56px] "
+      className=" mb-10 mt-7 md:mb-15 md:mt-10 md:pb-[56px] "
     >
       <Wrapper>
-        <div className="mx-auto md:mx-0 max-w-[90%] md:max-w-none">
-          <div className="GridWrapper grid grid-cols-1 md:grid-cols-[400px_1fr] gap-5 md:gap-[100px]">
-            <div className="flex flex-col gap-3 md:gap-10 TextGroup">
+        <div className="mx-auto max-w-[90%] md:mx-0 md:max-w-none">
+          <div className="GridWrapper grid grid-cols-1 gap-5 md:grid-cols-[400px_1fr] md:gap-[100px]">
+            <div className="TextGroup flex flex-col gap-3 md:gap-10">
               <div className="flex flex-col gap-2">
                 <Heading as="h2" size="h2" className="">
                   {slice.primary.heading}
@@ -131,7 +131,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                   {slice.items.map((item, index) => (
                     <li
                       key={index}
-                      className={`${classes.icon} flex items-center gap-2 text-base text-body leading-6`}
+                      className={`${classes.icon} flex items-center gap-2 text-base leading-6 text-body`}
                     >
                       {item.bulletpoint}
                     </li>
@@ -139,10 +139,10 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                 </ul>
               </div>
             </div>
-            <div className="flex flex-col justify-end gap-3 CalculatorGroup">
-              <div className="flex flex-col gap-3 Sliders">
+            <div className="CalculatorGroup flex flex-col justify-end gap-3">
+              <div className="Sliders flex flex-col gap-3">
                 <div className="SliderGroup">
-                  <div className="flex justify-between mb-1 textWrapper">
+                  <div className="textWrapper mb-1 flex justify-between">
                     <Heading as="div" size="h4" className="">
                       {slice.primary.amount_title}
                     </Heading>
@@ -174,7 +174,7 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                 </div>
 
                 <div className="SliderGroup">
-                  <div className="flex justify-between mb-1 textWrapper">
+                  <div className="textWrapper mb-1 flex justify-between">
                     <Heading as="div" size="h4" className="">
                       {slice.primary.term_title}
                     </Heading>
@@ -206,19 +206,19 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                   </div>
                 </div>
               </div>
-              <div className="BottomGroup w-full md:w-1/2 md:min-w-[370px] self-end flex flex-col gap-3">
+              <div className="BottomGroup flex w-full flex-col gap-3 self-end md:w-1/2 md:min-w-[370px]">
                 <div className="RepayableGroup">
                   <div className="flex items-baseline justify-between">
                     <Heading as="div" size="h4" className="">
                       {slice.primary.total_title}
                     </Heading>
-                    <hr className="w-[25%] md:w-[35%] border-dashed opacity-20" />
+                    <hr className="w-[25%] border-dashed opacity-20 md:w-[35%]" />
                     <Heading className="" as="div" size="h4">
                       {getAmount(totalRepayable)}
                     </Heading>
                   </div>
                 </div>
-                <div className="flex flex-col items-center ButtonGroup relative ">
+                <div className="ButtonGroup relative flex flex-col items-center ">
                   <Button
                     href="https://client.out.fund/signup"
                     className="w-full"
@@ -226,27 +226,12 @@ const Calculator = ({ slice }: CalculatorProps): JSX.Element => {
                     {slice.primary.button_text}{" "}
                     {getAmount(parseInt(selectedLoanAmount))}
                   </Button>
-                  <div className="px-2 text-xs text-center text-[#4B6686] absolute top-[56px]">
+                  <div className="absolute top-[56px] px-2 text-center text-xs text-[#4B6686]">
                     {slice.primary.button_note}
                   </div>
                 </div>
               </div>
             </div>
-            {/* <div className="mt-8 md:hidden">
-              <Heading as="h3" size="h3" className="mb-2">
-                {slice.primary.subheading}
-              </Heading>
-              <ul className="flex flex-col gap-2">
-                {slice.items.map((item, index) => (
-                  <li
-                    key={index}
-                    className={`${classes.icon} flex items-center gap-2 text-base text-body leading-6 align-baseline `}
-                  >
-                    {item.bulletpoint}
-                  </li>
-                ))}
-              </ul>
-            </div> */}
           </div>
         </div>
       </Wrapper>

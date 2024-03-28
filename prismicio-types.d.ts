@@ -2059,6 +2059,176 @@ export type FeaturedStoriesSlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *FelxCalculator → Primary*
+ */
+export interface FelxCalculatorSliceDefaultPrimary {
+  /**
+   * Heading field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField
+
+  /**
+   * Description field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Subheading field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheading: prismic.KeyTextField
+
+  /**
+   * Currency field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.currency
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  currency: prismic.SelectField<"GBP" | "EUR" | "USD" | "AUD">
+
+  /**
+   * Amount Title field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.amount_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  amount_title: prismic.KeyTextField
+
+  /**
+   * Amounts field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.amounts
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  amounts: prismic.KeyTextField
+
+  /**
+   * Fees field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.fees
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  fees: prismic.KeyTextField
+
+  /**
+   * Term Title field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.term_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  term_title: prismic.KeyTextField
+
+  /**
+   * Term Min (Months) field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.term_min
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  term_min: prismic.KeyTextField
+
+  /**
+   * Term Max (Months) field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.term_max
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  term_max: prismic.KeyTextField
+
+  /**
+   * Slider Months Text field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.slider_months_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slider_months_text: prismic.KeyTextField
+
+  /**
+   * Total Title field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.total_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  total_title: prismic.KeyTextField
+
+  /**
+   * Button Text field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField
+
+  /**
+   * Button Link field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Button Note field in *FelxCalculator → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.primary.button_note
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_note: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *FelxCalculator → Items*
+ */
+export interface FelxCalculatorSliceDefaultItem {
+  /**
+   * Bullet point field in *FelxCalculator → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: felx_calculator.items[].bullet_point
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  bullet_point: prismic.KeyTextField
+}
+
+/**
  * Default variation for FelxCalculator Slice
  *
  * - **API ID**: `default`
@@ -2067,8 +2237,8 @@ export type FeaturedStoriesSlice = prismic.SharedSlice<
  */
 export type FelxCalculatorSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
-  never
+  Simplify<FelxCalculatorSliceDefaultPrimary>,
+  Simplify<FelxCalculatorSliceDefaultItem>
 >
 
 /**
@@ -4221,6 +4391,8 @@ declare module "@prismicio/client" {
       FeaturedStoriesSliceVariation,
       FeaturedStoriesSliceDefault,
       FelxCalculatorSlice,
+      FelxCalculatorSliceDefaultPrimary,
+      FelxCalculatorSliceDefaultItem,
       FelxCalculatorSliceVariation,
       FelxCalculatorSliceDefault,
       FlexBenefitsSlice,

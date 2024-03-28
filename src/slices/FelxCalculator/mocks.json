@@ -2,7 +2,105 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
-		"items": []
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "tower",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Esse duis qui ullamco est veniam ad nulla elit eiusmod cillum incididunt non enim laboris. Et anim laborum Lorem elit ad veniam veniam incididunt ad commodo. Exercitation veniam sunt voluptate sunt duis nulla aliquip esse voluptate esse deserunt."
+						}
+					}
+				]
+			},
+			"subheading": {
+				"__TYPE__": "FieldContent",
+				"value": "yard",
+				"type": "Text"
+			},
+			"currency": {
+				"__TYPE__": "FieldContent",
+				"value": "GBP",
+				"type": "Select"
+			},
+			"amount_title": {
+				"__TYPE__": "FieldContent",
+				"value": "flag",
+				"type": "Text"
+			},
+			"amounts": {
+				"__TYPE__": "FieldContent",
+				"value": "sister",
+				"type": "Text"
+			},
+			"fees": {
+				"__TYPE__": "FieldContent",
+				"value": "useful",
+				"type": "Text"
+			},
+			"term_title": {
+				"__TYPE__": "FieldContent",
+				"value": "gravity",
+				"type": "Text"
+			},
+			"term_min": {
+				"__TYPE__": "FieldContent",
+				"value": "movement",
+				"type": "Text"
+			},
+			"term_max": {
+				"__TYPE__": "FieldContent",
+				"value": "flight",
+				"type": "Text"
+			},
+			"slider_months_text": {
+				"__TYPE__": "FieldContent",
+				"value": "movie",
+				"type": "Text"
+			},
+			"total_title": {
+				"__TYPE__": "FieldContent",
+				"value": "thou",
+				"type": "Text"
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "pull",
+				"type": "Text"
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"button_note": {
+				"__TYPE__": "FieldContent",
+				"value": "yard",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"bullet_point",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "private",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
 	}
 ]

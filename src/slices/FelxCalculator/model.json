@@ -11,8 +11,131 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
-      "items": {}
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "subheading": {
+          "type": "Text",
+          "config": {
+            "label": "Subheading",
+            "placeholder": ""
+          }
+        },
+        "currency": {
+          "type": "Select",
+          "config": {
+            "label": "Currency",
+            "placeholder": "",
+            "options": [
+              "GBP",
+              "EUR",
+              "USD",
+              "AUD"
+            ]
+          }
+        },
+        "amount_title": {
+          "type": "Text",
+          "config": {
+            "label": "Amount Title",
+            "placeholder": ""
+          }
+        },
+        "amounts": {
+          "type": "Text",
+          "config": {
+            "label": "Amounts",
+            "placeholder": ""
+          }
+        },
+        "fees": {
+          "type": "Text",
+          "config": {
+            "label": "Fees",
+            "placeholder": ""
+          }
+        },
+        "term_title": {
+          "type": "Text",
+          "config": {
+            "label": "Term Title",
+            "placeholder": ""
+          }
+        },
+        "term_min": {
+          "type": "Text",
+          "config": {
+            "label": "Term Min (Months)",
+            "placeholder": ""
+          }
+        },
+        "term_max": {
+          "type": "Text",
+          "config": {
+            "label": "Term Max (Months)",
+            "placeholder": ""
+          }
+        },
+        "slider_months_text": {
+          "type": "Text",
+          "config": {
+            "label": "Slider Months Text",
+            "placeholder": ""
+          }
+        },
+        "total_title": {
+          "type": "Text",
+          "config": {
+            "label": "Total Title",
+            "placeholder": ""
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "button_note": {
+          "type": "Text",
+          "config": {
+            "label": "Button Note",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "bullet_point": {
+          "type": "Text",
+          "config": {
+            "label": "Bullet point",
+            "placeholder": ""
+          }
+        }
+      }
     }
   ]
 }
