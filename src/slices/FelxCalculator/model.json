@@ -17,8 +17,8 @@
           "config": {
             "label": "Heading",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "heading2"
+            "allowTargetBlank": false,
+            "multi": "heading2"
           }
         },
         "description": {

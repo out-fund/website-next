@@ -1,0 +1,31 @@
+.heading {
+  font-weight: 500;
+}
+
+.heading__h1 {
+  font-size: 40px;
+}
+
+.heading__h2 {
+  font-size: 32px;
+  @media (min-width: 1200px) {
+    font-size: 56px;
+    line-height: 64px;
+  }
+}
+
+.heading__h3 {
+  font-size: 24px;
+}
+
+.heading__h4 {
+  font-size: 20px;
+}
+
+.heading__h5 {
+  font-size: 16px;
+}
+
+.heading__h6 {
+  font-size: 14px;
+}

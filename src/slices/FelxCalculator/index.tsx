@@ -9,7 +9,9 @@ import {
   PrismicText,
 } from "@prismicio/react"
 
-import { Wrapper, Heading, Button } from "@/components/atoms"
+import { Wrapper, Button } from "@/components/atoms"
+import Heading from "@/components/Heading"
+
 import Box from "@/components/Box"
 import c from "./FlexCalculator.module.scss"
 
@@ -105,24 +107,17 @@ const FelxCalculator = ({ slice }: FelxCalculatorProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       {/* <Wrapper> */}
+
       <Box>
         <div className="mx-auto max-w-[90%] md:mx-0 md:max-w-none">
+          {isFilled.richText(slice.primary.heading) && (
+            <Heading as="h2" size="h2">
+              <PrismicText field={slice.primary.heading} />
+            </Heading>
+          )}
           <div className="GridWrapper grid grid-cols-1 gap-5 md:grid-cols-[400px_1fr] md:gap-[100px]">
             <div className="TextGroup flex flex-col gap-3 md:gap-10">
-              <div className="flex flex-col gap-2">
-                {/* <Heading as="h2" size="h2" className="">
-                  {slice.primary.heading}
-                </Heading> */}
-                {/* <PrismicRichText field={slice.primary.heading} /> */}
-                {isFilled.richText(slice.primary.heading) && (
-                  <h2 className="">
-                    <PrismicText field={slice.primary.heading} />
-                  </h2>
-                )}
-                <PrismicRichText field={slice.primary.description} />
-              </div>
-
-              {/* <div className="hidden md:block"> */}
+              <PrismicRichText field={slice.primary.description} />
               <div className="">
                 <Heading as="h3" size="h3" className="mb-2">
                   {slice.primary.subheading}
