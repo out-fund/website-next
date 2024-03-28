@@ -6,7 +6,7 @@
   "variations": [
     {
       "id": "default",
-      "name": "BigText",
+      "name": "Big Text",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
@@ -57,7 +57,7 @@
     },
     {
       "id": "imageBg",
-      "name": "ImageBG",
+      "name": "Image Background",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
@@ -116,7 +116,7 @@
     },
     {
       "id": "colorBg",
-      "name": "ColorBG",
+      "name": "Color Background",
       "docURL": "...",
       "version": "initial",
       "description": "Default",

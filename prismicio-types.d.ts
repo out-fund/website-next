@@ -128,6 +128,7 @@ export type BlogPostDocument<Lang extends string = string> =
   >
 
 type FlexpageDocumentDataSlicesSlice =
+  | FlexSliderSlice
   | FelxCalculatorSlice
   | FlexBenefitsSlice
   | FlexHeaderSlice
@@ -2298,7 +2299,7 @@ export interface FlexHeroSliceDefaultPrimary {
 }
 
 /**
- * BigText variation for FlexHero Slice
+ * Big Text variation for FlexHero Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -2376,7 +2377,7 @@ export interface FlexHeroSliceImageBgPrimary {
 }
 
 /**
- * ImageBG variation for FlexHero Slice
+ * Image Background variation for FlexHero Slice
  *
  * - **API ID**: `imageBg`
  * - **Description**: Default
@@ -2455,7 +2456,7 @@ export interface FlexHeroSliceColorBgPrimary {
 }
 
 /**
- * ColorBG variation for FlexHero Slice
+ * Color Background variation for FlexHero Slice
  *
  * - **API ID**: `colorBg`
  * - **Description**: Default
@@ -2564,6 +2565,86 @@ type FlexHeroSliceVariation =
 export type FlexHeroSlice = prismic.SharedSlice<
   "flex_hero",
   FlexHeroSliceVariation
+>
+
+/**
+ * Primary content in *FlexSlider → Primary*
+ */
+export interface FlexSliderSliceDefaultPrimary {
+  /**
+   * Heading field in *FlexSlider → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_slider.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField
+
+  /**
+   * Across Text field in *FlexSlider → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_slider.primary.across_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  across_text: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *FlexSlider → Items*
+ */
+export interface FlexSliderSliceDefaultItem {
+  /**
+   * Industry field in *FlexSlider → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_slider.items[].industry
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  industry: prismic.KeyTextField
+
+  /**
+   * Customer Logo field in *FlexSlider → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flex_slider.items[].customer_logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  customer_logo: prismic.ImageField<never>
+}
+
+/**
+ * Default variation for FlexSlider Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlexSliderSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FlexSliderSliceDefaultPrimary>,
+  Simplify<FlexSliderSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *FlexSlider*
+ */
+type FlexSliderSliceVariation = FlexSliderSliceDefault
+
+/**
+ * FlexSlider Shared Slice
+ *
+ * - **API ID**: `flex_slider`
+ * - **Description**: FlexSlider
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlexSliderSlice = prismic.SharedSlice<
+  "flex_slider",
+  FlexSliderSliceVariation
 >
 
 /**
@@ -4145,6 +4226,11 @@ declare module "@prismicio/client" {
       FlexHeroSliceImageBg,
       FlexHeroSliceColorBg,
       FlexHeroSliceImageRight,
+      FlexSliderSlice,
+      FlexSliderSliceDefaultPrimary,
+      FlexSliderSliceDefaultItem,
+      FlexSliderSliceVariation,
+      FlexSliderSliceDefault,
       FundingExplainedSlice,
       FundingExplainedSliceDefaultPrimary,
       FundingExplainedSliceDefaultItem,

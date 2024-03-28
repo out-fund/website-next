@@ -18,6 +18,7 @@ export const components = {
   flex_benefits: dynamic(() => import("./FlexBenefits")),
   flex_header: dynamic(() => import("./FlexHeader")),
   flex_hero: dynamic(() => import("./FlexHero")),
+  flex_slider: dynamic(() => import("./FlexSlider")),
   funding_explained: dynamic(() => import("./FundingExplained")),
   hero: dynamic(() => import("./Hero")),
   image_block: dynamic(() => import("./ImageBlock")),
